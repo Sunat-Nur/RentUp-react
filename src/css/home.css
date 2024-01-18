@@ -1,0 +1,81 @@
+ /*login component*/
+.search_home_frame {
+    background-image: url("../../public/home/banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+}
+
+.signup_text .define_company {
+    color: #fff;
+    position: relative;
+    /*width: 484px;*/
+    /*height: 143px;*/
+    margin-top: 200px;
+    padding-left: 350px;
+    padding-bottom: 0;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+.signup_text .define_service {
+    padding-left: 365px;
+    position: relative;
+    height: 28px;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #d5d5d5;
+}
+
+.signup_botton button {
+    margin-left: 500px;
+    margin-top: 150px;
+    position: relative;
+    justify-content: center;
+    border-radius: 50px;
+    width: 210px;
+    height: 60px;
+    color: #fff;
+}
+
+
+ /*statistics component*/
+
+
+ .statistics_container {
+     position: absolute;
+     top: 0;
+     left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     height: 250px;
+     width: 100%;
+     color: yellow;
+     z-index: 222;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
