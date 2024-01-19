@@ -1,4 +1,4 @@
- /*login component*/
+/*login component*/
 .search_home_frame {
     background-image: url("../../public/home/banner.png");
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@
     position: relative;
     /*width: 484px;*/
     /*height: 143px;*/
-    margin-top: 200px;
+    margin-top: 120px;
     padding-left: 350px;
     padding-bottom: 0;
 
@@ -39,7 +39,7 @@
 
 .signup_botton button {
     margin-left: 500px;
-    margin-top: 150px;
+    margin-top: 100px;
     position: relative;
     justify-content: center;
     border-radius: 50px;
@@ -49,29 +49,115 @@
 }
 
 
- /*statistics component*/
+/*statistics component*/
+
+.statistics_frame {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 468px;
+    flex-shrink: 0;
+    margin-bottom: 140px;
+    background: #EAF0F5;
+}
 
 
- .statistics_container {
-     position: absolute;
-     top: 0;
-     left: 0;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: column;
-     height: 250px;
-     width: 100%;
-     color: yellow;
-     z-index: 222;
- }
+.property_difiner_h1 {
+    color: #EC6325;
+    font-family: Jost;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    letter-spacing: 0.45px;
+    height: 18px;
+    align-items: center;
+    text-transform: uppercase;
+    padding-left: 600px;
+    margin-top: 110px;
+    margin-bottom: 11px;
+}
+
+.property_difiner_p {
+    color:  #000;
+    text-align: center;
+    font-family: Palatino;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 480px;
+}
+
+.property_types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.property_types .property_box {
+    width: 190px;
+    height: 190px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    border: 1px solid #C7D5E1;
+    background:  #F9FCFF;
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-top: 60px;
+    display: inline-block;
+    position: relative;
+}
 
 
+.property_box .property_img img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 28px;
+    /*border: 1px solid  #C7D5E1;*/
+    /*background:  #EAF0F5;*/
+    margin-left: 55px;
+    margin-top: 25px;
+    align-items: center;
+    display: inline-block;
+}
 
+.property_types .property_name p {
+    color:  #000;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 10%; /* 28.8px */
+    padding-left: 70px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1px;
+}
 
+.box_property {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-
-
+.property_types .property_cnt span {
+    display: flex;
+    position: relative;
+    color: #44525E;
+    font-family: Jost;
+    font-size: 16px;
+    padding-top: 1px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1%; /* 24px */
+    padding-left: 60px;
+}
 
 
 

@@ -58,6 +58,7 @@ export function NavbarHome(props: any) {
                             aria-controls={undefined}
                             aria-haspopup="true"
                             aria-expanded={undefined}
+
                         >
                             <Badge badgeContent={3} color="secondary">
                                 <img src={"/icons/1favorite.svg"}/>
