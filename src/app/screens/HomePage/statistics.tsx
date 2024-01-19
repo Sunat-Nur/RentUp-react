@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Container, Stack} from "@mui/material";
+import {Box,  Stack} from "@mui/material";
 
 export function Statistics() {
     return (
@@ -80,7 +80,6 @@ export function Statistics() {
                                 </Box>
                             </Stack>
                         </Stack>
-
                     </Stack>
                 </Stack>
             </Stack>

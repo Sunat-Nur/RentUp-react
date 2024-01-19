@@ -51,17 +51,6 @@
 
 /*statistics component*/
 
-.statistics_frame {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 468px;
-    flex-shrink: 0;
-    margin-bottom: 140px;
-    background: #EAF0F5;
-}
-
-
 .property_difiner_h1 {
     color: #EC6325;
     font-family: Jost;
@@ -78,8 +67,18 @@
     margin-bottom: 11px;
 }
 
+.statistics_frame {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 368px;
+    flex-shrink: 0;
+    margin-bottom: 140px;
+    /*background: #EAF0F5;*/
+}
+
 .property_difiner_p {
-    color:  #000;
+    color: #000;
     text-align: center;
     font-family: Palatino;
     font-size: 35px;
@@ -104,13 +103,14 @@
     height: 190px;
     flex-shrink: 0;
     border-radius: 25px;
-    border: 1px solid #C7D5E1;
-    background:  #F9FCFF;
+    background: #FFF;
     margin-left: 30px;
     margin-right: 40px;
     margin-top: 60px;
     display: inline-block;
     position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 
@@ -119,8 +119,6 @@
     height: 80px;
     flex-shrink: 0;
     border-radius: 28px;
-    /*border: 1px solid  #C7D5E1;*/
-    /*background:  #EAF0F5;*/
     margin-left: 55px;
     margin-top: 25px;
     align-items: center;
@@ -128,7 +126,7 @@
 }
 
 .property_types .property_name p {
-    color:  #000;
+    color: #000;
     font-family: Poppins;
     font-size: 22px;
     font-style: normal;
@@ -160,8 +158,144 @@
 }
 
 
+/*top Proprety frame*/
+
+.top_property {
+    width: 100%;
+    height: 1018px;
+    flex-shrink: 0;
+    background: #DFE7ED;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+}
+
+.luxury_villias p {
+    color:  #EC6325;
+    font-family: Jost;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+    padding-top: 140px;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    margin-left: 550px;
+}
+
+.Top_property_ele h1 {
+    color:  #000;
+    text-align: center;
+    font-family: Palatino;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 46.8px */
+    margin-top: 180px;
+}
+
+.top_property_type_box {
+    position: relative;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 24px;
+    border: 1px solid  #C7D5E1;
+    background-color: rgba(27, 111, 88, 0.1);
+    width: 150px;
+    height: 70px;
+    margin-left: 200px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.top_property_button_box {
+    margin-top: 30px;
+}
+
+.all_property_button {
+    color: #FFF;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 19.2px */
+    text-transform: capitalize;
+    cursor: pointer;
+}
 
 
+.top_property_card {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+}
 
+.top_property_card .top_property_single_card {
+    width: 387.5px;
+    height: 432px;
+    flex-shrink: 0;
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke:  #C7D5E1;
+    background: #F1F0EB;
+    border-radius: 15px;
+    margin-top: 60px;
+}
 
+.top_property_img img {
+    width: 357.5px;
+    height: 260px;
+    flex-shrink: 0;
+    fill:  #868C92;
+    /*background-image: url("../../public/home/2.webp");*/
+    margin: 15px 15px 0 15px;
+    border-radius: 15px;
+}
 
+.price_cunt span {
+    color: black;
+    font-family: Jost;
+    flex-direction: row;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.top_property_location_icon img {
+    width: 14.4px;
+    height: 18px;
+    flex-shrink: 0;
+    fill:  #EC6325;
+    margin-left: 28px;
+    margin-right: 10px;
+}
+
+/*Video section*/
+
+.homepage .ads_company_frame {
+    width: 100%;
+    height: 693px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px -62px 60px 20px rgba(217 217 217 / 40%);
+    margin-top: 186px;
+    background-color: #956dd3;
+}
+
+.homepage .ads_video {
+    width: 100%;
+    background: #0c0e12;
+    display: flex;
+    box-shadow: 0px -8px 90px rgba(215 215 255);
+    transform: scale(2);
+    overflow: hidden;
+}
