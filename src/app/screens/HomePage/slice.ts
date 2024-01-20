@@ -17,13 +17,13 @@ const HomePageSlice = createSlice({
     initialState,
     reducers: {
 
-        setTopRestaurants: (state, action) => {
+        setTopHomes: (state, action) => {
             state.topHomes = action.payload  //
         },
-        setBestRestaurants: (state, action) => {
+        setBestAgencys: (state, action) => {
             state.bestAgency = action.payload
         },
-        setTrendProducts: (state, action) => {
+        setLuxuryHomes: (state, action) => {
             state.luxuryHomes = action.payload
         },
         setBestBoArticles: (state, action) => {
@@ -39,9 +39,8 @@ const HomePageSlice = createSlice({
 });
 
 export const {
-    setTopRestaurants,
-    setBestRestaurants,
-    setTrendProducts,
+    setTopHomes,
+    setBestAgencys,
     setBestBoArticles,
     setTrendBoArticles,
     setNewsBoArticles
