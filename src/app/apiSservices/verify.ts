@@ -21,4 +21,4 @@ if(cookies.get("access_token")) {
 console.log('== verify ==');
 
 
-export const verifiedMemberData = member_data ? member_data : null; //yangilab olingan member_datani verifyMemberDataga tenglashtirib olayopman.
+export const verifiedMemberData = member_data ? member_data : null;

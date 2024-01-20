@@ -33,7 +33,7 @@ export function NavbarHome(props: any) {
                             </NavLink>
                         </Box>
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/orders" activeClassName="uderline">
+                            <NavLink to="/search" activeClassName="uderline">
                                 Search
                             </NavLink>
                         </Box>
@@ -84,37 +84,6 @@ export function NavbarHome(props: any) {
                             </Button>
                         </Box>
                 </Stack>
-                {/*<Stack className="head_information">*/}
-                {/*    <Stack*/}
-                {/*        justifyContent={"column"}*/}
-                {/*        style={{marginTop: "86px", marginLeft: "24px"}}*/}
-                {/*    >*/}
-                {/*        <Box>*/}
-                {/*            <img src="/icons/Welcome%20to%20Papay.svg"/>*/}
-                {/*        </Box>*/}
-                {/*        <Box className="define_company">*/}
-                {/*            The Authentic Agency & and User*/}
-                {/*        </Box>*/}
-                {/*        <Box className="timeline_service">*/}
-                {/*            24 soat xizmatingdamiz.*/}
-                {/*        </Box>*/}
-                {/*        <Box sx={{mt: "90px"}}>*/}
-                {/*            <Button*/}
-                {/*                variant="contained"*/}
-                {/*                style={{*/}
-                {/*                    width: "210px",*/}
-                {/*                    height: "60px",*/}
-                {/*                    background: "#1976d2",*/}
-                {/*                    color: "#ffffff",*/}
-                {/*                }}*/}
-                {/*            >*/}
-                {/*                RO'YHATDAN O'TISH*/}
-                {/*            </Button>*/}
-                {/*        </Box>*/}
-                {/*    </Stack>*/}
-                {/*    <Box className="big_img"></Box>*/}
-                {/*</Stack>*/}
-
             </Container>
         </div>
     );
