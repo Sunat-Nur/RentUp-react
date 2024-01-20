@@ -6,6 +6,7 @@ import {Recommendation} from "./recommendation";
 import {BestAgency} from "./bestAgency";
 import {Advertisements} from "./advertisements";
 import {Login} from "./login";
+import {LuxuryHomes} from "./luxury";
 import '../../../css/home.css';
 
 export function HomePage() {
@@ -14,8 +15,10 @@ export function HomePage() {
         <Statistics/>
         <TopHomes/>
         <Advertisements/>
+        <Recommendation/>
         <Posts/>
         <Recommendation/>
+        <LuxuryHomes/>
         <BestAgency/>
     </div>;
 }
