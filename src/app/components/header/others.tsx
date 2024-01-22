@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack} from "@mui/material";
+import {Box, Button, Container,  ListItemIcon, Menu, MenuItem, Stack} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import {Logout} from "@mui/icons-material";
 import Basket from "./basket";
@@ -23,33 +23,33 @@ export function NavbarOthers(props: any) {
                     className="navbar_links"
                 >
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/">Home Page</NavLink>
+                        <NavLink to="/">Home</NavLink>
                     </Box>
 
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/property" activeClassName="underline">
-                            Property
+                        <NavLink to="/company" activeClassName="underline">
+                            property
                         </NavLink>
                     </Box>
 
-                    {verifiedMemberData ? (
-                        <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/search" activeClassName="underline">
-                                Search
-                            </NavLink>
-                        </Box>
-                    ) : null}
+                    {/*{verifiedMemberData ? (*/}
+                    {/*    <Box className="hover-line" onClick={props.setPath}>*/}
+                    {/*        <NavLink to="/orders" activeClassName="underline">*/}
+                    {/*            Buyurtma*/}
+                    {/*        </NavLink>*/}
+                    {/*    </Box>*/}
+                    {/*) : null}*/}
 
                     <Box className="hover-line" onClick={props.setPath}>
                         <NavLink to="/community" activeClassName="underline">
-                            Community
+                            Jamiyat
                         </NavLink>
                     </Box>
 
                     {verifiedMemberData ? (
                         <Box className="hover-line" onClick={props.setPath}>
                             <NavLink to="/member-page" activeClassName="underline">
-                                My page
+                                My Page
                             </NavLink>
                         </Box>
                     ) : null}

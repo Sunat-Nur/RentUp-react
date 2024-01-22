@@ -5,7 +5,7 @@ export function Statistics() {
     return (
         <div className="statistics_container">
             <Container>
-                <Stack className="statistics_frame">
+                {/*<Stack className="statistics_frame">*/}
                     <Stack className="definer_statistics">
                         <Box className="property_tex">
                             <Box className="property_difiner_h1">
@@ -83,7 +83,7 @@ export function Statistics() {
                             </Stack>
                         </Stack>
                     </Stack>
-                </Stack>
+                {/*</Stack>*/}
             </Container>
         </div>
     );

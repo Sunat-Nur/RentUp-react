@@ -4,10 +4,11 @@ import { HomePageState } from "../../../types/screen";
 
 const initialState: HomePageState = {
     topProperyts: [],
+
     bestAgency: [],
-    luxuryHomes: [],
     bestBoArticles: [],
     trendBoArticles: [],
+    luxuryProperty: [],
     newsBoArticles: [],
 
 };
@@ -22,9 +23,6 @@ const HomePageSlice = createSlice({
         },
         setBestAgencys: (state, action) => {
             state.bestAgency = action.payload
-        },
-        setLuxuryHomes: (state, action) => {
-            state.luxuryHomes = action.payload
         },
         setBestBoArticles: (state, action) => {
             state.bestBoArticles = action.payload

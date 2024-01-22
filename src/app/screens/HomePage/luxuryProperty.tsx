@@ -1,7 +1,7 @@
 import React from "react";
 import {Box, Container, Stack} from "@mui/material";
 
-export function Recommendation() {
+export function LuxuryProperty() {
     return (
         <div className="recommendation_frame">
             <Container>

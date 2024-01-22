@@ -9,7 +9,7 @@ import {Follower, Following} from "./follow";
 /** REACT app state **/
 export interface AppRootState {  // app dagi barcha interfacelarni integratsiya qilayopman. ularga biriktirilgan page lar va ularni typelari
     homePage: HomePageState;  // homepage => homepage typedan iborat;
-    restaurantPage: RestaurantPageState;
+    CompanyPage: CompanyPageState;
     searchPage: SearchPageState;
     communityPage: CommunityPageState;
     memberPage: MemberPageState;
@@ -20,14 +20,14 @@ export interface AppRootState {  // app dagi barcha interfacelarni integratsiya 
 export interface  HomePageState { //  homepageimning interfaceni hosil qilib oldim.
     topProperyts: Product[];  // type restaurant bulgan arraylardan iborat.
     bestAgency: Company[];
-    luxuryHomes: Product[];
     bestBoArticles: BoArticle[];
+    luxuryProperty: Product[];
     trendBoArticles: BoArticle[];
     newsBoArticles: BoArticle[];
 }
 
 /** restaurant page **/
-export interface RestaurantPageState{
+export interface CompanyPageState{
     tartgetCompanys: Company[];
     randomCompanys: Company[];
     chosenCompany: Company | null;

@@ -1,14 +1,15 @@
-import React from "react";
-import {Box, Button, Container, IconButton, ListItemIcon, Menu, MenuItem, Stack} from "@mui/material";
+import React from 'react';
+import {Box, Button, Container,  Stack, Menu,MenuItem, ListItemIcon} from "@mui/material";
+import { Logout } from '@mui/icons-material';
 import {NavLink} from "react-router-dom";
-import Badge from "@mui/material/Badge";
-import {Logout} from "@mui/icons-material";
 import Basket from "./basket";
 import {verifiedMemberData} from "../../apiSservices/verify";
 
-export function NavbarAgency(props: any) {
+export function NavbarHome(props: any) {
+
+
     return (
-        <div className="format_restaurant home_navbar">
+        <div className="format home_navbar">
             <Container>
                 <Stack
                     flexDirection={"row"}
@@ -16,7 +17,7 @@ export function NavbarAgency(props: any) {
                     justifyContent={"space-between"}
                 >
                     <Box>
-                        <img src={"/icons/Papay..svg"} alt=''/>
+                        <img src='/icons/Papay..svg' alt=''/>
                     </Box>
                     <Stack
                         flexDirection={"row"}
@@ -24,10 +25,9 @@ export function NavbarAgency(props: any) {
                         alignItems={"center"}
                         className="navbar_links"
                     >
-
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/">
-                                Main Page
+                            <NavLink to="/" activeClassName="underline">
+                                Home
                             </NavLink>
                         </Box>
 
@@ -36,7 +36,6 @@ export function NavbarAgency(props: any) {
                                 Property
                             </NavLink>
                         </Box>
-
                         {/*{verifiedMemberData ? (*/}
                         {/*    <Box className="hover-line" onClick={props.setPath}>*/}
                         {/*        <NavLink to="/orders" activeClassName="underline">*/}
@@ -50,11 +49,10 @@ export function NavbarAgency(props: any) {
                                 Community
                             </NavLink>
                         </Box>
-
                         {verifiedMemberData ? (
                             <Box className="hover-line" onClick={props.setPath}>
                                 <NavLink to="/member-page" activeClassName="underline">
-                                    My Page
+                                    My page
                                 </NavLink>
                             </Box>
                         ) : null}
@@ -85,11 +83,10 @@ export function NavbarAgency(props: any) {
                         ) : (
                             <img
                                 style={{width: "48px", height: "48px", borderRadius: "24px"}}
-                                src={verifiedMemberData.mb_image} alt=''
+                                src={verifiedMemberData.mb_image}
                                 onClick={props.handleLogOutClick}
                             />
                         )}
-
                         <Menu
                             anchorEl={props.anchorEl}
                             open={props.open}
@@ -124,18 +121,54 @@ export function NavbarAgency(props: any) {
                                     }
                                 }
                             }}
-                            transformOrigin={{horizontal: "right", vertical: "top"}}
-                            anchorOrigin={{horizontal: "right", vertical: "bottom"}}>
+                            transformOrigin={{ horizontal: "right", vertical: "top" }}
+                            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}>
                             <MenuItem onClick={props.handleLogOutRequest}>
                                 <ListItemIcon>
-                                    <Logout fontSize="small" style={{color: "blue"}}/>
+                                    <Logout fontSize="small" style={{ color: "blue" }} />
                                 </ListItemIcon>
                                 Logout
                             </MenuItem>
                         </Menu>
                     </Stack>
                 </Stack>
-                {/*main stack qismi*/}
+                <Stack className="head_information" justifyContent={"row"}>
+                    <Stack
+                        justifyContent={'column'}
+                        style={{marginTop: "86px", marginLeft: "24px"}}>
+                        <Box>
+                            <img src="/icons/welcome.svg" alt=''/>
+                        </Box>
+                        <Box className="define_restaurant">
+                            The Authentic Restaurant & Cafe
+                        </Box>
+                        <Box className="timeline_service">
+                            24 soat xizmatinggizdamiz.
+                        </Box>
+                        <Box sx={{mt: "90px"}}>
+                            {!verifiedMemberData ? (
+                                <Button
+                                    variant="contained"
+                                    style={{
+                                        width: "210px",
+                                        height: "60px",
+                                        background: "#1976d2",
+                                        color: "#FFFFF",
+                                    }}
+                                    onClick={props.handleSignUpOpen}
+                                >
+                                    RO'YXATDAN O'TISH
+                                </Button>
+                            ) : null}
+
+                        </Box>
+                    </Stack>
+                    <Stack flexDirection={'column'}>
+                        <Box className="big_img"></Box>
+
+                    </Stack>
+
+                </Stack>
             </Container>
         </div>
     );
