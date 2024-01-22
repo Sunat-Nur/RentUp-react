@@ -1,6 +1,6 @@
 import React from "react";
 import {Statistics} from "./statistics";
-import {TopPropertys} from "./topPropertys";
+import {TopHomes} from "./topHomes";
 import {Posts} from "./posts";
 import {LuxuryProperty} from "./luxuryProperty";
 import {BestAgency} from "./bestAgency";
@@ -12,7 +12,7 @@ import Recommendations from "./recomendation";
 export function HomePage() {
     return <div className="homepage">
         <Statistics/>
-        <TopPropertys/>
+        <TopHomes/>
         <LuxuryProperty/>
         <Advertisements/>
         <BestAgency/>

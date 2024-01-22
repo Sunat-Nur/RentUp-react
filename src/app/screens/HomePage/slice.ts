@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { HomePageState } from "../../../types/screen";
 
 const initialState: HomePageState = {
-    topProperyts: [],
+    topHomes: [],
     bestAgency: [],
     bestBoArticles: [],
     trendBoArticles: [],
@@ -17,8 +17,8 @@ const HomePageSlice = createSlice({
     initialState,
     reducers: {
 
-        setTopPropertys: (state, action) => {
-            state.topProperyts = action.payload  //
+        setTopHomes: (state, action) => {
+            state.topHomes = action.payload  //
         },
         setBestAgencys: (state, action) => {
             state.bestAgency = action.payload
@@ -36,7 +36,7 @@ const HomePageSlice = createSlice({
 });
 
 export const {
-    setTopPropertys,
+    setTopHomes,
     setBestAgencys,
     setBestBoArticles,
     setTrendBoArticles,

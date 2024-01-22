@@ -122,6 +122,7 @@ export default function Recommendations() {
                                         nec bibendum.
                                     </h1>
 
+
                                     <Box className="user_img_right_box">
                                         <img src={"home/profile.4.png"}/>
                                         <text> @sunat_nur</text>

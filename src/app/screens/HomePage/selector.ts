@@ -3,9 +3,9 @@ import { AppRootState } from "../../../types/screen";
 
 const selectHomePage = (state: AppRootState) => state.homePage;
 
-export const retrieveTopPropertys = createSelector(
+export const retrieveTopHomes = createSelector(
     selectHomePage,
-    (HomePage) => HomePage.topProperyts
+    (HomePage) => HomePage.topHomes
 );
 
 export const retrieveBestAgency = createSelector(
@@ -13,7 +13,7 @@ export const retrieveBestAgency = createSelector(
     (HomePage) => HomePage.bestAgency
 );
 
-export const retrieveLuxuryHomes = createSelector(
+export const retrieveLuxuryProperty = createSelector(
     selectHomePage,
     (HomePage) => HomePage.luxuryProperty
 );
