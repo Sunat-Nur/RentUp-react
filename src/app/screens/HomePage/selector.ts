@@ -3,9 +3,9 @@ import { AppRootState } from "../../../types/screen";
 
 const selectHomePage = (state: AppRootState) => state.homePage;
 
-export const retrieveTopHomes = createSelector(
+export const retrieveTopPropertys = createSelector(
     selectHomePage,
-    (HomePage) => HomePage.topHomes
+    (HomePage) => HomePage.topProperyts
 );
 
 export const retrieveBestAgency = createSelector(

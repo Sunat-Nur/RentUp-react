@@ -18,7 +18,7 @@ export interface AppRootState {  // app dagi barcha interfacelarni integratsiya 
 /** homePage  **/
 // Homepage ichida kerakli data => typelar tashkillshtirib oldim.
 export interface  HomePageState { //  homepageimning interfaceni hosil qilib oldim.
-    topHomes: Product[];  // type restaurant bulgan arraylardan iborat.
+    topProperyts: Product[];  // type restaurant bulgan arraylardan iborat.
     bestAgency: Company[];
     luxuryHomes: Product[];
     bestBoArticles: BoArticle[];
