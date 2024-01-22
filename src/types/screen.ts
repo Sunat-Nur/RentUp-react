@@ -7,8 +7,8 @@ import {Follower, Following} from "./follow";
 
 
 /** REACT app state **/
-export interface AppRootState {  // app dagi barcha interfacelarni integratsiya qilayopman. ularga biriktirilgan page lar va ularni typelari
-    homePage: HomePageState;  // homepage => homepage typedan iborat;
+export interface AppRootState {
+    homePage: HomePageState;
     CompanyPage: CompanyPageState;
     searchPage: SearchPageState;
     communityPage: CommunityPageState;
@@ -16,9 +16,8 @@ export interface AppRootState {  // app dagi barcha interfacelarni integratsiya 
 }
 
 /** homePage  **/
-// Homepage ichida kerakli data => typelar tashkillshtirib oldim.
-export interface  HomePageState { //  homepageimning interfaceni hosil qilib oldim.
-    topProperyts: Product[];  // type restaurant bulgan arraylardan iborat.
+export interface  HomePageState {
+    topProperyts: Product[];
     bestAgency: Company[];
     bestBoArticles: BoArticle[];
     luxuryProperty: Product[];

@@ -17,7 +17,7 @@ export function NavbarHome(props: any) {
                     justifyContent={"space-between"}
                 >
                     <Box>
-                        <img src='/icons/Papay..svg' alt=''/>
+                        <img src='/icons/logo-light.png' alt=''/>
                     </Box>
                     <Stack
                         flexDirection={"row"}
@@ -77,7 +77,7 @@ export function NavbarHome(props: any) {
                                     style={{color: "#FFFFFF", background: "#1976d2"}}
                                     onClick={props.handleLoginOpen}
                                 >
-                                    KIRISH
+                                    Login
                                 </Button>
                             </Box>
                         ) : (
@@ -140,11 +140,12 @@ export function NavbarHome(props: any) {
                             <img src="/icons/welcome.svg" alt=''/>
                         </Box>
                         <Box className="define_restaurant">
-                            The Authentic Restaurant & Cafe
+                            Find your dream house with us!
                         </Box>
                         <Box className="timeline_service">
-                            24 soat xizmatinggizdamiz.
+                            any property any time
                         </Box>
+                        <Box className="button_box_search">
                         <Box sx={{mt: "90px"}}>
                             {!verifiedMemberData ? (
                                 <Button
@@ -154,13 +155,32 @@ export function NavbarHome(props: any) {
                                         height: "60px",
                                         background: "#1976d2",
                                         color: "#FFFFF",
+                                        marginRight: "40px"
                                     }}
                                     onClick={props.handleSignUpOpen}
                                 >
-                                    RO'YXATDAN O'TISH
+                                    Sign Up
                                 </Button>
                             ) : null}
 
+                        </Box>
+                        <Box sx={{mt: "90px"}}>
+                            {!verifiedMemberData ? (
+                                <Button
+                                    variant="contained"
+                                    style={{
+                                        width: "210px",
+                                        height: "60px",
+                                        background: "#",
+                                        color: "#FFFFF",
+                                    }}
+                                    onClick={props.handleSignUpOpen}
+                                >
+                                    Search
+                                </Button>
+                            ) : null}
+
+                        </Box>
                         </Box>
                     </Stack>
                     <Stack flexDirection={'column'}>

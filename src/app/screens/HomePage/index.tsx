@@ -7,15 +7,17 @@ import {BestAgency} from "./bestAgency";
 import {Advertisements} from "./advertisements";
 import '../../../css/home.css';
 import {Events} from "./events";
+import Recommendations from "./recomendation";
 
 export function HomePage() {
     return <div className="homepage">
         <Statistics/>
-        {/*<TopPropertys/>*/}
+        <TopPropertys/>
         <LuxuryProperty/>
         <Advertisements/>
         <BestAgency/>
         <Events />
         <Posts/>
+        <Recommendations/>
     </div>;
 }

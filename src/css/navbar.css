@@ -2,14 +2,14 @@
     width: 100%;
     height: 773px;
     display: flex;
-    background: url("/public/home/immio.jpg");
+    background: url("/public/home/banner2.jpeg");
     background-size: cover;
 }
 .format_restaurant.home_navbar {
     width: 100%;
     height: 400px;
     display: flex;
-    /*background: url("/public/home/eco2.webp");*/
+    background: url("/public/home/eco2.webp");
     background-size: cover;
 }
 
@@ -100,10 +100,18 @@
     height: 277px;
     margin-top: 41px;
     margin-left: 494px;
-    /*background: url("/public/home/Rectangle 41.png");*/
+    /*background: url("/public/icons/logo.png");*/
     border-radius: 90px 0 0 0;
     filter: invert(46%) blur(1px);
     background-size: cover;
+}
+
+.button_box_search {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
 }
 
 /* START BASKET */

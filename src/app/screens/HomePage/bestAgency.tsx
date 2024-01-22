@@ -68,10 +68,10 @@ export function BestAgency() {
 
                                 <Box>
                                     <Box className="best_agency_main_box">
-                                        <img src="/home/profile.4.png"/>
+                                        <img src="/home/women.jpeg"/>
                                     </Box>
                                     <Box className="best_agency_name">
-                                        <p>@sunat_nur</p>
+                                        <p>@ruxshona</p>
                                         <span> Preshampton Agent </span>
                                     </Box>
                                 </Box>

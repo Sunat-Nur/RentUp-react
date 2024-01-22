@@ -4,7 +4,6 @@ import { HomePageState } from "../../../types/screen";
 
 const initialState: HomePageState = {
     topProperyts: [],
-
     bestAgency: [],
     bestBoArticles: [],
     trendBoArticles: [],
