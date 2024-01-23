@@ -8,9 +8,9 @@ export const retrieveTopHomes = createSelector(
     (HomePage) => HomePage.topHomes
 );
 
-export const retrieveBestAgency = createSelector(
+export const retrieveBestCompany = createSelector(
     selectHomePage,
-    (HomePage) => HomePage.bestAgency
+    (HomePage) => HomePage.bestCompany
 );
 
 export const retrieveLuxuryProperty = createSelector(

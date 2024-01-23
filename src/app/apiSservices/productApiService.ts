@@ -13,6 +13,26 @@ class ProductApiService {
         this.path = serverApi;
     }
 
+    async getAllProducts(data: ProductSearchObj): Promise<Product[]> {
+        try {
+            console.log("data", data);
+
+            const url = "/products",
+                result = await axios.post(this.path + url, data, {
+                    withCredentials: true,
+                });
+            assert.ok(result, Definer.general_err1);
+
+            console.log("state", result);
+            const products: Product[] = result.data.data;
+            return products;
+        } catch (err: any) {
+            console.log(`ERROR ::: getAllProducts ${err.message}`);
+
+            throw err;
+        }
+    }
+
     async getTargetProducts(data: ProductSearchObj): Promise <Product[]> {
         try {
             const url = '/products',

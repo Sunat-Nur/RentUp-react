@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Stack, Box} from "@mui/material";
 
-export function BestAgency() {
+export function BestCompany() {
     return (
         <div className="best_agency_frame">
             <Container>
@@ -75,15 +75,6 @@ export function BestAgency() {
                                         <span> Preshampton Agent </span>
                                     </Box>
                                 </Box>
-
-
-
-
-
-
-
-
-
                             </Box>
                         </Box>
 

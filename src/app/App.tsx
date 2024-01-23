@@ -25,7 +25,7 @@ import {NavbarHome} from "./components/header";
 function App() {
     /** INITIALIZATION **/
         // const [verifiedMemberData, setVerifiedMemberData] = useState<Member | null>(null);
-    const [ setPath] = useState();
+    const [path, setPath] = useState();
     const main_path = window.location.pathname;
     const [signUpOpen, setSignUpOpen] = useState(false);
     const [loginOpen, setLoginOpen] = useState(false);
@@ -142,7 +142,7 @@ function App() {
                     onAdd={onAdd}
                     open={open}
                 />
-            ) : main_path.includes("/agency") ? (
+            ) : main_path.includes("/company") ? (
                 <NavbarAgency
                     handleLogOutRequest={handleLogOutRequest}
                     handleLogOutClick={handleLogOutClick}

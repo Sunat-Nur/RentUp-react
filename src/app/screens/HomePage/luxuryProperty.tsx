@@ -29,7 +29,7 @@ export function LuxuryProperty() {
                                 <Stack sx={{flexDirection: "column"}}>
                                     <Box className="recom_first_box">
                                         <Box className="recom_first_box_img" style={{flexDirection: "row"}}>
-                                            <img src="/home/11.webp"/>
+                                            <img src="/home/eco2.webp"/>
                                             <Box sx={{flexDirection: "row"}}>
                                                 <Box className="recom_first_box_name">
                                                     <p>
@@ -122,7 +122,7 @@ export function LuxuryProperty() {
                                 </Stack>
 
                                 <Box className="recom_background_left_img">
-                                    <img src={"/home/eco3.avif"}/>
+                                    <img src={"/home/immio.jpg"}/>
 
                                 </Box>
                                 <Box></Box>

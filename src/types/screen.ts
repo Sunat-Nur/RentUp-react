@@ -18,7 +18,7 @@ export interface AppRootState {
 /** homePage  **/
 export interface  HomePageState {
     topHomes: Product[];
-    bestAgency: Company[];
+    bestCompany: Company[];
     bestBoArticles: BoArticle[];
     luxuryProperty: Product[];
     trendBoArticles: BoArticle[];
