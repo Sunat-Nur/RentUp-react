@@ -49,6 +49,10 @@ export function LuxuryProperty() {
         history.push(`/company/${id}`);
     }
 
+    // const chosenDishHandler = (id: string) => {
+    //     history.push(`/restaurant/dish/${id}`);
+    // };
+
 
     return (
         <div className="recommendation_frame">

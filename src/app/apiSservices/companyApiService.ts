@@ -12,7 +12,7 @@ export default class CompanyApiService {
 
     async getBestCompany(data: any): Promise<Company[]> {
         try {
-            const url = `/company?order=${data.order}&page=1&limit=${data.limit}`,
+            const url = `/companies?order=${data.order}&page=1&limit=${data.limit}`,
                 result = await axios.get(this.path + url, { withCredentials: true });
             assert.ok(result, Definer.general_err1);
 

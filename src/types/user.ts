@@ -9,7 +9,7 @@ export interface Company {
     mb_status: string;
     mb_address?: string;
     mb_description?: string;
-    mb_image?: string;
+    mb_image: string;
     mb_point: number;
     mb_top: string;
     mb_views: number;

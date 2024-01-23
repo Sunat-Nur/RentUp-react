@@ -1,13 +1,42 @@
-import React from "react";
-import {Container, Stack, Box} from "@mui/material";
+import * as React from 'react';
+import {Box, Container, Stack} from "@mui/material";
+import {Favorite, Visibility} from "@mui/icons-material";
+import Typography from '@mui/joy/Typography';
+// OTHERS
+import {serverApi} from '../../../lib/config';
+import {useHistory} from "react-router-dom";
+// REDUX
+import {useSelector} from "react-redux";
+import {createSelector} from "reselect";
+import {retrieveBestCompany, retrieveTopHomes} from "./selector";
+import {Product} from "../../../types/product";
+import {Company} from "../../../types/user";
+
+
+/** REDUX SELECTOR */
+const bestCompanyRetriever = createSelector(
+    retrieveBestCompany,
+    (bestCompany) => ({
+        bestCompany,
+    })
+);
+
 
 export function BestCompany() {
+    /** INITIALIZATION */
+    const history = useHistory();
+    const {bestCompany} = useSelector(bestCompanyRetriever);
+
+    const chosenBestCompany = (id: string) => {
+        history.push(`/company/${id}`);
+    }
+
     return (
         <div className="best_agency_frame">
             <Container>
                 <Stack className="agency_frame_box">
                     <Box className="agency_define">
-                        <Box className="property_partner">
+                        <Box className="property_partner"  sx={{ marginLeft: "30px"}}>
                             <p>
                                 Property Partners
                             </p>
@@ -16,69 +45,29 @@ export function BestCompany() {
                             </h1>
                         </Box>
                     </Box>
-                    <Box>
-                        <Box className="best_agency_main_box_scroll" sx={{flexDirection: "column"}}>
-                            <Box className="agencybox_1">
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/profile.4.png"/>
-                                    </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@sunat_nur</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
+                    <Box className="best_agency_main_box_scroll" sx={{flexDirection: "column"}}>
+                        <Box className="agencybox_1">
 
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/women1.jpeg"/>
+                            {bestCompany.map((ele: Company) => {
+                                const image_path = `${serverApi}/${ele.mb_image}`;
+                                return (
+                                    <Box
+                                        // onClick={() => chosenBestCompany(ele._id)}
+                                    >
+                                        <Box className="best_agency_main_box">
+                                            <img src={image_path}/>
+                                        </Box>
+                                        <Box className="best_agency_name" sx={{marginLeft: "20px"}}>
+                                            <p>{ele.mb_nick}</p>
+                                            <span> {ele.mb_address} </span>
+                                        </Box>
                                     </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@anjelina</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/women2.jpeg"/>
-                                    </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@shaxzoda</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/women3.jpeg"/>
-                                    </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@lili</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/profile.4.png"/>
-                                    </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@sunat_nur</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
+                                )
+                            })}
 
-                                <Box>
-                                    <Box className="best_agency_main_box">
-                                        <img src="/home/women.jpeg"/>
-                                    </Box>
-                                    <Box className="best_agency_name">
-                                        <p>@ruxshona</p>
-                                        <span> Preshampton Agent </span>
-                                    </Box>
-                                </Box>
-                            </Box>
                         </Box>
-
                     </Box>
+
                 </Stack>
 
             </Container>
