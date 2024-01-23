@@ -7,7 +7,7 @@ import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import {CssVarsProvider} from "@mui/joy/styles";
 import {CardOverflow} from "@mui/joy";
 import {IconButton} from '@mui/joy';
-import {Favorite} from "@mui/icons-material";
+import {Favorite, Visibility} from "@mui/icons-material";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Typography from '@mui/joy/Typography';
 // OTHERS
@@ -48,6 +48,8 @@ export function TopHomes() {
                                 <h2>Explore Elevated Living.</h2>
                             </Box>
                         </Box>
+
+
                         <Stack className="all_top_property_img_box" flexDirection={"row"}>
                             <Box className="top_home_main_box">
 
@@ -87,15 +89,108 @@ export function TopHomes() {
 
                                     </Stack>
                                     <Stack className={"favorite_box"} flexDirection={"row"}>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 45</text>
-                                            |
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontSize: "16px",
+                                                lineHeight: "1.5",
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex",
+                                                marginRight: "20px"
+                                            }}
+                                        >
+                                            {/*{ele.mb_views}*/} 45
+                                            <Visibility sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
+                                        {/*<Box sx={{width: 2, bgcolor: "divider"}}/>*/}
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex"
+                                            }}>
+                                            <div
+                                                // ref={(element) => (refs.current[ele._id] = element)}
+                                            >
+                                                {/*{ele.mb_likes}*/} 20
+                                            </div>
+                                            <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
+                                    </Stack>
+                                </Box>
+
+                                <Box className="top_property_box">
+                                    <Stack flexDirection={"row"}>
+                                        <Box className="property_img_box">
+                                            <img src={"/home/immio.jpg"}/>
                                         </Box>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 65 kv</text>
+                                    </Stack>
+                                    <Box className="top_property_price">
+                                        <span>
+                                            50$ /month
+                                        </span>
+                                        <text> zara building</text>
+                                    </Box>
+                                    <Stack className={"top_property_location_box"} flexDirection={"row"}>
+                                        <Box className="top_property_location">
+                                            <img src={"/icons/location.svg"}/>
                                         </Box>
+                                        <Box>
+                                            <text> tashkent city oybek metro</text>
+                                        </Box>
+                                    </Stack>
+                                    <Stack className={"top_property_icon_box"} flexDirection={"row"}>
+                                        <Box className="top_property_each_icon">
+                                            <img src={"icons/bed.svg"}/>
+                                            <text> 3 beds</text>
+                                        </Box>
+                                        <Box className="top_property_each_icon">
+                                            <img src={"icons/bath.svg"}/>
+                                            <text> 2 bath</text>
+                                        </Box>
+                                        <Box className="top_property_each_icon">
+                                            <img src={"icons/kv.svg"}/>
+                                            <text> 57 kv</text>
+                                        </Box>
+
+                                    </Stack>
+                                    <Stack className="favorite_box" flexDirection={"row"}>
+
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontSize: "16px",
+                                                lineHeight: "1.5",
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex",
+                                                marginRight: "20px"
+                                            }}
+                                        >
+                                            {/*{ele.mb_views}*/} 45
+                                            <Visibility sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
+                                        {/*<Box sx={{width: 2, bgcolor: "divider"}}/>*/}
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex"
+                                            }}>
+                                            <div
+                                                // ref={(element) => (refs.current[ele._id] = element)}
+                                            >
+                                                {/*{ele.mb_likes}*/} 20
+                                            </div>
+                                            <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
                                     </Stack>
                                 </Box>
 
@@ -135,70 +230,47 @@ export function TopHomes() {
 
                                     </Stack>
                                     <Stack className={"favorite_box"} flexDirection={"row"}>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 45</text>
-                                            |
-                                        </Box>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 65 kv</text>
-                                        </Box>
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontSize: "16px",
+                                                lineHeight: "1.5",
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex",
+                                                marginRight: "20px"
+                                            }}
+                                        >
+                                            {/*{ele.mb_views}*/} 45
+                                            <Visibility sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
+                                        {/*<Box sx={{width: 2, bgcolor: "divider"}}/>*/}
+                                        <Typography
+                                            level="body-sm"
+                                            sx={{
+                                                fontWeight: "md",
+                                                color: "black",
+                                                alignItems: "center",
+                                                display: "flex"
+                                            }}>
+                                            <div
+                                                // ref={(element) => (refs.current[ele._id] = element)}
+                                            >
+                                                {/*{ele.mb_likes}*/} 20
+                                            </div>
+                                            <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                        </Typography>
                                     </Stack>
-                                </Box>
 
-                                <Box className="top_property_box">
-                                    <Stack flexDirection={"row"}>
-                                        <Box className="property_img_box">
-                                            <img src={"/home/immio.jpg"}/>
-                                        </Box>
-                                    </Stack>
-                                    <Box className="top_property_price">
-                                        <span>
-                                            50$ /month
-                                        </span>
-                                        <text> zara building</text>
-                                    </Box>
-                                    <Stack className={"top_property_location_box"} flexDirection={"row"}>
-                                        <Box className="top_property_location">
-                                            <img src={"/icons/location.svg"}/>
-                                        </Box>
-                                        <Box>
-                                            <text> tashkent city oybek metro</text>
-                                        </Box>
-                                    </Stack>
-                                    <Stack className={"top_property_icon_box"} flexDirection={"row"}>
-                                        <Box className="top_property_each_icon">
-                                            <img src={"icons/bed.svg"}/>
-                                            <text> 3 beds</text>
-                                        </Box>
-                                        <Box className="top_property_each_icon">
-                                            <img src={"icons/bath.svg"}/>
-                                            <text> 2 bath</text>
-                                        </Box>
-                                        <Box className="top_property_each_icon">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 57 kv</text>
-                                        </Box>
-
-                                    </Stack>
-                                    <Stack className={"favorite_box"} flexDirection={"row"}>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 45</text>
-                                            |
-                                        </Box>
-                                        <Box className="top_property_each_icon_2">
-                                            <img src={"icons/kv.svg"}/>
-                                            <text> 65 kv</text>
-                                        </Box>
-                                    </Stack>
                                 </Box>
 
 
 
                             </Box>
                         </Stack>
+
+
                     </Stack>
                 </Stack>
             </Container>
