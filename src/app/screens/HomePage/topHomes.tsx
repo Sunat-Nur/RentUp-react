@@ -47,9 +47,10 @@ export function TopHomes() {
                                 {topHomes.map((ele: Product) => {
                                     const image_path = `${serverApi}/${ele.product_images[0]}`;
                                     return (
-                                        <Box className="top_property_box" key={ele._id}
+                                        <Box className="top_property_box"
+                                             key={ele._id}
                                              onClick={() => chosenTopHomesHandler(ele._id)}
-                                             sx={{ cursor: "pointer"}}
+                                             sx={{cursor: "pointer"}}
                                         >
                                             <Stack flexDirection={"row"}>
                                                 <Box className="property_img_box">
@@ -57,7 +58,7 @@ export function TopHomes() {
                                                 </Box>
                                             </Stack>
                                             <Box className="top_property_price">
-                                        <span>{ele.product_price} $ / month </span>
+                                                <span>{ele.product_price} $ / month </span>
                                                 <text> {ele.product_name}</text>
                                             </Box>
                                             <Stack className={"top_property_location_box"} flexDirection={"row"}>

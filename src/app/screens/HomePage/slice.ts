@@ -20,6 +20,9 @@ const HomePageSlice = createSlice({
         setTopHomes: (state, action) => {
             state.topHomes = action.payload  //
         },
+        setLuxuryProperty: (state, action) => {
+            state.luxuryProperty = action.payload  //
+        },
         setBestCompany: (state, action) => {
             state.bestCompany = action.payload
         },
@@ -40,7 +43,8 @@ export const {
     setBestCompany,
     setBestBoArticles,
     setTrendBoArticles,
-    setNewsBoArticles
+    setNewsBoArticles,
+    setLuxuryProperty,
 } = HomePageSlice.actions;
 
 

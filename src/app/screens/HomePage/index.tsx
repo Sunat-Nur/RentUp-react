@@ -40,9 +40,11 @@ export function HomePage() {
 
 
         const productService = new ProductApiService();
-        productService.getAllProducts({order: "product_likes", page: 1, limit: 4})
+        productService.getAllProducts({order: "product_likes", page: 1, limit: 3})
             .then(data => setTopHomes(data))
             .catch(err => console.log(err));
+
+
     }, []);
 
 
