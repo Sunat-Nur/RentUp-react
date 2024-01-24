@@ -18,10 +18,10 @@ const HomePageSlice = createSlice({
     reducers: {
 
         setTopHomes: (state, action) => {
-            state.topHomes = action.payload  //
+            state.topHomes = action.payload
         },
         setLuxuryProperty: (state, action) => {
-            state.luxuryProperty = action.payload  //
+            state.luxuryProperty = action.payload
         },
         setBestCompany: (state, action) => {
             state.bestCompany = action.payload
