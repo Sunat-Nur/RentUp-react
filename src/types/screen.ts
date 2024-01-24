@@ -1,5 +1,3 @@
-
-
 import { BoArticle } from "./boArticle";
 import { Product } from "./product";
 import {Member, Company} from "./user";
@@ -9,8 +7,7 @@ import {Follower, Following} from "./follow";
 /** REACT app state **/
 export interface AppRootState {
     homePage: HomePageState;
-    CompanyPage: CompanyPageState;
-    searchPage: SearchPageState;
+    ProductPage: ProductPageState;
     communityPage: CommunityPageState;
     memberPage: MemberPageState;
 }
@@ -25,25 +22,14 @@ export interface  HomePageState {
     newsBoArticles: BoArticle[];
 }
 
-/** restaurant page **/
-export interface CompanyPageState{
+/** Product page **/
+export interface ProductPageState{
     tartgetCompanys: Company[];
+    targetAllProducts: Product[];
     randomCompanys: Company[];
     chosenCompany: Company | null;
-    targetProducts: Product[];
     chosenProduct: Product | null;
-    chosenMember: Member | null;
 }
-
-export interface SearchPageState {
-    tartgetCompanys: Company[];
-    randomCompanys: Company[];
-    chosenCompany: Company | null;
-    targetProducts: Product[];
-    chosenProduct: Product | null;
-    chosenMember: Member | null;
-}
-
 
 /** community page **/
 export interface CommunityPageState{

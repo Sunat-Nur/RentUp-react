@@ -13,6 +13,7 @@ class ProductApiService {
         this.path = serverApi;
     }
 
+
     async getAllProducts(data: ProductSearchObj): Promise<Product[]> {
         try {
             console.log("data", data);
@@ -45,7 +46,7 @@ class ProductApiService {
 
 
             const products: Product[] = result.data.data;
-            return products;
+            return products;  // qiymatni return qilayopman.
         } catch (err: any) {
             console.log(`ERROR ::: getTargetProducts ${err.message}`);
             throw err;
@@ -64,7 +65,7 @@ class ProductApiService {
             console.log("state:::", result.data.state);
 
             const product: Product = result.data.data;
-            return product;
+            return product;  // qiymatni return qilayopman.
         } catch (err: any) {
             console.log(`ERROR ::: getChosenDish ${err.message}`);
             throw err;

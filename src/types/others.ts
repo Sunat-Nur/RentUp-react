@@ -1,9 +1,9 @@
-
 export interface SearchObj {
     page: number;
     limit: number;
     order: string;
 }
+
 export interface ProductSearchObj {
     page: number;
     limit: number;
@@ -11,6 +11,8 @@ export interface ProductSearchObj {
     company_mb_id?: string;
     product_collection?: string;
     product_address?: string;
+    product_value?: string;
+    product_size?: string;
 }
 
 export interface MemberLiken {

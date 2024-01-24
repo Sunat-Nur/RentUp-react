@@ -3,7 +3,6 @@ import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import {CompanyPage} from "./screens/CompanyPage";
 import {CommunityPage} from "./screens/CommunityPage";
 import {MemberPage} from "./screens/MemberPage";
 import {HelpPage} from "./screens/HelpPage";
@@ -20,6 +19,7 @@ import {Definer} from "../lib/definer";
 import {CartItem} from "../types/others";
 import {Product} from "../types/product";
 import {NavbarHome} from "./components/header";
+import {ProductPage} from "./screens/ProductPage";
 
 
 function App() {
@@ -180,8 +180,7 @@ function App() {
 
             <Switch>
                 <Route path="/company">
-                    < CompanyPage />
-                    {/*onAdd={onAdd}*/}
+                    < ProductPage onAdd={onAdd}/>
                 </Route>
                 <Route path="/community">
                     < CommunityPage/>

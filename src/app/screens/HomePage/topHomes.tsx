@@ -50,7 +50,11 @@ export function TopHomes() {
                                         <Box className="top_property_box"
                                              key={ele._id}
                                              onClick={() => chosenTopHomesHandler(ele._id)}
-                                             sx={{cursor: "pointer"}}
+                                             sx={{
+                                                 cursor: "pointer",
+                                                 marginRight: "20px",
+                                                 marginLeft: "20px"
+                                             }}
                                         >
                                             <Stack flexDirection={"row"}>
                                                 <Box className="property_img_box">

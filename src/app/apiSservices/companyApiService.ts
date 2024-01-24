@@ -23,5 +23,20 @@ export default class CompanyApiService {
 
             throw err;
         }
+    };
+
+    async geCompanys(data: any): Promise<Company[]> {
+        try {
+            const url = `/companies?order=${data.order}&page=1&limit=${data.limit}`,
+                result = await axios.get(this.path + url, { withCredentials: true });
+            assert.ok(result, Definer.general_err1);
+
+            const companies: Company[] = result.data.data;
+            return companies;
+        } catch (err: any) {
+            console.log(`ERROR ::: getCompanys ${err.message}`);
+
+            throw err;
+        }
     }
 }
