@@ -1,0 +1,146 @@
+
+.myPage_container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    height: 1000px;
+    background-color: #fafafa;
+    padding: 50px;
+}
+
+.mypage_profile {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /*border-radius: ;*/
+    width: 940px;
+    height: 300px;
+    border: 1px solid #C7D5E1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 25px;
+    align-items: center;
+    margin-left: 150px;
+}
+
+
+.mypage_second_box {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    /*border-radius: ;*/
+    width: 900px;
+    height: 260px;
+    border: 1px solid #C7D5E1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 25px;
+
+
+}
+
+.myPage_pics img {
+    width: 190px;
+    height: 190px;
+    border-radius: 25px;
+    border: 1px solid #C7D5E1;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.user_name p{
+    position: relative;
+    color:  #0d1518;
+    font-family: Palatino;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    letter-spacing: 0.45px;
+    margin-bottom: 5px;
+}
+
+.user_name a{
+    position: relative;
+    color:  #808080;
+    font-family: Palatino;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    letter-spacing: 0.45px;
+    margin-top: 5px;
+}
+
+.follow_box {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.all_box_follow {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 550px;
+
+    display: flex;
+    background-color: #f3f3f3;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.cont_article {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cont_article p{
+    position: relative;
+    color:  #000;
+    font-family: Palatino;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    margin-bottom: 1px;
+}
+
+
+.cont_article a{
+    position: relative;
+    color:  #808080;
+    font-family: Palatino;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    margin-top: 1px;
+}
+
+
+.property_types .property_box {
+    width: 190px;
+    height: 190px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #FFF;
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-top: 60px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /*DFE7ED*/
+    border: 1px solid #C7D5E1;
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 10px #808080);
+    flex-direction: row;
+}

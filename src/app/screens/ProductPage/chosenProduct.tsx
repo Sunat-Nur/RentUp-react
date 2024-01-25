@@ -260,7 +260,7 @@ export function ChosenProductPage(props: any) {
                             </Box>
                         </Box>
                     </Stack>
-                    {/*<Stack className={"chosenProperty_chat"}></Stack>*/}
+                    <Stack className={"chosenProperty_chat"}></Stack>
                     <Stack
                         sx={{mt: "60px"}}
                         style={{display: "flex", flexDirection: "column", alignItems: "center",}}
@@ -275,6 +275,7 @@ export function ChosenProductPage(props: any) {
                             height="500"
                         ></iframe>
                     </Stack>
+
 
                 </Stack>
             </Container>

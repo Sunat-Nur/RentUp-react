@@ -1113,3 +1113,67 @@
 
 
 
+bookBox_main {
+    width: 170px;
+    height: 490px;
+    flex-shrink: 0;
+    background-color: #b48b50;
+}
+
+.book_image img {
+    width: 170px;
+    height: 243px;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+.icons_box img {
+    width: 74.533px;
+    height: 13px;
+    flex-shrink: 0;
+}
+.icons_box p {
+    width: 170px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 166.667% */
+}
+
+.icons_box p {
+    color: rgba(0, 0, 0, 0.80);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.price_box {
+    width: 152px;
+    height: 73px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EEDFF3;
+    margin-top: 10px;
+}
+.price_box a {
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.price_box img {
+    width: 57px;
+    height: 57px;
+    flex-shrink: 0;
+    cursor: pointer;
+
+}
