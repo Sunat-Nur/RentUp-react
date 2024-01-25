@@ -42,7 +42,7 @@ export default class CompanyApiService {
 
     async getChosenCompany(id: string): Promise <Company> {
         try {
-            const url = `/companys/${id}`,
+            const url = `/companies/${id}`,
                 result  = await axios.get(this.path + url, {withCredentials: true});
 
             assert.ok(result?.data, Definer.general_err1);

@@ -98,7 +98,7 @@ export function AllProductPage(props: any) {
 
 
     const chosenProductHandler = (id: string) => {
-        history.push(`/company/product/${id}`);
+        history.push(`/company/products/${id}`);
     };
 
     const targetLikeHandler = async (e: any, id: string) => {
@@ -256,9 +256,9 @@ export function AllProductPage(props: any) {
                                         >
                                             <CardOverflow>
                                                 <AspectRatio ratio="1">
-                                                    <SwiperSlide style={{ height: "456px", display: "flex"}}>
+                                                    {/*<SwiperSlide style={{ height: "456px", display: "flex"}}>*/}
                                                     <img src={image_path} alt=""/>
-                                                    </SwiperSlide>
+                                                    {/*</SwiperSlide>*/}
                                                 </AspectRatio>
                                                 <IconButton aria-label="Like minimal Photography"
                                                             size="md"

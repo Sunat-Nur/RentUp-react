@@ -35,9 +35,9 @@ class ProductApiService {
     }
 
 
-    async getChosenDish(dish_id: string): Promise<Product> {
+    async getChosenProduct(product_id: string): Promise<Product> {
         try {
-            const url = `/products/${dish_id}`,
+            const url = `/products/${product_id}`,
                 result = await axios.get(this.path + url, {
                     withCredentials: true,
                 });
@@ -46,9 +46,9 @@ class ProductApiService {
             console.log("state:::", result.data.state);
 
             const product: Product = result.data.data;
-            return product;  // qiymatni return qilayopman.
+            return product;
         } catch (err: any) {
-            console.log(`ERROR ::: getChosenDish ${err.message}`);
+            console.log(`ERROR ::: getChosenProduct ${err.message}`);
             throw err;
         }
     };

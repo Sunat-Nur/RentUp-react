@@ -2,6 +2,7 @@ import "../../../css/home.css"
 import {Route, Switch, useRouteMatch} from "react-router-dom";
 import {AllProductPage} from "./allProduct";
 import {ChosenProductPage} from "./chosenProduct";
+import "../../../css/product.css"
 
 
 export function ProductPage(props: any) {
@@ -10,7 +11,7 @@ export function ProductPage(props: any) {
     return (
         <div className="product_page_frame">
             <Switch>
-                <Route path={`${product.path}/product/:product_id`}>
+                <Route path={`${product.path}/products/:product_id`}>
                     <ChosenProductPage onAdd={props.onAdd}/>
                 </Route>
                 <Route path={`${product.path}`}>

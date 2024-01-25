@@ -19,31 +19,22 @@ export default function Basket(props: any) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const history = useHistory();
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setOrderRebuild} = props;
+    const {cartItems,  onDelete, onDeleteAll, setOrderRebuild} = props;
 
 
     /** HANDLERS **/
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
+    const chosenProductHandler = (id: string) => {
+        history.push(`/company/products/${id}`);
+    };
+
     const handleClose = () => {
         setAnchorEl(null);
     };
 
-    const processOrderHandler = async () => {
-        try {
-            assert.ok(verifiedMemberData, Definer.auth_err1);
-            const order = new OrderApiService();
-            await order.createOrder(cartItems);
-            onDeleteAll();
-            handleClose();
-            props.setOrderRebuild(new Date());
-            history.push("/orders");
-        } catch (err: any) {
-            console.log(err.message);
-            sweetErrorHandling(err).then();
-        }
-    };
+
 
     return (
         <Box className={"hover-line"}>
@@ -56,7 +47,7 @@ export default function Basket(props: any) {
                 onClick={handleClick}
             >
                 <Badge badgeContent={cartItems?.length} color="secondary">
-                    <img src={"/icons/shopping_cart.svg"}/>
+                    <img src={"/icons/favorite2.svg"}/>
                 </Badge>
             </IconButton>
             <Menu
@@ -99,7 +90,7 @@ export default function Basket(props: any) {
                         {!cartItems ? (
                             <div>Cart is empty!</div>
                         ) : (
-                            <div>My Cart Products:</div>
+                            <div>My favorites</div>
                         )}
                     </Box>
                     <Box className={"orders_main_wrapper"}>
@@ -114,10 +105,12 @@ export default function Basket(props: any) {
                                                 onClick={(e) => onDelete(item)}
                                             />
                                         </div>
+                                        <Box onClick={() => chosenProductHandler(item._id)}>
                                         <img src={image_path} className={"product_img"}/>
+                                        </Box>
                                         <span className={"product_name"}>{item.name}</span>
                                         <p className={"product_price"}>
-                                            ${item.price} x {item.quantity}
+                                            ${item.price}
                                         </p>
                                     </Box>
                                 );
