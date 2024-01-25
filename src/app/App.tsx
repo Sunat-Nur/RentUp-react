@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
+import "../css/page.css";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {CommunityPage} from "./screens/CommunityPage";
 import {MemberPage} from "./screens/MemberPage";

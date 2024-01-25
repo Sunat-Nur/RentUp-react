@@ -7,7 +7,7 @@ export interface SearchObj {
 export interface ProductSearchObj {
     page: number;
     limit: number;
-    order: string;
+    order?: string;
     company_mb_id?: string;
     product_collection?: string;
     product_address?: string;

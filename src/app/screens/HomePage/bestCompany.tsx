@@ -36,7 +36,7 @@ export function BestCompany() {
             <Container>
                 <Stack className="agency_frame_box">
                     <Box className="agency_define">
-                        <Box className="property_partner"  sx={{ marginLeft: "30px"}}>
+                        <Box className="property_partner" >
                             <p>
                                 Property Partners
                             </p>

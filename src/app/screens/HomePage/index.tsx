@@ -33,16 +33,16 @@ export function HomePage() {
 
         const companyService = new CompanyApiService();
         companyService
-            .getBestCompany({ page: 1, limit: 6, order: "mb_point"})
-            .then((data) => {
-                setBestCompany(data);
-            }).catch((err => console.log(err)));
+            .getBestCompany({ page: 1, limit: 5, order: "mb_point"})
+            .then((data) => {setBestCompany(data)})
+            .catch((err => console.log(err)));
 
 
         const productService = new ProductApiService();
-        productService.getAllProducts({order: "product_likes", page: 1, limit: 3})
-            .then(data => setTopHomes(data))
-            .catch(err => console.log(err));
+        productService
+            .getAllProducts({ page: 1, limit: 3, order: "mb_point"})
+            .then((data) => {setTopHomes(data)})
+            .catch((err => console.log(err)));
 
 
     }, []);

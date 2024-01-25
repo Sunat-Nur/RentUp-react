@@ -8,7 +8,7 @@ export interface Product {
     product_discount: number,
     product_left_cnt: number,
     product_size: string,
-    product_value: string,
+    product_value: string
     product_description: string,
     product_images: string[],
     product_likes: number,

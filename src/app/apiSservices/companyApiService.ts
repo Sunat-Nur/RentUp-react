@@ -25,7 +25,7 @@ export default class CompanyApiService {
         }
     };
 
-    async geCompanys(data: any): Promise<Company[]> {
+    async getCompanys(data: any): Promise<Company[]> {
         try {
             const url = `/companies?order=${data.order}&page=1&limit=${data.limit}`,
                 result = await axios.get(this.path + url, { withCredentials: true });
@@ -38,5 +38,22 @@ export default class CompanyApiService {
 
             throw err;
         }
-    }
+    };
+
+    async getChosenCompany(id: string): Promise <Company> {
+        try {
+            const url = `/companys/${id}`,
+                result  = await axios.get(this.path + url, {withCredentials: true});
+
+            assert.ok(result?.data, Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
+
+            const company: Company = result.data.data;
+            return company;
+        } catch (err: any) {
+            console.log(`ERROR ::: getChosenCompany ${err.message}`);
+            throw err;
+        }
+    };
 }

@@ -10,11 +10,11 @@ export function ProductPage(props: any) {
     return (
         <div className="product_page_frame">
             <Switch>
-                <Route path={`${product.path}`}>
-                    <AllProductPage/>
-                </Route>
                 <Route path={`${product.path}/product/:product_id`}>
                     <ChosenProductPage onAdd={props.onAdd}/>
+                </Route>
+                <Route path={`${product.path}`}>
+                    <AllProductPage/>
                 </Route>
             </Switch>
         </div>

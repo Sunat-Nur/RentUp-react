@@ -68,11 +68,14 @@ class MemberApiService {
             const result = await axios.post(this.path + "/member-liken", data, {
                 withCredentials: true,
             });
+
             assert.ok(result?.data, Definer.general_err1);
             assert.ok(result?.data.state !== "fail", result.data.state);
             console.log("state:::", result.data.state);
+
             const like_result: MemberLiken = result.data.data;
             console.log("like", like_result);
+
             return like_result;
         } catch (err: any) {
             console.log(`ERROR ::: memberLikeTarget ${err.message}`);

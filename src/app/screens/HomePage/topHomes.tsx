@@ -52,8 +52,7 @@ export function TopHomes() {
                                              onClick={() => chosenTopHomesHandler(ele._id)}
                                              sx={{
                                                  cursor: "pointer",
-                                                 marginRight: "20px",
-                                                 marginLeft: "20px"
+
                                              }}
                                         >
                                             <Stack flexDirection={"row"}>

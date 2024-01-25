@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { Theme } from '@mui/material/styles';
 import { store } from './store';
 import App from './App';
 

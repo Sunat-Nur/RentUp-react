@@ -1,5 +1,8 @@
 import React from "react";
-import {Container, Stack, Box} from "@mui/material";
+import {Container, Stack, Box, PaginationItem} from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Pagination from "@mui/material/Pagination";
 
 export function Posts() {
     return (
@@ -37,7 +40,18 @@ export function Posts() {
                                 </Box>
 
                             </Box>
-
+                            <Pagination
+                                // count={targetProductsSearchObj.page >= 3 ? targetProductsSearchObj.page + 1 : 3}
+                                // page={targetProductsSearchObj.page}
+                                renderItem={(item) => (
+                                    <PaginationItem components={{
+                                        previous: ArrowBackIcon,
+                                        next: ArrowForwardIcon,
+                                    }} sx={{color: "brown", ml: "200px"}} {...item}
+                                    />
+                                )}
+                                // onChange={handlePaginationChange}
+                            />
 
                         </Stack>
 

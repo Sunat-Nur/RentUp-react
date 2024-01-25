@@ -86,6 +86,7 @@ export function LuxuryProperty() {
                                                  key={ele._id}
                                                  onClick={() => chosenluxuryProperty(ele._id)}
                                                  sx={{cursor: "pointer"}}
+
                                             >
                                                 <Box className="recom_first_box_img" style={{flexDirection: "row"}}>
                                                     <img src={image_path}/>
