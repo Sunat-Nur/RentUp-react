@@ -21,13 +21,13 @@ export function MemberPage(props: any) {
         <div className="member_page" >
             <Switch>
                 <Route path={`${member.path}/other`}>
-                    {/*<VisitOtherPage*/}
+                    <VisitOtherPage
                         chosen_mb_id={chosen_mb_id}
                         chosen_art_id={chosen_art_id}
-                    {/*/>*/}
+                    />
                 </Route>
                 <Route path={`${member.path}`}>
-                    {/*<VisitMyPage/>*/}
+                    <VisitMyPage/>
                 </Route>
             </Switch>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import {Box, Container, Stack, Button} from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 
 export function CommunityPage() {
@@ -16,15 +17,21 @@ export function CommunityPage() {
                                 <img src={"/home/men.webp"}/>
                             </Box>
                             <Stack sx={{flexDirection: "column"}}>
-                                <Box className={"user_name"}>
-                                    <p>Sunat Nur</p>
-                                    <a>Agency</a>
-                                </Box>
-                                <Box className={"star_box"}>
-                                    <img src={"/icons/rating.svg"}/>
-                                </Box>
+                                <Stack sx={{flexDirection: "row"}}>
+                                    <Box className={"user_name"}>
+                                        <p>Sunat Nur</p>
+                                        <a>Agency</a>
+                                    </Box>
+                                    <Box className={"star_box"}>
+                                        <img src={"/icons/rating.svg"}/>
+
+                                    </Box>
+                                    {/*<a onClick={() => setValue("6")} className={"settings_btn"}>*/}
+                                    <SettingsIcon/>
+                                    {/*</a>*/}
+                                </Stack>
                                 <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
-                                    <Box className={"cont_article"}>
+                                <Box className={"cont_article"}>
                                         <p>Articles</p>
                                         <a>48</a>
                                     </Box>
@@ -41,11 +48,11 @@ export function CommunityPage() {
                                         <a>8.9</a>
                                     </Box>
                                 </Stack>
-                                <Box sx={{ display: 'flex', gap: 1.5, '& > button': { flex: 1 }, marginTop: "15px"}}>
-                                    <Button sx={{ backgroundColor: "#0044bb", color: "#fff"}}>
+                                <Box sx={{display: 'flex', gap: 1.5, '& > button': {flex: 1}, marginTop: "15px", marginLeft: "50px"}}>
+                                    <Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>
                                         Chat
                                     </Button>
-                                    <Button sx={{ backgroundColor: "#0044bb", color: "#fff"}} >
+                                    <Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>
                                         Follow
                                     </Button>
                                 </Box>

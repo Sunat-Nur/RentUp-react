@@ -1,3 +1,11 @@
+import TabPanel from "@mui/lab/TabPanel";
+import TabContext from "@mui/lab/TabContext";
+import {Box, Container, Pagination, PaginationItem, Stack} from "@mui/material";
+import React, {useEffect, useState} from "react";
+import {MemberPosts} from "./memberPosts";
+import {MemberFollowers} from "./memberFollowers";
+import {MemberFollowing} from "./memberFollowing";
+import {MySettings} from "./mySettings";
 import SettingsIcon from "@mui/icons-material/Settings";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -26,7 +34,7 @@ import {Definer} from "../../../lib/definer";
 import FollowApiService from "../../apiSservices/followApiService";
 import {serverApi} from "../../../lib/config";
 import {verifiedMemberData} from "../../apiSservices/verify";
-import {useEffect, useState} from "react";
+
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -36,7 +44,6 @@ const actionDispatch = (dispatch: Dispatch) => ({
     setChosenSingleBoArticle: (data: BoArticle) =>
         dispatch(setChosenSingleBoArticle(data)),
 });
-
 /** REDUX SELECTOR **/
 const chosenMemberRetriever = createSelector(
     retrieveChosenMember,
@@ -45,14 +52,12 @@ const chosenMemberRetriever = createSelector(
     })
 );
 
-
 const chosenMemberBoArticlesRetriever = createSelector(
     retrieveChosenMemberBoArticles,
     (chosenMemberBoArticles) => ({
         chosenMemberBoArticles,
     })
 );
-
 const chosenSingleBoArticleRetriever = createSelector(
     retrieveChosenSingleBoArticle,
     (chosenSingleBoArticle) => ({
@@ -60,12 +65,11 @@ const chosenSingleBoArticleRetriever = createSelector(
     })
 );
 
-export function VisitOtherPage(props:any) {
+export function VisitOtherPage(props: any) {
     /** INITIALIZATIONS */
     const history = useHistory()
     const { chosen_mb_id, chosen_art_id} = props;
     const {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticle,} = actionDispatch(useDispatch());
-
 
     const {chosenMember} = useSelector(chosenMemberRetriever);
     const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
@@ -106,8 +110,6 @@ export function VisitOtherPage(props:any) {
             .catch((err) => console.log(err));
     }, [verifiedMemberData, chosen_mb_id, followRebuild]);
 
-
-
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
@@ -116,7 +118,6 @@ export function VisitOtherPage(props:any) {
         memberArticleSearchObj.page = value
         setMemberArticleSearchObj({...memberArticleSearchObj});
     };
-
 
     const renderChosenArticleHandler = async (e: any, art_id: string) => {
         try {
@@ -161,34 +162,187 @@ export function VisitOtherPage(props:any) {
         }
     };
 
+    return (
+        <div className={"my_page"}>
+            <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
+                <Stack className={"my_page_frame"} sx={{flexDirection: "row"}}>
+                    <TabContext value={value}>
+                        <Stack className={"my_page_left"}>
+                            <Box display={"flex"} flexDirection={"column"}>
+                                <TabPanel value={"1"}>
+                                    <Box className={"menu_name"}> contents</Box>
+                                    <Box className={"menu_content"}>
+                                        <MemberPosts
+                                            chosenMemberBoArticles={chosenMemberBoArticles}
+                                            renderChosenArticleHandler={renderChosenArticleHandler}
+                                            articlesRebuild={articlesRebuild}
+                                        />
+                                        <Stack
+                                            sx={{my: "40px"}}
+                                            direction="row"
+                                            alignItems="center"
+                                            justifyContent="center"
+                                        >
+                                            <Box className={"bottom_box"}>
+                                                <Pagination
+                                                    count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
+                                                    page={memberArticleSearchObj.page}
+                                                    renderItem={(item) => (
+                                                        <PaginationItem
+                                                            components={{
+                                                                previous: ArrowBackIcon,
+                                                                next: ArrowForwardIcon,
+                                                            }}
+                                                            {...item}
+                                                            color={"secondary"}
+                                                        />
+                                                    )}
+                                                    onChange={handlePaginationChange}
+                                                />
+                                            </Box>
+                                        </Stack>
+                                    </Box>
+                                </TabPanel>
+                                <TabPanel value={"2"}>
+                                    <Box className={"menu_name"}>Followers</Box>
+                                    <Box className={"menu_content"}>
+                                        <MemberFollowers
+                                            actions_enabled={false}
+                                            mb_id={chosen_mb_id}
+                                            followRebuild={followRebuild}
+                                            setFollowRebuild={setFollowRebuild}
+                                        />
+                                    </Box>
+                                </TabPanel>
+                                <TabPanel value={"3"}>
+                                    <Box className={"menu_name"}>Following</Box>
+                                    <Box className={"menu_content"}>
+                                        <MemberFollowing
+                                            actions_enabled={false}
+                                            mb_id={chosen_mb_id}
+                                            followRebuild={followRebuild}
+                                            setFollowRebuild={setFollowRebuild}
+                                        />
+                                    </Box>
+                                </TabPanel>
+                                <TabPanel value="4">
+                                    <Box className="menu_name">Tanlangan Maqola</Box>
+                                    <Box className="menu_content">
+                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle} />
+                                    </Box>
+                                </TabPanel>
+                            </Box>
+                        </Stack>
+                        <Stack className={"my_page_right"} style={{height: "365px"}}>
+                            <Box className={"order_info_box"}>
+                                {/*<a onClick={() => setValue("6")} className={"settings_btn"}>*/}
+                                {/*    <SettingsIcon/>*/}
+                                {/*</a>*/}
+                                <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+                                    <div className={"order_user_img"}>
+                                        <img src={
+                                            chosenMember?.mb_image
+                                                ? `${serverApi}/${chosenMember?.mb_image}`
+                                                : "/auth/default_user.svg"
+                                        } className={"order_user_avatar"}/>
+                                    </div>
+                                    <span className={"order_user_name"}>{chosenMember?.mb_nick}</span>
+                                    <span className={"order_user_prof"}>{chosenMember?.mb_type}</span>
+                                </Box>
+                                <Box className={"user_media_box"}
+                                     sx={{color: "#a1a1a1", justifyContent: "space-between", alignItems: "center"}}>
+                                    <FacebookIcon/>
+                                    <InstagramIcon/>
+                                    <TelegramIcon/>
+                                    <YouTubeIcon/>
+                                </Box>
+                                <Box className={"user_media_box_follow"} sx={{flexDirection: "row", mt: "10px"}}>
+                                    Follower: {chosenMember?.mb_subscriber_cnt} "
+                                    Following: {chosenMember?.mb_follow_cnt}
+                                </Box>
+                                <Box className={"user_desc"} sx={{mt: "10px", marginBottom: "9px"}}>
+                                    {chosenMember?.mb_description ??
+                                        "qushimcha ma'lumotlar mavjud emas"}
+                                </Box>
+                                <Box display={"flex"} justifyContent={"flex-end"} sx={{mt: "5px"}}>
+                                    <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                        {chosenMember?.me_followed && chosenMember?.me_followed[0]?.my_following ? (
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        variant="contained"
+                                                        className="btn_cancel"
+                                                        onClick={unsubscribeHandler}
+                                                    >
+                                                        unFollow
+                                                    </Button>
+                                                )}
+                                            />
+                                        ) : (
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        variant="contained"
+                                                        className="btn_follow"
+                                                        onClick={subscribeHandler}
+                                                    >
+                                                        Follow
+                                                    </Button>
+                                                )}
+                                            />
+                                        )}
+                                    </TabList>
+                                </Box>
+                            </Box>
 
+                            <Box className={"my_page_menu"}
+                                 sx={{flexDirection: "column"}}
+                            >
+                                <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                    <Stack flexDirection={"column"}>
+                                        <Tab
+                                            style={{flexDirection: "column",}}
+                                            value={"1"}
+                                            component={() => (
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("1")}>
+                                                    <img src={"/icons/Pencil.svg"} alt=""/>
+                                                    <span> Contents</span>
+                                                </div>
+                                            )}
+                                        />
+
+                                        <Tab
+                                            style={{flexDirection: "column",}}
+                                            value={"2"}
+                                            component={() => (
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("2")}>
+                                                    <img src={"/icons/Group.svg"} alt=""/>
+                                                    <span>Follower</span>
+                                                </div>
+                                            )}
+                                        />
+                                        <Tab
+                                            style={{flexDirection: "column"}}
+                                            value={"3"}
+                                            component={() => (
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("3")}>
+                                                    <img src={"/icons/user.svg"} alt=""/>
+                                                    <span>Following</span>
+                                                </div>
+                                            )}
+                                        />
+
+                                    </Stack>
+                                </TabList>
+                            </Box>
+                        </Stack>
+                    </TabContext>
+                </Stack>
+            </Container>
+        </div>
+    );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
