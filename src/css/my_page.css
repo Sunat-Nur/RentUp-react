@@ -4,7 +4,7 @@
     position: relative;
     flex-direction: row;
     width: 100%;
-    height: 1000px;
+    height: 1500px;
     background-color: #fafafa;
     padding: 50px;
 }
@@ -92,7 +92,7 @@
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    width: 550px;
+    width: 650px;
 
     display: flex;
     background-color: #f3f3f3;
@@ -169,7 +169,6 @@
 .member_page {
     display: flex;
     width: 100%;
-    height: 1000px;
 }
 
 /*Visit-MyPage css*/
@@ -328,7 +327,6 @@
     stroke-width: 2px;
     stroke: #000;
     display: flex;
-    margin-left: 220px;
     margin-top: 20px;
 }
 
@@ -530,6 +528,8 @@
     width: 880px;
     height: auto;
     display: flex;
+    /*background-color: #fff;*/
+
 }
 
 .my_settings .my_settings_page input {
@@ -548,8 +548,8 @@
 .my_settings_page .member_media_frame {
     width: 821.42px;
     height: 120px;
-    border-radius: 5px;
-    background: #F6F6F6;
+    border-radius: 15px;
+    background: #c5c8c9;
     margin-bottom: 59px;
 
     flex-direction: row;
@@ -600,10 +600,11 @@
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
-    background: #F6F6F6;
+    background: #fff;
     margin-bottom: 59px;
     margin-top: 10px;
 }
+
 
 .my_settings_page .spec_label {
     color: #FFF;
@@ -619,6 +620,7 @@
     flex-direction: row;
     display: flex;
     align-items: center;
+
 }
 
 
@@ -627,7 +629,7 @@
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
-    background: #F6F6F6;
+    background: #fff;
     margin-bottom: 50px;
     align-items: center;
     /*justify-content: center;*/
@@ -639,7 +641,7 @@
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
-    background: #F6F6F6;
+    background: #fff;
     margin-bottom: 50px;
 }
 

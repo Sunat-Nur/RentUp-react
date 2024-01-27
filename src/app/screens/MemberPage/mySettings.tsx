@@ -90,8 +90,8 @@ export function MySettings(props: any) {
                         height={"100px"}
                     />
                     <div className={"media_change_box"}>
-                        <span>Rasm Yuklash</span>
-                        <p>JPG, JPEG, PNG rasmlarini yuklay olasiz!</p>
+                        <span>upoad image</span>
+                        <p>JPG, JPEG, PNG types are availabel </p>
                         <Box className={"up_del_box"}>
                             <Button
                                 onChange={handleImageChange}
@@ -106,7 +106,7 @@ export function MySettings(props: any) {
                 </Box>
                 <Box className={"input_frame"}>
                     <div className={"long_input"}>
-                        <label className={"spec_label"}>Ism</label>
+                        <label className={"spec_label"}>name</label>
                         <input
                             onChange={handleNickChange}
                             className={"spec_input_mb_nick"}
@@ -118,7 +118,7 @@ export function MySettings(props: any) {
                 </Box>
                 <Box className={"input_frame"}>
                     <div className={"short_input"}>
-                        <label className={"spec_label"}>Telefon Raqam</label>
+                        <label className={"spec_label"}>number</label>
                         <input
                             onChange={handlePhoneChange}
                             className={"spec_input_mb_phone"}
@@ -128,7 +128,7 @@ export function MySettings(props: any) {
                         />
                     </div>
                     <div className={"short_input"}>
-                        <label className={"spec_label"}>Manzil</label>
+                        <label className={"spec_label"}>address</label>
                         <input
                             onChange={handleAddressChange}
                             className={"spec_input_mb_address"}
@@ -140,7 +140,7 @@ export function MySettings(props: any) {
                 </Box>
                 <Box className={"input_frame"}>
                     <div className={"long_input"}>
-                        <label className={"spec_label"}>Ma'lumot</label>
+                        <label className={"spec_label"}>Information</label>
                         <textarea
                             onChange={handleDescriptionChange}
                             className={"spec_textarea_mb_description"}

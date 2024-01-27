@@ -150,7 +150,7 @@ export function VisitMyPage(props: any) {
                                             <img src={"/icons/rating.svg"}/>
 
                                         </Box>
-                                        <a onClick={() => setValue("6")} className={"settings_btn"}>
+                                        <a onClick={() => setValue("6")} className={"settings_btn"} style={{ marginLeft: "200px"}}>
                                         <SettingsIcon/>
                                         </a>
                                     </Stack>
