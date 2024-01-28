@@ -59,10 +59,13 @@ export function CommunityPage() {
                             </Stack>
                         </Stack>
                         <Stack className={"rating_cnt"} sx={{flexDirection: "row"}}>
-
                         </Stack>
 
                     </Stack>
+
+
+
+
                     {/*</TabContext>*/}
                 </Stack>
             </Container>

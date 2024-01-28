@@ -5,7 +5,7 @@
     flex-direction: row;
     width: 100%;
     height: 1500px;
-    background-color: #fafafa;
+    background-color: #000;
     padding: 50px;
 }
 
@@ -30,6 +30,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 300px;
+    margin-right: 100px;
 }
 
 .mypage_second_box {
@@ -166,26 +167,42 @@
 
 
 
-.member_page {
-    display: flex;
-    width: 100%;
-}
+/*.member_page {*/
+/*    display: flex;*/
+/*    width: 100%;*/
+/*    background-color: black;*/
+/*}*/
 
 /*Visit-MyPage css*/
 
-/*.my_page {*/
-/*    display: flex;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background: #0b0e11;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-between;*/
-/*}*/
+.my_page {
+    display: flex;
+    width: 100%;
+    height: 1500px;
+    background: #0b0e11;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+.mypage_middle {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    margin-top: 100px;
+}
 
 .content_page {
     width: 821px;
     height: fit-content;
+}
+
+
+.mypage_bottom  {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .my_page .menu_name {
@@ -300,10 +317,10 @@
     margin-left: 57px;
     position: relative;
     width: 372.58px;
-    height: 460px;
+    /*height: 460px;*/
     border-radius: 16px;
     display: flex;
-    background: #FFF;
+    /*background: #FFF;*/
     flex-direction: column;
     box-shadow: 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset,
     0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
@@ -422,13 +439,13 @@
 }
 
 
-.my_page_menu {
-    margin-top: 40px;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-}
+/*.my_page_menu {*/
+/*    margin-top: 40px;*/
+/*    align-items: center;*/
+/*    flex-direction: column;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
 
 .my_page_right .menu_box {
     width: 372.58px;
@@ -525,9 +542,10 @@
 /*    MY-settings_css*/
 
 .my_settings {
-    width: 880px;
+    width: 821.42px;
     height: auto;
     display: flex;
+    margin-top: 50px;
     /*background-color: #fff;*/
 
 }

@@ -27,9 +27,10 @@ export function BestCompany() {
     const history = useHistory();
     const {bestCompany} = useSelector(bestCompanyRetriever);
 
-    const chosenBestCompany = (id: string) => {
-        history.push(`/company/${id}`);
-    }
+    const visitMemberHandler = (mb_id: string) => {
+        history.push(`/member-page/other?mb_id=${mb_id}`);
+        document.location.reload();
+    };
 
     return (
         <div className="best_agency_frame">
@@ -52,7 +53,7 @@ export function BestCompany() {
                                 const image_path = `${serverApi}/${ele.mb_image}`;
                                 return (
                                     <Box
-                                        // onClick={() => chosenBestCompany(ele._id)}
+                                        onClick={() => visitMemberHandler(ele._id)}
                                     >
                                         <Box className="best_agency_main_box">
                                             <img src={image_path}/>
