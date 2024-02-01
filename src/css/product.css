@@ -561,7 +561,7 @@
 
 }
 
-.restaurant_page .single_restaurant .category_title h1{
+.restaurant_page .single_restaurant .category_title h1 {
     color: #E3C08D;
     font-family: "Dancing Script";
     font-size: 36px;
@@ -868,23 +868,83 @@
 
 .chosen_dish_page .chosen_dish_slider {
     width: 611px;
-    height: 570px;
-    margin-right: 140px;
+    height: 750px;
+    margin-bottom: 50px;
 }
 
 .chosen_dish_page .dish_swiper {
     --swiper-navigation-color: #fff;
     --swiper-pagination-color: #fff;
-    width: 700px;
+    width: 1290px;
     height: 1020px;
     border-radius: 10px;
 }
 
+.chosen_product_top {
+    width: 1300px;
+    height: auto;
+    display: flex;
+    background-color: #f6f5f3;
+}
+
+.property_type {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.property_type span {
+    position: relative;
+    flex-direction: row;
+    color: #181a20;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: .02em;
+    line-height: 35px;
+    text-transform: capitalize;
+}
+.price_icon a{
+    color: #b48b50;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: .02em;
+    line-height: 20px;
+    text-transform: capitalize;
+
+}
+
+.chosenProduct_agency {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    margin-left: 50px;
+    background-color: #a1a1a1;
+
+}
+
+.property_address span {
+    position: relative;
+    flex-direction: row;
+    color: #0c0e12;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: .02em;
+    line-height: 20px;
+    text-transform: capitalize;
+    margin-right: 880px;
+}
 
 .chosen_dish_page .dish_swiper_second {
     --swiper-navigation-color: #fff;
     --swiper-pagination-color: #fff;
-    width: 500px;
+    width: 800px;
     height: 107px;
     flex-shrink: 0;
     justify-content: space-between;
@@ -900,13 +960,23 @@
     margin-top: 100px;
 
 }
+
+.comment_box {
+    width: 100%;
+    margin-top: 50px;
+    height: max-content;
+    display: flex;
+    position: relative;
+    background-color: #ffcc00;
+}
+
 .chosenProperty_post {
     width: 600px;
     height: 160px;
     flex-shrink: 0;
     border-radius: 25px;
     padding: 20px 30px 30px 30px;
-    fill:  #F9FCFF;
+    fill: #F9FCFF;
     stroke-width: 1px;
     stroke: #C7D5E1;
     filter: drop-shadow(0px 0px 10px #AEC0CE);
@@ -920,7 +990,7 @@
     flex-shrink: 0;
     border-radius: 25px;
     padding: 1px 30px 30px 30px;
-    fill:  #F9FCFF;
+    fill: #F9FCFF;
     stroke-width: 1px;
     stroke: #C7D5E1;
     filter: drop-shadow(0px 0px 10px #AEC0CE);
@@ -953,18 +1023,21 @@
 
 .chosen_dish_info_container {
     padding: 30px 40px;
-    width: 523px;
-    height: 452px;
+    width: 800px;
+    height: 252px;
     display: flex;
     background: #FFFFFF;
+    margin-top: 50px;
     border-radius: 16px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;;
+    /*box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;;*/
 }
-.logo_box img{
+
+.logo_box img {
     width: 160px;
     height: 50px;
     margin-left: 150px;
 }
+
 .location_icon img {
     margin-right: 40px;
 }
@@ -972,8 +1045,17 @@
 .chosen_dish_info_container .chosen_dish_info_box {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+.chosen_dish_info_box a{
+    font-family: "Poppins";
+    justify-content: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+
 }
 
 .chosen_dish_info_box .dish_txt {
@@ -1002,6 +1084,44 @@
     font-weight: 400;
     color: #000;
 }
+
+.icons_box {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 50px;
+}
+.icons_box_a a {
+    color: #140342;
+}
+
+.icons_box img {
+    height: 20px;
+    width: 20px;
+}
+
+.description_box {
+    width: 800px;
+    height: 200px;
+    position: relative;
+    background-color: #fff;
+    margin-top: 130px;
+    border-radius: 15px;
+    padding: 20px;
+}
+.description_box h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
 .location_icon span {
     font-size: 20px;
     margin-left: 1px;
@@ -1010,6 +1130,7 @@
     color: #b48b50;
     /*margin-right: 120px;*/
 }
+
 .callIcon {
     margin-left: 110px;
 }
@@ -1109,12 +1230,12 @@
     line-height: normal;
     border-radius: 4px;
 }
+
 .owner_icon img {
     width: 25px;
     height: 25px;
     margin-top: 20px;
 }
-
 
 
 bookBox_main {
@@ -1136,6 +1257,7 @@ bookBox_main {
     height: 13px;
     flex-shrink: 0;
 }
+
 .icons_box p {
     width: 170px;
     color: #000;
@@ -1163,6 +1285,7 @@ bookBox_main {
     background: #EEDFF3;
     margin-top: 10px;
 }
+
 .price_box a {
     color: #000;
     font-family: Poppins;
