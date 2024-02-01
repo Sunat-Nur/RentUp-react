@@ -1,8 +1,8 @@
-import "../../../css/home.css"
 import {Route, Switch, useRouteMatch} from "react-router-dom";
 import {AllProductPage} from "./allProduct";
 import {ChosenProductPage} from "./chosenProduct";
 import "../../../css/product.css"
+import "../../../css/home.css"
 
 
 export function ProductPage(props: any) {

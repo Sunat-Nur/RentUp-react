@@ -27,7 +27,7 @@ export function NavbarAgency(props: any) {
 
                         <Box className="hover-line" onClick={props.setPath}>
                             <NavLink to="/">
-                                Main Page
+                                Home
                             </NavLink>
                         </Box>
 

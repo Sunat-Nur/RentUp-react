@@ -37,43 +37,43 @@ export function CommunityChats() {
     const [onlineUsers, setOnlineUsers] = useState<number>(0);
     const [message, setMessage] = useState<string>("");
 
-    useEffect(() => {
-        socket.connect();
-        console.log("connect:::", connect);
-        console.log("Printed");
-        socket?.on("connect", function () {
-            console.log("CLIENT: connected");
-        });
-
-        socket?.on("newMsg", (new_message: ChatMessage) => {
-            console.log("Client: new message");
-            messagesList.push(
-                //@ts-ignore
-                <NewMessage new_message={new_message} key={messagesList.length}/>,
-            );
-            setMessagesList([...messagesList]);
-        });
-        socket?.on("greetMsg", (msg: ChatGreetMsg) => {
-            console.log("Client: greet message");
-            messagesList.push(
-                //@ts-ignore
-                <p style={{textAlign: "center", fontSize: "large", fontFamily: "serif"}}>
-                    {msg.text}, dear {verifiedMemberData?.mb_nick ?? "guest"}
-                </p>
-            );
-            setMessagesList([...messagesList]);
-        });
-
-        socket?.on("infoMsg", (msg: any) => {
-            console.log("CLIENT: info message");
-            setOnlineUsers(msg.total);
-        });
-
-
-        return () => {
-            socket.disconnect();
-        };
-    }, [socket]);
+    // useEffect(() => {
+    //     socket.connect();
+    //     console.log("connect:::", connect);
+    //     console.log("Printed");
+    //     socket?.on("connect", function () {
+    //         console.log("CLIENT: connected");
+    //     });
+    //
+    //     socket?.on("newMsg", (new_message: ChatMessage) => {
+    //         console.log("Client: new message");
+    //         messagesList.push(
+    //             //@ts-ignore
+    //             <NewMessage new_message={new_message} key={messagesList.length}/>,
+    //         );
+    //         setMessagesList([...messagesList]);
+    //     });
+    //     socket?.on("greetMsg", (msg: ChatGreetMsg) => {
+    //         console.log("Client: greet message");
+    //         messagesList.push(
+    //             //@ts-ignore
+    //             <p style={{textAlign: "center", fontSize: "large", fontFamily: "serif"}}>
+    //                 {msg.text}, dear {verifiedMemberData?.mb_nick ?? "guest"}
+    //             </p>
+    //         );
+    //         setMessagesList([...messagesList]);
+    //     });
+    //
+    //     socket?.on("infoMsg", (msg: any) => {
+    //         console.log("CLIENT: info message");
+    //         setOnlineUsers(msg.total);
+    //     });
+    //
+    //
+    //     return () => {
+    //         socket.disconnect();
+    //     };
+    // }, [socket]);
 
     /** Handler **/
     const getInputMessageHandler = useCallback(

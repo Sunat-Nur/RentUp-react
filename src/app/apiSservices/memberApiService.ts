@@ -68,7 +68,6 @@ class MemberApiService {
             const result = await axios.post(this.path + "/member-liken", data, {
                 withCredentials: true,
             });
-
             assert.ok(result?.data, Definer.general_err1);
             assert.ok(result?.data.state !== "fail", result.data.state);
             console.log("state:::", result.data.state);

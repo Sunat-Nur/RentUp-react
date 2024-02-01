@@ -24,6 +24,7 @@ import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
 import Visibility from '@mui/icons-material/Visibility';
 import CreateNewFolder from '@mui/icons-material/CreateNewFolder';
+import "../../../css/home.css"
 
 /** REDUX  */
 import {createSelector} from "reselect";
@@ -34,8 +35,6 @@ import {Dispatch} from "@reduxjs/toolkit";
 import {setTargetCompany} from "./slice";
 import {verifiedMemberData} from "../../apiSservices/verify";
 import {Box, Container, Stack} from "@mui/system";
-import "../../../css/product.css"
-import "../../../css/home.css"
 import {CssVarsProvider} from "@mui/joy/styles";
 import {Comment} from "../HomePage/comment";
 
@@ -244,7 +243,7 @@ export function AgencyPage() {
                                                         px: 0.5,
                                                     }}
                                                 >
-                                                    Featured
+                                                    profile
                                                 </Chip>
                                                 <Link
                                                     href="#dribbble-shot"
@@ -297,7 +296,7 @@ export function AgencyPage() {
                         <img className={"line_img_two"} src={"/restaurant/icons_right.svg"} alt=""/>
                     </Stack>
                     <Stack sx={{ marginTop: "50px"}}>
-                        <Comment/>
+                        {/*<Comment/>*/}
                     </Stack>
                 </Stack>
             </Container>

@@ -41,8 +41,6 @@ export function NavbarHome(props: any) {
                                 Agency
                             </NavLink>
                         </Box>
-
-
                         <Box className="hover-line" onClick={props.setPath}>
                             <NavLink to="/community" activeClassName="underline">
                                 Community

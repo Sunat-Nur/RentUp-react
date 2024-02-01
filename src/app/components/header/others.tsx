@@ -28,7 +28,7 @@ export function NavbarOthers(props: any) {
 
                     <Box className="hover-line" onClick={props.setPath}>
                         <NavLink to="/company" activeClassName="underline">
-                            property
+                            Property
                         </NavLink>
                     </Box>
                     <Box className="hover-line" onClick={props.setPath}>
@@ -40,7 +40,7 @@ export function NavbarOthers(props: any) {
 
                     <Box className="hover-line" onClick={props.setPath}>
                         <NavLink to="/community" activeClassName="underline">
-                            Jamiyat
+                            Community
                         </NavLink>
                     </Box>
 

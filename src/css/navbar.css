@@ -7,18 +7,22 @@
 }
 .format_restaurant.home_navbar {
     width: 100%;
-    height: 400px;
+    height: 150px;
     display: flex;
-    background: url("/public/home/eco2.webp");
-    background-size: cover;
+    /*background-color: black;*/
+    background: url("/public/home/new.jpeg");
+    opacity: 7;
+    z-index: 1000;
+    visibility: initial;
 }
 
 .format_order.home_navbar {
     width: 100%;
-    height: 400px;
+    height: 150px;
     display: flex;
-    background: url("/public/home/22.webp");
-    background-size: cover;
+    background: url("/public/home/new.jpeg");
+    opacity: 7;
+    z-index: 1000;
 }
 
 .home_navbar .navbar_config {

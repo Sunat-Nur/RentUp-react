@@ -6,7 +6,12 @@
     width: 100%;
     height: auto;
     background-color: #fafafa;
-    padding: 100px 100px 100px 100px;
+    padding: 50px 10px 100px 10px;
+}
+
+.allProduct_middle_left {
+    position: relative;
+    margin-right: 30px;
 }
 
 .allProduct_main {
@@ -22,6 +27,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 100px;
 
 }
 
@@ -50,7 +56,7 @@
 .allProduct_middle {
     position: relative;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .allProduct_search_part {
@@ -65,6 +71,7 @@
     padding: 25px;
 
 }
+
 
 .allProduct_each_box {
     width: 100%;
@@ -129,8 +136,8 @@
     display: flex;
     font-family: "Quicksand";
     font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
+    font-weight: 400;
+    font-size: 20px;
     justify-content: flex-end;
     line-height: 25px;
     color: #FFFFFF;
@@ -194,7 +201,7 @@
 
 .all_agency_frame .fil_box a {
     text-decoration: none;
-    color: #007700;
+    color: #ae0000;
     font-weight: 400;
     vertical-align: top;
 }
@@ -220,6 +227,112 @@
 }
 
 
+
+
+
+/* Comment */
+.homepage .comment_frame{
+    width: 100%;
+    height: 629px;
+    flex-shrink: 0;
+    background-color: #fafafa;
+    padding: 50px 50px 50px 50px;
+}
+.homepage .comment_frame_box{
+    color: #000;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 85.714% */
+}
+
+.homepage .comment_frame_box a {
+    margin-top: 40px;
+}
+
+.homepage .comment_frame_box p{
+    width: 584px;
+    height: 53px;
+    flex-shrink: 0;
+    color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.homepage .comment_middle_box{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.homepage .comment_main_box{
+    width: 428px;
+    height: 269px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFF;
+
+    /* shadow01 */
+    box-shadow: 0px 7px 20px 0px rgba(141, 40, 173, 0.15);
+}
+.homepage .comment_main_box .comment_img{
+    width: 196px;
+    height: 25px;
+    flex-shrink: 0;
+    padding: 30px 202px 21px 30px;
+}
+.homepage .text_def{
+    width: 380px;
+    height: 70px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 5px 18px 114px 30px;
+}
+.homepage .text_def p {
+    height: 27px;
+    width: 110px;
+    flex-direction: row;
+    color: #3D3D3D;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 15px 188px 57px 5px;
+}
+.homepage .author_book img {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    margin-left: 280px;
+    border-radius: 10px;
+    background: #FFF;
+
+    /* shadow01 */
+    box-shadow: 0px 7px 20px 0px rgba(141, 40, 173, 0.15);
+
+}
+.homepage .comment_pagination{
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: #FFF;
+    filter: drop-shadow(0px 7px 20px rgba(141, 40, 173, 0.15));
+
+
+}
 
 
 
