@@ -29,3 +29,7 @@ export const retrieveNewsBoArticles = createSelector(
     selectHomePage,
     (HomePage) => HomePage.newsBoArticles
 );
+export const retrieveComment = createSelector(
+    selectHomePage,
+    (HomePage) => HomePage.comment
+);

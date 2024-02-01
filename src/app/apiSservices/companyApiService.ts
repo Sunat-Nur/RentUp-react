@@ -12,7 +12,7 @@ export default class CompanyApiService {
 
     async getBestCompany(data: any): Promise<Company[]> {
         try {
-            const url = `/companies?order=${data.order}&page=1&limit=${data.limit}`,
+            const url = `/companies?order=${data.order}&page=${data.page}&limit=${data.limit}`,
                 result = await axios.get(this.path + url, { withCredentials: true });
             assert.ok(result, Definer.general_err1);
 
@@ -27,7 +27,7 @@ export default class CompanyApiService {
 
     async getCompanys(data: any): Promise<Company[]> {
         try {
-            const url = `/companies?order=${data.order}&page=1&limit=${data.limit}`,
+            const url = `/companies?order=${data.order}&page=${data.page}&limit=${data.limit}`,
                 result = await axios.get(this.path + url, { withCredentials: true });
             assert.ok(result, Definer.general_err1);
 

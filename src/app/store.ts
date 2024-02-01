@@ -2,13 +2,15 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import HomePageReducer from "./screens/HomePage/slice";
 import ProductPageReducer from "./screens/ProductPage/slice";
 import {MemberPageReducer} from "./screens/MemberPage/slice";
-import {MemberPage} from "./screens/MemberPage";
+import CommunityPageReducer from "./screens/CommunityPage/slice";
+import AgencyPageReducer from "./screens/AgencyPage/slice";
 
 export const store = configureStore({
   reducer: {
     homePage: HomePageReducer,
     productPage: ProductPageReducer,
-    // communityPage: CommunityPageReducer,
+    agencyPage: AgencyPageReducer,
+    communityPage: CommunityPageReducer,
     memberPage: MemberPageReducer,
   },
 });

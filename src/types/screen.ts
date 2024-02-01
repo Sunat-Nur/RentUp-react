@@ -8,6 +8,7 @@ import {Follower, Following} from "./follow";
 export interface AppRootState {
     homePage: HomePageState;
     productPage: ProductPageState;
+    agencyPage: AgencyPageState;
     communityPage: CommunityPageState;
     memberPage: MemberPageState;
 }
@@ -20,6 +21,7 @@ export interface  HomePageState {
     luxuryProperty: Product[];
     trendBoArticles: BoArticle[];
     newsBoArticles: BoArticle[];
+    comment: BoArticle[];
 }
 
 /** Product page **/
@@ -31,10 +33,18 @@ export interface ProductPageState{
     chosenProduct: Product | null;
 }
 
+/** Agency page **/
+export interface AgencyPageState{
+    tartgetCompanys: Company[];
+}
+
+
 /** community page **/
 export interface CommunityPageState{
     targetBoArticles: BoArticle[];
 }
+
+
 
 /** Member page **/
 export interface MemberPageState {

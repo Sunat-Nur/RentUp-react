@@ -15,6 +15,7 @@ import {setBestCompany, setTopHomes} from "./slice";
 import {useDispatch} from "react-redux";
 import CompanyApiService from "../../apiSservices/companyApiService";
 import ProductApiService from "../../apiSservices/productApiService";
+import {Comment} from "./comment";
 
 
 /** REDUX SLICE */
@@ -57,5 +58,6 @@ export function HomePage() {
         <Events />
         <Posts/>
         <Recommendations/>
+        <Comment/>
     </div>;
 }

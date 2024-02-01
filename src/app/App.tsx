@@ -16,11 +16,12 @@ import AuthenticationModal from "./components/auth";
 import MemberApiService from "./apiSservices/memberApiService";
 import {sweetFailureProvider, sweetTopSmallSuccessAlert} from "../lib/sweetAlert";
 import {Definer} from "../lib/definer";
-// import "../app/apiServices/verify";
+import "../app/apiSservices/verify";
 import {CartItem} from "../types/others";
 import {Product} from "../types/product";
 import {NavbarHome} from "./components/header";
 import {ProductPage} from "./screens/ProductPage";
+import {AgencyPage} from "./screens/AgencyPage";
 
 
 function App() {
@@ -182,6 +183,9 @@ function App() {
             <Switch>
                 <Route path="/company">
                     < ProductPage onAdd={onAdd}/>
+                </Route>
+                <Route path="/agency">
+                    < AgencyPage/>
                 </Route>
                 <Route path="/community">
                     < CommunityPage/>

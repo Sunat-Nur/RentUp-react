@@ -561,14 +561,13 @@
 
 }
 
-.restaurant_page .single_restaurant .category_title h1{
+.restaurant_page .single_restaurant .category_title {
     color: #E3C08D;
     font-family: "Dancing Script";
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
     line-height: 43px;
-    margin-bottom: 1px;
 }
 
 
@@ -846,12 +845,12 @@
 .chosen_dish_page {
     position: relative;
     width: 100%;
-    height: 2500px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    background: #fafafa;
+    background: #0b0e11;
 }
 
 
@@ -869,13 +868,12 @@
 .chosen_dish_page .chosen_dish_slider {
     width: 611px;
     height: 570px;
-    margin-right: 140px;
 }
 
 .chosen_dish_page .dish_swiper {
     --swiper-navigation-color: #fff;
     --swiper-pagination-color: #fff;
-    width: 700px;
+    width: 100%;
     height: 1020px;
     border-radius: 10px;
 }
@@ -893,80 +891,15 @@
     border-radius: 10px;
 }
 
-.property_description {
-    width: 100%;
-    height: 500px;
-    position: relative;
-    margin-top: 100px;
-
-}
-.chosenProperty_post {
-    width: 600px;
-    height: 160px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    padding: 20px 30px 30px 30px;
-    fill:  #F9FCFF;
-    stroke-width: 1px;
-    stroke: #C7D5E1;
-    filter: drop-shadow(0px 0px 10px #AEC0CE);
-    background-color: #fff;
-    margin-bottom: 30px;
-}
-
-.description_main_box {
-    width: 100%;
-    height: 200px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    padding: 1px 30px 30px 30px;
-    fill:  #F9FCFF;
-    stroke-width: 1px;
-    stroke: #C7D5E1;
-    filter: drop-shadow(0px 0px 10px #AEC0CE);
-    background-color: #fff;
-    margin-bottom: 80px;
-}
-
-.description_main_box h4 {
-    color: #000;
-    font-family: Jost;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 46.8px */
-
-}
-
-.chosenProperty_post img {
-    display: flex;
-    position: relative;
-    margin-top: 10px;
-}
-
-.post_data span {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    margin-left: 300px;
-}
 
 .chosen_dish_info_container {
     padding: 30px 40px;
-    width: 523px;
+    width: 623px;
     height: 452px;
     display: flex;
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;;
-}
-.logo_box img{
-    width: 160px;
-    height: 50px;
-    margin-left: 150px;
-}
-.location_icon img {
-    margin-right: 40px;
 }
 
 .chosen_dish_info_container .chosen_dish_info_box {
@@ -995,28 +928,9 @@
     color: #979797;
 }
 
-.location_icon a {
-    font-size: 20px;
-    margin-left: 1px;
-    margin-bottom: 10px;
-    font-weight: 400;
-    color: #000;
-}
-.location_icon span {
-    font-size: 20px;
-    margin-left: 1px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: #b48b50;
-    /*margin-right: 120px;*/
-}
-.callIcon {
-    margin-left: 110px;
-}
-
-.chosen_dish_info_container .dish_text span {
-    width: 188px;
-    height: 28px;
+.chosen_dish_info_container .dish_text {
+    width: 288px;
+    height: 38px;
     flex-shrink: 0;
     color: #000;
 
@@ -1046,7 +960,7 @@
     justify-content: space-between;
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 
@@ -1099,8 +1013,8 @@
     height: 20.974px;
     flex-shrink: 0;
     display: flex;
-    margin-top: 30px;
-    margin-left: 150px;
+    margin-top: 40px;
+    margin-left: 200px;
     align-items: center;
     font-family: Poppins;
     font-size: 15px;
@@ -1108,76 +1022,8 @@
     font-weight: 600;
     line-height: normal;
     border-radius: 4px;
-}
-.owner_icon img {
-    width: 25px;
-    height: 25px;
-    margin-top: 20px;
+
 }
 
 
 
-bookBox_main {
-    width: 170px;
-    height: 490px;
-    flex-shrink: 0;
-    background-color: #b48b50;
-}
-
-.book_image img {
-    width: 170px;
-    height: 243px;
-    flex-shrink: 0;
-    border-radius: 20px;
-}
-
-.icons_box img {
-    width: 74.533px;
-    height: 13px;
-    flex-shrink: 0;
-}
-.icons_box p {
-    width: 170px;
-    color: #000;
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 30px; /* 166.667% */
-}
-
-.icons_box p {
-    color: rgba(0, 0, 0, 0.80);
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
-}
-
-.price_box {
-    width: 152px;
-    height: 73px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #EEDFF3;
-    margin-top: 10px;
-}
-.price_box a {
-    color: #000;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 120% */
-    margin-left: 30px;
-    margin-top: 30px;
-}
-
-.price_box img {
-    width: 57px;
-    height: 57px;
-    flex-shrink: 0;
-    cursor: pointer;
-
-}

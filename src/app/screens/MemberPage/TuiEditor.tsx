@@ -115,9 +115,11 @@ export const TuiEditor = (props: any) => {
                                 onChange={changeCategoryHandler}
                             >
                                 <MenuItem value="">Categoryni tanalang</MenuItem>
-                                <MenuItem value={"celebrity"}>Mashhurlar</MenuItem>
-                                <MenuItem value={"evaluation"}>Restoranga baho</MenuItem>
-                                <MenuItem value={"story"}>Mening hikoyam</MenuItem>
+                                <MenuItem value={"celebrity"}>Famous</MenuItem>
+                                <MenuItem value={"agency"}>Agency</MenuItem>
+                                <MenuItem value={"story"}>my story</MenuItem>
+                                <MenuItem value={"home"}>property</MenuItem>
+                                <MenuItem value={"owner"}>owner post</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>

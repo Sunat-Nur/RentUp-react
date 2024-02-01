@@ -60,7 +60,7 @@
     display: flex;
     border-radius: 28px;
     border: 1px solid #C7D5E1;
-    background:  #EAF0F5;
+    background: #EAF0F5;
     margin-top: 40px;
     padding: 25px;
 
@@ -89,10 +89,135 @@
     height: auto;
 }
 
+/*agency Page*/
+
+.all_agency {
+    width: 100%;
+    height: auto;
+    position: relative;
+    justify-content: space-between;
+    padding: 50px 50px 50px 50px;
+
+}
 
 
+.all_agency_frame .fil_search_box {
+    position: relative;
+    width: 100%;
+    height: 33px;
+    margin-top: 50px;
+    max-width: 1305px;
+    margin-right: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all_agency_frame.fil_box {
+    position: relative;
+    width: 420px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all_agency_frame .fil_box a {
+    position: relative;
+    display: flex;
+    font-family: "Quicksand";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    justify-content: flex-end;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-right: 30px;
+    /*background-color: #ffcc00;*/
+    /*height: 35px;*/
+    /*width: 150px;*/
+    /*border-radius: 5px;*/
+}
+
+.all_agency_frame .fil_box a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+.all_agency_frame .fil_box a::before,
+.fil_box a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.all_agency_frame .fil_box a::before {
+    background-color: #d7b686;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.all_agency_frame .fil_box a::after {
+    content: attr(data_replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #d7b686;
+}
+
+.all_agency_frame .fil_box a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+.all_agency_frame .fil_box a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+.all_agency_frame .fil_box a span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.all_agency_frame.fil_box a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
+.all_agency_frame .fil_box a {
+    text-decoration: none;
+    color: #007700;
+    font-weight: 400;
+    vertical-align: top;
+}
 
 
+.all_agency_box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.agency_second {
+    position: relative;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+
+.bottom_box {
+    margin-top: 50px;
+}
 
 
 

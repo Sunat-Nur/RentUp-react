@@ -1,6 +1,7 @@
 import React from "react";
 import {Route, Switch, useLocation, useRouteMatch} from "react-router-dom";
 import "../../../css/my_page.css"
+import "../../../css/community.css"
 import {VisitOtherPage} from "./visitOtherPage";
 import {VisitMyPage} from "./visitMyPage";
 

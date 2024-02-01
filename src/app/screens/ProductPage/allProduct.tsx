@@ -130,64 +130,64 @@ export function AllProductPage(props: any) {
             <Container>
                 <Stack className="allProduct_main">
                     <Stack className="allProduct_hearder">
-                        <Stack className="allProduct_type_button">
-                            <Box className="property_filter_main_middle" sx={{flexDirection: "row"}}>
-                                <Button
-                                    className="property_type_box_middle"
-                                    variant={"contained"}
-                                    color="secondary"
-                                    sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}
-                                    onClick={() => searchCollectionHandler("Apartment")}
-                                >
-                                    Apartment
-                                </Button>
-                                <Button
-                                    className="property_type_box_middle"
-                                    variant={"contained"}
-                                    color="secondary"
-                                    sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}
-                                    onClick={() => searchCollectionHandler("House")}
-                                >
-                                    House
-                                </Button>
-                                <Button
-                                    className="property_type_box_middle"
-                                    variant={"contained"}
-                                    color="secondary"
-                                    sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}
-                                    onClick={() => searchCollectionHandler("Office")}
-                                >
-                                    Office
-                                </Button>
+                        {/*<Stack className="allProduct_type_button">*/}
+                        {/*    <Box className="property_filter_main_middle" sx={{flexDirection: "row"}}>*/}
+                        {/*        <Button*/}
+                        {/*            className="property_type_box_middle"*/}
+                        {/*            variant={"contained"}*/}
+                        {/*            color="secondary"*/}
+                        {/*            sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}*/}
+                        {/*            onClick={() => searchCollectionHandler("Apartment")}*/}
+                        {/*        >*/}
+                        {/*            Apartment*/}
+                        {/*        </Button>*/}
+                        {/*        <Button*/}
+                        {/*            className="property_type_box_middle"*/}
+                        {/*            variant={"contained"}*/}
+                        {/*            color="secondary"*/}
+                        {/*            sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}*/}
+                        {/*            onClick={() => searchCollectionHandler("House")}*/}
+                        {/*        >*/}
+                        {/*            House*/}
+                        {/*        </Button>*/}
+                        {/*        <Button*/}
+                        {/*            className="property_type_box_middle"*/}
+                        {/*            variant={"contained"}*/}
+                        {/*            color="secondary"*/}
+                        {/*            sx={{fontWeight: 600, color: "#000", background: "#e3c08D", marginRight: "25px"}}*/}
+                        {/*            onClick={() => searchCollectionHandler("Office")}*/}
+                        {/*        >*/}
+                        {/*            Office*/}
+                        {/*        </Button>*/}
 
-                                <Button className="property_type_box_middle"
-                                        variant={"contained"}
-                                        color="secondary"
-                                        sx={{
-                                            fontWeight: 600,
-                                            color: "#000",
-                                            background: "#e3c08D",
-                                            marginRight: "25px"
-                                        }}
-                                        onClick={() => searchCollectionHandler("Villa")}
-                                >
-                                    Villa
-                                </Button>
-                                <Button className="property_type_box_middle"
-                                        variant={"contained"}
-                                        color="secondary"
-                                        sx={{
-                                            fontWeight: 600,
-                                            color: "#000",
-                                            background: "#e3c08D",
-                                            marginRight: "25px"
-                                        }}
-                                        onClick={() => searchCollectionHandler("studio")}
-                                >
-                                    studio
-                                </Button>
-                            </Box>
-                        </Stack>
+                        {/*        <Button className="property_type_box_middle"*/}
+                        {/*                variant={"contained"}*/}
+                        {/*                color="secondary"*/}
+                        {/*                sx={{*/}
+                        {/*                    fontWeight: 600,*/}
+                        {/*                    color: "#000",*/}
+                        {/*                    background: "#e3c08D",*/}
+                        {/*                    marginRight: "25px"*/}
+                        {/*                }}*/}
+                        {/*                onClick={() => searchCollectionHandler("Villa")}*/}
+                        {/*        >*/}
+                        {/*            Villa*/}
+                        {/*        </Button>*/}
+                        {/*        <Button className="property_type_box_middle"*/}
+                        {/*                variant={"contained"}*/}
+                        {/*                color="secondary"*/}
+                        {/*                sx={{*/}
+                        {/*                    fontWeight: 600,*/}
+                        {/*                    color: "#000",*/}
+                        {/*                    background: "#e3c08D",*/}
+                        {/*                    marginRight: "25px"*/}
+                        {/*                }}*/}
+                        {/*                onClick={() => searchCollectionHandler("studio")}*/}
+                        {/*        >*/}
+                        {/*            studio*/}
+                        {/*        </Button>*/}
+                        {/*    </Box>*/}
+                        {/*</Stack>*/}
                         <Stack className="allProduct_search_part" >
                             <Stack className="allProduct_each_box" sx={{ flexDirection: 'row', justifyContent: "space-between"}}>
                                 <FormControl sx={{width: "259px", background: "white", }}>
@@ -197,10 +197,12 @@ export function AllProductPage(props: any) {
                                         inputProps={{"aria-label": "Without label"}}
                                         // onChange={changeCategoryHandler}
                                     >
-                                        <MenuItem value="">Categoryni tanalang</MenuItem>
-                                        <MenuItem value={"celebrity"}>Apartment</MenuItem>
-                                        <MenuItem value={"evaluation"}>Office</MenuItem>
-                                        <MenuItem value={"story"}>Villa</MenuItem>
+                                        <MenuItem value="">chose type</MenuItem>
+                                        <MenuItem value={"House"}>House</MenuItem>
+                                        <MenuItem value={"Office"}>Office</MenuItem>
+                                        <MenuItem value={"Villa"}>Villa</MenuItem>
+                                        <MenuItem value={"studio"}>Studio</MenuItem>
+                                        <MenuItem value={"etc"}>etc</MenuItem>
                                     </Select>
                                 </FormControl>
                                 <FormControl sx={{width: "259px", background: "white", }}>
@@ -210,10 +212,16 @@ export function AllProductPage(props: any) {
                                         inputProps={{"aria-label": "Without label"}}
                                         // onChange={changeCategoryHandler}
                                     >
-                                        <MenuItem value="">Categoryni tanalang</MenuItem>
-                                        <MenuItem value={"celebrity"}>Tashkent</MenuItem>
-                                        <MenuItem value={"evaluation"}>Surkhandaryo</MenuItem>
-                                        <MenuItem value={"story"}>Xorazm</MenuItem>
+                                        <MenuItem value="">chose address</MenuItem>
+                                        <MenuItem value={"tashkent"}>Tashkent</MenuItem>
+                                        <MenuItem value={"samarkand"}>Samarkand</MenuItem>
+                                        <MenuItem value={"bukhara"}>Bukhara</MenuItem>
+                                        <MenuItem value={"xoramz"}>Xoramz</MenuItem>
+                                        <MenuItem value={"andijan"}>Andijan</MenuItem>
+                                        <MenuItem value={"surkhandaryo"}>Surkhandaryo</MenuItem>
+                                        <MenuItem value={"qarshi"}>Qarshi</MenuItem>
+                                        <MenuItem value={"navoiy"}>Navoiy</MenuItem>
+                                        <MenuItem value={"namamgan"}>Namamgan</MenuItem>
                                     </Select>
                                 </FormControl>
                                 <FormControl sx={{width: "159px", background: "white", }}>
@@ -223,10 +231,12 @@ export function AllProductPage(props: any) {
                                         inputProps={{"aria-label": "Without label"}}
                                         // onChange={changeCategoryHandler}
                                     >
-                                        <MenuItem value="">1</MenuItem>
-                                        <MenuItem value={"celebrity"}>2</MenuItem>
-                                        <MenuItem value={"evaluation"}>3</MenuItem>
-                                        <MenuItem value={"story"}>4</MenuItem>
+
+                                        <MenuItem value="">chose room</MenuItem>
+                                        <MenuItem value={"1"}>1</MenuItem>
+                                        <MenuItem value={"2"}>2</MenuItem>
+                                        <MenuItem value={"3"}>3</MenuItem>
+                                        <MenuItem value={"4"}>4</MenuItem>
                                     </Select>
                                 </FormControl>
                                 <Button sx={{ width: "120px", color: "#fff", background: "green"}}> search</Button>

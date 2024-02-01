@@ -10,7 +10,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import {FreeMode, Navigation, Thumbs} from "swiper";
-import {Favorite, FavoriteBorder} from "@mui/icons-material";
+import {Call, Favorite, FavoriteBorder, Send} from "@mui/icons-material";
 import Checkbox from "@mui/material/Checkbox";
 import {useHistory, useParams} from "react-router-dom";
 import {Product} from "../../../types/product";
@@ -30,6 +30,7 @@ import {Definer} from "../../../lib/definer";
 import MemberApiService from "../../apiSservices/memberApiService";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
 import {verifiedMemberData} from "../../apiSservices/verify";
+import {RippleBadge} from "../../MaterialTheme/styled";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -58,7 +59,7 @@ export function ChosenProductPage(props: any) {
 
     /** INITIALIZATIONS */
     let {product_id} = useParams<{ product_id: string }>();
-
+    const history = useHistory();
     const {setChosenProduct, setChosenCompany,} = actionDispatch(useDispatch());
     const {chosenProduct} = useSelector(chosenProductRetriever);
     const {chosenCompany} = useSelector(chosenCompanyRetriever);
@@ -86,6 +87,12 @@ export function ChosenProductPage(props: any) {
         productRelatedProcess().then();
     }, [productRebuild]);
 
+    const visitMemberHandler = (mb_id: string) => {
+        history.push(`/member-page/other?mb_id=${mb_id}`);
+        document.location.reload();
+    };
+
+
     /** HANDLERS  */
     const targetLikeProduct = async (e: any) => {
         try {
@@ -103,6 +110,7 @@ export function ChosenProductPage(props: any) {
             sweetErrorHandling(err).then();
         }
     };
+
 
     return (
         <div className="chosen_dish_page">
@@ -179,6 +187,17 @@ export function ChosenProductPage(props: any) {
                                 <span className={"dish_text"}>{chosenProduct?.product_name}</span>
                             </Box>
 
+                            <Box className={"location_icon"}
+                                 sx={{marginTop: "10px", flexDirection: "row", cursor: "pointer"}}
+                                // @ts-ignore
+                                 onClick={() => visitMemberHandler(chosenCompany?._id)}
+                            >
+                                <a> Agency: </a>
+                                {/*<img src={chosenCompany?.mb_image}/>*/}
+                                <span className={"dish_text"}>{chosenCompany?.mb_nick}</span>
+                                <Call className={"callIcon"}></Call> <>{chosenCompany?.mb_phone}</>
+                            </Box>
+
                             <Box className={"rating_box"}>
                                 <Rating name="half_rating" defaultValue={3.5} precision={0.5}
                                         style={{fontSize: "30px"}}/>
@@ -220,45 +239,75 @@ export function ChosenProductPage(props: any) {
                 </Stack>
                 <Stack className={"property_description"}>
                     <Stack className={"property_post_box"} sx={{flexDirection: "column"}}>
-
                         <Box className={"description_main_box"}>
                             <h4>Home about</h4>
                             <p>{chosenProduct?.product_description}</p>
                         </Box>
                         <h1>what do People think about property?</h1>
-                        <Box className={"chosenProperty_post"}>
-                            <text>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less norma
-                            </text>
-                            <Box className={"post_data"} sx={{flexDirection: "row"}}>
-                                <img src={"/auth/odamcha.svg"}/>
-                                <a>{chosenCompany?.mb_nick}</a>
+                        <Stack sx={{flexDirection: "row"}}>
+                            <Box>
+                                <Box className={"chosenProperty_post"}>
+                                    <text>
+                                        It is a long established fact that a reader will be distracted by the readable
+                                        content
+                                        of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                                        has
+                                        a
+                                        more-or-less norma
+                                    </text>
+                                    <Box className={"post_data"} sx={{flexDirection: "row"}}>
+                                        <img src={"/auth/odamcha.svg"}/>
+                                        <a>{chosenCompany?.mb_nick}</a>
+                                    </Box>
+                                </Box>
+                                <Box className={"chosenProperty_post"}>
+                                    <text>
+                                        It is a long established fact that a reader will be distracted by the readable
+                                        content
+                                        of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                                        has
+                                        a
+                                        more-or-less norma
+                                    </text>
+                                    <Box className={"post_data"} sx={{flexDirection: "row"}}>
+                                        <img src={"/auth/odamcha.svg"}/>
+                                        <a>{chosenCompany?.mb_nick}</a>
+                                    </Box>
+                                </Box>
                             </Box>
-                        </Box>
-                        <Box className={"chosenProperty_post"}>
-                            <text>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less norma
-                            </text>
-                            <Box className={"post_data"} sx={{flexDirection: "row"}}>
-                                <img src={"/auth/odamcha.svg"}/>
-                                <a>{chosenCompany?.mb_nick}</a>
-                            </Box>
-                        </Box>
-                        <Box className={"chosenProperty_post"}>
-                            <text>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less norma
-                            </text>
-                            <Box className={"post_data"} sx={{flexDirection: "row"}}>
-                                <img src={"/auth/odamcha.svg"}/>
-                                <a>{chosenCompany?.mb_nick}</a>
-                            </Box>
-                        </Box>
+                            <Stack className="chat_frame">
+                                <Box className="chat_top">
+                                    live chatting{" "}
+                                    <RippleBadge
+                                        style={{margin: "-30px 0 0 20px"}}
+                                        // badgeContent={onlineUsers}
+                                    />
+                                </Box>
+                                <Box className="chat_content">
+                                    <Stack className="chat_main">
+                                        <Box flexDirection={"row"} style={{display: "flex"}} sx={{m: "10px 0px"}}>
+                                            <div className="msg_left">Bu yerda jonli muloqot</div>
+                                        </Box>
+                                        {/*{messagesList}*/}
+                                    </Stack>
+                                </Box>
+                                <Box className="chat_bott">
+                                    <input
+                                        // ref={msgInputRef}
+                                        type="text"
+                                        name="message"
+                                        className="msg_input"
+                                        placeholder="Xabar jo'natish"
+                                        // onKeyDown={getKeyHandler}
+                                        // onChange={getInputMessageHandler}
+                                    />
+                                    <button className="send_msg_btn">
+                                        <Send style={{color: "red"}}/>
+                                    </button>
+                                </Box>
+                            </Stack>
+                        </Stack>
+
                     </Stack>
                     <Stack className={"chosenProperty_chat"}></Stack>
                     <Stack
@@ -266,7 +315,7 @@ export function ChosenProductPage(props: any) {
                         style={{display: "flex", flexDirection: "column", alignItems: "center",}}
                     >
                         <Box className={"category_title"}>
-                        <h1> Address</h1>
+                            <h1> Address</h1>
                         </Box>
                         <iframe
                             style={{marginTop: "10px",}}
