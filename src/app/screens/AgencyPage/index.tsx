@@ -129,7 +129,7 @@ export function AgencyPage() {
                     </Box>
 
                     <Stack className={"all_agency_box"} >
-                        <Stack className={"agency_second"} sx={{flexDirection: "row", justifyContent: "space-between"}}>
+                        <Stack className={"agency_second"} sx={{flexDirection: "row", flexWrap: "wrap", }}>
                             <CssVarsProvider>
                                 {targetCompany.map((ele: Company) => {
                                     const image_path = `${serverApi}/${ele.mb_image}`;
@@ -142,7 +142,8 @@ export function AgencyPage() {
                                                 width: 300,
                                                 bgcolor: 'initial',
                                                 p: 0,
-                                                marginRight: "40px"
+                                                marginRight: "15px",
+                                                marginBottom: "40px"
                                             }}
                                         >
                                             <Box sx={{position: 'relative'}}>

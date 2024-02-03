@@ -18,6 +18,7 @@ export function Comment() {
                             eiusmod tempor incididunt ut labore et dolore magna aliqua
                         </p>
                     </Box>
+
                     <Stack className="comment_middle_box" sx={{ flexDirection: "row" }}>
                         <Stack
                             className="comment_main_box"

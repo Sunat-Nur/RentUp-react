@@ -38,11 +38,11 @@
 
 .allProduct_middle_middle {
     position: relative;
-    justify-content: space-between;
-    display: flex;
     flex-direction: row;
     width: auto;
     height: max-content;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 
 }
 
@@ -217,8 +217,7 @@
 .agency_second {
     position: relative;
     justify-content: space-between;
-    flex-direction: row;
-
+    flex-wrap: wrap;
 }
 
 
@@ -333,6 +332,10 @@
 
 
 }
+
+
+/*comment page*/
+
 
 
 

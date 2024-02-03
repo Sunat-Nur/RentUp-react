@@ -14,7 +14,7 @@
     position: relative;
     flex-direction: column;
     /*border-radius: ;*/
-    width: 1040px;
+    width: 1050px;
     height: 300px;
     border: 1px solid #C7D5E1;
     background-color: #fff;
@@ -165,21 +165,11 @@
 /*papay css*/
 
 
-
-
-/*.member_page {*/
-/*    display: flex;*/
-/*    width: 100%;*/
-/*    background-color: black;*/
-/*}*/
-
-/*Visit-MyPage css*/
-
 .my_page {
     display: flex;
     width: 100%;
-    height: 1500px;
-    background: #0b0e11;
+    height: auto;
+    background: #808080;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -207,8 +197,8 @@
 
 .my_page .menu_name {
     width: 821px;
-    height: 70px;
-    color: #FFF;
+    height: 50px;
+    color: #000;
     text-align: center;
     font-family: Poppins;
     font-size: 45px;
@@ -312,21 +302,20 @@
 
 /*my_page_right*/
 
-.my_page .my_page_right {
-    margin-top: 85px;
-    margin-left: 57px;
-    position: relative;
-    width: 372.58px;
-    /*height: 460px;*/
-    border-radius: 16px;
-    display: flex;
-    /*background: #FFF;*/
-    flex-direction: column;
-    box-shadow: 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset,
-    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
-    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    margin-bottom: 220px;
-}
+/*.my_page .my_page_right {*/
+/*    margin-top: 85px;*/
+/*    margin-left: 57px;*/
+/*    position: relative;*/
+/*    width: 372.58px;*/
+/*    !*height: 460px;*!*/
+/*    border-radius: 16px;*/
+/*    display: flex;*/
+/*    !*background: #FFF;*!*/
+/*    flex-direction: column;*/
+/*    box-shadow: 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset,*/
+/*    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,*/
+/*    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;*/
+/*}*/
 
 
 .my_page_right .order_info_box {
@@ -438,6 +427,31 @@
     line-height: normal;
 }
 
+.user_property_box h4{
+    position: relative;
+    display: flex;
+    color: #ffcc00;
+    font-family: DM Sans;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 30px;
+    margin-left: 50px;
+}
+
+.user_property_box {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 100px;
+}
+
 
 /*.my_page_menu {*/
 /*    margin-top: 40px;*/
@@ -447,11 +461,18 @@
 /*    justify-content: space-between;*/
 /*}*/
 
+.my_page_menu {
+    margin-left: 60px;
+}
+
+
 .my_page_right .menu_box {
-    width: 372.58px;
+    width: 152.58px;
     height: 50px;
+    margin-right: 10px;
     border-radius: 20px;
-    background: #FFF;
+    background: #00a9ff;
+    color: #fff;
     margin-top: 11px;
     align-items: center;
     position: relative;
@@ -466,7 +487,7 @@
 /*Followers*/
 
 .my_followers_page {
-    width: 821px;
+    width: 621px;
     height: fit-content;
     display: flex;
     position: relative;
@@ -475,20 +496,21 @@
 
 
 .my_following_page {
-    width: 821px;
+    width: 621.42px;
     height: 100%;
     display: flex;
     position: relative;
 }
 
 .member_page .follow_box {
-    width: 821.42px;
-    height: fit-content;
+    width: 621.42px;
+    height: 100px;
     border-radius: 17px;
     padding: 25px 45px;
 
+    /*background-color: #f6f5f3;*/
     background: linear-gradient(180deg,
-    rgba(38, 112, 129, 0.90) 0%,
+    rgba(28, 162, 139, 0.30) 0%,
     rgba(21, 61, 70, 0.90) 100%);
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15), 3px 2px 9px 0px rgba(255, 255, 255, 0.25) inset;
 
@@ -501,8 +523,8 @@
 }
 
 .member_page .follow_box .username_text {
-    width: 400px;
-    height: 15px;
+    width: 200px;
+    height: 10px;
     flex-shrink: 0;
 
     color: #FFF;

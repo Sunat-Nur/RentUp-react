@@ -85,13 +85,13 @@ export function MemberFollowers(props: any) {
                                 <Avatar
                                     alt={""}
                                     src={image_url}
-                                    sx={{width: 89, height: 89,}}
+                                    sx={{width: 39, height: 39,}}
                                     style={{cursor: "pointer"}}
                                     onClick={() => visitMemberHandler(follower?.subscriber_id)}
                                 />
                                 <div
                                     style={{
-                                        width: "400px",
+                                        width: "300px",
                                         display: "flex",
                                         flexDirection: "column",
                                         marginLeft: "25px",
@@ -116,7 +116,7 @@ export function MemberFollowers(props: any) {
                                                         background: "#68C5CB",
                                                         color: "#ffffff",
                                                         borderRadius: "50px",
-                                                        marginTop: "18px",
+                                                        marginTop: "10px",
                                                         width: "160px",
                                                     }}
                                             >

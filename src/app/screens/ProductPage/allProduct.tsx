@@ -351,7 +351,8 @@ export function AllProductPage(props: any) {
                                             variant="outlined"
                                             sx={{
                                                 minWidth: 300,
-                                                marginRight: "20px",
+                                                marginRight: "40px",
+                                                marginBottom: "40px",
                                                 '--Card-radius': (theme) => theme.vars.radius.xs,
                                             }}
                                         >
@@ -477,9 +478,9 @@ export function AllProductPage(props: any) {
                                                             fontWeight="lg"
                                                             textColor="text.primary"
                                                         >
-                                                            type: {ele.product_collection}
+                                                        Address: {ele.product_address}
                                                         </Link>{' '}
-                                                        The React component library you always
+                                                             {ele.product_collection}...
                                                     </Typography>
                                                 </Stack>
 

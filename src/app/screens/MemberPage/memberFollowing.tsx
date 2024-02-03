@@ -86,17 +86,17 @@ export function MemberFollowing(props: any) {
                             <Avatar
                                 alt={""}
                                 src={image_url}
-                                sx={{width: 89, height: 89}}
+                                sx={{width: 39, height: 39}}
                                 style={{cursor: "pointer"}}
                                 onClick={() => visitMemberHandler(following?.follow_id)}
                             />
                             <div
                                 style={{
-                                    width: "400px",
+                                    width: "300px",
                                     display: "flex",
                                     flexDirection: "column",
                                     marginLeft: "25px",
-                                    height: "85%",
+                                    height: "45%",
                                 }}
                             >
                                 <span className={"username_text"}>{following?.follow_member_data?.mb_type}</span>
@@ -115,7 +115,7 @@ export function MemberFollowing(props: any) {
                                             background: "red",
                                             color: "#ffffff",
                                             borderRadius: "50px",
-                                            marginTop: "18px"
+                                            marginTop: "10px"
                                         }}
                                         startIcon={<img src={"/icons/follow_icon.svg"}/>}
                                         onClick={(e) => unsubscribeHandler(e, following?.follow_id)}
