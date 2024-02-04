@@ -169,16 +169,24 @@
     display: flex;
     width: 100%;
     height: auto;
-    background: #808080;
+    background: #fafafa;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .mypage_middle {
     flex-direction: row;
+    width: 700px;
     display: flex;
     position: relative;
     margin-top: 100px;
+    border-radius: 25px;
+    background-color: #fff;
+
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 5px #808080);
 }
 
 .content_page {
@@ -196,12 +204,12 @@
 }
 
 .my_page .menu_name {
-    width: 821px;
+    width: 621px;
     height: 50px;
     color: #000;
     text-align: center;
     font-family: Poppins;
-    font-size: 45px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -302,19 +310,10 @@
 
 /*my_page_right*/
 
-/*.my_page .my_page_right {*/
-/*    margin-top: 85px;*/
-/*    margin-left: 57px;*/
-/*    position: relative;*/
-/*    width: 372.58px;*/
-/*    !*height: 460px;*!*/
-/*    border-radius: 16px;*/
-/*    display: flex;*/
-/*    !*background: #FFF;*!*/
-/*    flex-direction: column;*/
-/*    box-shadow: 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset,*/
-/*    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,*/
-/*    0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;*/
+/*.my_page_right {*/
+/*    width: 100%;*/
+/*    height: 600px;*/
+/*    background-color: #f6f5f3;*/
 /*}*/
 
 
@@ -440,6 +439,37 @@
     margin-left: 50px;
 }
 
+.right_side {
+    width: 100%;
+    height: 400px;
+    background-color: #0e6eb2;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+
+.right_pics {
+    width: 100%;
+    height: 700px;
+    margin-top: 100px;
+    border-radius: 25px;
+    margin-left: 30px;
+    background-image: url("../../public/home/buk3.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.right_pics h4{
+    color: #FFF;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    margin-left: 190px;
+    font-size: 35px;
+}
+
 .user_property_box {
     width: 100%;
     height: auto;
@@ -450,6 +480,12 @@
     background-color: #fff;
     border-radius: 15px;
     margin-top: 100px;
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 10px #fafafa);
+    flex-direction: row;
+
 }
 
 
@@ -564,7 +600,7 @@
 /*    MY-settings_css*/
 
 .my_settings {
-    width: 821.42px;
+    width: 621.42px;
     height: auto;
     display: flex;
     margin-top: 50px;
@@ -579,14 +615,14 @@
 
 
 .my_settings_page {
-    width: 821.42px;
+    width: 621.42px;
     height: 1450px;
     flex-direction: column;
     display: flex;
 }
 
 .my_settings_page .member_media_frame {
-    width: 821.42px;
+    width: 621.42px;
     height: 120px;
     border-radius: 15px;
     background: #c5c8c9;
@@ -636,7 +672,7 @@
 
 
 .my_settings_page .spec_input_mb_nick {
-    width: 821.42px;
+    width: 621.42px;
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -686,7 +722,7 @@
 }
 
 .my_settings_page .spec_textarea_mb_description {
-    width: 821.42px;
+    width: 621.42px;
     height: 200px;
     flex-shrink: 0;
 }
@@ -695,14 +731,14 @@
 
 
 .my_edit_page {
-    width: 821.42px;
+    width: 621.42px;
     height: 100%;
     display: flex;
     position: relative;
 }
 
 .edit_page .edit_box{
-    width: 821.43px;
+    width: 621.43px;
     margin-bottom: 100px;
     position: relative;
     display: flex;
@@ -710,7 +746,7 @@
 
 
 .TV_editor_page {
-    width: 880px;
+    width: 680px;
     height: auto;
     display: flex;
     position: relative;

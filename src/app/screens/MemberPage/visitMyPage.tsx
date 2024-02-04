@@ -340,198 +340,160 @@ export function VisitMyPage(props: any) {
                             </Stack>
                         </Stack>
                     </CssVarsProvider>
-                    <Stack className={"mypage_middle"} sx={{flexDirection: "row"}}>
-                        <TabContext value={value}>
-                            <Stack className={"my_page_left"}>
 
-
-
-                                <Stack className={"my_page_right"}>
-                                    <Box className={"my_page_menu"}
-                                         sx={{flexDirection: "column"}}
-                                    >
-                                        <TabList
-                                            onChange={handleChange}
-                                            variant="scrollable"
-                                            // value={value}
-                                            className="my_page_menu"
-                                            aria-label="Vertical tabs example"
-                                            sx={{borderRight: 1, borderColor: "divider", width: "560px"}}
+                    <Stack flexDirection={"row"}>
+                        <Stack className={"mypage_middle"} sx={{flexDirection: "row"}}>
+                            <TabContext value={value}>
+                                <Stack className={"my_page_left"}>
+                                    <Stack className={"my_page_right"}>
+                                        <Box className={"my_page_menu"}
+                                             sx={{flexDirection: "column"}}
                                         >
-                                            <Stack flexDirection={"row"}>
-                                                <Tab
-                                                    style={{flexDirection: "column"}}
-                                                    value={"1"}
-                                                    component={() => (
-                                                        <div className={`menu_box ${value}`}
-                                                             onClick={() => setValue("1")}>
-                                                            <img src={"/icons/Pencil.svg"} alt=""/>
-                                                            <span>My Contents</span>
-                                                        </div>
-                                                    )}
-                                                />
-                                                <Tab
-                                                    style={{flexDirection: "column",}}
-                                                    value={"2"}
-                                                    component={() => (
-                                                        <div className={`menu_box ${value}`}
-                                                             onClick={() => setValue("2")}>
-                                                            <img src={"/icons/Group.svg"} alt=""/>
-                                                            <span>Follower</span>
-                                                        </div>
-                                                    )}
-                                                />
-                                                <Tab
-                                                    style={{flexDirection: "column",}}
-                                                    value={"3"}
-                                                    component={() => (
-                                                        <div className={`menu_box ${value}`}
-                                                             onClick={() => setValue("3")}>
-                                                            <img src={"/icons/user.svg"} alt=""/>
-                                                            <span>Following</span>
-                                                        </div>
-                                                    )}
-                                                />
-                                            </Stack>
-                                        </TabList>
-                                    </Box>
-                                </Stack>
-                                <Box display={"flex"} flexDirection={"column"}>
-                                    <TabPanel value={"1"}>
-                                        {/*<Box className={"menu_name"}>Contents</Box>*/}
-                                        <Box className={"menu_content"}>
-                                            <MemberPosts
-                                                chosenMemberBoArticles={chosenMemberBoArticles}
-                                                renderChosenArticleHandler={renderChosenArticleHandler}
-                                                setArticlesRebuild={setArticlesRebuild}
-                                            />
-                                            <Stack
-                                                sx={{my: "40px"}}
-                                                direction="row"
-                                                alignItems="center"
-                                                justifyContent="center"
+                                            <TabList
+                                                onChange={handleChange}
+                                                variant="scrollable"
+                                                // value={value}
+                                                className="my_page_menu"
+                                                aria-label="Vertical tabs example"
+                                                sx={{
+                                                    borderRight: 1,
+                                                    borderColor: "divider",
+                                                    width: "560px",
+                                                    marginTop: "30px"
+                                                }}
                                             >
-                                                <Box className={"bottom_box"}>
-                                                    <Pagination
-                                                        count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
-                                                        page={memberArticleSearchObj.page}
-                                                        renderItem={(item) => (
-                                                            <PaginationItem
-                                                                components={{
-                                                                    previous: ArrowBackIcon,
-                                                                    next: ArrowForwardIcon,
-                                                                }}
-                                                                {...item}
-                                                                color={"secondary"}
-                                                            />
+                                                <Stack flexDirection={"row"}>
+                                                    <Tab
+                                                        style={{flexDirection: "column",}}
+                                                        value={"1"}
+                                                        component={() => (
+                                                            <div className={`menu_box ${value}`}
+                                                                 onClick={() => setValue("1")}>
+                                                                <img src={"/icons/Pencil.svg"} alt=""/>
+                                                                <span>My Contents</span>
+                                                            </div>
                                                         )}
-                                                        onChange={handlePaginationChange}
                                                     />
-                                                </Box>
-                                            </Stack>
+                                                    <Tab
+                                                        style={{flexDirection: "column",}}
+                                                        value={"2"}
+                                                        component={() => (
+                                                            <div className={`menu_box ${value}`}
+                                                                 onClick={() => setValue("2")}>
+                                                                <img src={"/icons/Group.svg"} alt=""/>
+                                                                <span>Follower</span>
+                                                            </div>
+                                                        )}
+                                                    />
+                                                    <Tab
+                                                        style={{flexDirection: "column",}}
+                                                        value={"3"}
+                                                        component={() => (
+                                                            <div className={`menu_box ${value}`}
+                                                                 onClick={() => setValue("3")}>
+                                                                <img src={"/icons/user.svg"} alt=""/>
+                                                                <span>Following</span>
+                                                            </div>
+                                                        )}
+                                                    />
+                                                </Stack>
+                                            </TabList>
                                         </Box>
-                                    </TabPanel>
-                                    <TabPanel value={"2"}>
-                                        {/*<Box className={"menu_name"}>Followers</Box>*/}
-                                        <Box className={"menu_content"}>
-                                            <MemberFollowers
-                                                actions_enabled={true}
-                                                followRebuild={followRebuild}
-                                                setFollowRebuild={setFollowRebuild}
-                                                mb_id={verifiedMemberData?._id}
-                                            />
-                                        </Box>
-                                    </TabPanel>
-                                    <TabPanel value={"3"}>
-                                        {/*<Box className={"menu_name"}>Following</Box>*/}
-                                        <Box className={"menu_content"}>
-                                            <MemberFollowing
-                                                actions_enabled={true}
-                                                followRebuild={followRebuild}
-                                                setFollowRebuild={setFollowRebuild}
-                                                mb_id={verifiedMemberData?._id}
-                                            />
-                                        </Box>
-                                    </TabPanel>
-                                    <TabPanel value={"4"}>
-                                        <Box className={"menu_name"}>Maqola yozish</Box>
-                                        <Box className={"write_content"}>
-                                            <TuiEditor
-                                                setValue={setValue}
-                                                setArticlesRebuild={setArticlesRebuild}
-                                            />
-                                        </Box>
-                                    </TabPanel>
-                                    <TabPanel value={"5"}>
-                                        <Box className={"menu_name"}>tanlangan maqola</Box>
-                                        <Box className={"menu_content"}>
-                                            <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
-                                        </Box>
-                                    </TabPanel>
-                                    <TabPanel value={"6"}>
-                                        <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
-                                        <Box className={"menu_content"}>
-                                            <MySettings/>
-                                        </Box>
-                                    </TabPanel>
-                                </Box>
-                            </Stack>
+                                    </Stack>
+                                    <Box display={"flex"} flexDirection={"column"}>
+                                        <TabPanel value={"1"}>
+                                            {/*<Box className={"menu_name"}>Contents</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberPosts
+                                                    chosenMemberBoArticles={chosenMemberBoArticles}
+                                                    renderChosenArticleHandler={renderChosenArticleHandler}
+                                                    setArticlesRebuild={setArticlesRebuild}
+                                                />
+                                                <Stack
+                                                    sx={{my: "40px"}}
+                                                    direction="row"
+                                                    alignItems="center"
+                                                    justifyContent="center"
+                                                >
+                                                    <Box className={"bottom_box"}>
+                                                        <Pagination
+                                                            count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
+                                                            page={memberArticleSearchObj.page}
+                                                            renderItem={(item) => (
+                                                                <PaginationItem
+                                                                    components={{
+                                                                        previous: ArrowBackIcon,
+                                                                        next: ArrowForwardIcon,
+                                                                    }}
+                                                                    {...item}
+                                                                    color={"secondary"}
+                                                                />
+                                                            )}
+                                                            onChange={handlePaginationChange}
+                                                        />
+                                                    </Box>
+                                                </Stack>
+                                            </Box>
+                                        </TabPanel>
+
+                                        <TabPanel value={"2"}>
+                                            {/*<Box className={"menu_name"}>Followers</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberFollowers
+                                                    actions_enabled={true}
+                                                    followRebuild={followRebuild}
+                                                    setFollowRebuild={setFollowRebuild}
+                                                    mb_id={verifiedMemberData?._id}
+                                                />
+                                            </Box>
+                                        </TabPanel>
+                                        <TabPanel value={"3"}>
+                                            {/*<Box className={"menu_name"}>Following</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberFollowing
+                                                    actions_enabled={true}
+                                                    followRebuild={followRebuild}
+                                                    setFollowRebuild={setFollowRebuild}
+                                                    mb_id={verifiedMemberData?._id}
+                                                />
+                                            </Box>
+                                        </TabPanel>
+                                        <TabPanel value={"4"}>
+                                            <Box className={"menu_name"}>Maqola yozish</Box>
+                                            <Box className={"write_content"}>
+                                                <TuiEditor
+                                                    setValue={setValue}
+                                                    setArticlesRebuild={setArticlesRebuild}
+                                                />
+                                            </Box>
+                                        </TabPanel>
+                                        <TabPanel value={"5"}>
+                                            <Box className={"menu_name"}>tanlangan maqola</Box>
+                                            <Box className={"menu_content"}>
+                                                <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
+                                            </Box>
+                                        </TabPanel>
+                                        <TabPanel value={"6"}>
+                                            <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
+                                            <Box className={"menu_content"}>
+                                                <MySettings/>
+                                            </Box>
+                                        </TabPanel>
+                                    </Box>
 
 
-                            {/*<Stack className={"my_page_right"}>*/}
-                            {/*    <Box className={"my_page_menu"}*/}
-                            {/*         sx={{flexDirection: "column",}}*/}
-                            {/*    >*/}
-                            {/*        <TabList*/}
-                            {/*            onChange={handleChange}*/}
-                            {/*            variant="scrollable"*/}
-                            {/*            // value={value}*/}
-                            {/*            className="my_page_menu"*/}
-                            {/*            aria-label="Vertical tabs example"*/}
-                            {/*            sx={{borderRight: 1, borderColor: "divider", width: "100%"}}*/}
-                            {/*        >*/}
-                            {/*            <Stack flexDirection={"column"}>*/}
-                            {/*                <Tab*/}
-                            {/*                    style={{flexDirection: "column",}}*/}
-                            {/*                    value={"1"}*/}
-                            {/*                    component={() => (*/}
-                            {/*                        <div className={`menu_box ${value}`}*/}
-                            {/*                             onClick={() => setValue("1")}>*/}
-                            {/*                            <img src={"/icons/Pencil.svg"} alt=""/>*/}
-                            {/*                            <span>My Contents</span>*/}
-                            {/*                        </div>*/}
-                            {/*                    )}*/}
-                            {/*                />*/}
-                            {/*                <Tab*/}
-                            {/*                    style={{flexDirection: "column",}}*/}
-                            {/*                    value={"2"}*/}
-                            {/*                    component={() => (*/}
-                            {/*                        <div className={`menu_box ${value}`}*/}
-                            {/*                             onClick={() => setValue("2")}>*/}
-                            {/*                            <img src={"/icons/Group.svg"} alt=""/>*/}
-                            {/*                            <span>Follower</span>*/}
-                            {/*                        </div>*/}
-                            {/*                    )}*/}
-                            {/*                />*/}
-                            {/*                <Tab*/}
-                            {/*                    style={{flexDirection: "column",}}*/}
-                            {/*                    value={"3"}*/}
-                            {/*                    component={() => (*/}
-                            {/*                        <div className={`menu_box ${value}`}*/}
-                            {/*                             onClick={() => setValue("3")}>*/}
-                            {/*                            <img src={"/icons/user.svg"} alt=""/>*/}
-                            {/*                            <span>Following</span>*/}
-                            {/*                        </div>*/}
-                            {/*                    )}*/}
-                            {/*                />*/}
-                            {/*            </Stack>*/}
-                            {/*        </TabList>*/}
-                            {/*    </Box>*/}
-                            {/*</Stack>*/}
-                        </TabContext>
+                                </Stack>
+                            </TabContext>
+
+                        </Stack>
+                        <Stack className={"right_pics"}>
+                            <h4>home town</h4>
+                        </Stack>
                     </Stack>
-
+                    <Stack className={"right_side"}>
+                    </Stack>
                 </Stack>
+
             </Container>
         </div>
     );

@@ -104,9 +104,9 @@ export const TuiEditor = (props: any) => {
                     justifyContent="space-evenly"
                 >
                     <Box className={"form_row"} sx={{width: "300px"}}>
-                        <Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">
-                            Category
-                        </Typography>
+                        {/*<Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">*/}
+                        {/*    Category*/}
+                        {/*</Typography>*/}
                         <FormControl sx={{width: "100%", background: "white"}}>
                             <Select
                                 value={communityArticleData?.bo_id}
@@ -114,7 +114,7 @@ export const TuiEditor = (props: any) => {
                                 inputProps={{"aria-label": "Without label"}}
                                 onChange={changeCategoryHandler}
                             >
-                                <MenuItem value="">Categoryni tanalang</MenuItem>
+                                <MenuItem value="">chose category</MenuItem>
                                 <MenuItem value={"celebrity"}>Famous</MenuItem>
                                 <MenuItem value={"agency"}>Agency</MenuItem>
                                 <MenuItem value={"story"}>my story</MenuItem>
@@ -124,9 +124,9 @@ export const TuiEditor = (props: any) => {
                         </FormControl>
                     </Box>
                     <Box className={"form_row"} style={{width: "300px"}}>
-                        <Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">
-                            Mavzu
-                        </Typography>
+                        {/*<Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">*/}
+                        {/*    Mavzu*/}
+                        {/*</Typography>*/}
                         <TextField
                             id="filled-basic"
                             label="Mavzu"
