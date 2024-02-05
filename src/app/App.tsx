@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
+import React, {useEffect, useState, } from 'react';
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
 import "../css/page.css";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import AOS, { AosOptions } from "aos";
 import {CommunityPage} from "./screens/CommunityPage";
 import {MemberPage} from "./screens/MemberPage";
 import {HelpPage} from "./screens/HelpPage";
@@ -24,6 +25,14 @@ import {ProductPage} from "./screens/ProductPage";
 import {AgencyPage} from "./screens/AgencyPage";
 
 
+interface CustomAosOptions extends AosOptions {
+    offset: number;
+    duration: number;
+    delay: number;
+    container?: string;
+}
+
+
 function App() {
     /** INITIALIZATION **/
         // const [verifiedMemberData, setVerifiedMemberData] = useState<Member | null>(null);
@@ -32,6 +41,7 @@ function App() {
     const [signUpOpen, setSignUpOpen] = useState(false);
     const [loginOpen, setLoginOpen] = useState(false);
     const [orderRebuild, setOrderRebuild] = useState<Date>(new Date());
+    const { pathname } = useLocation();
 
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -65,6 +75,22 @@ function App() {
         }
     };
 
+    useEffect(() => {
+        const aosOptions: CustomAosOptions = {
+            offset: 100,
+            duration: 800,
+            easing: "ease-in-sine",
+            delay: 100,
+            container: ".custom-scroll-container",
+        };
+
+        AOS.init(aosOptions);
+        AOS.refresh();
+    }, [pathname]);
+
+
+
+
     const onAdd = (product: Product) => {
         const exist: any = cartItems?.find(
             (item: CartItem) => item._id === product._id
@@ -91,6 +117,9 @@ function App() {
             localStorage.setItem("cart_data", JSON.stringify(cart_updated));
         }
     };
+
+
+
     const onRemove = (item: CartItem) => {
         const item_data: any = cartItems?.find(
             (ele: CartItem) => ele._id === item._id

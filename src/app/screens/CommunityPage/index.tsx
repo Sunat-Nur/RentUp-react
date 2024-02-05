@@ -3,7 +3,6 @@ import "../../../css/order.css"
 import {Box, Container, Stack} from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import {TargetArticles} from "./targetArticles";
-import {CommunityChats} from "./communityChats";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList"
@@ -85,31 +84,33 @@ export function CommunityPage(props: any) {
 
     return (
         <div className={"community_page"}>
-            <div className={"community_frame"}>
-                <Container sx={{mt: "50px", mb: "50px"}}>
-                    <Stack flexDirection={"row"} justifyContent={"space-between"}>
-                        <CommunityChats/>
-                        <Stack
-                            className={"community_all_frame"}
-                            inputMode={"text"}
-                            style={{border: "1px solid #fff"}}
-                        >
-                            <TabContext value={value}>
-                                <Box className={"article_tabs"}>
-                                    <Box sx={{borderBottom: 1, borderColor: "divider"}}>
-                                        <TabList
-                                            onChange={handleChange}
-                                            aria-label="lab API tabs example"
-                                            style={{borderColor: "blue"}}
-                                        >
-                                            <Tab label="Barcha Maqolalar" value={"1"}/>
-                                            <Tab label="Mashxurlar" value={"2"}/>
-                                            <Tab label="Oshhonaga baho" value={"3"}/>
-                                            <Tab label="Hikoyalar" value={"4"}/>
-                                        </TabList>
-                                    </Box>
+            <Container sx={{mt: "50px", mb: "50px"}}>
+                <Stack flexDirection={"row"} justifyContent={"space-between"}
+                >
+                    {/*<CommunityChats/>*/}
+                    <Stack
+                        className={"community_all_frame"}
+                        inputMode={"text"}
+                        style={{border: "1px solid #fff"}}
+                    >
+                        <TabContext value={value}>
+                            <Box className={"article_tabs"}>
+                                <Box sx={{borderBottom: 1, borderColor: "divider"}}>
+                                    <TabList
+                                        onChange={handleChange}
+                                        aria-label="lab API tabs example"
+                                        style={{borderColor: "blue"}}
+                                    >
+                                        <Tab label="All Articles" value={"1"}/>
+                                        <Tab label="Famous" value={"2"}/>
+                                        <Tab label="About Property " value={"3"}/>
+                                        <Tab label="Customers" value={"4"}/>
+                                    </TabList>
                                 </Box>
-                                <Box className={"article_main"}>
+                            </Box>
+
+                            <Stack className={"article_main"} sx={{flexDirection: "row"}}>
+                                <Box sx={{flexDirection: "row"}}>
                                     <TabPanel value={"1"}>
                                         <TargetArticles
                                             targetBoArticles={targetBoArticles}
@@ -134,31 +135,30 @@ export function CommunityPage(props: any) {
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
-
                                 </Box>
+                            </Stack>
 
-                                < Box className={"article_bott"}>
-                                    <Pagination
-                                        count={searchArticlesObj.page >= 2 ? searchArticlesObj.page + 1 : 3}
-                                        page={searchArticlesObj.page}
-                                        renderItem={(item) => (
-                                            <PaginationItem
-                                                components={{
-                                                    previous: ArrowBackIcon,
-                                                    next: ArrowForwardIcon,
-                                                }}
-                                                {...item}
-                                                color={"secondary"}
-                                            />
-                                        )}
-                                        onChange={handlePaginationChange}
-                                    />
-                                </Box>
-                            </TabContext>
-                        </Stack>
+                            < Box className={"article_bott"}>
+                                <Pagination
+                                    count={searchArticlesObj.page >= 2 ? searchArticlesObj.page + 1 : 3}
+                                    page={searchArticlesObj.page}
+                                    renderItem={(item) => (
+                                        <PaginationItem
+                                            components={{
+                                                previous: ArrowBackIcon,
+                                                next: ArrowForwardIcon,
+                                            }}
+                                            {...item}
+                                            color={"secondary"}
+                                        />
+                                    )}
+                                    onChange={handlePaginationChange}
+                                />
+                            </Box>
+                        </TabContext>
                     </Stack>
-                </Container>
-            </div>
+                </Stack>
+            </Container>
         </div>
     );
 }

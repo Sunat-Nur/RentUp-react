@@ -9,7 +9,7 @@ export const TViewer = (props: any) => {
 
     return (
         <Stack className={"TV_editor_page"}
-               sx={{background: "white", mt: "30px", borderRadius: "10px"}}>
+               sx={{ mt: "10px", borderRadius: "10px"}}>
             <Box sx={{m: "40px"}}>
                 <Viewer
                     // @ts-ignore

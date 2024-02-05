@@ -4,7 +4,7 @@ import {Favorite, Visibility} from "@mui/icons-material";
 import Typography from '@mui/joy/Typography';
 // OTHERS
 import {serverApi} from '../../../lib/config';
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 // REDUX
 import {useSelector} from "react-redux";
 import {createSelector} from "reselect";
@@ -20,6 +20,8 @@ const bestCompanyRetriever = createSelector(
         bestCompany,
     })
 );
+
+
 
 
 export function BestCompany() {
