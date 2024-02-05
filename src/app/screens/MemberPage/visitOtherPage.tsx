@@ -1,12 +1,10 @@
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
-import {Box, Container, Pagination, PaginationItem, Stack} from "@mui/material";
+import {Box, Container, Pagination, PaginationItem, Stack,} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
 import {MemberPosts} from "./memberPosts";
 import {MemberFollowers} from "./memberFollowers";
 import {MemberFollowing} from "./memberFollowing";
-import {MySettings} from "./mySettings";
-import SettingsIcon from "@mui/icons-material/Settings";
 /** others*/
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -30,7 +28,12 @@ import {Definer} from "../../../lib/definer";
 import FollowApiService from "../../apiSservices/followApiService";
 import {serverApi} from "../../../lib/config";
 import {verifiedMemberData} from "../../apiSservices/verify";
-import {TuiEditor} from "./TuiEditor";
+import {CssVarsProvider} from "@mui/joy/styles";
+import Card from "@mui/joy/Card";
+import CardCover from "@mui/joy/CardCover";
+import CardContent from "@mui/joy/CardContent";
+import Typography from "@mui/joy/Typography";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
 
 /** REDUX SLICE */
@@ -187,183 +190,252 @@ export function VisitOtherPage(props: any) {
     return (
         <div className={"my_page"}>
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
-                <Stack className={"my_page_frame"} sx={{flexDirection: "row"}}>
-                    <TabContext value={value}>
-                        <Stack className={"mypage_profile"}>
-                            <Stack className={"mypage_second_box"}
-                                   sx={{flexDirection: "row"}}
-                            >
-                                <Box className={"myPage_pics"}>
-                                    <img src={
-                                        chosenMember?.mb_image
-                                            ? `${serverApi}/${chosenMember?.mb_image}`
-                                            : "/auth/odamcha.svg"
-                                    }
-                                    />
-                                </Box>
-                                <Stack sx={{flexDirection: "column"}}>
-                                    <Stack sx={{flexDirection: "row"}}>
-                                        <Box className={"user_name"}>
-                                            <p>{chosenMember?.mb_nick}</p>
-                                            <a>{chosenMember?.mb_type}</a>
-                                        </Box>
-                                        <Box className={"star_box"}>
-                                            <img src={"/icons/rating.svg"}/>
 
-                                        </Box>
-                                    </Stack>
-                                    <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
-                                        <Box className={"cont_article"}>
-                                            <p>Articles</p>
-                                            <a>48</a>
-                                        </Box>
-                                        <Box className={"cont_article"}>
-                                            <p>Followers</p>
-                                            <a>{chosenMember?.mb_subscriber_cnt}</a>
-                                        </Box>
-                                        <Box className={"cont_article"}>
-                                            <p>Following</p>
-                                            <a> {chosenMember?.mb_follow_cnt}</a>
-                                        </Box>
-                                        <Box className={"cont_article"}>
-                                            <p>Rating</p>
-                                            <a>8.9</a>
-                                        </Box>
-                                    </Stack>
-                                    <Box sx={{
-                                        display: 'flex',
-                                        gap: 1.5,
-                                        '& > button': {flex: 1},
-                                        marginTop: "15px",
-                                        marginLeft: "50px"
-                                    }}>
-                                        {/*<Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>*/}
-                                        {/*    Chat*/}
-                                        {/*</Button>*/}
-                                        <Box>
-                                            <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                                {chosenMember?.me_followed && chosenMember?.me_followed[0]?.my_following ? (
-                                                    <Tab
-                                                        value={"4"}
-                                                        component={() => (
-                                                            <Button
-                                                                value={chosenMember?._id}
-                                                                variant="contained"
-                                                                className="btn_cancel"
-                                                                onClick={unsubscribeHandler}
-                                                            >
-                                                                unFollow
-                                                            </Button>
-                                                        )}
-                                                    />
-                                                ) : (
-                                                    <Tab
-                                                        value={"4"}
-                                                        component={() => (
-                                                            <Button
-                                                                value={chosenMember?._id}
-                                                                variant="contained"
-                                                                className="btn_follow"
-                                                                onClick={subscribeHandler}
-                                                            >
-                                                                Follow
-                                                            </Button>
-                                                        )}
-                                                    />
-                                                )}
-                                            </TabList>
-                                        </Box>
+                <Stack className={"mypage_top"} sx={{flexDirection: "column"}}>
+                    <Stack className={"mypage_profile"}>
+                        <Stack className={"mypage_second_box"}
+                               sx={{flexDirection: "row"}}
+                        >
+                            <Box className={"myPage_pics"}>
+                                <img src={
+                                    chosenMember?.mb_image
+                                        ? `${serverApi}/${chosenMember?.mb_image}`
+                                        : "/auth/odamcha.svg"
+                                }/>
+                            </Box>
+                            <Stack sx={{flexDirection: "column"}}>
+                                <Stack sx={{flexDirection: "row"}}>
+                                    <Box className={"user_name"}>
+                                        <p>{chosenMember?.mb_nick}</p>
+                                        <a>{chosenMember?.mb_type}</a>
+                                    </Box>
+                                    <Box className={"star_box"}>
+                                        <img src={"/icons/rating.svg"}/>
+
                                     </Box>
                                 </Stack>
-                            </Stack>
-                            <Stack className={"mypage_middle"} sx={{flexDirection: "row"}}>
-                                <TabContext value={value}>
-                                    <Stack className={"my_page_left"}>
-                                        <Box display={"flex"} flexDirection={"column"}>
-                                            <TabPanel value={"1"}>
-                                                <Box className={"menu_name"}>Contents</Box>
-                                                <Box className={"menu_content"}>
-                                                    <MemberPosts
-                                                        chosenMemberBoArticles={chosenMemberBoArticles}
-                                                        renderChosenArticleHandler={renderChosenArticleHandler}
-                                                        setArticlesRebuild={setArticlesRebuild}
-                                                    />
-                                                    <Stack
-                                                        sx={{my: "40px"}}
-                                                        direction="row"
-                                                        alignItems="center"
-                                                        justifyContent="center"
+                                <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
+                                    <Box className={"cont_article"}>
+                                        <p>Articles</p>
+                                        <a>48</a>
+                                    </Box>
+                                    <Box className={"cont_article"}>
+                                        <p>Followers</p>
+                                        <a> {chosenMember?.mb_subscriber_cnt}</a>
+                                    </Box>
+                                    <Box className={"cont_article"}>
+                                        <p>Following</p>
+                                        <a> {chosenMember?.mb_follow_cnt}</a>
+                                    </Box>
+                                    <Box className={"cont_article"}>
+                                        <p>Rating</p>
+                                        <a>8.9</a>
+                                    </Box>
+                                </Stack>
+                                <Box sx={{
+                                    display: 'flex',
+                                    gap: 1.5,
+                                    '& > button': {flex: 1},
+                                    marginTop: "15px",
+                                    marginLeft: "50px"
+                                }}>
+                                    {/*<Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>*/}
+                                    {/*    Chat*/}
+                                    {/*</Button>*/}
+                                    <Box display={"flex"} justifyContent={"flex-end"} sx={{mt: "5px"}}>
+                                        {/*<TabList onChange={handleChange} aria-label="lab API tabs example">*/}
+                                        {chosenMember?.me_followed && chosenMember?.me_followed[0]?.my_following ? (
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        variant="contained"
+                                                        className="btn_cancel"
+                                                        onClick={unsubscribeHandler}
                                                     >
-                                                        <Box className={"bottom_box"}>
-                                                            <Pagination
-                                                                count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
-                                                                page={memberArticleSearchObj.page}
-                                                                renderItem={(item) => (
-                                                                    <PaginationItem
-                                                                        components={{
-                                                                            previous: ArrowBackIcon,
-                                                                            next: ArrowForwardIcon,
-                                                                        }}
-                                                                        {...item}
-                                                                        color={"secondary"}
-                                                                    />
-                                                                )}
-                                                                onChange={handlePaginationChange}
-                                                            />
-                                                        </Box>
-                                                    </Stack>
-                                                </Box>
-                                            </TabPanel>
-                                            <TabPanel value={"2"}>
-                                                <Box className={"menu_name"}>Followers</Box>
-                                                <Box className={"menu_content"}>
-                                                    <MemberFollowers
-                                                        actions_enabled={true}
-                                                        followRebuild={followRebuild}
-                                                        setFollowRebuild={setFollowRebuild}
-                                                        mb_id={verifiedMemberData?._id}
-                                                    />
-                                                </Box>
-                                            </TabPanel>
-                                            <TabPanel value={"3"}>
-                                                <Box className={"menu_name"}>Following</Box>
-                                                <Box className={"menu_content"}>
-                                                    <MemberFollowing
-                                                        actions_enabled={true}
-                                                        followRebuild={followRebuild}
-                                                        setFollowRebuild={setFollowRebuild}
-                                                        mb_id={verifiedMemberData?._id}
-                                                    />
-                                                </Box>
-                                            </TabPanel>
-                                            <TabPanel value={"4"}>
-                                                <Box className={"menu_name"}>Maqola yozish</Box>
-                                                <Box className={"write_content"}>
-                                                    <TuiEditor
-                                                        setValue={setValue}
-                                                        setArticlesRebuild={setArticlesRebuild}
-                                                    />
-                                                </Box>
-                                            </TabPanel>
-                                            <TabPanel value={"5"}>
-                                                <Box className={"menu_name"}>tanlangan maqola</Box>
-                                                <Box className={"menu_content"}>
-                                                    <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
-                                                </Box>
-                                            </TabPanel>
-                                            <TabPanel value={"6"}>
-                                                <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
-                                                <Box className={"menu_content"}>
-                                                    <MySettings/>
-                                                </Box>
-                                            </TabPanel>
-                                        </Box>
-                                    </Stack>
+                                                        unFollow
+                                                    </Button>
+                                                )}
+                                            />
+                                        ) : (
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        className="btn_follow"
+                                                        onClick={subscribeHandler}
+                                                        sx={{backgroundColor: "#0044bb", color: "#fff", width: "115px"}}
+                                                    >
+                                                        Follow
+                                                    </Button>
+                                                )}
+                                            />
+                                        )}
+                                        {/*</TabList>*/}
+                                    </Box>
+                                </Box>
+                            </Stack>
+                        </Stack>
+                    </Stack>
+                    <CssVarsProvider>
+                        <Stack className={"user_property_box"} sx={{flexDirection: "column"}}>
+                            <h4>Property</h4>
+                            <Stack sx={{flexDirection: "row", justifyContent: "space-between"}}>
+                                <Card
+                                    sx={{minHeight: '280px', width: 320, marginRight: "20px"}}
+                                    // onClick={() => chosenProductHandler(ele._id)}
+                                >
+                                    <CardCover>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                            loading="lazy"
+                                            alt=""
+                                        />
+                                    </CardCover>
+                                    <CardCover
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                        }}
+                                    />
+                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                        <Typography level="title-lg" textColor="#fff">
+                                            Yosemite National Park
+                                        </Typography>
+                                        <Typography
+                                            startDecorator={<LocationOnRoundedIcon/>}
+                                            textColor="neutral.300"
+                                        >
+                                            California, USA
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+
+                                <Card sx={{minHeight: '280px', width: 320, marginRight: "20px"}}>
+                                    <CardCover>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                            loading="lazy"
+                                            alt=""
+                                        />
+                                    </CardCover>
+                                    <CardCover
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                        }}
+                                    />
+                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                        <Typography level="title-lg" textColor="#fff">
+                                            Yosemite National Park
+                                        </Typography>
+                                        <Typography
+                                            startDecorator={<LocationOnRoundedIcon/>}
+                                            textColor="neutral.300"
+                                        >
+                                            California, USA
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                                <Card sx={{minHeight: '280px', width: 320, marginRight: "20px"}}>
+                                    <CardCover>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                            loading="lazy"
+                                            alt=""
+                                        />
+                                    </CardCover>
+                                    <CardCover
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                        }}
+                                    />
+                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                        <Typography level="title-lg" textColor="#fff">
+                                            Yosemite National Park
+                                        </Typography>
+                                        <Typography
+                                            startDecorator={<LocationOnRoundedIcon/>}
+                                            textColor="neutral.300"
+                                        >
+                                            California, USA
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                                <Card sx={{minHeight: '280px', width: 320}}>
+                                    <CardCover>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                            loading="lazy"
+                                            alt=""
+                                        />
+                                    </CardCover>
+                                    <CardCover
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                        }}
+                                    />
+                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                        <Typography level="title-lg" textColor="#fff">
+                                            Yosemite National Park
+                                        </Typography>
+                                        <Typography
+                                            startDecorator={<LocationOnRoundedIcon/>}
+                                            textColor="neutral.300"
+                                        >
+                                            California, USA
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+
+                                <Card sx={{minHeight: '280px', width: 320}}>
+                                    <CardCover>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                            loading="lazy"
+                                            alt=""
+                                        />
+                                    </CardCover>
+                                    <CardCover
+                                        sx={{
+                                            background:
+                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                        }}
+                                    />
+                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                        <Typography level="title-lg" textColor="#fff">
+                                            Yosemite National Park
+                                        </Typography>
+                                        <Typography
+                                            startDecorator={<LocationOnRoundedIcon/>}
+                                            textColor="neutral.300"
+                                        >
+                                            California, USA
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
 
 
+                            </Stack>
+                        </Stack>
+                    </CssVarsProvider>
+
+                    <Stack flexDirection={"row"}>
+                        <Stack className={"mypage_middle"} sx={{flexDirection: "row"}}>
+                            <TabContext value={value}>
+                                <Stack className={"my_page_left"}>
                                     <Stack className={"my_page_right"}>
                                         <Box className={"my_page_menu"}
-                                             sx={{flexDirection: "column",}}
+                                             sx={{flexDirection: "column"}}
                                         >
                                             <TabList
                                                 onChange={handleChange}
@@ -371,9 +443,14 @@ export function VisitOtherPage(props: any) {
                                                 // value={value}
                                                 className="my_page_menu"
                                                 aria-label="Vertical tabs example"
-                                                sx={{borderRight: 1, borderColor: "divider", width: "100%"}}
+                                                sx={{
+                                                    borderRight: 1,
+                                                    borderColor: "divider",
+                                                    width: "560px",
+                                                    marginTop: "30px"
+                                                }}
                                             >
-                                                <Stack flexDirection={"column"}>
+                                                <Stack flexDirection={"row"}>
                                                     <Tab
                                                         style={{flexDirection: "column",}}
                                                         value={"1"}
@@ -381,7 +458,7 @@ export function VisitOtherPage(props: any) {
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("1")}>
                                                                 <img src={"/icons/Pencil.svg"} alt=""/>
-                                                                <span>My Contents</span>
+                                                                <span>Contents</span>
                                                             </div>
                                                         )}
                                                     />
@@ -411,19 +488,81 @@ export function VisitOtherPage(props: any) {
                                             </TabList>
                                         </Box>
                                     </Stack>
-                                </TabContext>
-                            </Stack>
-                        </Stack>
-                    </TabContext>
-                    <Stack className={"mypage_bottom"} sx={{flexDirection: "row"}}>
-                        <Stack className={"bottom_left"}>
+                                    <Box display={"flex"} flexDirection={"column"}>
+                                        <TabPanel value={"1"}>
+                                            {/*<Box className={"menu_name"}>Contents</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberPosts
+                                                    chosenMemberBoArticles={chosenMemberBoArticles}
+                                                    renderChosenArticleHandler={renderChosenArticleHandler}
+                                                    setArticlesRebuild={setArticlesRebuild}
+                                                />
+                                                <Stack
+                                                    sx={{my: "40px"}}
+                                                    direction="row"
+                                                    alignItems="center"
+                                                    justifyContent="center"
+                                                >
+                                                    <Box className={"bottom_box"}>
+                                                        <Pagination
+                                                            count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
+                                                            page={memberArticleSearchObj.page}
+                                                            renderItem={(item) => (
+                                                                <PaginationItem
+                                                                    components={{
+                                                                        previous: ArrowBackIcon,
+                                                                        next: ArrowForwardIcon,
+                                                                    }}
+                                                                    {...item}
+                                                                    color={"secondary"}
+                                                                />
+                                                            )}
+                                                            onChange={handlePaginationChange}
+                                                        />
+                                                    </Box>
+                                                </Stack>
+                                            </Box>
+                                        </TabPanel>
+
+                                        <TabPanel value={"2"}>
+                                            {/*<Box className={"menu_name"}>Followers</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberFollowers
+                                                    actions_enabled={true}
+                                                    followRebuild={followRebuild}
+                                                    setFollowRebuild={setFollowRebuild}
+                                                    mb_id={verifiedMemberData?._id}
+                                                />
+                                            </Box>
+                                        </TabPanel>
+                                        <TabPanel value={"3"}>
+                                            {/*<Box className={"menu_name"}>Following</Box>*/}
+                                            <Box className={"menu_content"}>
+                                                <MemberFollowing
+                                                    actions_enabled={true}
+                                                    followRebuild={followRebuild}
+                                                    setFollowRebuild={setFollowRebuild}
+                                                    mb_id={verifiedMemberData?._id}
+                                                />
+                                            </Box>
+                                        </TabPanel>
+
+                                        <TabPanel value={"5"}>
+                                            <Box className={"menu_name"}>chose content</Box>
+                                            <Box className={"menu_content"}>
+                                                <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
+                                            </Box>
+                                        </TabPanel>
+                                    </Box>
+                                </Stack>
+                            </TabContext>
 
                         </Stack>
-                        <Stack className={"bottom_right"}>
-
+                        <Stack className={"right_pics"}>
+                            <h4>home town</h4>
                         </Stack>
-
-
+                    </Stack>
+                    <Stack className={"right_side"}>
                     </Stack>
                 </Stack>
             </Container>

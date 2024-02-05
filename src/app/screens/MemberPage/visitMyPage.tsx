@@ -370,7 +370,7 @@ export function VisitMyPage(props: any) {
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("1")}>
                                                                 <img src={"/icons/Pencil.svg"} alt=""/>
-                                                                <span>My Contents</span>
+                                                                <span>Contents</span>
                                                             </div>
                                                         )}
                                                     />
@@ -474,7 +474,7 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"6"}>
-                                            <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
+                                            <Box className={"menu_name"}>Edit Infromation</Box>
                                             <Box className={"menu_content"}>
                                                 <MySettings/>
                                             </Box>

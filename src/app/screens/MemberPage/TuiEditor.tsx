@@ -77,7 +77,7 @@ export const TuiEditor = (props: any) => {
             );
             const communityService = new CommunityApiService();
             await communityService.createArticle(communityArticleData);
-            await sweetTopSmallSuccessAlert("Article is created successfull");
+            await sweetTopSmallSuccessAlert("Article is created successful");
             setValue("1");
             setArticlesRebuild(new Date());
         } catch (err) {

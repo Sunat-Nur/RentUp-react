@@ -116,7 +116,7 @@ export function MemberFollowers(props: any) {
                                                         background: "#68C5CB",
                                                         color: "#ffffff",
                                                         borderRadius: "50px",
-                                                        marginTop: "10px",
+                                                        marginTop: "15px",
                                                         width: "160px",
                                                     }}
                                             >

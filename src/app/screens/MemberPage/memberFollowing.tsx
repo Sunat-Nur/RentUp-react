@@ -115,7 +115,7 @@ export function MemberFollowing(props: any) {
                                             background: "red",
                                             color: "#ffffff",
                                             borderRadius: "50px",
-                                            marginTop: "10px"
+                                            marginTop: "19px"
                                         }}
                                         startIcon={<img src={"/icons/follow_icon.svg"}/>}
                                         onClick={(e) => unsubscribeHandler(e, following?.follow_id)}

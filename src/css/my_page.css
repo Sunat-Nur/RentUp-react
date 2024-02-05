@@ -190,7 +190,7 @@
 }
 
 .content_page {
-    width: 821px;
+    width: 621px;
     height: fit-content;
 }
 
@@ -205,11 +205,11 @@
 
 .my_page .menu_name {
     width: 621px;
-    height: 50px;
     color: #000;
+    margin-top: 20px;
     text-align: center;
     font-family: Poppins;
-    font-size: 35px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -217,20 +217,23 @@
 }
 
 .my_page .all_article_box {
-    width: 821px;
-    height: 175px;
+    width: 621px;
+    height: 125px;
     margin-top: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: #182226;
-    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+    background: #fff;
     border-radius: 30px;
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 10px #808080);
 }
 
 .my_page .all_article_img {
-    width: 157px;
-    height: 155px;
+    width: 127px;
+    height: 125px;
     flex-shrink: 0;
     border-radius: 30px 0px 0px 30px;
     background-size: cover;
@@ -261,8 +264,9 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 26px;
-    color: #ffffff;
+    line-height: 22px;
+    /*color: #ffffff;*/
+    color: #000;
 }
 
 .post_content .all_article_title {
@@ -281,7 +285,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 26px;
-    color: #ffffff;
+    color: #000;
     padding: 0;
     margin: 0;
 }
@@ -532,7 +536,7 @@
 
 
 .my_following_page {
-    width: 621.42px;
+    width: 621px;
     height: 100%;
     display: flex;
     position: relative;
@@ -544,11 +548,17 @@
     border-radius: 17px;
     padding: 25px 45px;
 
-    /*background-color: #f6f5f3;*/
-    background: linear-gradient(180deg,
-    rgba(28, 162, 139, 0.30) 0%,
-    rgba(21, 61, 70, 0.90) 100%);
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15), 3px 2px 9px 0px rgba(255, 255, 255, 0.25) inset;
+    background-color: #fff;
+    /*background: linear-gradient(180deg,*/
+    /*rgba(28, 162, 139, 0.30) 0%,*/
+    /*rgba(21, 61, 70, 0.90) 100%);*/
+    /*box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15), 3px 2px 9px 0px rgba(255, 255, 255, 0.25) inset;*/
+
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 10px #808080);
+    flex-direction: row;
 
     position: relative;
     flex-direction: row;
@@ -563,7 +573,7 @@
     height: 10px;
     flex-shrink: 0;
 
-    color: #FFF;
+    color: #000;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
@@ -589,6 +599,7 @@
 .following_already span {
     width: 102px;
     height: 25px;
+    margin-right: 15px;
     color: #FFF;
     display: flex;
     font-size: 20px;
@@ -616,7 +627,7 @@
 
 .my_settings_page {
     width: 621.42px;
-    height: 1450px;
+    height: 550px;
     flex-direction: column;
     display: flex;
 }
@@ -626,7 +637,7 @@
     height: 120px;
     border-radius: 15px;
     background: #c5c8c9;
-    margin-bottom: 59px;
+    margin-bottom: 19px;
 
     flex-direction: row;
     display: flex;
@@ -677,8 +688,8 @@
     flex-shrink: 0;
     border-radius: 5px;
     background: #fff;
-    margin-bottom: 59px;
-    margin-top: 10px;
+    margin-bottom: 19px;
+    /*margin-top: 10px;*/
 }
 
 
@@ -701,29 +712,29 @@
 
 
 .my_settings_page .input_frame .spec_input_mb_phone {
-    width: 400px;
+    width: 310px;
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
     background: #fff;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     align-items: center;
     /*justify-content: center;*/
 }
 
 
 .my_settings_page .input_frame .spec_input_mb_address {
-    width: 400px;
+    width: 310px;
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
     background: #fff;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .my_settings_page .spec_textarea_mb_description {
     width: 621.42px;
-    height: 200px;
+    height: 130px;
     flex-shrink: 0;
 }
 
@@ -739,6 +750,7 @@
 
 .edit_page .edit_box{
     width: 621.43px;
+
     margin-bottom: 100px;
     position: relative;
     display: flex;

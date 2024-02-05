@@ -52,13 +52,13 @@ export function MemberPosts(props: any) {
                         >
                             <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}>
                             </Box>
-                            <Box className={"all_article_container"}>
+                            <Box className={"all_article_container"} >
                                 <Box alignItems={"center"} display={"flex"}>
                                     <img
                                         src={
                                             article?.member_data?.mb_image
                                                 ? `${serverApi}/${article.member_data?.mb_image}`
-                                                : "/auth/default_user.svg"
+                                                : "/auth/odamcha.svg"
                                         }
                                         width={"35px"}
                                         style={{borderRadius: "50%", backgroundSize: "cover"}}/>
@@ -66,13 +66,13 @@ export function MemberPosts(props: any) {
                                     {article?.member_data?.mb_nick}
                                 </span>
                                 </Box>
-                                <Box display={"flex"} flexDirection={"column"} sx={{mt: "15px"}}>
+                                <Box display={"flex"} flexDirection={"column"} sx={{mt: "1px"}}>
                                 <span className={"all_article_title"}>
                                     {article?.bo_id}
                                 </span>
                                     <p className={"all_article_desc"}>{article?.art_subject}</p>
                                 </Box>
-                                <Box>
+                                <Box >
                                     <Box className={"article_share"}
                                         style={{width: "100%", height: "auto"}}
                                         sx={{mb: "30px"}}
@@ -80,10 +80,11 @@ export function MemberPosts(props: any) {
                                         <Box
                                             className={"article_share_main"}
                                             style={{
-                                                color: "#fff",
-                                                marginLeft: "150px",
+                                                color: "#000",
+                                                marginLeft: "50px",
                                                 display: "flex",
-                                                alignItems: "center"
+                                                alignItems: "center",
+                                                marginBottom: "50px"
                                             }}
                                         >
                                             <span>{moment(article?.createdAt).format("YY-MM-DD HH:mm")}</span>
@@ -97,7 +98,7 @@ export function MemberPosts(props: any) {
                                             />
                                             <span style={{marginRight: "18px"}}>{article?.art_likes}</span>
                                             <RemoveRedEyeIcon/>
-                                            <span style={{marginLeft: "18px"}}>{article?.art_views}</span>
+                                            <span style={{marginLeft: "18px", marginRight: "40px"}}>{article?.art_views}</span>
                                         </Box>
                                     </Box>
                                 </Box>
