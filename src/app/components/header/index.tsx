@@ -9,7 +9,7 @@ export function NavbarHome(props: any) {
 
 
     return (
-        <div className="format home_navbar">
+        <div className="format home_navbar" data-aos="flip-left">
             <Container>
                 <Stack
                     flexDirection={"row"}

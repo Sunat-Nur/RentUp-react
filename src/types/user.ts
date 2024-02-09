@@ -62,3 +62,9 @@ export interface MemberUpdateData {
     mb_description?: string;
     mb_image?: string | null;
 }
+
+export interface User {
+    mb_nick: string;
+    mb_phone: number;
+    mb_password: string;
+}

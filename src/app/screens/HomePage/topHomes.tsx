@@ -31,17 +31,22 @@ export function TopHomes() {
     }
 
     return (
-        <div className="top_property_frame">
+        <div className="top_property_frame" data-aos="zoom-in-right">
             <Container>
                 <Stack className="top_property_main_box">
                     <Stack>
+
                         <Box className="top_home_definer">
-                            <p>Top Properties</p>
-                            <Box className="top_home_definer">
-                                <h2>Explore Elevated Living.</h2>
-                            </Box>
+                            <div data-aos="fade-up"
+                                 data-aos-anchor-placement="top-center">
+
+                                <p>Top Properties</p>
+                                <Box className="top_home_definer">
+                                    <h2>Explore Elevated Living.</h2>
+                                </Box>
+                            </div>
                         </Box>
-                        <Stack className="all_top_property_img_box" flexDirection={"row"}>
+                        <Stack className="all_top_property_img_box" flexDirection={"row"} sx={{flexWrap: "wrap"}}>
                             <Box className="top_home_main_box">
 
                                 {topHomes.map((ele: Product) => {

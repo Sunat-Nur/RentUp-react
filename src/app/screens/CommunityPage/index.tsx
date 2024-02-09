@@ -96,16 +96,18 @@ export function CommunityPage(props: any) {
                         <TabContext value={value}>
                             <Box className={"article_tabs"}>
                                 <Box sx={{borderBottom: 1, borderColor: "divider"}}>
-                                    <TabList
-                                        onChange={handleChange}
-                                        aria-label="lab API tabs example"
-                                        style={{borderColor: "blue"}}
-                                    >
-                                        <Tab label="All Articles" value={"1"}/>
-                                        <Tab label="Famous" value={"2"}/>
-                                        <Tab label="About Property " value={"3"}/>
-                                        <Tab label="Customers" value={"4"}/>
-                                    </TabList>
+                                    <div data-aos="fade-down" >
+                                        <TabList
+                                            className={"tablist_menu"}
+                                            onChange={handleChange}
+                                            aria-label="lab API tabs example"
+                                        >
+                                            <Tab label="All Articles" value={"1"}/>
+                                            <Tab label="Famous" value={"2"}/>
+                                            <Tab label="About Property " value={"3"}/>
+                                            <Tab label="Customers" value={"4"}/>
+                                        </TabList>
+                                    </div>
                                 </Box>
                             </Box>
 

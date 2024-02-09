@@ -9,6 +9,7 @@ const initialState: HomePageState = {
     trendBoArticles: [],
     luxuryProperty: [],
     newsBoArticles: [],
+    events: [],
     comment:[],
 
 };
@@ -36,6 +37,9 @@ const HomePageSlice = createSlice({
         setTrendBoArticles: (state, action) => {
             state.trendBoArticles = action.payload
         },
+        setEvents: (state, action) => {
+            state.events = action.payload;
+        },
         setNewsBoArticles: (state, action) => {
             state.newsBoArticles = action.payload
         },
@@ -49,6 +53,7 @@ export const {
     setTrendBoArticles,
     setNewsBoArticles,
     setLuxuryProperty,
+    setEvents,
     setComment,
 
 } = HomePageSlice.actions;

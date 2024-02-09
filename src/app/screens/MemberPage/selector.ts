@@ -8,6 +8,11 @@ export const retrieveChosenMember = createSelector(
     (MemberPage) => MemberPage.chosenMember
 );
 
+export const retrieveChosenMemberProduct = createSelector(
+    selectMemberPage,
+    (MemberPage) => MemberPage.chosenMemberProduct
+);
+
 export const retrieveChosenMemberBoArticles = createSelector(
     selectMemberPage,
     (MemberPage) => MemberPage.chosenMemberBoArticles

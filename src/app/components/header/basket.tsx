@@ -3,16 +3,10 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React from "react";
 import {serverApi} from "../../../lib/config";
 import {CartItem} from "../../../types/others";
-import {sweetErrorHandling} from "../../../lib/sweetAlert";
-import assert from "assert";
-import {Definer} from "../../../lib/definer";
-import OrderApiService from "../../apiSservices/orderApiService";
 import {useHistory} from "react-router-dom";
-import {verifiedMemberData} from "../../apiSservices/verify";
 
 export default function Basket(props: any) {
     /** INITIALIZATIONS **/

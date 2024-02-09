@@ -6,7 +6,8 @@ import Pagination from "@mui/material/Pagination";
 
 export function Posts() {
     return (
-        <div className="owner_post_frame">
+        <div className="owner_post_frame" data-aos="fade-up"
+             data-aos-anchor-placement="bottom-bottom">
             <Container>
                 <Stack className="owner_post_container">
                     <Stack className="owner_post_box">

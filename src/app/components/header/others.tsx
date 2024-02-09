@@ -6,15 +6,15 @@ import Basket from "./basket";
 import {verifiedMemberData} from "../../apiSservices/verify";
 
 export function NavbarOthers(props: any) {
-    return <div className="format_order home_navbar">
+    return <div className="format_order home_navbar" data-aos="zoom-in">
         <Container>
             <Stack
                 flexDirection={"row"}
                 className="navbar_config"
                 justifyContent={"space-between"}
             >
-                <Box>
-                    <img src={"/icons/Papay..svg"} alt=''/>
+                <Box className={"header_logo"}>
+                    <img src={"/icons/logo.png"} alt=''/>
                 </Box>
                 <Stack
                     flexDirection={"row"}
@@ -22,37 +22,39 @@ export function NavbarOthers(props: any) {
                     alignItems={"center"}
                     className="navbar_links"
                 >
-                    <Box className="hover-line" onClick={props.setPath}>
+                    <Box className="hover_line" onClick={props.setPath}>
                         <NavLink to="/">Home</NavLink>
                     </Box>
 
-                    <Box className="hover-line" onClick={props.setPath}>
+                    <Box className="hover_line" onClick={props.setPath}>
                         <NavLink to="/company" activeClassName="underline">
                             Property
                         </NavLink>
                     </Box>
-                    <Box className="hover-line" onClick={props.setPath}>
+                    <Box className="hover_line" onClick={props.setPath}>
                         <NavLink to="/agency" activeClassName="underline">
                             Agency
                         </NavLink>
                     </Box>
 
 
-                    <Box className="hover-line" onClick={props.setPath}>
+                    <Box className="hover_line" onClick={props.setPath}>
                         <NavLink to="/community" activeClassName="underline">
                             Community
                         </NavLink>
                     </Box>
 
                     {verifiedMemberData ? (
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/member-page" activeClassName="underline">
                                 My Page
                             </NavLink>
                         </Box>
                     ) : null}
 
-                    <Box className="hover-line" onClick={props.setPath}>
+                    <Box className="hover_line" onClick={props.setPath}
+                         sx={{marginRight: "80px"}}
+                    >
                         <NavLink to="/help" activeClassName="underline">
                             Help
                         </NavLink>

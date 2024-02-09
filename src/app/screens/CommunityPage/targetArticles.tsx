@@ -41,87 +41,87 @@ export function TargetArticles(props: any) {
             sweetErrorHandling(err).then();
         }
     };
-    // dayjs.locale("en");
-    // dayjs.extend(relativeTime);
+
 
     return (
-        <Stack className={"article_box"} sx={{flexDirection: "row"}}>
-            {props.targetBoArticles?.map((article: BoArticle) => {
-                const art_image_url = article?.art_image
-                    ? `${serverApi}/${article?.art_image}`
-                    : "/auth/default_user.svg";
-                const userImage = article?.member_data?.mb_image
-                    ? `${serverApi}/${article?.member_data?.mb_image}`
-                    : "/auth/odamcha.svg";
-                // const formattedDate = dayjs(article?.createdAt).fromNow();
-                // const delay = 200 * index;
+        <div data-aos="zoom-in">
+            <Stack className={"article_box"} sx={{flexDirection: "row"}}>
+                {props.targetBoArticles?.map((article: BoArticle) => {
+                    const art_image_url = article?.art_image
+                        ? `${serverApi}/${article?.art_image}`
+                        : "/auth/default_user.svg";
+                    const userImage = article?.member_data?.mb_image
+                        ? `${serverApi}/${article?.member_data?.mb_image}`
+                        : "/auth/odamcha.svg";
 
-                return (
-                    <Link
-                        key={article?._id}
-                        // className="all_article_box"
-                        href={`/member-page/other?mb_id=${article?.mb_id}&art_id=${article?._id}`}
-                    >
-                        <Card
-                            sx={{
-                                width: "350px",
-                                height: "420px",
-                                borderRadius: "15px",
-                                marginLeft: "20px",
-                                marginBottom: "30px",
-                                marginRight: "20px",
-                            }}
+                    console.log("mb_image", userImage);
+
+                    return (
+                        <Link
+                            key={article?._id}
+                            // className="all_article_box"
+                            href={`/member-page/other?mb_id=${article?.mb_id}&art_id=${article?._id}`}
                         >
-                            <CardHeader
-                                avatar={
-                                    <Avatar aria-label="recipe">
-                                        <img
-                                            src={userImage}
+                            <Card
+                                sx={{
+                                    width: "350px",
+                                    height: "420px",
+                                    borderRadius: "15px",
+                                    marginLeft: "20px",
+                                    marginBottom: "30px",
+                                    marginRight: "20px",
+                                }}
+                            >
+                                <CardHeader className={"article_user_name"}
+                                            avatar={
+                                                <Avatar className={"img_avatar"} aria-label="recipe">
+                                                    <img
+                                                        src={userImage}
+                                                    />
+                                                </Avatar>
+                                            }
+                                            title={article?.member_data.mb_nick}
+                                />
+                                <CardMedia
+                                    component="img"
+                                    height="194"
+                                    sx={{backgroundImage: `url(${art_image_url})`}}
+                                />
+                                <CardContent sx={{marginBottom: "1px"}}>
+                                    <Typography variant="body2" color="#000" sx={{fontFamily: "sans-serif"}}>
+                                        {article?.art_subject} nice place form central city. close to parking and
+                                        shoppingMall
+                                    </Typography>
+                                </CardContent>
+
+                                <CardActions disableSpacing sx={{marginTop: "1px"}}>
+                                    <IconButton aria-label="add to favorites">
+                                        <Checkbox
+                                            onChange={targetLikeHandler}
+                                            icon={<FavoriteBorder/>}
+
+                                            checkedIcon={<Favorite style={{fill: "red"}}/>}
+                                            id={article?._id}
+                                            checked={
+                                                article?.me_liked && article?.me_liked[0]?.my_favorite
+                                                    ? true
+                                                    : false
+                                            }
                                         />
-                                    </Avatar>
-                                }
-                                title={article?.member_data.mb_nick}
-                                // creat={article?.createdAt}
-                            />
-                            <CardMedia
-                                component="img"
-                                height="194"
-                                sx={{backgroundImage: `url(${art_image_url})`}}
-                            />
-                            <CardContent sx={{marginBottom: "1px"}}>
-                                <Typography variant="body2" color="text.secondary">
-                                    {article?.art_subject} text ever since the when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book.
-                                </Typography>
-                            </CardContent>
-
-                            <CardActions disableSpacing sx={{marginTop: "1px"}}>
-                                <IconButton aria-label="add to favorites">
-                                    <Checkbox
-                                        onChange={targetLikeHandler}
-                                        icon={<FavoriteBorder/>}
-
-                                        checkedIcon={<Favorite style={{fill: "red"}}/>}
-                                        id={article?._id}
-                                        checked={
-                                            article?.me_liked && article?.me_liked[0]?.my_favorite
-                                                ? true
-                                                : false
-                                        }
-                                    />
-                                    <span className="like_cont">{article?.art_likes}</span>
-                                </IconButton>
-                                <IconButton aria-label="share">
-                                    <Box className="eye_icon" onClick={(e) => e.stopPropagation()}>
-                                        <RemoveRedEyeIcon/>
-                                    </Box>
-                                    <span className="view_cont">{article?.art_views}</span>
-                                </IconButton>
-                            </CardActions>
-                        </Card>
-                    </Link>
-                );
-            })}
-        </Stack>
+                                        <span className="like_cont">{article?.art_likes}</span>
+                                    </IconButton>
+                                    <IconButton aria-label="share">
+                                        <Box className="eye_icon" onClick={(e) => e.stopPropagation()}>
+                                            <RemoveRedEyeIcon/>
+                                        </Box>
+                                        <span className="view_cont">{article?.art_views}</span>
+                                    </IconButton>
+                                </CardActions>
+                            </Card>
+                        </Link>
+                    );
+                })}
+            </Stack>
+        </div>
     );
 }

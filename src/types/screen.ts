@@ -19,6 +19,7 @@ export interface  HomePageState {
     bestCompany: Company[];
     bestBoArticles: BoArticle[];
     luxuryProperty: Product[];
+    events: Event[];
     trendBoArticles: BoArticle[];
     newsBoArticles: BoArticle[];
     comment: BoArticle[];
@@ -49,6 +50,7 @@ export interface CommunityPageState{
 /** Member page **/
 export interface MemberPageState {
     chosenMember: Member | null;
+    chosenMemberProduct: [];
     chosenMemberBoArticles: BoArticle[];
     chosenSingleBoArticle: BoArticle | null;
     memberFollowers: Follower[];

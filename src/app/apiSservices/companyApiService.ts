@@ -47,7 +47,8 @@ export default class CompanyApiService {
 
             assert.ok(result?.data, Definer.general_err1);
             assert.ok(result?.data.state !== "fail", Definer.general_err1);
-            console.log("state:::", result.data.state);
+            console.log("data:::", result.data.data);
+
 
             const companies: Company[] = result.data.data;
             return companies;

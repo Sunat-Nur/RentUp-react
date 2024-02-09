@@ -40,7 +40,7 @@ export function MemberFollowing(props: any) {
     const {setMemberFollowings} = actionDispatch(useDispatch());
     const {memberFollowings} = useSelector(memberFollowingsRetriever);
     const [followingsSearchObj, setFollowingsSearchObj] = useState<FollowSearchObj>(
-        {page: 1, limit: 5, mb_id: mb_id});
+        {page: 1, limit: 3, mb_id: mb_id});
 
     useEffect(() => {
         const followService = new FollowApiService();
@@ -76,58 +76,60 @@ export function MemberFollowing(props: any) {
 
     return (
         <Stack className={"my_following_page"}>
-            {memberFollowings.map((following: Following) => {
-                const image_url = following?.follow_member_data?.mb_image
-                    ? `${serverApi}/${following?.follow_member_data?.mb_image}`
-                    : "/auth/default_user.svg";
-                return (
-                    <Box className={"follow_box"}>
-                        <Stack flexDirection="row">
-                            <Avatar
-                                alt={""}
-                                src={image_url}
-                                sx={{width: 39, height: 39}}
-                                style={{cursor: "pointer"}}
-                                onClick={() => visitMemberHandler(following?.follow_id)}
-                            />
-                            <div
-                                style={{
-                                    width: "300px",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    marginLeft: "25px",
-                                    height: "45%",
-                                }}
-                            >
-                                <span className={"username_text"}>{following?.follow_member_data?.mb_type}</span>
-                                <span
-                                    className={"name_text"}
+            <div data-aos="flip-left">
+                {memberFollowings.map((following: Following) => {
+                    const image_url = following?.follow_member_data?.mb_image
+                        ? `${serverApi}/${following?.follow_member_data?.mb_image}`
+                        : "/auth/default_user.svg";
+                    return (
+                        <Box className={"follow_box"}>
+                            <Stack flexDirection="row">
+                                <Avatar
+                                    alt={""}
+                                    src={image_url}
+                                    sx={{width: 39, height: 39}}
                                     style={{cursor: "pointer"}}
                                     onClick={() => visitMemberHandler(following?.follow_id)}
+                                />
+                                <div
+                                    style={{
+                                        width: "300px",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        marginLeft: "25px",
+                                        height: "45%",
+                                    }}
                                 >
-                                    {following?.follow_member_data?.mb_nick}</span>
-                            </div>
-                            <Stack className={"button_follow"}>
-                                {props.actions_enabled && (
-                                    <Button
-                                        className={"follow_back"}
-                                        style={{
-                                            background: "red",
-                                            color: "#ffffff",
-                                            borderRadius: "50px",
-                                            marginTop: "19px"
-                                        }}
-                                        startIcon={<img src={"/icons/follow_icon.svg"}/>}
-                                        onClick={(e) => unsubscribeHandler(e, following?.follow_id)}
+                                    <span className={"username_text"}>{following?.follow_member_data?.mb_nick}</span>
+                                    <span
+                                        className={"name_text"}
+                                        style={{cursor: "pointer"}}
+                                        onClick={() => visitMemberHandler(following?.follow_id)}
                                     >
-                                        UnFollowing
-                                    </Button>
-                                )}
+                                    {following?.follow_member_data?.mb_type}</span>
+                                </div>
+                                <Stack className={"button_follow"}>
+                                    {props.actions_enabled && (
+                                        <Button
+                                            className={"follow_back"}
+                                            style={{
+                                                background: "red",
+                                                color: "#ffffff",
+                                                borderRadius: "50px",
+                                                marginTop: "19px"
+                                            }}
+                                            startIcon={<img src={"/icons/follow_icon.svg"}/>}
+                                            onClick={(e) => unsubscribeHandler(e, following?.follow_id)}
+                                        >
+                                            UnFollowing
+                                        </Button>
+                                    )}
+                                </Stack>
                             </Stack>
-                        </Stack>
-                    </Box>
-                );
-            })}
+                        </Box>
+                    );
+                })}
+            </div>
             <Stack
                 sx={{my: "40px"}}
                 direction="row"

@@ -33,3 +33,8 @@ export const retrieveComment = createSelector(
     selectHomePage,
     (HomePage) => HomePage.comment
 );
+
+export const retrieveEvents = createSelector(
+    selectHomePage,
+    (HomePage) => HomePage.events
+);

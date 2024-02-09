@@ -36,77 +36,85 @@ export function MemberPosts(props: any) {
         }
     };
     return (
-        <Stack className={"content_page"}>
-            <Box className={"post_content"}>
-                {chosenMemberBoArticles.map((article: BoArticle) => {
-                    const image_path = article?.art_image
-                        ? `${serverApi}/${article.art_image}`
-                        : "/auth/default_user.svg";
+        <div data-aos="flip-up">
+            <Stack className={"content_page"}>
+                <Box className={"post_content"}>
+                    {chosenMemberBoArticles.map((article: BoArticle) => {
+                        const image_path = article?.art_image
+                            ? `${serverApi}/${article.art_image}`
+                            : "/auth/default_user.svg";
 
-                    return (
-                        <Stack
-                            className={"all_article_box"}
-                            sx={{cursor: "pointer"}}
-                            key={article?._id}
-                            onClick={() => renderChosenArticleHandler(article?._id)}
-                        >
-                            <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}>
-                            </Box>
-                            <Box className={"all_article_container"} >
-                                <Box alignItems={"center"} display={"flex"}>
-                                    <img
-                                        src={
-                                            article?.member_data?.mb_image
-                                                ? `${serverApi}/${article.member_data?.mb_image}`
-                                                : "/auth/odamcha.svg"
-                                        }
-                                        width={"35px"}
-                                        style={{borderRadius: "50%", backgroundSize: "cover"}}/>
-                                    <span className={"all_article_author_user"}>
+                        return (
+                            <Stack
+                                className={"all_article_box"}
+                                sx={{cursor: "pointer"}}
+                                key={article?._id}
+                                onClick={() => renderChosenArticleHandler(article?._id)}
+                            >
+                                <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}>
+                                </Box>
+                                <Box className={"all_article_container"}>
+                                    <Box className={"image_box"} alignItems={"center"} display={"flex"}>
+                                        <img
+                                            src={
+                                                article?.member_data?.mb_image
+                                                    ? `${serverApi}/${article.member_data?.mb_image}`
+                                                    : "/auth/odamcha.svg"
+                                            }
+                                            width={"35px"}
+                                            style={{borderRadius: "50%", backgroundSize: "cover"}}/>
+                                        <span className={"all_article_author_user"}>
                                     {article?.member_data?.mb_nick}
                                 </span>
-                                </Box>
-                                <Box display={"flex"} flexDirection={"column"} sx={{mt: "1px"}}>
+                                    </Box>
+                                    <Box display={"flex"} flexDirection={"column"} sx={{mt: "1px"}}>
                                 <span className={"all_article_title"}>
                                     {article?.bo_id}
                                 </span>
-                                    <p className={"all_article_desc"}>{article?.art_subject}</p>
-                                </Box>
-                                <Box >
-                                    <Box className={"article_share"}
-                                        style={{width: "100%", height: "auto"}}
-                                        sx={{mb: "30px"}}
-                                    >
+                                        <p className={"all_article_desc"}>{article?.art_subject}</p>
+                                    </Box>
+                                    <Box>
                                         <Box
-                                            className={"article_share_main"}
+                                            className={"article_share"}
                                             style={{
-                                                color: "#000",
-                                                marginLeft: "50px",
-                                                display: "flex",
-                                                alignItems: "center",
+                                                width: "100%",
+                                                height: "auto",
                                                 marginBottom: "50px"
                                             }}
                                         >
-                                            <span>{moment(article?.createdAt).format("YY-MM-DD HH:mm")}</span>
-                                            <Checkbox
-                                                sx={{ml: "40px"}}
-                                                icon={<FavoriteBorder/>}
-                                                id={article?._id}
-                                                checkedIcon={<Favorite style={{color: "red"}}/>}
-                                                checked={article?.me_liked && article?.me_liked[0]?.my_favorite ? true : false}
-                                                onClick={targetLikeHandler}
-                                            />
-                                            <span style={{marginRight: "18px"}}>{article?.art_likes}</span>
-                                            <RemoveRedEyeIcon/>
-                                            <span style={{marginLeft: "18px", marginRight: "40px"}}>{article?.art_views}</span>
+                                            <Box
+                                                className={"article_share_main"}
+                                                style={{
+                                                    color: "#000",
+                                                    marginLeft: "50px",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <span>{moment(article?.createdAt).format("YY-MM-DD HH:mm")}</span>
+                                                <Checkbox
+                                                    sx={{ml: "40px"}}
+                                                    icon={<FavoriteBorder/>}
+                                                    id={article?._id}
+                                                    checkedIcon={<Favorite style={{color: "red"}}/>}
+                                                    checked={article?.me_liked && article?.me_liked[0]?.my_favorite ? true : false}
+                                                    onClick={targetLikeHandler}
+                                                />
+                                                <span style={{marginRight: "18px"}}>{article?.art_likes}</span>
+                                                <RemoveRedEyeIcon/>
+                                                <span style={{
+                                                    marginLeft: "18px",
+                                                    marginRight: "40px"
+                                                }}>{article?.art_views}</span>
+                                            </Box>
                                         </Box>
                                     </Box>
                                 </Box>
-                            </Box>
-                        </Stack>
-                    );
-                })}
-            </Box>
-        </Stack>
+                            </Stack>
+                        );
+                    })}
+                </Box>
+            </Stack>
+        </div>
     );
 }

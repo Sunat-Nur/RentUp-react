@@ -4,8 +4,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
+/** REDUX SELECTOR */
+
+
+
+
+
 
 export function Events() {
+    /** INITIALIZATION */
     const events_list = [
         {
             title: "Sale rent home",

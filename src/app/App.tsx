@@ -1,10 +1,6 @@
 import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
-import React, {useEffect, useState, } from 'react';
-import "../css/App.css";
-import "../css/navbar.css";
-import "../css/footer.css";
-import "../css/page.css";
-import AOS, { AosOptions } from "aos";
+import React, {useEffect, useState,} from 'react';
+import AOS, {AosOptions} from "aos";
 import {CommunityPage} from "./screens/CommunityPage";
 import {MemberPage} from "./screens/MemberPage";
 import {HelpPage} from "./screens/HelpPage";
@@ -17,12 +13,19 @@ import AuthenticationModal from "./components/auth";
 import MemberApiService from "./apiSservices/memberApiService";
 import {sweetFailureProvider, sweetTopSmallSuccessAlert} from "../lib/sweetAlert";
 import {Definer} from "../lib/definer";
+
 import "../app/apiSservices/verify";
 import {CartItem} from "../types/others";
 import {Product} from "../types/product";
 import {NavbarHome} from "./components/header";
 import {ProductPage} from "./screens/ProductPage";
 import {AgencyPage} from "./screens/AgencyPage";
+import "../css/App.css";
+import "../css/navbar.css";
+import "../css/footer.css";
+import "../css/page.css";
+import "aos/dist/aos.css";
+import ScrollToTop from "./components/scrollTop/scrollTop";
 
 
 interface CustomAosOptions extends AosOptions {
@@ -41,8 +44,7 @@ function App() {
     const [signUpOpen, setSignUpOpen] = useState(false);
     const [loginOpen, setLoginOpen] = useState(false);
     const [orderRebuild, setOrderRebuild] = useState<Date>(new Date());
-    const { pathname } = useLocation();
-
+    // const { pathname } = useLocation();
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -86,9 +88,7 @@ function App() {
 
         AOS.init(aosOptions);
         AOS.refresh();
-    }, [pathname]);
-
-
+    }, [main_path]);
 
 
     const onAdd = (product: Product) => {
@@ -117,7 +117,6 @@ function App() {
             localStorage.setItem("cart_data", JSON.stringify(cart_updated));
         }
     };
-
 
 
     const onRemove = (item: CartItem) => {
@@ -156,6 +155,7 @@ function App() {
 
     return (
         <Router>
+            <ScrollToTop/>
             {main_path == "/" ? (
                 <NavbarHome
                     handleLogOutRequest={handleLogOutRequest}

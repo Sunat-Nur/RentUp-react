@@ -58,6 +58,6 @@ export function HomePage() {
         <Events />
         <Posts/>
         <Recommendations/>
-        <Comment/>
+        {/*<Comment/>*/}
     </div>;
 }

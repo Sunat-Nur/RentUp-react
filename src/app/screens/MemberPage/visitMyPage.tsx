@@ -123,7 +123,7 @@ export function VisitMyPage(props: any) {
     }
 
     return (
-        <div className={"my_page"}>
+        <div className={"my_page"} data-aos="zoom-in">
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
 
                 <Stack className={"mypage_top"} sx={{flexDirection: "column"}}>
@@ -194,150 +194,40 @@ export function VisitMyPage(props: any) {
                     <CssVarsProvider>
                         <Stack className={"user_property_box"} sx={{flexDirection: "column"}}>
                             <h4>Property</h4>
-                            <Stack sx={{flexDirection: "row", justifyContent: "space-between"}}>
-                                <Card
-                                    sx={{minHeight: '280px', width: 320, marginRight: "20px"}}
-                                    // onClick={() => chosenProductHandler(ele._id)}
-                                >
-                                    <CardCover>
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                                            loading="lazy"
-                                            alt=""
+                            <div data-aos="fade-right">
+                                <Stack sx={{flexDirection: "row", justifyContent: "space-between"}}>
+                                    <Card
+                                        sx={{minHeight: '280px', width: 320, marginRight: "20px"}}
+                                        // onClick={() => chosenProductHandler(ele._id)}
+                                    >
+                                        <CardCover>
+                                            <img
+                                                src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+                                                srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+                                                loading="lazy"
+                                                alt=""
+                                            />
+                                        </CardCover>
+                                        <CardCover
+                                            sx={{
+                                                background:
+                                                    'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                            }}
                                         />
-                                    </CardCover>
-                                    <CardCover
-                                        sx={{
-                                            background:
-                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                        }}
-                                    />
-                                    <CardContent sx={{justifyContent: 'flex-end'}}>
-                                        <Typography level="title-lg" textColor="#fff">
-                                            Yosemite National Park
-                                        </Typography>
-                                        <Typography
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.300"
-                                        >
-                                            California, USA
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-
-                                <Card sx={{minHeight: '280px', width: 320, marginRight: "20px"}}>
-                                    <CardCover>
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                                            loading="lazy"
-                                            alt=""
-                                        />
-                                    </CardCover>
-                                    <CardCover
-                                        sx={{
-                                            background:
-                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                        }}
-                                    />
-                                    <CardContent sx={{justifyContent: 'flex-end'}}>
-                                        <Typography level="title-lg" textColor="#fff">
-                                            Yosemite National Park
-                                        </Typography>
-                                        <Typography
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.300"
-                                        >
-                                            California, USA
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                                <Card sx={{minHeight: '280px', width: 320, marginRight: "20px"}}>
-                                    <CardCover>
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                                            loading="lazy"
-                                            alt=""
-                                        />
-                                    </CardCover>
-                                    <CardCover
-                                        sx={{
-                                            background:
-                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                        }}
-                                    />
-                                    <CardContent sx={{justifyContent: 'flex-end'}}>
-                                        <Typography level="title-lg" textColor="#fff">
-                                            Yosemite National Park
-                                        </Typography>
-                                        <Typography
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.300"
-                                        >
-                                            California, USA
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                                <Card sx={{minHeight: '280px', width: 320}}>
-                                    <CardCover>
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                                            loading="lazy"
-                                            alt=""
-                                        />
-                                    </CardCover>
-                                    <CardCover
-                                        sx={{
-                                            background:
-                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                        }}
-                                    />
-                                    <CardContent sx={{justifyContent: 'flex-end'}}>
-                                        <Typography level="title-lg" textColor="#fff">
-                                            Yosemite National Park
-                                        </Typography>
-                                        <Typography
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.300"
-                                        >
-                                            California, USA
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-
-                                <Card sx={{minHeight: '280px', width: 320}}>
-                                    <CardCover>
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                                            srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                                            loading="lazy"
-                                            alt=""
-                                        />
-                                    </CardCover>
-                                    <CardCover
-                                        sx={{
-                                            background:
-                                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                        }}
-                                    />
-                                    <CardContent sx={{justifyContent: 'flex-end'}}>
-                                        <Typography level="title-lg" textColor="#fff">
-                                            Yosemite National Park
-                                        </Typography>
-                                        <Typography
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.300"
-                                        >
-                                            California, USA
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-
-
-                            </Stack>
+                                        <CardContent sx={{justifyContent: 'flex-end'}}>
+                                            <Typography level="title-lg" textColor="#fff">
+                                                Yosemite National Park
+                                            </Typography>
+                                            <Typography
+                                                startDecorator={<LocationOnRoundedIcon/>}
+                                                textColor="neutral.300"
+                                            >
+                                                California, USA
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Stack>
+                            </div>
                         </Stack>
                     </CssVarsProvider>
 

@@ -60,96 +60,103 @@ export default function Recommendations() {
                 <Stack>
                     <Stack className="article_main_definer_box">
                         <Box className="article_main_definer">
+                            <div data-aos="fade-up"
+                                 data-aos-anchor-placement="top-bottom">
                             <p>Urban Updates</p>
                             <h1>Updated with the Latest Articles!</h1>
+                            </div>
                         </Box>
                     </Stack>
-                    <Stack className="article_post_box" sx={{flexDirection: "row"}}>
-                        <Stack className="article_main_box">
+                    <div data-aos="fade-up"
+                         data-aos-anchor-placement="bottom-center">
+                        <Stack className="article_post_box" sx={{flexDirection: "row"}}>
+                            <Stack className="article_main_box">
 
-                            <Box className="article_left_img_box">
-                                <Box className="article_img_box">
-                                    <img src={"/home/immio.jpg"}/>
-                                </Box>
-                                <Box className="article_createdAt">
-                                    <p> January 22, 2024</p>
-                                    <h1>
-                                        Donec interdum diam id nisi rutrum pellentesque. Donec blandit cursus mauris,
-                                        nec bibendum.
-                                    </h1>
-                                </Box>
-                                <Stack className="user_articel_info" sx={{ flexDirection: "row"}}>
-                                    <Box className="article_user_img">
-                                        <img src={"home/profile.4.png"}/>
-                                        <text> @sunat_nur</text>
+                                <Box className="article_left_img_box">
+                                    <Box className="article_img_box">
+                                        <img src={"/home/immio.jpg"}/>
                                     </Box>
-                                    <Button className="article_pagination">
-                                        <span>Read More</span>
-                                    </Button>
+                                    <Box className="article_createdAt">
+                                        <p> January 22, 2024</p>
+                                        <h1>
+                                            Donec interdum diam id nisi rutrum pellentesque. Donec blandit cursus
+                                            mauris,
+                                            nec bibendum.
+                                        </h1>
+                                    </Box>
+                                    <Stack className="user_articel_info" sx={{flexDirection: "row"}}>
+                                        <Box className="article_user_img">
+                                            <img src={"home/profile.4.png"}/>
+                                            <text> @sunat_nur</text>
+                                        </Box>
+                                        <Button className="article_pagination">
+                                            <span>Read More</span>
+                                        </Button>
+                                    </Stack>
+                                </Box>
+                            </Stack>
+
+                            <Stack className="article_right_box">
+
+                                <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
+                                    <Box className="article_img_box_right">
+                                        <img src={"/home/immio.jpg"}/>
+                                    </Box>
+                                    <Box className="article_right_createdAt">
+                                        <span> January 22, 2024</span>
+                                        <h1>
+                                            Donec interdum diam id nisi rutrum pellentesque.
+                                            nec bibendum.
+                                        </h1>
+
+                                        <Box className="user_img_right_box">
+                                            <img src={"home/profile.4.png"}/>
+                                            <text> @sunat_nur</text>
+                                        </Box>
+                                    </Box>
                                 </Stack>
-                            </Box>
-                        </Stack>
-
-                        <Stack className="article_right_box">
-
-                            <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
-                                <Box className="article_img_box_right">
-                                    <img src={"/home/immio.jpg"}/>
-                                </Box>
-                                <Box className="article_right_createdAt">
-                                    <span> January 22, 2024</span>
-                                    <h1>
-                                        Donec interdum diam id nisi rutrum pellentesque.
-                                        nec bibendum.
-                                    </h1>
-
-                                <Box className="user_img_right_box">
-                                    <img src={"home/profile.4.png"}/>
-                                    <text> @sunat_nur</text>
-                                </Box>
-                                </Box>
-                            </Stack>
 
 
-                            <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
-                                <Box className="article_img_box_right">
-                                    <img src={"/home/home5.png"}/>
-                                </Box>
-                                <Box className="article_right_createdAt">
-                                    <span> January 22, 2024</span>
-                                    <h1>
-                                        Donec interdum diam id nisi rutrum pellentesque.
-                                        nec bibendum.
-                                    </h1>
-
-
-                                    <Box className="user_img_right_box">
-                                        <img src={"home/profile.4.png"}/>
-                                        <text> @sunat_nur</text>
+                                <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
+                                    <Box className="article_img_box_right">
+                                        <img src={"/home/home5.png"}/>
                                     </Box>
-                                </Box>
-                            </Stack>
+                                    <Box className="article_right_createdAt">
+                                        <span> January 22, 2024</span>
+                                        <h1>
+                                            Donec interdum diam id nisi rutrum pellentesque.
+                                            nec bibendum.
+                                        </h1>
 
-                            <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
-                                <Box className="article_img_box_right">
-                                    <img src={"/home/img.png"}/>
-                                </Box>
-                                <Box className="article_right_createdAt">
-                                    <span> January 22, 2024</span>
-                                    <h1>
-                                        Donec interdum diam id nisi rutrum pellentesque.
-                                        nec bibendum.
-                                    </h1>
 
-                                    <Box className="user_img_right_box">
-                                        <img src={"home/profile.4.png"}/>
-                                        <text> @sunat_nur</text>
+                                        <Box className="user_img_right_box">
+                                            <img src={"home/profile.4.png"}/>
+                                            <text> @sunat_nur</text>
+                                        </Box>
                                     </Box>
-                                </Box>
-                            </Stack>
+                                </Stack>
 
+                                <Stack className="article_right_img_box" sx={{flexDirection: "row"}}>
+                                    <Box className="article_img_box_right">
+                                        <img src={"/home/img.png"}/>
+                                    </Box>
+                                    <Box className="article_right_createdAt">
+                                        <span> January 22, 2024</span>
+                                        <h1>
+                                            Donec interdum diam id nisi rutrum pellentesque.
+                                            nec bibendum.
+                                        </h1>
+
+                                        <Box className="user_img_right_box">
+                                            <img src={"home/profile.4.png"}/>
+                                            <text> @sunat_nur</text>
+                                        </Box>
+                                    </Box>
+                                </Stack>
+
+                            </Stack>
                         </Stack>
-                    </Stack>
+                    </div>
                 </Stack>
             </Container>
         </div>

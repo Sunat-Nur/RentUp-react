@@ -25,6 +25,7 @@ class ProductApiService {
             assert.ok(result, Definer.general_err1);
 
             console.log("state", result);
+            console.log("data", data);
             const products: Product[] = result.data.data;
             return products;
         } catch (err: any) {

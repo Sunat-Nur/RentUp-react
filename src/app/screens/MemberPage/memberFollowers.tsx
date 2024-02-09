@@ -39,7 +39,7 @@ export function MemberFollowers(props: any) {
     const {setMemberFollowers,} = actionDispatch(useDispatch());
     const {memberFollowers} = useSelector(memberFollowersRetriever);
     const [followersSearchObj, setFollowersSearchObj] = useState<FollowSearchObj>(
-        {page: 1, limit: 5, mb_id: mb_id}
+        {page: 1, limit: 3, mb_id: mb_id}
     );
 
     useEffect(() => {
@@ -80,68 +80,70 @@ export function MemberFollowers(props: any) {
                         ? `${serverApi}/${follower?.subscriber_member_data?.mb_image}`
                         : "/auth/default_user.svg";
                     return (
-                        <Box className={"follow_box"}>
-                            <Stack flexDirection="row">
-                                <Avatar
-                                    alt={""}
-                                    src={image_url}
-                                    sx={{width: 39, height: 39,}}
-                                    style={{cursor: "pointer"}}
-                                    onClick={() => visitMemberHandler(follower?.subscriber_id)}
-                                />
-                                <div
-                                    style={{
-                                        width: "300px",
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        marginLeft: "25px",
-                                        height: "85%",
-                                    }}
-                                >
+                        <div data-aos="flip-right">
+                            <Box className={"follow_box"}>
+                                <Stack flexDirection="row">
+                                    <Avatar
+                                        alt={""}
+                                        src={image_url}
+                                        sx={{width: 39, height: 39,}}
+                                        style={{cursor: "pointer"}}
+                                        onClick={() => visitMemberHandler(follower?.subscriber_id)}
+                                    />
+                                    <div
+                                        style={{
+                                            width: "300px",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            marginLeft: "25px",
+                                            height: "85%",
+                                        }}
+                                    >
                                     <span className={"username_text"}>
                                         {follower?.subscriber_member_data?.mb_type}
                                     </span>
-                                    <span
-                                        className={"name_text"}
-                                        style={{cursor: "pointer"}}
-                                        onClick={() => visitMemberHandler(follower?.subscriber_id)}
-                                    >
+                                        <span
+                                            className={"name_text"}
+                                            style={{cursor: "pointer"}}
+                                            onClick={() => visitMemberHandler(follower?.subscriber_id)}
+                                        >
                                         {follower?.subscriber_member_data?.mb_nick}</span>
-                                </div>
-                                <Stack className={"button_follow"}>
-                                    {props.actions_enabled &&
-                                        (follower?.me_followed && follower.me_followed[0]?.my_following ? (
-                                            <Button className={"following_already"}
+                                    </div>
+                                    <Stack className={"button_follow"}>
+                                        {props.actions_enabled &&
+                                            (follower?.me_followed && follower.me_followed[0]?.my_following ? (
+                                                <Button className={"following_already"}
+                                                        style={{
+                                                            background: "#68C5CB",
+                                                            color: "#ffffff",
+                                                            borderRadius: "50px",
+                                                            marginTop: "15px",
+                                                            width: "160px",
+                                                        }}
+                                                >
+                                                    <span>Following</span>
+                                                </Button>
+                                            ) : (
+                                                <Button
+                                                    className={"follow_back"}
+                                                    onClick={(e) => subscribeHandler(e, follower?.subscriber_id)}
                                                     style={{
-                                                        background: "#68C5CB",
-                                                        color: "#ffffff",
+                                                        background: "#30945E",
                                                         borderRadius: "50px",
-                                                        marginTop: "15px",
-                                                        width: "160px",
+                                                        marginTop: "18px",
+                                                        color: "#ffffff",
                                                     }}
-                                            >
-                                                <span>Following</span>
-                                            </Button>
-                                        ) : (
-                                            <Button
-                                                className={"follow_back"}
-                                                onClick={(e) => subscribeHandler(e, follower?.subscriber_id)}
-                                                style={{
-                                                    background: "#30945E",
-                                                    borderRadius: "50px",
-                                                    marginTop: "18px",
-                                                    color: "#ffffff",
-                                                }}
-                                                startIcon={
-                                                    <img src={"/icons/follow_icon.svg"} alt=""/>
-                                                }
-                                            >
-                                                <p> Follow back</p>
-                                            </Button>
-                                        ))}
+                                                    startIcon={
+                                                        <img src={"/icons/follow_icon.svg"} alt=""/>
+                                                    }
+                                                >
+                                                    <p> Follow back</p>
+                                                </Button>
+                                            ))}
+                                    </Stack>
                                 </Stack>
-                            </Stack>
-                        </Box>
+                            </Box>
+                        </div>
                     );
                 })}
                 <Stack
@@ -170,5 +172,6 @@ export function MemberFollowers(props: any) {
                 </Stack>
             </Stack>
         </div>
-    );
+    )
+        ;
 }

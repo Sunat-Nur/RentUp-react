@@ -3,6 +3,7 @@ import { MemberPageState } from "../../../types/screen";
 
 const initialState: MemberPageState = {
     chosenMember: null,
+    chosenMemberProduct: [],
     chosenMemberBoArticles: [],
     chosenSingleBoArticle: null,
     memberFollowers: [],
@@ -15,6 +16,9 @@ const MemberPageSlice = createSlice({
     reducers: {
         setChosenMember: (state, action) => {
             state.chosenMember = action.payload;
+        },
+        setChosenMemberProduct: (state, action) => {
+            state.chosenMemberProduct = action.payload;
         },
         setChosenMemberBoArticles: (state, action) => {
             state.chosenMemberBoArticles = action.payload;
@@ -33,6 +37,7 @@ const MemberPageSlice = createSlice({
 
 export const {
     setChosenMember,
+    setChosenMemberProduct,
     setChosenMemberBoArticles,
     setMemberFollowings,
     setMemberFollowers,
