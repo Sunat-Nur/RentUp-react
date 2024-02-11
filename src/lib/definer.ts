@@ -5,6 +5,7 @@ export const Definer = {
     input_err3: 'att: message is empty',
     input_img: "Please insert JPG, JPEG, PNG formats only!",
     general_err1: 'att: something went wrong',
+    general_err2: 'att: input your comment',
     success_add: "Successfully added!",
     success_update: "Successfully updated!",
 }

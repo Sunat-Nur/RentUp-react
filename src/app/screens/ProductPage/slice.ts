@@ -3,10 +3,10 @@ import {ProductPageState} from "../../../types/screen";
 
 const initialState: ProductPageState = {
     tartgetCompanys: [],
-    randomCompanys: [],
     chosenCompany: null,
     targetAllProducts: [],
     chosenProduct: null,
+    comments: [],
 };
 
 const companyPageSlice = createSlice({
@@ -16,9 +16,7 @@ const companyPageSlice = createSlice({
         setTargetCompany: (state, action) => {
             state.tartgetCompanys=action.payload;
         },
-        setRandomCompanys: (state, action) => {
-            state.randomCompanys = action.payload;
-        },
+
         setChosenCompany: (state, action) => {
             state.chosenCompany = action.payload;
         },
@@ -28,14 +26,17 @@ const companyPageSlice = createSlice({
         setChosenProduct: (state, action) => {
             state.chosenProduct = action.payload;
         },
+        setComments: (state, action) => {
+            state.comments = action.payload;
+        },
     }
 })
 export const {
     setTargetCompany,
-    setRandomCompanys,
     setChosenCompany,
     setTargetAllProducts,
     setChosenProduct,
+    setComments,
 } = companyPageSlice.actions;
 
 const CompanyPageReducer = companyPageSlice.reducer;

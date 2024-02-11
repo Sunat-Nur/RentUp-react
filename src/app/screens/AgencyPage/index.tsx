@@ -36,7 +36,7 @@ import {setTargetCompany} from "./slice";
 import {verifiedMemberData} from "../../apiSservices/verify";
 import {Box, Container, Stack} from "@mui/system";
 import {CssVarsProvider} from "@mui/joy/styles";
-import {Comment} from "../HomePage/comment";
+import {Comments} from "../HomePage/comments";
 
 
 SwiperCore.use([Autoplay, Navigation,]);
@@ -301,7 +301,7 @@ export function AgencyPage() {
                         <img className={"line_img_two"} src={"/restaurant/icons_right.svg"} alt=""/>
                     </Stack>
                     <Stack sx={{marginTop: "50px"}}>
-                        {/*<Comment/>*/}
+                        {/*<Comments/>*/}
                     </Stack>
                 </Stack>
             </Container>

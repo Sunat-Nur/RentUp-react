@@ -155,8 +155,8 @@ export function VisitMyPage(props: any) {
                                 </Stack>
                                 <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
                                     <Box className={"cont_article"}>
-                                        <p>Articles</p>
-                                        <a>48</a>
+                                        <p>Phone</p>
+                                        <a>{chosenMember?.mb_phone}</a>
                                     </Box>
                                     <Box className={"cont_article"}>
                                         <p>Followers</p>
@@ -178,9 +178,9 @@ export function VisitMyPage(props: any) {
                                     marginTop: "15px",
                                     marginLeft: "50px"
                                 }}>
-                                    <Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>
-                                        Chat
-                                    </Button>
+                                    {/*<Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>*/}
+                                    {/*    Chat*/}
+                                    {/*</Button>*/}
                                     <Button
                                         sx={{backgroundColor: "#0044bb", color: "#fff"}}
                                         onClick={() => setValue("4")}
@@ -349,7 +349,7 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"4"}>
-                                            <Box className={"menu_name"}>Maqola yozish</Box>
+                                            <Box className={"menu_name"}>write article</Box>
                                             <Box className={"write_content"}>
                                                 <TuiEditor
                                                     setValue={setValue}
@@ -358,13 +358,13 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"5"}>
-                                            <Box className={"menu_name"}>tanlangan maqola</Box>
+                                            <Box className={"menu_name"}>chose article</Box>
                                             <Box className={"menu_content"}>
                                                 <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"6"}>
-                                            <Box className={"menu_name"}>Edit Infromation</Box>
+                                            <Box className={"menu_name"}>edit info</Box>
                                             <Box className={"menu_content"}>
                                                 <MySettings/>
                                             </Box>

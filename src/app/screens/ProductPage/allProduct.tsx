@@ -14,6 +14,7 @@ import Avatar from '@mui/joy/Avatar';
 import Button from "@mui/material/Button";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
 import {setTargetAllProducts} from "./slice";
+import ProductBanner from "./ProductBanner";
 import assert from "assert";
 import Slider, {sliderClasses} from '@mui/joy/Slider';
 
@@ -149,10 +150,10 @@ export function AllProductPage(props: any) {
 
 
     return (
-        <div className="all_property_frame">
+        <div className="all_property_frame" style={{flexDirection: "column"}}>
+            <ProductBanner />
             <Container>
-
-                <Stack className="allProduct_main">
+                <Stack className="allProduct_main" sx={{ marginTop: "100px"}}>
                     <Stack className="allProduct_hearder">
                         <div data-aos="flip-down">
                             <Stack className="allProduct_type_button">
@@ -546,8 +547,8 @@ export function AllProductPage(props: any) {
                             onChange={handlePaginationChange}
                         />
                     </Stack>
-                    <Stack className="allProduct_bottom_main">
-                        <Posts/>
+                    <Stack className="allProduct_bottom_main" sx={{marginTop: "150px"}}>
+                        {/*<Posts/>*/}
                         <BestCompany/>
                     </Stack>
                 </Stack>

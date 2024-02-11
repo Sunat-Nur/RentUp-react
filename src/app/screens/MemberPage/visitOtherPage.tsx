@@ -216,8 +216,8 @@ export function VisitOtherPage(props: any) {
                                 </Stack>
                                 <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
                                     <Box className={"cont_article"}>
-                                        <p>Articles</p>
-                                        <a>48</a>
+                                        <p>phone</p>
+                                        <a>{chosenMember?.mb_phone}</a>
                                     </Box>
                                     <Box className={"cont_article"}>
                                         <p>Followers</p>

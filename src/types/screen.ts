@@ -29,9 +29,9 @@ export interface  HomePageState {
 export interface ProductPageState{
     tartgetCompanys: Company[];
     targetAllProducts: Product[];
-    randomCompanys: Company[];
     chosenCompany: Company | null;
     chosenProduct: Product | null;
+    comments: Comment[];
 }
 
 /** Agency page **/

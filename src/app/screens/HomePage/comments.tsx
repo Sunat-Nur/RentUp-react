@@ -3,7 +3,7 @@ import { Container, Stack } from "@mui/system";
 import React from "react";
 import "../../../css/home.css"
 
-export function Comment() {
+export function Comments() {
     return (
         <div className="comment_frame">
             <Container>

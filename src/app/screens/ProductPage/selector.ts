@@ -7,10 +7,6 @@ export const retrieveTargetCompanys = createSelector(
     selectProductPage,
     (ProductPage) => ProductPage.tartgetCompanys
 );
-export const retrieveRandomCompanys = createSelector(
-    selectProductPage,
-    (ProductPage) => ProductPage.randomCompanys
-);
 export const retrieveChosenCompany = createSelector(
     selectProductPage,
     (ProductPage) => ProductPage.chosenCompany
@@ -23,5 +19,10 @@ export const retrieveChosenProduct = createSelector(
     selectProductPage,
     (ProductPage) => ProductPage.chosenProduct
 );
+export const retrieveComments = createSelector(
+    selectProductPage,
+    (ProductPage) => ProductPage.comments
+);
+
 
 
