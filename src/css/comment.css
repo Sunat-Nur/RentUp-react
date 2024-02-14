@@ -1,0 +1,140 @@
+.product_comments {
+  /* background-color: red; */
+  height: auto;
+  margin: 30px auto;
+}
+.comment_cover {
+  background-color: #fff;
+
+  margin: 0 auto;
+  width: 600px;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+}
+.comment_owner {
+  /* background-color: #0cf4dd; */
+  width: 220px;
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.comment_img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.comment_img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+
+  background-size: contain;
+}
+.content_like {
+  width: 500px;
+  margin-top: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+.comment_reply {
+  width: 150px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.reply_btn {
+  display: flex;
+  align-items: center;
+}
+.reply_form {
+  margin: 0 auto;
+  margin-top: 1rem;
+  /* background-color: red; */
+  display: flex;
+  width: 400px;
+  border-bottom: 1px solid #140342;
+  height: 40px;
+}
+.reply_form input {
+  width: 100%;
+  /* background-color: #1a204d; */
+
+  border: none;
+
+  height: 100%;
+}
+.reply_form input:focus {
+  outline: none;
+  border: none;
+}
+.view_reply {
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.create_comment {
+  background-color: #fff;
+  width: 600px;
+
+  margin: 0 auto;
+}
+.create_comment .comment_form textarea {
+  width: 550px;
+  margin-top: 15px;
+  background: none;
+  padding: 5px;
+  margin-left: 1.5rem;
+  /* color: #fff; */
+}
+.rate_product {
+  margin: 0 auto;
+  width: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rate_product h4 {
+  margin-right: 1rem;
+}
+.action_btn {
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comment_btn {
+  background-color: #43bb59;
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.comment_btn:hover,
+.comment_btn:active {
+  opacity: 0.8;
+}
+.reply_button {
+  width: 70px;
+}
+.reply_button button {
+  background-color: #43bb59;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+}
+.reply_button button:hover,
+.reply_button button:active {
+  opacity: 0.8;
+}

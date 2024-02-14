@@ -1,18 +1,15 @@
 import * as React from 'react';
 import {Box, Container, Stack} from "@mui/material";
-import {Favorite, Visibility} from "@mui/icons-material";
-import Typography from '@mui/joy/Typography';
 // OTHERS
 import {serverApi} from '../../../lib/config';
 import {useHistory} from "react-router-dom";
 // REDUX
 import {useDispatch, useSelector} from "react-redux";
 import {createSelector} from "reselect";
-import {retrieveLuxuryProperty, retrieveTopHomes} from "./selector";
+import {retrieveLuxuryProperty} from "./selector";
 import {Product} from "../../../types/product";
-import {setBestCompany, setLuxuryProperty, setTopHomes} from "./slice";
+import {setLuxuryProperty} from "./slice";
 import {Dispatch} from "@reduxjs/toolkit";
-import {Company} from "../../../types/user";
 import {useEffect} from "react";
 import ProductApiService from "../../apiSservices/productApiService";
 
@@ -39,7 +36,11 @@ export function LuxuryProperty() {
 
     useEffect(() => {
         const productService = new ProductApiService();
-        productService.getAllProducts({order: "product_likes", page: 1, limit: 3})
+        productService.getLuxuryHomes({
+            order: "createdAt",
+            page: 1,
+            limit: 2
+        })
             .then(data => setLuxuryProperty(data))
             .catch(err => console.log(err));
 

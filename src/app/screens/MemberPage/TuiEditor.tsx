@@ -104,9 +104,6 @@ export const TuiEditor = (props: any) => {
                     justifyContent="space-evenly"
                 >
                     <Box className={"form_row"} sx={{width: "300px"}}>
-                        {/*<Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">*/}
-                        {/*    Category*/}
-                        {/*</Typography>*/}
                         <FormControl sx={{width: "100%", background: "white"}}>
                             <Select
                                 value={communityArticleData?.bo_id}
@@ -124,9 +121,6 @@ export const TuiEditor = (props: any) => {
                         </FormControl>
                     </Box>
                     <Box className={"form_row"} style={{width: "300px"}}>
-                        {/*<Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">*/}
-                        {/*    Mavzu*/}
-                        {/*</Typography>*/}
                         <TextField
                             id="filled-basic"
                             label="Mavzu"

@@ -1,52 +1,55 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Box, Container, Stack} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import {Dispatch} from "@reduxjs/toolkit";
+import {setEvents} from "./slice";
+import {createSelector} from "reselect";
+import {retrieveEvents} from "./selector";
+import {useDispatch, useSelector} from "react-redux";
+import MemberApiService from "../../apiSservices/memberApiService";
+import {serverApi} from "../../../lib/config";
+import dayjs from "dayjs";
+import { Event } from "../../../types/event";
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
+/** REDUX SLICE */
+const actionDispatch = (dispatch: Dispatch) => ({
+    setEvents: (data: Event[]) =>
+        dispatch(setEvents(data)),
+});
+
 /** REDUX SELECTOR */
+const eventsRetriever = createSelector(
+    retrieveEvents,
+    (events) => ({
+        events,
+    })
+);
 
-
-
-
-
-
-export function Events() {
+export default function Events() {
     /** INITIALIZATION */
-    const events_list = [
-        {
-            title: "Sale rent home",
-            desc: "yangicha uslubda yangicha tam va yangicha his",
-            author: "sunat_nur",
-            date: "2023.11.16",
-            location: "tashkent, nurafshon ko'cha",
-            img:"/home/home4.png",
-        },
-        {
-            title: "Sale rent home",
-            desc: "yangicha uslubda yangicha tam va yangicha his",
-            author: "sunat_nur",
-            date: "2023.11.16",
-            location: "tashkent, nurafshon ko'cha",
-            img:"/home/home2.png",
-        },
-        {
-            title: "Sale rent home",
-            desc: "yangicha uslubda yangicha tam va yangicha his",
-            author: "sunat_nur",
-            date: "2023.11.16",
-            location: "tashkent, nurafshon ko'cha",
-            img:"/home/img.png",
-        },
-        {
-            title: "Sale rent home",
-            desc: "yangicha uslubda yangicha tam va yangicha his",
-            author: "sunat_nur",
-            date: "2023.11.16",
-            location: "tashkent, nurafshon ko'cha",
-            img:"/home/home5.png",
-        },
-    ];
+    const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
+    const {setEvents} = actionDispatch(useDispatch())
+    const {events} = useSelector(eventsRetriever);
+
+    useEffect(() => {
+        const memberService = new MemberApiService();
+        memberService.getEvents({
+                order: "event_views",
+                limit: 4,
+                page: 1,
+            })
+            .then((data) => {
+                console.log("data", data);
+
+                setEvents(data);
+            })
+            .catch((err) => console.log(err));
+    }, [articlesRebuild]);
+
+
+
 
 
     return (
@@ -85,30 +88,33 @@ export function Events() {
                             disableOnInteraction: true,
                         }}
                     >
-                        {events_list.map((value, number) => {
+                        {/*{events.map((event: Event, index: number) => {*/}
+                        {/*    const image_path = `${serverApi}/${event?.event_image}`;*/}
+                        {/*    const formattedDate = dayjs(event?.event_date).format("YYYY-MM-DD HH:mm");*/}
+
                             return (
                                 <SwiperSlide className={"events_info_frame"}>
                                     <div className={"events_img"}>
-                                        <img src={value.img} className={"events_img"} />
+                                        {/*<img src={image_path} className={"events_img"} />*/}
                                     </div>
                                     <Box className={"events_desc"}>
                                         <Box className={"events_bott"}>
                                             <Box className={"bott_left"}>
                                                 <div className={"event_title_speaker"}>
-                                                    <strong>{value.title}</strong>
+                                                    {/*<strong>{event?.event_title}</strong>*/}
                                                     <div className={"event_organizator"}>
                                                         <img
                                                             src={"/home/profile.4.png"}
                                                             style={{ width: "20px", marginRight: "10px" }}
                                                         />
-                                                        <p className={"spec_text_author"}>{value["author"]}</p>
+                                                        {/*<p className={"spec_text_author"}>{event?.member_data?.mb_nick}</p>*/}
                                                     </div>
                                                 </div>
                                                 <p className={"text_desc"}
                                                    style={{ marginTop: "10px" }}
                                                 >
                                                     {" "}
-                                                    {value.desc}{" "}
+                                                    {/*{value.desc}{" "}*/}
                                                 </p>
                                                 <div className={"bott_info"}
                                                      style={{marginTop: "10px", flexDirection: "row"}}
@@ -133,22 +139,22 @@ export function Events() {
                                                             src={"/icons/kv.svg"}
                                                             style={{marginRight: "10px"}}
                                                         />
-                                                        {/*{value.location}*/} 70 m2
+                                                        {/*{event?.event_status} 70 m2*/}
                                                     </div>
                                                     <div className={"bott_info_main"}>
                                                         <img
                                                             src={"/icons/location.svg"}
                                                             style={{marginRight: "10px"}}
                                                         />
-                                                        {/*{value.location}*/} tashkent city
+                                                        {/*{event?.event_location} tashkent city*/}
                                                     </div>
                                                 </div>
                                             </Box>
                                         </Box>
                                     </Box>
                                 </SwiperSlide>
-                            );
-                        })}
+                            {/*);*/}
+                        {/*})}*/}
                     </Swiper>
                 </Stack>
             </Container>

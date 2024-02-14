@@ -50,7 +50,6 @@ import CompanyApiService from "../../apiSservices/companyApiService";
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
     setTargetAllProducts: (data: Product[]) => dispatch(setTargetAllProducts(data)),
-    setTargetCompany: (data: Company[]) => dispatch(setTargetCompany(data)),
 });
 
 /** REDUX SELECTOR */
@@ -60,19 +59,12 @@ const targetAllProductsRetriever = createSelector(
         targetAllProducts,
     })
 );
-const targetCompanyRetriever = createSelector(
-    retrieveTargetCompanys,
-    (targetCompany) => ({
-        targetCompany,
-    })
-);
+
 
 
 export function AllProductPage(props: any) {
     /** INITIALIZATIONS */
     const {setTargetAllProducts} = actionDispatch(useDispatch());
-    let {company_id} = useParams<{ company_id: string }>();
-    const {targetCompany} = useSelector(targetCompanyRetriever);
     const {targetAllProducts} = useSelector(targetAllProductsRetriever);
     const [targetSearchObject, setTartgetSearchObject] = useState<ProductSearchObj>({
         page: 1,
@@ -101,11 +93,6 @@ export function AllProductPage(props: any) {
             .then((data) => setTargetAllProducts(data))
             .catch((err) => console.log(err));
 
-        // const companyService = new CompanyApiService();
-        // companyService.getCompanys(targetSearchObject)
-        //     .then(data => setTargetCompany(data))
-        //     .catch((err) => console.log(err));
-
     }, [targetProductsSearchObj, productRebuild, targetSearchObject]);
 
 
@@ -125,25 +112,19 @@ export function AllProductPage(props: any) {
         history.push(`/company/products/${id}`);
     };
 
-    const targetLikeHandler = async (e: any, id: string) => {
+    const targetLikeHandler = async (e: any, targetId: string) => {
         try {
             assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
-                like_ref_id: id,
+                like_ref_id: targetId,
                 group_type: "product",
             });
             assert.ok(like_result, Definer.general_err1);
-            if (like_result.like_status > 0) {
-                e.target.style.fill = "red";
-                refs.current[like_result.like_ref_id].innerHTML++;
-            } else {
-                e.target.style.fill = "white"
-                refs.current[like_result.like_ref_id].innerHTML--;
-            }
             await sweetTopSmallSuccessAlert("success", 700, false);
+            setProductRebuild(new Date());
         } catch (err: any) {
-            console.log("targetLikeTop, ERROR:", err);
+            console.log("targetLikeProduct, ERROR:", err);
             sweetErrorHandling(err).then();
         }
     };

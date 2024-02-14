@@ -71,7 +71,6 @@ const chosenCompanyRetriever = createSelector(
 );
 
 
-
 const chosen_list = Array.from(Array(3).keys());
 
 export function ChosenProductPage(props: any) {
@@ -116,7 +115,6 @@ export function ChosenProductPage(props: any) {
                 setComments(data);
             })
             .catch((err) => console.log(err));
-        // console.log("data:", data);
         productRelatedProcess().then();
 
 
@@ -342,9 +340,6 @@ export function ChosenProductPage(props: any) {
                             <div data-aos="zoom-out">
                                 <Box className={"chosenProduct_user"}>
                                     <CssVarsProvider>
-                                        {/*{chosenCompany.map((ele: Company) => {*/}
-                                        {/*    const image_path = `${serverApi}/${ele.mb_image}`;*/}
-                                        {/*    return (*/}
                                         <Card
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -376,10 +371,13 @@ export function ChosenProductPage(props: any) {
                                                     }}
                                                 >
                                                     <div>
-                                                        {/*<BakeryDiningIcon color="warning" sx={{ fontSize: '4rem' }} />*/}
+                                                        <Box color="warning" sx={{fontSize: '4rem'}}/>
                                                         <img
-                                                            src={"/auth/odamcha.svg"}
-                                                            // src={chosenCompany?.mb_image
+                                                            src={
+                                                                chosenCompany?.mb_image
+                                                                    ? `${serverApi}/${chosenCompany?.mb_image}`
+                                                                    : "/auth/default_user.svg"
+                                                            }
                                                         />
                                                     </div>
                                                 </AspectRatio>
@@ -475,25 +473,16 @@ export function ChosenProductPage(props: any) {
                                                 }}
                                             >
                                                 <Button variant="solid" color="warning"
-                                                    // onClick={() => visitMemberHandler(ele._id)}
+                                                        // onClick={() => visitMemberHandler(ele._id)}
                                                 >
                                                     view profile
                                                 </Button>
 
                                             </CardActions>
                                         </Card>
-                                        {/*    );*/}
-                                        {/*})}*/}
                                     </CssVarsProvider>
                                 </Box>
                             </div>
-                            <Box className={"comment_box"}>
-                                <a>
-                                    salom
-                                </a>
-
-                            </Box>
-
                         </Stack>
 
                     </Stack>
@@ -525,7 +514,6 @@ export function ChosenProductPage(props: any) {
                     {/*    </div>*/}
                     {/*</Stack>*/}
                     <CommentExampleComment setProductRebuild={setProductRebuild} id={id}/>
-
                 </Stack>
             </Container>
         </div>

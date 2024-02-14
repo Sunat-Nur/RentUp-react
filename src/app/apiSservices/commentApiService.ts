@@ -28,20 +28,17 @@ class CommentApiService {
     }
   }
 
-  // reply to specific comment
-
   async replyToSpecificComment(data: any): Promise<any[]> {
     try {
       const result = await axios.post(this.path + "/reply/comments", data, {
         withCredentials: true,
       });
-
       console.log("state::", result?.data?.state);
       assert.ok(result?.data, Definer.general_err1);
       assert.ok(result?.data?.state !== "fail", result?.data?.message);
 
-      const repliedComment: Comment[] = result.data.data;
-      return repliedComment;
+      const replyComment: Comment[] = result.data.data;
+      return replyComment;
     } catch (err: any) {
       console.log(`ERROR:: replyToSpecificComment ${err.message} `);
       throw err;

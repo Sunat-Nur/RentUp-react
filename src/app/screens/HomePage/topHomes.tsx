@@ -6,10 +6,15 @@ import Typography from '@mui/joy/Typography';
 import {serverApi} from '../../../lib/config';
 import {useHistory} from "react-router-dom";
 // REDUX
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createSelector} from "reselect";
 import {retrieveTopHomes} from "./selector";
 import {Product} from "../../../types/product";
+import {useEffect, useState} from "react";
+import ProductApiService from "../../apiSservices/productApiService";
+import {Dispatch} from "@reduxjs/toolkit";
+import {Company} from "../../../types/user";
+import {setBestCompany, setTopHomes} from "./slice";
 
 
 /** REDUX SELECTOR */
@@ -20,15 +25,41 @@ const topHomesRetriever = createSelector(
     })
 );
 
-export function TopHomes() {
+
+/** REDUX SLICE */
+const actionDispatch = (dispach: Dispatch) => ({
+    setTopHomes: (data: Product[]) => dispach(setTopHomes(data)),
+});
+
+
+export function TopHomes(props: any) {
 
     /** INITIALIZATION */
     const history = useHistory();
+    const {setTopHomes} = actionDispatch(useDispatch());
     const {topHomes} = useSelector(topHomesRetriever);
+    const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
     const chosenTopHomesHandler = (id: string) => {
         history.push(`/company/${id}`);
     }
+
+    useEffect(() => {
+        const productService = new ProductApiService();
+        productService
+            .getTopHomes({
+                order: "createdAt",
+                limit: 3,
+                page: 1,
+            })
+            .then((data) => {
+                console.log("data", data);
+
+                setTopHomes(data);
+            })
+            .catch((err) => console.log(err));
+
+    }, [productRebuild]);
 
     return (
         <div className="top_property_frame" data-aos="zoom-in-right">
@@ -55,6 +86,7 @@ export function TopHomes() {
                                         <Box className="top_property_box"
                                              key={ele._id}
                                              onClick={() => chosenTopHomesHandler(ele._id)}
+                                             // setProductRebuild={setProductRebuild}
                                              sx={{
                                                  cursor: "pointer",
 

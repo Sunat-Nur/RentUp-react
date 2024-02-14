@@ -79,7 +79,7 @@ export function VisitOtherPage(props: any) {
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
     const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
-        useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 4});
+        useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 2});
 
 
     useEffect(() => {
@@ -164,33 +164,9 @@ export function VisitOtherPage(props: any) {
         }
     };
 
-    const targetLikeBest = async (e: any, id: string) => {
-        try {
-            assert.ok(verifiedMemberData, Definer.auth_err1);
-            const memberService = new MemberApiService();
-            const like_result: any = await memberService.memberLikeTarget({
-                like_ref_id: id,
-                group_type: "member",
-            });
-            assert.ok(like_result, Definer.general_err1);
-            if (like_result.like_status > 0) {
-                e.target.style.fill = "red";
-                refs.current[like_result.like_ref_id].innerHTML++;
-            } else {
-                e.target.style.fill = "white"
-                refs.current[like_result.like_ref_id].innerHTML--;
-            }
-            await sweetTopSmallSuccessAlert("liked", 700, false);
-        } catch (err: any) {
-            console.log("targetLikeBest, ERROR:", err);
-            sweetErrorHandling(err).then();
-        }
-    };
-
     return (
         <div className={"my_page"}>
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
-
                 <Stack className={"mypage_top"} sx={{flexDirection: "column"}}>
                     <Stack className={"mypage_profile"}>
                         <Stack className={"mypage_second_box"}
@@ -239,11 +215,7 @@ export function VisitOtherPage(props: any) {
                                     marginTop: "15px",
                                     marginLeft: "50px"
                                 }}>
-                                    {/*<Button sx={{backgroundColor: "#0044bb", color: "#fff"}}>*/}
-                                    {/*    Chat*/}
-                                    {/*</Button>*/}
                                     <Box display={"flex"} justifyContent={"flex-end"} sx={{mt: "5px"}}>
-                                        {/*<TabList onChange={handleChange} aria-label="lab API tabs example">*/}
                                         {chosenMember?.me_followed && chosenMember?.me_followed[0]?.my_following ? (
                                             <Tab
                                                 value={"4"}
@@ -273,7 +245,6 @@ export function VisitOtherPage(props: any) {
                                                 )}
                                             />
                                         )}
-                                        {/*</TabList>*/}
                                     </Box>
                                 </Box>
                             </Stack>
@@ -285,7 +256,6 @@ export function VisitOtherPage(props: any) {
                             <Stack sx={{flexDirection: "row", justifyContent: "space-between"}}>
                                 <Card
                                     sx={{minHeight: '280px', width: 320, marginRight: "20px"}}
-                                    // onClick={() => chosenProductHandler(ele._id)}
                                 >
                                     <CardCover>
                                         <img
@@ -457,7 +427,6 @@ export function VisitOtherPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("1")}>
-                                                                <img src={"/icons/Pencil.svg"} alt=""/>
                                                                 <span>Contents</span>
                                                             </div>
                                                         )}
@@ -468,7 +437,6 @@ export function VisitOtherPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("2")}>
-                                                                <img src={"/icons/Group.svg"} alt=""/>
                                                                 <span>Follower</span>
                                                             </div>
                                                         )}
@@ -479,7 +447,6 @@ export function VisitOtherPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("3")}>
-                                                                <img src={"/icons/user.svg"} alt=""/>
                                                                 <span>Following</span>
                                                             </div>
                                                         )}
@@ -490,7 +457,6 @@ export function VisitOtherPage(props: any) {
                                     </Stack>
                                     <Box display={"flex"} flexDirection={"column"}>
                                         <TabPanel value={"1"}>
-                                            {/*<Box className={"menu_name"}>Contents</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberPosts
                                                     chosenMemberBoArticles={chosenMemberBoArticles}
@@ -525,7 +491,6 @@ export function VisitOtherPage(props: any) {
                                         </TabPanel>
 
                                         <TabPanel value={"2"}>
-                                            {/*<Box className={"menu_name"}>Followers</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberFollowers
                                                     actions_enabled={true}
@@ -536,7 +501,6 @@ export function VisitOtherPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"3"}>
-                                            {/*<Box className={"menu_name"}>Following</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberFollowing
                                                     actions_enabled={true}
@@ -546,9 +510,8 @@ export function VisitOtherPage(props: any) {
                                                 />
                                             </Box>
                                         </TabPanel>
-
                                         <TabPanel value={"5"}>
-                                            <Box className={"menu_name"}>chose content</Box>
+                                            <Box className={"menu_name"}>Chosen content</Box>
                                             <Box className={"menu_content"}>
                                                 <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
                                             </Box>

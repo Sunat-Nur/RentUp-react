@@ -43,7 +43,7 @@ export function CommunityPage(props: any) {
     const [searchArticlesObj, setSearchArticlesObj] = useState<SearchArticlesObj>({
         bo_id: "all",
         page: 1,
-        limit: 5
+        limit: 6
     });
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
 
@@ -104,8 +104,8 @@ export function CommunityPage(props: any) {
                                         >
                                             <Tab label="All Articles" value={"1"}/>
                                             <Tab label="Famous" value={"2"}/>
-                                            <Tab label="About Property " value={"3"}/>
-                                            <Tab label="Customers" value={"4"}/>
+                                            <Tab label="Agency" value={"3"}/>
+                                            <Tab label="story" value={"4"}/>
                                         </TabList>
                                     </div>
                                 </Box>

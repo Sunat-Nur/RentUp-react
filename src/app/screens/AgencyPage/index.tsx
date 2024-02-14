@@ -59,6 +59,7 @@ export function AgencyPage() {
     /** INITIALIZATIONS */
     const {setTargetCompany} = actionDispatch(useDispatch());
     const {targetCompany} = useSelector(targetCompanyRetriever);
+    const [productRebuild, setProductRebuild] = useState<Date>(new Date());
     const [targetSearchObject, setTartgetSearchObject] = useState<SearchObj>({
         page: 1,
         limit: 12,
@@ -73,7 +74,7 @@ export function AgencyPage() {
         companyService.getCompanys(targetSearchObject)
             .then(data => setTargetCompany(data))
             .catch((err) => console.log(err));
-    }, [targetSearchObject]);
+    }, [targetSearchObject, productRebuild]);
 
     /** HANDLERS  */
     const visitMemberHandler = (mb_id: string) => {
@@ -92,25 +93,42 @@ export function AgencyPage() {
     };
 
 
-    const targetLikeHandler = async (e: any, id: string) => {
+    // const targetLikeHandler = async (e: any, id: string) => {
+    //     try {
+    //         assert.ok(verifiedMemberData, Definer.auth_err1);
+    //         const memberService = new MemberApiService();
+    //         const like_result: any = await memberService.memberLikeTarget({
+    //             like_ref_id: id,
+    //             group_type: "member",
+    //         });
+    //         assert.ok(like_result, Definer.general_err1);
+    //         if (like_result.like_status > 0) {
+    //             e.target.style.fill = "red";
+    //             refs.current[like_result.like_ref_id].innerHTML++;
+    //         } else {
+    //             e.target.style.fill = "white"
+    //             refs.current[like_result.like_ref_id].innerHTML--;
+    //         }
+    //         await sweetTopSmallSuccessAlert("success", 700, false);
+    //     } catch (err: any) {
+    //         console.log("targetLikeTop, ERROR:", err);
+    //         sweetErrorHandling(err).then();
+    //     }
+    // };
+
+    const targetLikeHandler = async (e: any, targetId: string) => {
         try {
             assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
-                like_ref_id: id,
+                like_ref_id: targetId,
                 group_type: "member",
             });
             assert.ok(like_result, Definer.general_err1);
-            if (like_result.like_status > 0) {
-                e.target.style.fill = "red";
-                refs.current[like_result.like_ref_id].innerHTML++;
-            } else {
-                e.target.style.fill = "white"
-                refs.current[like_result.like_ref_id].innerHTML--;
-            }
             await sweetTopSmallSuccessAlert("success", 700, false);
+            setProductRebuild(new Date());
         } catch (err: any) {
-            console.log("targetLikeTop, ERROR:", err);
+            console.log("targetLikeProduct, ERROR:", err);
             sweetErrorHandling(err).then();
         }
     };
@@ -137,7 +155,6 @@ export function AgencyPage() {
                                     {targetCompany.map((ele: Company) => {
                                         const image_path = `${serverApi}/${ele.mb_image}`;
                                         return (
-
                                             <Card
                                                 onClick={() => visitMemberHandler(ele._id)}
                                                 variant="plain"
@@ -214,7 +231,6 @@ export function AgencyPage() {
                                                                     }}
                                                                 >
                                                                     <Favorite
-
                                                                         onClick={(e) => targetLikeHandler(e, ele._id)}
                                                                         style={{
                                                                             fill:

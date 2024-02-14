@@ -2,8 +2,10 @@ import {serverApi} from "../../lib/config";
 import assert from "assert";
 import axios from "axios";
 import {Definer} from "../../lib/definer";
+import { Event } from "../../types/event";
 import {Member, MemberUpdateData} from "../../types/user";
 import {MemberLiken} from "../../types/others";
+import {SearchArticlesObj} from "../../types/boArticle";
 
 class MemberApiService {
     private readonly path: string;
@@ -132,6 +134,28 @@ class MemberApiService {
             throw err;
         }
     };
+
+
+
+    public async getEvents(data: SearchArticlesObj): Promise<Event[]> {
+        try {
+            let url = `/events/target?page=${data.page}&limit=${data.limit}`;
+            if (data.order) url += `&order=${data.order}`;
+            const result = await axios.get(this.path + url, {
+                withCredentials: true,
+            });
+
+            assert.ok(result?.data, Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
+
+            const events: Event[] = result.data.data;
+            return events;
+        } catch (err: any) {
+            console.log(`ERROR ::: getEvents ${err.message}`);
+            throw err;
+        }
+    }
 }
 
 export default MemberApiService;

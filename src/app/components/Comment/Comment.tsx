@@ -1,3 +1,4 @@
+
 import {useRef, useState} from "react";
 import {Box, Checkbox, Container, Rating, Stack, TextField,} from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
@@ -21,7 +22,6 @@ const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9",
 };
-
 const CommentExampleComment = (props: any) => {
     dayjs.locale("en");
     dayjs.extend(relativeTime);
@@ -149,7 +149,7 @@ const CommentExampleComment = (props: any) => {
                     {comments?.map((comment: any) => {
                         const image_url = comment?.comment_owner
                             ? `${comment?.comment_owner?.mb_image}`
-                            : "/user.png";
+                            : "/auth/odamcha.svg";
                         const formattedCreatedAt = dayjs(comment?.createdAt).fromNow();
 
                         userHasCommented = comments?.some(
@@ -252,20 +252,13 @@ const CommentExampleComment = (props: any) => {
                                             {comment?.comment_replies &&
                                                 comment?.comment_replies?.length > 0 && (
                                                     <span
-                                                        onClick={() =>
-                                                            setOpenRepliesForCommentId(comment?._id)
-                                                        }
+                                                        onClick={() => setOpenRepliesForCommentId(comment?._id)}
                                                         className="flex gap-2"
                                                     >
-                            <span>view</span>
+                                                        <span>view</span>
                                                         {comment?.comment_replies?.length}
-                                                        <span>
-                              more
-                                                            {comment?.comment_replies?.length > 1
-                                                                ? " replies"
-                                                                : " reply"}
-                            </span>
-                          </span>
+                                                        <span>more{comment?.comment_replies?.length > 1 ? " replies" : " reply"}</span>
+                                                    </span>
                                                 )}
                                         </div>
                                         {hasReplies && openRepliesForCommentId === comment?._id ? (
@@ -273,7 +266,7 @@ const CommentExampleComment = (props: any) => {
                                                 {comment?.comment_replies?.map((reply: any) => {
                                                     const reply_image = reply?.reply_owner?.mb_image
                                                         ? reply?.reply_owner?.mb_image
-                                                        : "/default.svg";
+                                                        : "/auth/default_user.svg";
 
                                                     const formattedCreatedAt = dayjs(
                                                         reply?.createdAt
@@ -295,7 +288,7 @@ const CommentExampleComment = (props: any) => {
                                                                     {formattedCreatedAt}
                                                                 </div>
                                                             </Box>
-                                                            <Box className="comment_content">
+                                                            <Box className="comment_content   ">
                                                                 <h3 className="comment_detail font-thin text-sm text-black mx-4 my-2">
                                                                     {reply?.reply_content}
                                                                 </h3>
@@ -312,7 +305,7 @@ const CommentExampleComment = (props: any) => {
                     })}
                 </div>
             ) : (
-                <h2>Write the first comment </h2>
+                <h2>Write the first comment and evaluate the product!</h2>
             )}
 
             <Box className="create_comment p-4">

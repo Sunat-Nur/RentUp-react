@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Statistics} from "./statistics";
 import {Posts} from "./posts";
 import {LuxuryProperty} from "./luxuryProperty";
@@ -6,47 +6,38 @@ import {TopHomes} from "./topHomes"
 import {BestCompany} from "./bestCompany";
 import {Advertisements} from "./advertisements";
 import '../../../css/home.css';
-import {Events} from "./events";
+import Events from "../HomePage/events";
 import Recommendations from "./recomendation";
 import {Dispatch} from "@reduxjs/toolkit";
 import {Company} from "../../../types/user";
-import {Product} from "../../../types/product";
-import {setBestCompany, setTopHomes} from "./slice";
+import {setBestCompany} from "./slice";
 import {useDispatch} from "react-redux";
 import CompanyApiService from "../../apiSservices/companyApiService";
-import ProductApiService from "../../apiSservices/productApiService";
 import {Comments} from "./comments";
 
 
 /** REDUX SLICE */
 const actionDispatch = (dispach: Dispatch) => ({
     setBestCompany: (data: Company[]) => dispach(setBestCompany(data)),
-    setTopHomes: (data: Product[]) => dispach(setTopHomes(data)),
 });
 
 
 export function HomePage() {
     /** INITIALIZATION */
-    const {setBestCompany, setTopHomes } = actionDispatch(useDispatch());
+    const {setBestCompany } = actionDispatch(useDispatch());
+    const [productRebuild] = useState<Date>(new Date());
 
 
     useEffect(() => {
-
         const companyService = new CompanyApiService();
         companyService
-            .getBestCompany({ page: 1, limit: 5, order: "mb_point"})
-            .then((data) => {setBestCompany(data)})
+            .getBestCompany({page: 1, limit: 5, order: "createdAt"})
+            .then((data) => {
+                setBestCompany(data)
+            })
             .catch((err => console.log(err)));
 
-
-        const productService = new ProductApiService();
-        productService
-            .getAllProducts({ page: 1, limit: 3, order: "mb_point"})
-            .then((data) => {setTopHomes(data)})
-            .catch((err => console.log(err)));
-
-
-    }, []);
+    }, [productRebuild]);
 
 
     return <div className="homepage">
@@ -55,7 +46,7 @@ export function HomePage() {
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        <Events />
+        <Events/>
         <Posts/>
         <Recommendations/>
         <Comments/>

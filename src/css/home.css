@@ -2124,6 +2124,11 @@
     padding: 30px 30px 30px 30px;
 }
 
+
+
+
+
+
 .article_user_img img {
     width: 40px;
     height: 40px;
@@ -2146,6 +2151,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 24px */
+
 }
 
 .article_pagination span {
@@ -2229,6 +2235,23 @@
     margin-top: 27px;
     margin-left: 10px;
 }
+
+
+.article_user_img text {
+    color:  #0e6eb2;
+    font-family: Jost;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 18px */
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+    margin-top: 27px;
+    margin-left: 25px;
+}
+
+
+
 .article_createdAt h1 {
     width: 525px;
     color:  #808080;

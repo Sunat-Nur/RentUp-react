@@ -26,19 +26,6 @@ export default class CompanyApiService {
         }
     };
 
-    // async getCompanys(data: any): Promise<Company[]> {
-    //     try {
-    //         const url = `/companies?order=${data.order}&page=${data.page}&limit=${data.limit}`,
-    //             result = await axios.get(this.path + url, { withCredentials: true });
-    //         assert.ok(result, Definer.general_err1);
-    //         const companies: Company[] = result.data.data;
-    //         return companies;
-    //     } catch (err: any) {
-    //         console.log(`ERROR ::: getCompanys ${err.message}`);
-    //
-    //         throw err;
-    //     }
-    // };
     async getCompanys(data: SearchObj): Promise <Company[]> { //SearchObj interface hosil qildim
 
         try {

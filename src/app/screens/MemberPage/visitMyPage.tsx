@@ -78,7 +78,7 @@ export function VisitMyPage(props: any) {
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
     const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
-        useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 4});
+        useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 2});
 
     useEffect(() => {
         if (!verifiedMemberData) {
@@ -292,7 +292,6 @@ export function VisitMyPage(props: any) {
                                     </Stack>
                                     <Box display={"flex"} flexDirection={"column"}>
                                         <TabPanel value={"1"}>
-                                            {/*<Box className={"menu_name"}>Contents</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberPosts
                                                     chosenMemberBoArticles={chosenMemberBoArticles}
@@ -327,7 +326,6 @@ export function VisitMyPage(props: any) {
                                         </TabPanel>
 
                                         <TabPanel value={"2"}>
-                                            {/*<Box className={"menu_name"}>Followers</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberFollowers
                                                     actions_enabled={true}
@@ -338,7 +336,6 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"3"}>
-                                            {/*<Box className={"menu_name"}>Following</Box>*/}
                                             <Box className={"menu_content"}>
                                                 <MemberFollowing
                                                     actions_enabled={true}
@@ -358,7 +355,7 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"5"}>
-                                            <Box className={"menu_name"}>chose article</Box>
+                                            <Box className={"menu_name"}>chosen article</Box>
                                             <Box className={"menu_content"}>
                                                 <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
                                             </Box>
@@ -370,11 +367,8 @@ export function VisitMyPage(props: any) {
                                             </Box>
                                         </TabPanel>
                                     </Box>
-
-
                                 </Stack>
                             </TabContext>
-
                         </Stack>
                         <Stack className={"right_pics"}>
                             <h4>home town</h4>
@@ -383,7 +377,6 @@ export function VisitMyPage(props: any) {
                     <Stack className={"right_side"}>
                     </Stack>
                 </Stack>
-
             </Container>
         </div>
     );

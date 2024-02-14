@@ -20,7 +20,7 @@ export interface BoArticle {
 export interface SearchArticlesObj {
     page: number;
     limit: number;
-    bo_id: string;
+    bo_id?: string;
     order?: string | null;
 }
 

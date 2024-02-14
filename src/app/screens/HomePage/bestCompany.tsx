@@ -6,7 +6,7 @@ import {useHistory, useLocation} from "react-router-dom";
 // REDUX
 import {useSelector} from "react-redux";
 import {createSelector} from "reselect";
-import {retrieveBestCompany, retrieveTopHomes} from "./selector";
+import {retrieveBestCompany, } from "./selector";
 import {Company} from "../../../types/user";
 
 
