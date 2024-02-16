@@ -1,4 +1,5 @@
-import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
+// @ts-ignore
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import React, {useEffect, useState,} from 'react';
 import AOS, {AosOptions} from "aos";
 import {CommunityPage} from "./screens/CommunityPage";

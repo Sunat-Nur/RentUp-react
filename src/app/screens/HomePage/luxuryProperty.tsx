@@ -39,7 +39,7 @@ export function LuxuryProperty() {
         productService.getLuxuryHomes({
             order: "createdAt",
             page: 1,
-            limit: 2
+            limit: 3
         })
             .then(data => setLuxuryProperty(data))
             .catch(err => console.log(err));
@@ -47,7 +47,7 @@ export function LuxuryProperty() {
     }, []);
 
     const chosenluxuryProperty = (id: string) => {
-        history.push(`/company/${id}`);
+        history.push("/company");
     }
 
     // const chosenDishHandler = (id: string) => {

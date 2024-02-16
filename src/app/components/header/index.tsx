@@ -9,15 +9,15 @@ export function NavbarHome(props: any) {
 
 
     return (
-        <div className="format home_navbar" data-aos="flip-left">
+        <div className="format home_navbar" data-aos="zoom-in">
             <Container>
                 <Stack
                     flexDirection={"row"}
                     className="navbar_config"
                     justifyContent={"space-between"}
                 >
-                    <Box>
-                        <img src='/icons/logo-light.png' alt=''/>
+                    <Box className={"header_logo"}>
+                        <img src={"/icons/logo.png"} alt=''/>
                     </Box>
                     <Stack
                         flexDirection={"row"}
@@ -25,36 +25,36 @@ export function NavbarHome(props: any) {
                         alignItems={"center"}
                         className="navbar_links"
                     >
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/" activeClassName="underline">
                                 Home
                             </NavLink>
                         </Box>
 
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/company" activeClassName="underline">
                                 Property
                             </NavLink>
                         </Box>
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/agency" activeClassName="underline">
                                 Agency
                             </NavLink>
                         </Box>
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/community" activeClassName="underline">
                                 Community
                             </NavLink>
                         </Box>
                         {verifiedMemberData ? (
-                            <Box className="hover-line" onClick={props.setPath}>
+                            <Box className="hover_line" onClick={props.setPath}>
                                 <NavLink to="/member-page" activeClassName="underline">
                                     My page
                                 </NavLink>
                             </Box>
                         ) : null}
 
-                        <Box className="hover-line" onClick={props.setPath}>
+                        <Box className="hover_line" onClick={props.setPath}>
                             <NavLink to="/help" activeClassName="underline">
                                 Help
                             </NavLink>
@@ -84,6 +84,20 @@ export function NavbarHome(props: any) {
                                 onClick={props.handleLogOutClick}
                             />
                         )}
+                        <Box >
+                            {!verifiedMemberData ? (
+                                <Button
+                                    variant="contained"
+                                    style={{color: "#FFFFFF", background: "#008000"}}
+                                    onClick={props.handleSignUpOpen}
+                                >
+                                    Sign Up
+                                </Button>
+                            ) : null}
+
+                        </Box>
+
+
                         <Menu
                             anchorEl={props.anchorEl}
                             open={props.open}
@@ -128,63 +142,6 @@ export function NavbarHome(props: any) {
                             </MenuItem>
                         </Menu>
                     </Stack>
-                </Stack>
-                <Stack className="head_information" justifyContent={"row"}>
-                    <Stack
-                        justifyContent={'column'}
-                        style={{marginTop: "86px", marginLeft: "24px"}}>
-                        <Box>
-                            <img src="/icons/welcome.svg" alt=''/>
-                        </Box>
-                        <Box className="define_restaurant">
-                            Find your dream house with us!
-                        </Box>
-                        <Box className="timeline_service">
-                            any property any time
-                        </Box>
-                        <Box className="button_box_search">
-                        <Box sx={{mt: "90px"}}>
-                            {!verifiedMemberData ? (
-                                <Button
-                                    variant="contained"
-                                    style={{
-                                        width: "210px",
-                                        height: "60px",
-                                        background: "#1976d2",
-                                        color: "#FFFFF",
-                                        marginRight: "40px"
-                                    }}
-                                    onClick={props.handleSignUpOpen}
-                                >
-                                    Sign Up
-                                </Button>
-                            ) : null}
-
-                        </Box>
-                        <Box sx={{mt: "90px"}}>
-                            {!verifiedMemberData ? (
-                                <Button
-                                    variant="contained"
-                                    style={{
-                                        width: "210px",
-                                        height: "60px",
-                                        background: "#",
-                                        color: "#FFFFF",
-                                    }}
-                                    onClick={props.handleSignUpOpen}
-                                >
-                                    Search
-                                </Button>
-                            ) : null}
-
-                        </Box>
-                        </Box>
-                    </Stack>
-                    <Stack flexDirection={'column'}>
-                        <Box className="big_img"></Box>
-
-                    </Stack>
-
                 </Stack>
             </Container>
         </div>

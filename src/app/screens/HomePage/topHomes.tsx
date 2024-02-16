@@ -40,8 +40,8 @@ export function TopHomes(props: any) {
     const {topHomes} = useSelector(topHomesRetriever);
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
-    const chosenTopHomesHandler = (id: string) => {
-        history.push(`/company/${id}`);
+    const chosenTopHomesHandler = () => {
+        history.push("/company");
     }
 
     useEffect(() => {
@@ -85,7 +85,7 @@ export function TopHomes(props: any) {
                                     return (
                                         <Box className="top_property_box"
                                              key={ele._id}
-                                             onClick={() => chosenTopHomesHandler(ele._id)}
+                                             onClick={() => chosenTopHomesHandler()}
                                              // setProductRebuild={setProductRebuild}
                                              sx={{
                                                  cursor: "pointer",

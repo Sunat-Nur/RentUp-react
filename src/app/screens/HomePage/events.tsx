@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Box, Container, Stack} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore from "swiper";
+import Autoplay from "swiper";
+import Navigation from "swiper";
+import Pagination from "swiper";
 import {Dispatch} from "@reduxjs/toolkit";
 import {setEvents} from "./slice";
 import {createSelector} from "reselect";
@@ -44,11 +47,12 @@ export default function Events() {
                 console.log("data", data);
 
                 setEvents(data);
+
             })
             .catch((err) => console.log(err));
     }, [articlesRebuild]);
 
-
+console.log("events:", events);
 
 
 
@@ -153,7 +157,7 @@ export default function Events() {
                                         </Box>
                                     </Box>
                                 </SwiperSlide>
-                            {/*);*/}
+                        {/*    )*/}
                         {/*})}*/}
                     </Swiper>
                 </Stack>

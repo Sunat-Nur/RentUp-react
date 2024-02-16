@@ -454,100 +454,28 @@
 
 /*owner_posts*/
 
-.owner_post_container {
+.homeBanner_container {
     width: 100%;
-    height: 750px;
-    flex-shrink: 0;
-    background: #fafafa;
-    padding: 50px 50px 50px 50px;
-    position: relative;
+    height: 773px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    background: url("/public/home/banner2.jpeg");
+    background-size: cover;
+    padding: 50px;
 }
 
-.owner_post {
-    width: 100%;
-    height: 572px;
-    flex-shrink: 0;
-    fill: #F9FCFF;
-    stroke-width: 1px;
-    stroke:  #C7D5E1;
-    border-radius: 75px;
-    background: #fff;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 70px 50px 50px 90px;
-}
 
-.comp_advice p {
+.timeline_service {
     color:  #EC6325;
-    font-family: Jost;
-    font-size: 15px;
+    font-family: "Palatino";
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; /* 18px */
     letter-spacing: 0.45px;
-    position: relative;
-    text-transform: uppercase;
-}
-
-.comp_advice span {
-    color: #000;
-    font-family: Jost;
-    font-size: 39px;
-    font-style: normal;
-    font-weight: 600;
-    position: relative;
-    line-height: 120%; /* 46.8px */
-}
-
-.happy_homeowner img {
-    width: 16px;
-    height: 15px;
-    flex-shrink: 0;
     margin-top: 50px;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.owner_text span {
-    width: 100%;
-    color:  #000;
-    font-family: Jost;
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 500;
-    line-height: 120%; /* 28.8px */
-    position: relative;
-}
-
-.owner_img img {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-    fill: #868C92;
-    border-radius: 50px;
-    margin-top: 45px;
-    position: relative;
-}
-.owner_img p {
-    color: #000;
-    font-family: Jost;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 21.6px */
-    position: relative;
-}
-
-.name_img_box {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+    margin-left: 420px;
+    align-items: center;
+    margin-bottom: 1px;
 }
 
 

@@ -100,13 +100,13 @@ export function MemberFollowing(props: any) {
                                         height: "45%",
                                     }}
                                 >
-                                    <span className={"username_text"}>{following?.follow_member_data?.mb_nick}</span>
+                                    <span className={"username_text"}>{following?.follow_member_data?.mb_type}</span>
                                     <span
                                         className={"name_text"}
                                         style={{cursor: "pointer"}}
                                         onClick={() => visitMemberHandler(following?.follow_id)}
                                     >
-                                    {following?.follow_member_data?.mb_type}</span>
+                                    {following?.follow_member_data?.mb_nick}</span>
                                 </div>
                                 <Stack className={"button_follow"}>
                                     {props.actions_enabled && (

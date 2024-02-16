@@ -6,7 +6,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import {FreeMode, Navigation, Thumbs} from "swiper";
+import FreeMode from "swiper";
+import Navigation from "swiper";
+import Thumbs from "swiper";
 import {Favorite, FavoriteBorder,} from "@mui/icons-material";
 import Checkbox from "@mui/material/Checkbox";
 import {useHistory, useParams} from "react-router-dom";
@@ -25,6 +27,7 @@ import {createSelector} from "reselect";
 import {retrieveChosenProduct, retrieveChosenCompany, retrieveComments} from "./selector";
 import {Company} from '../../../types/user';
 import {Dispatch} from "@reduxjs/toolkit";
+
 import {setChosenProduct, setChosenCompany, setComments} from "./slice";
 import {useDispatch, useSelector} from "react-redux";
 import ProductApiService from "../../apiSservices/productApiService";
@@ -39,6 +42,8 @@ import {verifiedMemberData} from "../../apiSservices/verify";
 import IconButton from "@mui/joy/IconButton";
 import {CssVarsProvider} from "@mui/joy/styles";
 import CommentExampleComment from "../../components/Comment/Comment";
+import {CommentReply} from "../../../types/others";
+import {Comment} from "../../../types/others";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -48,7 +53,6 @@ const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlic
 });
 
 /** REDUX SELECTOR */
-
 const commentsRetriever = createSelector(
     retrieveComments,
     (comments) => ({
@@ -77,7 +81,7 @@ export function ChosenProductPage(props: any) {
 
     /** INITIALIZATIONS */
     let {product_id} = useParams<{ product_id: string }>();
-    let {id} = useParams<{ id: string }>();
+    console.log("product_id:::", product_id);
     const history = useHistory();
     const {setChosenProduct, setChosenCompany, setComments} = actionDispatch(useDispatch());
 
@@ -94,7 +98,6 @@ export function ChosenProductPage(props: any) {
             const productService = new ProductApiService();
             const product: Product = await productService.getChosenProduct(product_id);
             setChosenProduct(product);
-
             const company = await companyApiService.getChosenCompany(
                 product.company_mb_id
             );
@@ -107,18 +110,15 @@ export function ChosenProductPage(props: any) {
 
     useEffect(() => {
         productRelatedProcess().then();
-
         const commentService = new CommentApiService();
-        commentService.getAllComments(id)
+        commentService.getAllComments(product_id)
             .then((data) => {
-                // @ts-ignore
                 setComments(data);
             })
             .catch((err) => console.log(err));
         productRelatedProcess().then();
-
-
     }, [productRebuild]);
+
 
     const visitMemberHandler = (mb_id: string) => {
         history.push(`/member-page/other?mb_id=${mb_id}`);
@@ -473,7 +473,7 @@ export function ChosenProductPage(props: any) {
                                                 }}
                                             >
                                                 <Button variant="solid" color="warning"
-                                                        // onClick={() => visitMemberHandler(ele._id)}
+                                                    // onClick={() => visitMemberHandler(ele._id)}
                                                 >
                                                     view profile
                                                 </Button>
@@ -513,7 +513,7 @@ export function ChosenProductPage(props: any) {
                     {/*        </Stack>*/}
                     {/*    </div>*/}
                     {/*</Stack>*/}
-                    <CommentExampleComment setProductRebuild={setProductRebuild} id={id}/>
+                    <CommentExampleComment setProductRebuild={setProductRebuild} id={product_id}/>
                 </Stack>
             </Container>
         </div>

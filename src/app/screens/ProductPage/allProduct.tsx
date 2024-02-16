@@ -20,7 +20,7 @@ import Slider, {sliderClasses} from '@mui/joy/Slider';
 
 /** REDUX  */
 import {retrieveTargetAllProducts} from "./selector";
-import {ProductSearchObj, SearchObj,} from "../../../types/others";
+import {ProductSearchObj,} from "../../../types/others";
 import {Dispatch} from "@reduxjs/toolkit";
 import {createSelector} from "reselect";
 import {useDispatch, useSelector} from "react-redux";
@@ -29,8 +29,6 @@ import MemberApiService from "../../apiSservices/memberApiService";
 import {verifiedMemberData} from "../../apiSservices/verify";
 import {Product} from "../../../types/product";
 import {useHistory, useParams,} from "react-router-dom";
-import {setTargetCompany} from "./slice";
-import {retrieveTargetCompanys} from "./selector";
 
 /** Others */
 import {Definer} from "../../../lib/definer";
@@ -41,10 +39,6 @@ import Link from '@mui/joy/Link';
 import IconButton from '@mui/joy/IconButton';
 import {serverApi} from "../../../lib/config";
 import {BestCompany} from "../HomePage/bestCompany";
-import {Posts} from "../HomePage/posts";
-import {SwiperSlide} from "swiper/react";
-import {Company} from "../../../types/user";
-import CompanyApiService from "../../apiSservices/companyApiService";
 
 
 /** REDUX SLICE */
@@ -60,29 +54,18 @@ const targetAllProductsRetriever = createSelector(
     })
 );
 
-
-
 export function AllProductPage(props: any) {
     /** INITIALIZATIONS */
-    const {setTargetAllProducts} = actionDispatch(useDispatch());
-    const {targetAllProducts} = useSelector(targetAllProductsRetriever);
-    const [targetSearchObject, setTartgetSearchObject] = useState<ProductSearchObj>({
-        page: 1,
-        limit: 8,
-        order: "mb_point",
-    });
-
-
-    const [targetProductsSearchObj, setTargetProductSearchObj] =
-        useState<ProductSearchObj>({
-            page: 1,
-            limit: 4,
-            order: "createdAt",
-            product_collection: "",
-        });
-
     const refs: any = useRef([]);
     const history = useHistory();
+    const {setTargetAllProducts} = actionDispatch(useDispatch());
+    const {targetAllProducts} = useSelector(targetAllProductsRetriever);
+    const [targetProductsSearchObj, setTargetProductSearchObj] = useState<ProductSearchObj>({
+        page: 1,
+        limit: 8,
+        order: "createdAt",
+        product_collection: "office",
+    });
 
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
@@ -93,7 +76,7 @@ export function AllProductPage(props: any) {
             .then((data) => setTargetAllProducts(data))
             .catch((err) => console.log(err));
 
-    }, [targetProductsSearchObj, productRebuild, targetSearchObject]);
+    }, [ productRebuild, targetProductsSearchObj]);
 
 
     /** HANDLERS  */
@@ -102,10 +85,10 @@ export function AllProductPage(props: any) {
         targetProductsSearchObj.product_collection = collection;
         setTargetProductSearchObj({...targetProductsSearchObj});
     };
-    const handlePaginationChange = (event: any, value: number) => {
-        targetProductsSearchObj.page = value;
-        setTartgetSearchObject({...targetSearchObject});
-    };
+    // const handlePaginationChange = (event: any, value: number) => {
+    //     targetProductsSearchObj.page = value;
+    //     ({...targetProductsSearchObj});
+    // };
 
 
     const chosenProductHandler = (id: string) => {
@@ -525,7 +508,7 @@ export function AllProductPage(props: any) {
                                 }} sx={{color: "brown"}} {...item}
                                 />
                             )}
-                            onChange={handlePaginationChange}
+                            // onChange={handlePaginationChange}
                         />
                     </Stack>
                     <Stack className="allProduct_bottom_main" sx={{marginTop: "150px"}}>

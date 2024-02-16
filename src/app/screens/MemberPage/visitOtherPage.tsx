@@ -187,7 +187,6 @@ export function VisitOtherPage(props: any) {
                                     </Box>
                                     <Box className={"star_box"}>
                                         <img src={"/icons/rating.svg"}/>
-
                                     </Box>
                                 </Stack>
                                 <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
@@ -493,24 +492,24 @@ export function VisitOtherPage(props: any) {
                                         <TabPanel value={"2"}>
                                             <Box className={"menu_content"}>
                                                 <MemberFollowers
-                                                    actions_enabled={true}
+                                                    actions_enabled={false}
+                                                    mb_id={chosen_mb_id}
                                                     followRebuild={followRebuild}
                                                     setFollowRebuild={setFollowRebuild}
-                                                    mb_id={verifiedMemberData?._id}
                                                 />
                                             </Box>
                                         </TabPanel>
                                         <TabPanel value={"3"}>
                                             <Box className={"menu_content"}>
                                                 <MemberFollowing
-                                                    actions_enabled={true}
+                                                    actions_enabled={false}
+                                                    mb_id={chosen_mb_id}
                                                     followRebuild={followRebuild}
                                                     setFollowRebuild={setFollowRebuild}
-                                                    mb_id={verifiedMemberData?._id}
                                                 />
                                             </Box>
                                         </TabPanel>
-                                        <TabPanel value={"5"}>
+                                        <TabPanel value={"4"}>
                                             <Box className={"menu_name"}>Chosen content</Box>
                                             <Box className={"menu_content"}>
                                                 <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>

@@ -15,7 +15,7 @@ import "./comment.css";
 import "dayjs/locale/en";
 import relativeTime from "dayjs/plugin/relativeTime";
 import {HiArrowSmLeft} from "react-icons/hi";
-import {PrDetailRetriever} from "../../screens/ProductPage/useReduxPrDetail";
+import {PrDetailRetriever} from "../../screens/ProductPage/userComment";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 
 const colors = {

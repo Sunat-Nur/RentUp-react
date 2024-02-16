@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, } from "react";
 import {Statistics} from "./statistics";
-import {Posts} from "./posts";
+import {HomeBanner} from "./homeBanner";
 import {LuxuryProperty} from "./luxuryProperty";
 import {TopHomes} from "./topHomes"
 import {BestCompany} from "./bestCompany";
@@ -41,13 +41,13 @@ export function HomePage() {
 
 
     return <div className="homepage">
+        <HomeBanner/>
         <Statistics/>
         <TopHomes/>
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        <Events/>
-        <Posts/>
+        {/*<Events/>*/}
         <Recommendations/>
         <Comments/>
     </div>;
