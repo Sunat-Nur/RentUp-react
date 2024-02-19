@@ -2,15 +2,15 @@
 import {Avatar, Box, Button, Stack} from "@mui/material";
 import React, {ChangeEvent, FC, ReactElement, useCallback, useContext, useEffect, useRef, useState,} from "react";
 import SendIcon from "@mui/icons-material/Send";
-import {SocketContext} from "../../context/socket";
-import {ChatGreetMsg, ChatInfoUsers, ChatMessage, NewMessageProps} from "../../types/others";
-import {sweetErrorHandling, sweetFailureProvider} from "../../lib/sweetAlert";
+import {SocketContext} from "../../../context/socket";
+import {ChatGreetMsg, ChatInfoUsers, ChatMessage, NewMessageProps} from "../../../types/others";
+import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
 import assert from "assert";
-import {Definer} from "../../lib/Definer";
-import {verifyMemberData} from "../../app/ApiServices/verify";
-import {RippleBadge} from "../../app/MaterialTheme/styled";
+import {Definer} from "../../../lib/definer";
+import {verifiedMemberData} from "../../apiSservices/verify";
+import {RippleBadge} from "../../MaterialTheme/styled";
 import {CloseRounded, MessageRounded} from "@mui/icons-material";
-import "../../pages/CommunityPage/community.css";
+import "../../../css/community.css";
 
 const NewMessage: FC<NewMessageProps> = ({data, key}) => {
     if (!data) {
@@ -18,7 +18,7 @@ const NewMessage: FC<NewMessageProps> = ({data, key}) => {
     }
 
     const {mb_id, msg, mb_nick, mb_image} = data;
-    if (mb_id === verifyMemberData?._id) {
+    if (mb_id === verifiedMemberData?._id) {
         return (
             <Box className="chat_main_right">
                 <div className="msg_right">{msg}</div>
@@ -68,7 +68,7 @@ const CommunityChats = () => {
                         fontFamily: "serif",
                     }}
                 >
-                    {new_msg.text}, dear {verifyMemberData?.mb_nick ?? "guest"}
+                    {new_msg.text}, dear {verifiedMemberData?.mb_nick ?? "guest"}
                 </p>
             );
             setMessagesList([...messagesList]);
@@ -108,7 +108,7 @@ const CommunityChats = () => {
 
     const onSendBtnHandler = async () => {
         try {
-            if (!verifyMemberData) {
+            if (!verifiedMemberData) {
                 msgInputRef.current.value = "";
                 sweetFailureProvider("Please login first", true);
                 return false;
@@ -116,11 +116,11 @@ const CommunityChats = () => {
                 msgInputRef.current.value = "";
                 assert.ok(message, Definer.input_err2);
 
-                const mb_image_url = verifyMemberData?.mb_image;
+                const mb_image_url = verifiedMemberData?.mb_image;
                 socket.emit("createMsg", {
                     msg: message,
-                    mb_id: verifyMemberData?._id,
-                    mb_nick: verifyMemberData?.mb_nick,
+                    mb_id: verifiedMemberData?._id,
+                    mb_nick: verifiedMemberData?.mb_nick,
                     mb_image: mb_image_url,
                 });
                 setMessage("");

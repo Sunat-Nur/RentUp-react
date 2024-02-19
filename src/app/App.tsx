@@ -7,8 +7,6 @@ import {MemberPage} from "./screens/MemberPage";
 import {HelpPage} from "./screens/HelpPage";
 import {LoginPage} from "./screens/LoginPage";
 import {HomePage} from "./screens/HomePage";
-import {NavbarAgency} from "./components/header/agency";
-import {NavbarOthers} from "./components/header/others";
 import {Footer} from "./components/footer";
 import AuthenticationModal from "./components/auth";
 import MemberApiService from "./apiSservices/memberApiService";
@@ -19,7 +17,6 @@ import "../app/apiSservices/verify";
 import {CartItem} from "../types/others";
 import {Product} from "../types/product";
 import {NavbarHome} from "./components/header";
-import {ProductPage} from "./screens/ProductPage";
 import {AgencyPage} from "./screens/AgencyPage";
 import "../css/App.css";
 import "../css/navbar.css";
@@ -27,6 +24,7 @@ import "../css/footer.css";
 import "../css/page.css";
 import "aos/dist/aos.css";
 import ScrollToTop from "./components/scrollTop/scrollTop";
+import CommunityChats from "./components/Chatting/communityChats";
 
 
 interface CustomAosOptions extends AosOptions {
@@ -157,58 +155,23 @@ function App() {
     return (
         <Router>
             <ScrollToTop/>
-            {main_path == "/" ? (
-                <NavbarHome
-                    handleLogOutRequest={handleLogOutRequest}
-                    handleCloseLogOut={handleCloseLogOut}
-                    handleLogOutClick={handleLogOutClick}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLoginOpen={handleLoginOpen}
-                    setOrderRebuild={setOrderRebuild}
-                    onDeleteAll={onDeleteAll}
-                    cartItems={cartItems}
-                    anchorEl={anchorEl}
-                    onRemove={onRemove}
-                    onDelete={onDelete}
-                    setPath={setPath}
-                    onAdd={onAdd}
-                    open={open}
-                />
-            ) : main_path.includes("/company") ? (
-                <NavbarAgency
-                    handleLogOutRequest={handleLogOutRequest}
-                    handleLogOutClick={handleLogOutClick}
-                    handleCloseLogOut={handleCloseLogOut}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLoginOpen={handleLoginOpen}
-                    setOrderRebuild={setOrderRebuild}
-                    onDeleteAll={onDeleteAll}
-                    cartItems={cartItems}
-                    onRemove={onRemove}
-                    onDelete={onDelete}
-                    anchorEl={anchorEl}
-                    setPath={setPath}
-                    onAdd={onAdd}
-                    open={open}
-                />
-            ) : (
-                <NavbarOthers
-                    handleLogOutRequest={handleLogOutRequest}
-                    handleLogOutClick={handleLogOutClick}
-                    handleCloseLogOut={handleCloseLogOut}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLoginOpen={handleLoginOpen}
-                    setOrderRebuild={setOrderRebuild}
-                    onDeleteAll={onDeleteAll}
-                    cartItems={cartItems}
-                    anchorEl={anchorEl}
-                    onRemove={onRemove}
-                    onDelete={onDelete}
-                    setPath={setPath}
-                    onAdd={onAdd}
-                    open={open}
-                />
-            )}
+            <NavbarHome
+                handleLogOutRequest={handleLogOutRequest}
+                handleCloseLogOut={handleCloseLogOut}
+                handleLogOutClick={handleLogOutClick}
+                handleSignUpOpen={handleSignUpOpen}
+                handleLoginOpen={handleLoginOpen}
+                setOrderRebuild={setOrderRebuild}
+                onDeleteAll={onDeleteAll}
+                cartItems={cartItems}
+                anchorEl={anchorEl}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                setPath={setPath}
+                onAdd={onAdd}
+                open={open}
+            />
+
 
             <Switch>
                 <Route path="/company">
@@ -233,7 +196,7 @@ function App() {
                     < HomePage/>
                 </Route>
             </Switch>
-
+            {/*<CommunityChats/>*/}
             <Footer/>
             <AuthenticationModal
                 loginOpen={loginOpen}
