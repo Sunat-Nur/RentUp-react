@@ -212,7 +212,7 @@ function App() {
 
             <Switch>
                 <Route path="/company">
-                    < ProductPage onAdd={onAdd}/>
+                    {/*< ProductPage onAdd={onAdd}/>*/}
                 </Route>
                 <Route path="/agency">
                     < AgencyPage/>

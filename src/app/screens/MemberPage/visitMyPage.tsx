@@ -148,9 +148,9 @@ export function VisitMyPage(props: any) {
                                         <img src={"/icons/rating.svg"}/>
 
                                     </Box>
-                                    <a onClick={() => setValue("6")} className={"settings_btn"}>
-                                        <SettingsIcon/>
-                                    </a>
+                                    {/*<a onClick={() => setValue("6")} className={"settings_btn"}>*/}
+                                    {/*    <SettingsIcon/>*/}
+                                    {/*</a>*/}
 
                                 </Stack>
                                 <Stack className={"all_box_follow"} sx={{flexDirection: "row"}}>
@@ -259,7 +259,6 @@ export function VisitMyPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("1")}>
-                                                                <img src={"/icons/Pencil.svg"} alt=""/>
                                                                 <span>Contents</span>
                                                             </div>
                                                         )}
@@ -270,7 +269,6 @@ export function VisitMyPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("2")}>
-                                                                <img src={"/icons/Group.svg"} alt=""/>
                                                                 <span>Follower</span>
                                                             </div>
                                                         )}
@@ -281,8 +279,17 @@ export function VisitMyPage(props: any) {
                                                         component={() => (
                                                             <div className={`menu_box ${value}`}
                                                                  onClick={() => setValue("3")}>
-                                                                <img src={"/icons/user.svg"} alt=""/>
                                                                 <span>Following</span>
+                                                            </div>
+                                                        )}
+                                                    />
+                                                    <Tab
+                                                        style={{flexDirection: "column",}}
+                                                        value={"3"}
+                                                        component={() => (
+                                                            <div className={`menu_box ${value}`}
+                                                                 onClick={() => setValue("6")}>
+                                                                <span>Setting</span>
                                                             </div>
                                                         )}
                                                     />
@@ -299,6 +306,7 @@ export function VisitMyPage(props: any) {
                                                     setArticlesRebuild={setArticlesRebuild}
                                                 />
                                                 <Stack
+                                                    className={"bottom_stack"}
                                                     sx={{my: "40px"}}
                                                     direction="row"
                                                     alignItems="center"
@@ -322,6 +330,25 @@ export function VisitMyPage(props: any) {
                                                         />
                                                     </Box>
                                                 </Stack>
+
+                                                {/*< Box className={"bottom_box"}>*/}
+                                                {/*    <Pagination*/}
+                                                {/*        count={memberArticleSearchObj.page >= 2 ? memberArticleSearchObj.page + 1 : 3}*/}
+                                                {/*        page={memberArticleSearchObj.page}*/}
+                                                {/*        renderItem={(item) => (*/}
+                                                {/*            <PaginationItem*/}
+                                                {/*                components={{*/}
+                                                {/*                    previous: ArrowBackIcon,*/}
+                                                {/*                    next: ArrowForwardIcon,*/}
+                                                {/*                }}*/}
+                                                {/*                {...item}*/}
+                                                {/*                color={"secondary"}*/}
+                                                {/*            />*/}
+                                                {/*        )}*/}
+                                                {/*        onChange={handlePaginationChange}*/}
+                                                {/*    />*/}
+                                                {/*</Box>*/}
+
                                             </Box>
                                         </TabPanel>
 

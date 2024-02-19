@@ -68,8 +68,7 @@ export function TopHomes(props: any) {
                     <Stack>
 
                         <Box className="top_home_definer">
-                            <div data-aos="fade-up"
-                                 data-aos-anchor-placement="top-center">
+                            <div data-aos="zoom-out-down">
 
                                 <p>Top Properties</p>
                                 <Box className="top_home_definer">

@@ -136,7 +136,6 @@ class MemberApiService {
     };
 
 
-
     public async getEvents(data: SearchArticlesObj): Promise<Event[]> {
         try {
             let url = `/events/target?page=${data.page}&limit=${data.limit}`;
@@ -152,10 +151,10 @@ class MemberApiService {
             const events: Event[] = result.data.data;
             return events;
         } catch (err: any) {
-            console.log(`ERROR ::: getEvents ${err.message}`);
+            console.log(`ERROR ::: getNewEvents ${err.message}`);
             throw err;
         }
-    }
+    };
 }
 
 export default MemberApiService;

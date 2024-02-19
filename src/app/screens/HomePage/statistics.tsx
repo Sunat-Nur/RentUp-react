@@ -8,8 +8,8 @@ export function Statistics() {
                 {/*<Stack className="statistics_frame">*/}
                 <Stack className="definer_statistics">
                     <Box className="property_tex">
-                        <div data-aos="zoom-in">
-                            <Box className="property_difiner_h1">
+                        <div data-aos="zoom-out-down">
+                            <Box className="property_difiner_h1" sx={{marginBottom: "30px"}}>
                                 Curated Collection
                             </Box>
                             <Box className="property_difiner_p">

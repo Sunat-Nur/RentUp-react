@@ -87,36 +87,12 @@ export function AgencyPage() {
     const searchHandler = (category: string) => {
         targetSearchObject.page = 1;
         targetSearchObject.order = category;
-        setTartgetSearchObject({...targetSearchObject});  // targetSearchObject ning qiymatlaridan tashkil topgan yangi object hosil qilyabman
+        setTartgetSearchObject({...targetSearchObject});
     };
     const handlePaginationChange = (event: any, value: number) => {
         targetSearchObject.page = value;
         setTartgetSearchObject({...targetSearchObject});
     };
-
-
-    // const targetLikeHandler = async (e: any, id: string) => {
-    //     try {
-    //         assert.ok(verifiedMemberData, Definer.auth_err1);
-    //         const memberService = new MemberApiService();
-    //         const like_result: any = await memberService.memberLikeTarget({
-    //             like_ref_id: id,
-    //             group_type: "member",
-    //         });
-    //         assert.ok(like_result, Definer.general_err1);
-    //         if (like_result.like_status > 0) {
-    //             e.target.style.fill = "red";
-    //             refs.current[like_result.like_ref_id].innerHTML++;
-    //         } else {
-    //             e.target.style.fill = "white"
-    //             refs.current[like_result.like_ref_id].innerHTML--;
-    //         }
-    //         await sweetTopSmallSuccessAlert("success", 700, false);
-    //     } catch (err: any) {
-    //         console.log("targetLikeTop, ERROR:", err);
-    //         sweetErrorHandling(err).then();
-    //     }
-    // };
 
     const targetLikeHandler = async (e: any, targetId: string) => {
         try {
@@ -142,10 +118,10 @@ export function AgencyPage() {
                     <div data-aos="zoom-in">
                         <Box className={"fil_search_box"} sx={{display: "flex", justifyContent: "space-between"}}>
                             <Box className={"fil_box"} style={{cursor: "pointer"}}>
-                                <a onClick={() => searchHandler("mb_point")}>best</a>
-                                <a onClick={() => searchHandler("mb_views")}>famous</a>
-                                <a onClick={() => searchHandler("mb_likes")}>trend</a>
-                                <a onClick={() => searchHandler("createdAt")}>new</a>
+                                <a onClick={() => searchHandler("mb_point")} style={{color: "#000"}}>Best</a>
+                                <a onClick={() => searchHandler("mb_views")} style={{color: "#000"}}>Famous</a>
+                                <a onClick={() => searchHandler("mb_likes")} style={{color: "#000"}}>Trend</a>
+                                <a onClick={() => searchHandler("createdAt")} style={{color: "#000"}}>New</a>
                             </Box>
                         </Box>
                     </div>

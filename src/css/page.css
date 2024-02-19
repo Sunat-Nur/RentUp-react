@@ -34,6 +34,7 @@
 .property_filter_main_middle {
     flex-direction: row;
     justify-content: space-between;
+    margin-left: 100px;
 }
 
 .allProduct_middle_middle {
@@ -104,7 +105,7 @@
     position: relative;
     justify-content: space-between;
     padding: 50px 50px 50px 50px;
-
+    background-color: #fafafa;
 }
 
 
@@ -138,14 +139,15 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    justify-content: flex-end;
+    align-items: center;
+    /*margin-left: 20px;*/
     line-height: 25px;
-    color: #FFFFFF;
-    margin-right: 30px;
-    /*background-color: #ffcc00;*/
+    color: #000;
+    margin-right: 50px;
+    /*background-color: #ffffff;*/
     /*height: 35px;*/
     /*width: 150px;*/
-    /*border-radius: 5px;*/
+    /*!*border-radius: 5px;*!*/
 }
 
 .all_agency_frame .fil_box a {
@@ -214,6 +216,7 @@
     justify-content: space-between;
     margin-top: 50px;
 }
+
 .agency_second {
     position: relative;
     justify-content: space-between;
@@ -226,18 +229,16 @@
 }
 
 
-
-
-
 /* Comments */
-.homepage .comment_frame{
+.homepage .comment_frame {
     width: 100%;
     height: 629px;
     flex-shrink: 0;
     background-color: #fafafa;
     padding: 50px 50px 50px 50px;
 }
-.homepage .comment_frame_box{
+
+.homepage .comment_frame_box {
     color: #000;
     margin-bottom: 40px;
     text-align: center;
@@ -252,7 +253,7 @@
     margin-top: 40px;
 }
 
-.homepage .comment_frame_box p{
+.homepage .comment_frame_box p {
     width: 584px;
     height: 53px;
     flex-shrink: 0;
@@ -265,13 +266,13 @@
     line-height: normal;
 }
 
-.homepage .comment_middle_box{
+.homepage .comment_middle_box {
     display: flex;
     justify-content: space-between;
     position: relative;
 }
 
-.homepage .comment_main_box{
+.homepage .comment_main_box {
     width: 428px;
     height: 269px;
     flex-shrink: 0;
@@ -281,13 +282,15 @@
     /* shadow01 */
     box-shadow: 0px 7px 20px 0px rgba(141, 40, 173, 0.15);
 }
-.homepage .comment_main_box .comment_img{
+
+.homepage .comment_main_box .comment_img {
     width: 196px;
     height: 25px;
     flex-shrink: 0;
     padding: 30px 202px 21px 30px;
 }
-.homepage .text_def{
+
+.homepage .text_def {
     width: 380px;
     height: 70px;
     flex-shrink: 0;
@@ -299,6 +302,7 @@
     line-height: normal;
     padding: 5px 18px 114px 30px;
 }
+
 .homepage .text_def p {
     height: 27px;
     width: 110px;
@@ -311,6 +315,7 @@
     line-height: normal;
     padding: 15px 188px 57px 5px;
 }
+
 .homepage .author_book img {
     width: 54px;
     height: 54px;
@@ -323,7 +328,8 @@
     box-shadow: 0px 7px 20px 0px rgba(141, 40, 173, 0.15);
 
 }
-.homepage .comment_pagination{
+
+.homepage .comment_pagination {
     width: 24px;
     height: 24px;
     flex-shrink: 0;

@@ -16,6 +16,7 @@ import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetA
 import {setTargetAllProducts} from "./slice";
 import ProductBanner from "./ProductBanner";
 import assert from "assert";
+import { useCombinedContext } from "../../../context/useCombinedContext";
 import Slider, {sliderClasses} from '@mui/joy/Slider';
 
 /** REDUX  */
@@ -60,6 +61,7 @@ export function AllProductPage(props: any) {
     const history = useHistory();
     const {setTargetAllProducts} = actionDispatch(useDispatch());
     const {targetAllProducts} = useSelector(targetAllProductsRetriever);
+    const { filter, handleChangeCategory } = useCombinedContext();
     const [targetProductsSearchObj, setTargetProductSearchObj] = useState<ProductSearchObj>({
         page: 1,
         limit: 8,
@@ -76,7 +78,7 @@ export function AllProductPage(props: any) {
             .then((data) => setTargetAllProducts(data))
             .catch((err) => console.log(err));
 
-    }, [ productRebuild, targetProductsSearchObj]);
+    }, [ productRebuild, targetProductsSearchObj, filter]);
 
 
     /** HANDLERS  */
@@ -85,10 +87,10 @@ export function AllProductPage(props: any) {
         targetProductsSearchObj.product_collection = collection;
         setTargetProductSearchObj({...targetProductsSearchObj});
     };
-    // const handlePaginationChange = (event: any, value: number) => {
-    //     targetProductsSearchObj.page = value;
-    //     ({...targetProductsSearchObj});
-    // };
+    const handlePaginationChange = (event: any, value: number) => {
+        targetProductsSearchObj.page = value;
+        setTargetProductSearchObj ({...targetProductsSearchObj});
+    };
 
 
     const chosenProductHandler = (id: string) => {
@@ -129,10 +131,11 @@ export function AllProductPage(props: any) {
                                         sx={{
                                             fontWeight: 600,
                                             color: "#000",
-                                            background: "#e3c08D",
-                                            marginRight: "30px"
+                                            background: "#fff",
+                                            marginRight: "30px",
+                                            borderRadius: "50px"
                                         }}
-                                        onClick={() => searchCollectionHandler("Apartment")}
+                                        onClick={() => handleChangeCategory("", "Apartment")}
                                     >
                                         Apartment
                                     </Button>
@@ -143,10 +146,11 @@ export function AllProductPage(props: any) {
                                         sx={{
                                             fontWeight: 600,
                                             color: "#000",
-                                            background: "#e3c08D",
-                                            marginRight: "25px"
+                                            background: "#fff",
+                                            marginRight: "30px",
+                                            borderRadius: "50px",
                                         }}
-                                        onClick={() => searchCollectionHandler("House")}
+                                        onClick={() => handleChangeCategory("", "House")}
                                     >
                                         House
                                     </Button>
@@ -157,8 +161,9 @@ export function AllProductPage(props: any) {
                                         sx={{
                                             fontWeight: 600,
                                             color: "#000",
-                                            background: "#e3c08D",
-                                            marginRight: "25px"
+                                            background: "#fff",
+                                            marginRight: "30px",
+                                            borderRadius: "50px",
                                         }}
                                         onClick={() => searchCollectionHandler("Office")}
                                     >
@@ -171,8 +176,9 @@ export function AllProductPage(props: any) {
                                             sx={{
                                                 fontWeight: 600,
                                                 color: "#000",
-                                                background: "#e3c08D",
-                                                marginRight: "25px"
+                                                background: "#fff",
+                                                marginRight: "30px",
+                                                borderRadius: "50px",
                                             }}
                                             onClick={() => searchCollectionHandler("Villa")}
                                     >
@@ -184,8 +190,9 @@ export function AllProductPage(props: any) {
                                             sx={{
                                                 fontWeight: 600,
                                                 color: "#000",
-                                                background: "#e3c08D",
-                                                marginRight: "25px"
+                                                background: "#fff",
+                                                marginRight: "30px",
+                                                borderRadius: "50px"
                                             }}
                                             onClick={() => searchCollectionHandler("Studio")}
                                     >
@@ -197,133 +204,134 @@ export function AllProductPage(props: any) {
                     </Stack>
                     <Stack className="allProduct_middle" sx={{flexDirection: "row"}}>
                         <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                            <Stack className="allProduct_middle_left">
-                                <FormControl
-                                    className={"form_box"}
-                                    sx={{
-                                        width: "200px",
-                                        background: "white",
-                                        marginBottom: "30px"
-                                    }}>
-                                    <Select
-                                        // value={communityArticleData?.bo_id}
-                                        displayEmpty
-                                        inputProps={{"aria-label": "Without label"}}
-                                        // onChange={changeCategoryHandler}
-                                    >
-                                        <MenuItem value="">chose type</MenuItem>
-                                        <MenuItem value={"House"}>House</MenuItem>
-                                        <MenuItem value={"Office"}>Office</MenuItem>
-                                        <MenuItem value={"Villa"}>Villa</MenuItem>
-                                        <MenuItem value={"studio"}>Studio</MenuItem>
-                                        <MenuItem value={"etc"}>etc</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <FormControl
-                                    className={"form_box"}
-                                    sx={{
-                                        width: "200px",
-                                        background: "white",
-                                        marginBottom: "30px"
-                                    }}>
-                                    <Select
-                                        // value={communityArticleData?.bo_id}
-                                        displayEmpty
-                                        inputProps={{"aria-label": "Without label"}}
-                                        // onChange={changeCategoryHandler}
-                                    >
-                                        <MenuItem value="">chose address</MenuItem>
-                                        <MenuItem value={"tashkent"}>Tashkent</MenuItem>
-                                        <MenuItem value={"samarkand"}>Samarkand</MenuItem>
-                                        <MenuItem value={"bukhara"}>Bukhara</MenuItem>
-                                        <MenuItem value={"xoramz"}>Xoramz</MenuItem>
-                                        <MenuItem value={"andijan"}>Andijan</MenuItem>
-                                        <MenuItem value={"surkhandaryo"}>Surkhandaryo</MenuItem>
-                                        <MenuItem value={"qarshi"}>Qarshi</MenuItem>
-                                        <MenuItem value={"navoiy"}>Navoiy</MenuItem>
-                                        <MenuItem value={"namamgan"}>Namamgan</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <FormControl
-                                    className={"form_box"}
-                                    sx={{
-                                        width: "200px",
-                                        background: "white",
-                                        marginBottom: "30px"
-                                    }}>
-                                    <Select
-                                        // value={communityArticleData?.bo_id}
-                                        displayEmpty
-                                        inputProps={{"aria-label": "Without label"}}
-                                        // onChange={changeCategoryHandler}
-                                    >
+                            {/*<Stack className="allProduct_middle_left">*/}
+                            {/*    <FormControl*/}
+                            {/*        className={"form_box"}*/}
+                            {/*        sx={{*/}
+                            {/*            width: "200px",*/}
+                            {/*            background: "white",*/}
+                            {/*            marginBottom: "30px"*/}
+                            {/*        }}>*/}
+                            {/*        <Select*/}
+                            {/*            // value={communityArticleData?.bo_id}*/}
+                            {/*            displayEmpty*/}
+                            {/*            inputProps={{"aria-label": "Without label"}}*/}
+                            {/*            // onChange={changeCategoryHandler}*/}
+                            {/*        >*/}
+                            {/*            <MenuItem value="">chose type</MenuItem>*/}
+                            {/*            <MenuItem value={"House"}>House</MenuItem>*/}
+                            {/*            <MenuItem value={"Office"}>Office</MenuItem>*/}
+                            {/*            <MenuItem value={"Villa"}>Villa</MenuItem>*/}
+                            {/*            <MenuItem value={"studio"}>Studio</MenuItem>*/}
+                            {/*            <MenuItem value={"etc"}>etc</MenuItem>*/}
+                            {/*        </Select>*/}
+                            {/*    </FormControl>*/}
+                            {/*    <FormControl*/}
+                            {/*        className={"form_box"}*/}
+                            {/*        sx={{*/}
+                            {/*            width: "200px",*/}
+                            {/*            background: "white",*/}
+                            {/*            marginBottom: "30px"*/}
+                            {/*        }}>*/}
+                            {/*        <Select*/}
+                            {/*            // value={communityArticleData?.bo_id}*/}
+                            {/*            displayEmpty*/}
+                            {/*            inputProps={{"aria-label": "Without label"}}*/}
+                            {/*            // onChange={changeCategoryHandler}*/}
+                            {/*        >*/}
+                            {/*            <MenuItem value="">chose address</MenuItem>*/}
+                            {/*            <MenuItem value={"tashkent"}>Tashkent</MenuItem>*/}
+                            {/*            <MenuItem value={"samarkand"}>Samarkand</MenuItem>*/}
+                            {/*            <MenuItem value={"bukhara"}>Bukhara</MenuItem>*/}
+                            {/*            <MenuItem value={"xoramz"}>Xoramz</MenuItem>*/}
+                            {/*            <MenuItem value={"andijan"}>Andijan</MenuItem>*/}
+                            {/*            <MenuItem value={"surkhandaryo"}>Surkhandaryo</MenuItem>*/}
+                            {/*            <MenuItem value={"qarshi"}>Qarshi</MenuItem>*/}
+                            {/*            <MenuItem value={"navoiy"}>Navoiy</MenuItem>*/}
+                            {/*            <MenuItem value={"namamgan"}>Namamgan</MenuItem>*/}
+                            {/*        </Select>*/}
+                            {/*    </FormControl>*/}
+                            {/*    <FormControl*/}
+                            {/*        className={"form_box"}*/}
+                            {/*        sx={{*/}
+                            {/*            width: "200px",*/}
+                            {/*            background: "white",*/}
+                            {/*            marginBottom: "30px"*/}
+                            {/*        }}>*/}
+                            {/*        <Select*/}
+                            {/*            // value={communityArticleData?.bo_id}*/}
+                            {/*            displayEmpty*/}
+                            {/*            inputProps={{"aria-label": "Without label"}}*/}
+                            {/*            // onChange={changeCategoryHandler}*/}
+                            {/*        >*/}
 
-                                        <MenuItem value="">chose room</MenuItem>
-                                        <MenuItem value={"1"}>1 room</MenuItem>
-                                        <MenuItem value={"2"}>2 rooms</MenuItem>
-                                        <MenuItem value={"3"}>3 rooms</MenuItem>
-                                        <MenuItem value={"4"}>4 rooms</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <Box>
-                                    <CssVarsProvider>
-                                        <a> size of property</a>
-                                        <Box sx={{width: 180, marginTop: "30px", marginBottom: "30px"}}>
-                                            <Slider
-                                                track={false}
-                                                defaultValue={[0, 200]}
-                                                getAriaLabel={() => 'Amount'}
-                                                // getAriaValueText={valueText}
-                                                marks={[
-                                                    {
-                                                        value: 0,
-                                                        label: '0 sqft',
-                                                    },
-                                                    {
-                                                        value: 100,
-                                                        label: '100 sqft',
-                                                    },
-                                                ]}
-                                                valueLabelDisplay="on"
-                                                sx={{
-                                                    // Need both of the selectors to make it works on the server-side and client-side
-                                                    [`& [style*="left:0%"], & [style*="left: 0%"]`]: {
-                                                        [`&.${sliderClasses.markLabel}`]: {
-                                                            transform: 'none',
-                                                        },
-                                                        [`& .${sliderClasses.valueLabel}`]: {
-                                                            left: 'calc(var(--Slider-thumbSize) / 2)',
-                                                            borderBottomLeftRadius: 0,
-                                                            '&::before': {
-                                                                left: 0,
-                                                                transform: 'translateY(100%)',
-                                                                borderLeftColor: 'currentColor',
-                                                            },
-                                                        },
-                                                    },
-                                                    [`& [style*="left:100%"], & [style*="left: 100%"]`]: {
-                                                        [`&.${sliderClasses.markLabel}`]: {
-                                                            transform: 'translateX(-100%)',
-                                                        },
-                                                        [`& .${sliderClasses.valueLabel}`]: {
-                                                            right: 'calc(var(--Slider-thumbSize) / 2)',
-                                                            borderBottomRightRadius: 0,
-                                                            '&::before': {
-                                                                left: 'initial',
-                                                                right: 0,
-                                                                transform: 'translateY(100%)',
-                                                                borderRightColor: 'currentColor',
-                                                            },
-                                                        },
-                                                    },
-                                                }}
-                                            />
-                                        </Box>
-                                    </CssVarsProvider>
-                                </Box>
-                                <Button sx={{width: "120px", color: "#fff", background: "green"}}> search</Button>
-                            </Stack>
+                            {/*            <MenuItem value="">chose room</MenuItem>*/}
+                            {/*            <MenuItem value={"1"}>1 room</MenuItem>*/}
+                            {/*            <MenuItem value={"2"}>2 rooms</MenuItem>*/}
+                            {/*            <MenuItem value={"3"}>3 rooms</MenuItem>*/}
+                            {/*            <MenuItem value={"4"}>4 rooms</MenuItem>*/}
+                            {/*        </Select>*/}
+                            {/*    </FormControl>*/}
+                            {/*    <Box>*/}
+                            {/*        <CssVarsProvider>*/}
+                            {/*            <a> size of property</a>*/}
+                            {/*            <Box sx={{width: 180, marginTop: "30px", marginBottom: "30px"}}>*/}
+                            {/*                <Slider*/}
+                            {/*                    track={false}*/}
+                            {/*                    defaultValue={[0, 200]}*/}
+                            {/*                    getAriaLabel={() => 'Amount'}*/}
+                            {/*                    // getAriaValueText={valueText}*/}
+                            {/*                    marks={[*/}
+                            {/*                        {*/}
+                            {/*                            value: 0,*/}
+                            {/*                            label: '0 sqft',*/}
+                            {/*                        },*/}
+                            {/*                        {*/}
+                            {/*                            value: 100,*/}
+                            {/*                            label: '100 sqft',*/}
+                            {/*                        },*/}
+                            {/*                    ]}*/}
+                            {/*                    valueLabelDisplay="on"*/}
+                            {/*                    sx={{*/}
+                            {/*                        // Need both of the selectors to make it works on the server-side and client-side*/}
+                            {/*                        [`& [style*="left:0%"], & [style*="left: 0%"]`]: {*/}
+                            {/*                            [`&.${sliderClasses.markLabel}`]: {*/}
+                            {/*                                transform: 'none',*/}
+                            {/*                            },*/}
+                            {/*                            [`& .${sliderClasses.valueLabel}`]: {*/}
+                            {/*                                left: 'calc(var(--Slider-thumbSize) / 2)',*/}
+                            {/*                                borderBottomLeftRadius: 0,*/}
+                            {/*                                '&::before': {*/}
+                            {/*                                    left: 0,*/}
+                            {/*                                    transform: 'translateY(100%)',*/}
+                            {/*                                    borderLeftColor: 'currentColor',*/}
+                            {/*                                },*/}
+                            {/*                            },*/}
+                            {/*                        },*/}
+                            {/*                        [`& [style*="left:100%"], & [style*="left: 100%"]`]: {*/}
+                            {/*                            [`&.${sliderClasses.markLabel}`]: {*/}
+                            {/*                                transform: 'translateX(-100%)',*/}
+                            {/*                            },*/}
+                            {/*                            [`& .${sliderClasses.valueLabel}`]: {*/}
+                            {/*                                right: 'calc(var(--Slider-thumbSize) / 2)',*/}
+                            {/*                                borderBottomRightRadius: 0,*/}
+                            {/*                                '&::before': {*/}
+                            {/*                                    left: 'initial',*/}
+                            {/*                                    right: 0,*/}
+                            {/*                                    transform: 'translateY(100%)',*/}
+                            {/*                                    borderRightColor: 'currentColor',*/}
+                            {/*                                },*/}
+                            {/*                            },*/}
+                            {/*                        },*/}
+                            {/*                    }}*/}
+                            {/*                />*/}
+                            {/*            </Box>*/}
+                            {/*        </CssVarsProvider>*/}
+                            {/*    </Box>*/}
+                            {/*    <Button sx={{width: "120px", color: "#fff", background: "green"}}> search</Button>*/}
+                            {/*</Stack>*/}
                         </div>
+
                         <div data-aos="fade-left"
                              data-aos-anchor="#example-anchor"
                              data-aos-offset="500"
@@ -497,6 +505,8 @@ export function AllProductPage(props: any) {
                             </Stack>
                         </div>
                     </Stack>
+
+
                     <Stack className="allProduct_bottom">
                         <Pagination
                             count={targetProductsSearchObj.page >= 3 ? targetProductsSearchObj.page + 1 : 3}
@@ -508,7 +518,7 @@ export function AllProductPage(props: any) {
                                 }} sx={{color: "brown"}} {...item}
                                 />
                             )}
-                            // onChange={handlePaginationChange}
+                            onChange={handlePaginationChange}
                         />
                     </Stack>
                     <Stack className="allProduct_bottom_main" sx={{marginTop: "150px"}}>

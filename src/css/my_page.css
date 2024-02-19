@@ -9,6 +9,9 @@
     padding: 50px;
 }
 
+.bottom_stack {
+}
+
 .mypage_profile {
     display: flex;
     position: relative;
@@ -510,7 +513,7 @@
 /*}*/
 
 .my_page_menu {
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
 

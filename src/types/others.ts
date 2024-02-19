@@ -15,6 +15,10 @@ export interface ProductSearchObj {
     product_address?: string;
     product_value?: string;
     product_size?: string;
+    product_price_min?: number;
+    product_price_max?: number;
+    product_size_min?: number;
+    product_size_max?: number;
 }
 
 export interface MemberLiken {

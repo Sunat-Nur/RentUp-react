@@ -79,85 +79,87 @@ export function MySettings(props: any) {
     };
 
     return (
-        <Stack className={"my_settings"}>
-            <Stack className={"my_settings_page"}>
-                <Box className={"member_media_frame"}>
-                    <img
-                        src={file}
-                        className={"mb_image"}
-                        style={{borderRadius: "50%",}}
-                        width={"100px"}
-                        height={"100px"}
-                    />
-                    <div className={"media_change_box"}>
-                        <span>upoad image</span>
-                        <p>JPG, JPEG, PNG types are availabel </p>
-                        <Box className={"up_del_box"}>
-                            <Button
-                                onChange={handleImageChange}
-                                component="label"
-                                style={{minWidth: "0", height: "25px"}}
-                            >
-                                <CloudDownloadIcon/>
-                                <input type="file" hidden/>
-                            </Button>
-                        </Box>
-                    </div>
-                </Box>
-                <Box className={"input_frame"}>
-                    <div className={"long_input"}>
-                        <label className={"spec_label"}>name</label>
-                        <input
-                            onChange={handleNickChange}
-                            className={"spec_input_mb_nick"}
-                            type={"text"}
-                            placeholder={verifiedMemberData?.mb_nick}
-                            name="mb_nick"
+        <div data-aos="fade-up">
+            <Stack className={"my_settings"}>
+                <Stack className={"my_settings_page"}>
+                    <Box className={"member_media_frame"}>
+                        <img
+                            src={file}
+                            className={"mb_image"}
+                            style={{borderRadius: "50%",}}
+                            width={"100px"}
+                            height={"100px"}
                         />
-                    </div>
-                </Box>
-                <Box className={"input_frame"}>
-                    <div className={"short_input"}>
-                        <label className={"spec_label"}>number</label>
-                        <input
-                            onChange={handlePhoneChange}
-                            className={"spec_input_mb_phone"}
-                            type={"text"}
-                            placeholder={verifiedMemberData?.mb_phone}
-                            name="mb_phone"
-                        />
-                    </div>
-                    <div className={"short_input"}>
-                        <label className={"spec_label"}>address</label>
-                        <input
-                            onChange={handleAddressChange}
-                            className={"spec_input_mb_address"}
-                            type={"text"}
-                            placeholder={verifiedMemberData?.mb_address ?? "not have"}
-                            name="mb_address"
-                        />
-                    </div>
-                </Box>
-                <Box className={"input_frame"}>
-                    <div className={"long_input"}>
-                        <label className={"spec_label"}>Information</label>
-                        <textarea
-                            onChange={handleDescriptionChange}
-                            className={"spec_textarea_mb_description"}
-                            placeholder={verifiedMemberData?.mb_description ?? "not have"}
-                            name="mb_description"
-                        />
-                    </div>
-                </Box>
-                <Box
-                    display={"flex"}
-                    justifyContent={"flex-end"}
-                    sx={{mt: "25px"}}
-                    onClick={handleSubmitButton}
-                >
-                    <Button variant={"contained"}>save</Button>
-                </Box>
+                        <div className={"media_change_box"}>
+                            <span>upoad image</span>
+                            <p>JPG, JPEG, PNG types are availabel </p>
+                            <Box className={"up_del_box"}>
+                                <Button
+                                    onChange={handleImageChange}
+                                    component="label"
+                                    style={{minWidth: "0", height: "25px"}}
+                                >
+                                    <CloudDownloadIcon/>
+                                    <input type="file" hidden/>
+                                </Button>
+                            </Box>
+                        </div>
+                    </Box>
+                    <Box className={"input_frame"}>
+                        <div className={"long_input"}>
+                            <label className={"spec_label"}>name</label>
+                            <input
+                                onChange={handleNickChange}
+                                className={"spec_input_mb_nick"}
+                                type={"text"}
+                                placeholder={verifiedMemberData?.mb_nick}
+                                name="mb_nick"
+                            />
+                        </div>
+                    </Box>
+                    <Box className={"input_frame"}>
+                        <div className={"short_input"}>
+                            <label className={"spec_label"}>number</label>
+                            <input
+                                onChange={handlePhoneChange}
+                                className={"spec_input_mb_phone"}
+                                type={"text"}
+                                placeholder={verifiedMemberData?.mb_phone}
+                                name="mb_phone"
+                            />
+                        </div>
+                        <div className={"short_input"}>
+                            <label className={"spec_label"}>address</label>
+                            <input
+                                onChange={handleAddressChange}
+                                className={"spec_input_mb_address"}
+                                type={"text"}
+                                placeholder={verifiedMemberData?.mb_address ?? "not have"}
+                                name="mb_address"
+                            />
+                        </div>
+                    </Box>
+                    <Box className={"input_frame"}>
+                        <div className={"long_input"}>
+                            <label className={"spec_label"}>Information</label>
+                            <textarea
+                                onChange={handleDescriptionChange}
+                                className={"spec_textarea_mb_description"}
+                                placeholder={verifiedMemberData?.mb_description ?? "not have"}
+                                name="mb_description"
+                            />
+                        </div>
+                    </Box>
+                    <Box
+                        display={"flex"}
+                        justifyContent={"flex-end"}
+                        sx={{mt: "25px"}}
+                        onClick={handleSubmitButton}
+                    >
+                        <Button variant={"contained"}>save</Button>
+                    </Box>
+                </Stack>
             </Stack>
-        </Stack>
+        </div>
     );
 }

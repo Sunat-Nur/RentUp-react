@@ -28,7 +28,7 @@
     justify-content: space-between;
 }
 
-.restaurant_page .all_restaurant .fil_box a {
+ .fil_box a {
     position: relative;
     display: flex;
     font-family: "Quicksand";
@@ -36,7 +36,9 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+
+    color: #000;
 }
 
 .restaurant_page .all_restaurant .fil_box a {
