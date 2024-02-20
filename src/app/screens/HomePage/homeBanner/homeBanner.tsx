@@ -1,14 +1,7 @@
-import { useRef } from "react";
+import {useRef} from "react";
 
-import {
-    bannerImgOne,
-    bannerImgTwo,
-    bannerImgTwo3,
-    bannerImgTwo4,
-    bannerImgTwo5,
-    bannerImgTwo6,
-} from "./images";
-import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
+import {bannerImgOne, bannerImgTwo, bannerImgTwo3, bannerImgTwo4, bannerImgTwo5, bannerImgTwo6} from "./images";
+import {Swiper, SwiperProps, SwiperSlide} from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import {Autoplay, Pagination, Navigation} from "swiper/modules";
 
 import SwiperSlideComponent from "./SwiperSlide";
 
@@ -55,22 +48,22 @@ const Banner = () => {
         <div className="home_banner">
             <Swiper {...swiperOptions}>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgOne} />
+                    <SwiperSlideComponent image={bannerImgOne}/>
                 </SwiperSlide>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo} />
+                    <SwiperSlideComponent image={bannerImgTwo}/>
                 </SwiperSlide>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo3} />
+                    <SwiperSlideComponent image={bannerImgTwo3}/>
                 </SwiperSlide>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo4} />
+                    <SwiperSlideComponent image={bannerImgTwo4}/>
                 </SwiperSlide>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo5} />
+                    <SwiperSlideComponent image={bannerImgTwo5}/>
                 </SwiperSlide>
                 <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo6} />
+                    <SwiperSlideComponent image={bannerImgTwo6}/>
                 </SwiperSlide>
 
                 <div className="autoplay-progress" slot="container-end">

@@ -196,7 +196,7 @@ function App() {
                     < HomePage/>
                 </Route>
             </Switch>
-            {/*<CommunityChats/>*/}
+            <CommunityChats/>
             <Footer/>
             <AuthenticationModal
                 loginOpen={loginOpen}

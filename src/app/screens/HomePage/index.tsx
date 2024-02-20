@@ -1,19 +1,19 @@
 import React, {useEffect, useState, } from "react";
 import {Statistics} from "./statistics";
-import {HomeBanner} from "./homeBanner";
+import HomeBanner from "./homeBanner/homeBanner";
 import {LuxuryProperty} from "./luxuryProperty";
 import {TopHomes} from "./topHomes"
 import {BestCompany} from "./bestCompany";
 import {Advertisements} from "./advertisements";
-import '../../../css/home.css';
-import Events from "../HomePage/events";
+import Events from "./events";
 import Recommendations from "./recomendation";
+import {Comments} from "./comments";
 import {Dispatch} from "@reduxjs/toolkit";
 import {Company} from "../../../types/user";
 import {setBestCompany} from "./slice";
 import {useDispatch} from "react-redux";
 import CompanyApiService from "../../apiSservices/companyApiService";
-import {Comments} from "./comments";
+import '../../../css/home.css';
 
 
 /** REDUX SLICE */
@@ -47,7 +47,7 @@ export function HomePage() {
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        {/*<Events/>*/}
+        <Events/>
         <Recommendations/>
         <Comments/>
     </div>;
