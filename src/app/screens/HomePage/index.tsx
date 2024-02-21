@@ -41,13 +41,13 @@ export function HomePage() {
 
 
     return <div className="homepage">
-        <HomeBanner/>
+        {/*<HomeBanner/>*/}
         <Statistics/>
         <TopHomes/>
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        <Events/>
+        {/*<Events/>*/}
         <Recommendations/>
         <Comments/>
     </div>;

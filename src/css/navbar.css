@@ -41,6 +41,11 @@
     stroke: #C7D5E1;
 }
 
+.message_icons {
+    width: 35px;
+    height: 35px;
+}
+
 
 .header_logo img {
     width: 180px;
@@ -59,8 +64,15 @@
     height: 46px;
 }
 
+
 .home_navbar a {
     text-decoration: none;
+}
+
+.chat_frame {
+    background-image: url("/public/icons/telegarm_image.jpeg");
+    background-size: cover;
+
 }
 
 .home_navbar .hover-line a {

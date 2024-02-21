@@ -148,7 +148,9 @@ export function AgencyPage() {
                                                     <AspectRatio ratio="4/3">
                                                         <figure>
                                                             <img
-                                                                src={image_path}
+                                                                src={ele?.mb_image
+                                                                    ? `${serverApi}/${ele?.mb_image}`
+                                                                    : "/auth/default_user.svg"}
                                                                 loading="lazy"
                                                             />
                                                         </figure>
@@ -224,7 +226,7 @@ export function AgencyPage() {
                                                 </Box>
                                                 <Box sx={{display: 'flex', gap: 1, alignItems: 'center'}}>
                                                     <Avatar
-                                                        src="https://images.unsplash.com/profile-1502669002421-a8d274ad2897?dpr=2&auto=format&fit=crop&w=32&h=32&q=60&crop=faces&bg=fff"
+                                                        src={image_path}
                                                         size="sm"
                                                         sx={{'--Avatar-size': '1.5rem'}}
                                                     />

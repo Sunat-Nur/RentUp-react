@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.chat_frame {
+  @apply bg-blue-100 rounded-xl -right-[380px] bottom-32 h-[500px] fixed  w-[380px] z-[999];
+  transition: right 0.7s ease-in-out;
+}
+.open {
+  right: 0px;
+  transition: right 0.7s ease-in-out;
+}
+
+.chat_btn {
+  @apply border-none cursor-pointer rounded-lg bottom-16 text-white font-bold p-3 fixed text-base right-5 z-[999] hover:scale-110;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.9s, -webkit-transform 0.3s;
+}

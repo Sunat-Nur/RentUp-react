@@ -22,9 +22,9 @@ import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
 import "../css/page.css";
+import "../css/chatting.css";
 import "aos/dist/aos.css";
 import ScrollToTop from "./components/scrollTop/scrollTop";
-import CommunityChats from "./components/Chatting/communityChats";
 
 
 interface CustomAosOptions extends AosOptions {
@@ -165,10 +165,7 @@ function App() {
                 onDeleteAll={onDeleteAll}
                 cartItems={cartItems}
                 anchorEl={anchorEl}
-                onRemove={onRemove}
-                onDelete={onDelete}
                 setPath={setPath}
-                onAdd={onAdd}
                 open={open}
             />
 
@@ -196,7 +193,6 @@ function App() {
                     < HomePage/>
                 </Route>
             </Switch>
-            <CommunityChats/>
             <Footer/>
             <AuthenticationModal
                 loginOpen={loginOpen}

@@ -1,5 +1,5 @@
+//@ts-nocheck
 import {useRef} from "react";
-
 import {bannerImgOne, bannerImgTwo, bannerImgTwo3, bannerImgTwo4, bannerImgTwo5, bannerImgTwo6} from "./images";
 import {Swiper, SwiperProps, SwiperSlide} from "swiper/react";
 

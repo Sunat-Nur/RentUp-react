@@ -5,7 +5,7 @@ import "../../../css/community.css";
 import assert from "assert";
 import {Definer} from "../../../lib/definer";
 import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
-import {SocketContext} from "../../context/socket";
+import {SocketContext} from "../../components/socket/socket";
 import {verifiedMemberData} from "../../apiSservices/verify";
 import {ChatGreetMsg, ChatMessage} from "../../../types/others";
 import {RippleBadge} from "../../MaterialTheme/styled";

@@ -54,12 +54,15 @@ export function BestCompany() {
 
                                 {bestCompany.map((ele: Company) => {
                                     const image_path = `${serverApi}/${ele.mb_image}`;
+
                                     return (
                                         <Box
                                             onClick={() => visitMemberHandler(ele._id)}
                                         >
                                             <Box className="best_agency_main_box">
-                                                <img src={image_path}/>
+                                                <img src={ele?.mb_image
+                                                    ? `${serverApi}/${ele?.mb_image}`
+                                                    : "/auth/default_user.svg"}/>
                                             </Box>
                                             <Box className="best_agency_name" sx={{marginLeft: "20px"}}>
                                                 <p>{ele.mb_nick}</p>

@@ -11,6 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles'; // themeProvider materila uni reactimizga integratsiya qilyabmiz
 import theme from './app/MaterialTheme';  //mui css fream-work
 import ReactDOM from "react-dom";
+import { SocketContext, socket } from "./context/socket";
 
 // const container = document.getElementById('root')!;
 // document bu yerda real-dom hisoblanadi,
@@ -25,7 +26,9 @@ ReactDOM.render(
         <Provider store={store}>
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
+                <SocketContext.Provider value={socket}>
                     <App/>
+                </SocketContext.Provider>
             </ThemeProvider>
         </Provider>
     </React.StrictMode>,

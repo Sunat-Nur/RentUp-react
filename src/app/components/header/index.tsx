@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, Button, Container,  Stack, Menu,MenuItem, ListItemIcon} from "@mui/material";
 import { Logout } from '@mui/icons-material';
 import {NavLink} from "react-router-dom";
-import Basket from "./basket";
+import CommunityChats from "./CommunityChats";
 import {verifiedMemberData} from "../../apiSservices/verify";
 
 export function NavbarHome(props: any) {
@@ -59,13 +59,13 @@ export function NavbarHome(props: any) {
                                 Help
                             </NavLink>
                         </Box>
-                        <Basket
-                            cartItems={props.cartItems}
-                            onAdd={props.onAdd}
-                            onRemove={props.onRemove}
-                            onDelete={props.onDelete}
-                            onDeleteAll={props.onDeleteAll}
-                            setOrderRebuild={props.setOrderRebuild}
+                        <CommunityChats
+                            // cartItems={props.cartItems}
+                            // onAdd={props.onAdd}
+                            // onRemove={props.onRemove}
+                            // onDelete={props.onDelete}
+                            // onDeleteAll={props.onDeleteAll}
+                            // setOrderRebuild={props.setOrderRebuild}
                         />
                         {!verifiedMemberData ? (
                             <Box>

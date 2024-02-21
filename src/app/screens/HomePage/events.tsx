@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useEffect, useState } from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
