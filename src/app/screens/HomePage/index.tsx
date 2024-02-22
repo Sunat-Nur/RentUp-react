@@ -47,7 +47,7 @@ export function HomePage() {
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        <Events/>
+        {/*<Events/>*/}
         <Recommendations/>
         <Comments/>
     </div>;
