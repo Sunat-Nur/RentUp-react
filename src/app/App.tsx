@@ -85,7 +85,6 @@ function App() {
     }, [main_path]);
 
 
-
     return (
         <Router>
             <ScrollToTop/>
@@ -99,8 +98,6 @@ function App() {
                 setPath={setPath}
                 open={open}
             />
-
-
             <Switch>
                 <Route path="/company">
                     < ProductPage />

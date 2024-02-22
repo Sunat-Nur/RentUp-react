@@ -1,34 +1,3 @@
-import {Button, Stack} from "@mui/material";
-
-
-// function HomeBanner() {
-//
-//     const history = useHistory();
-//
-//     const chosenTopHomesHandler = () => {
-//         history.push("/company");
-//     }
-//     return (
-//         <Stack className={"home_banner_container"} data-aos="flip-left">
-//             <Button
-//                 className={"banner_button"}
-//                 variant="contained"
-//                 onClick={() => chosenTopHomesHandler()}
-//                 style={{
-//                     width: "210px",
-//                     height: "60px",
-//                     background: "#007700",
-//                     color: "#FFFFF",
-//                 }}
-//             >
-//                 Search
-//             </Button>
-//         </Stack>
-//     );
-// }
-//
-// export default HomeBanner;
-
 
 import React from 'react';
 import "./banner.css";
@@ -85,13 +54,13 @@ const HomeBanner: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="pic_side">
-                    <div className="back"></div>
-                    <img
-                        src="/home/bukhara.jpeg"
-                        alt="desert"
-                    />
-                </div>
+                {/*<div className="pic_side">*/}
+                {/*    <div className="back"></div>*/}
+                {/*    <img*/}
+                {/*        src="/home/bukhara.jpeg"*/}
+                {/*        alt="desert"*/}
+                {/*    />*/}
+                {/*</div>*/}
             </div>
         </div>
     );

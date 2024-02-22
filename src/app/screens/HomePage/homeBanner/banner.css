@@ -1,7 +1,7 @@
 
 .home {
-    background-image: linear-gradient(#0E0F0F, #343335);
-    /*background-image: url("/public/home/favrorite.jpeg");*/
+    /*background-image: linear-gradient(#0E0F0F, #343335);*/
+    background-image: url("/public/home/favrorite.jpeg");
     width: 100%;
 
     .container {
@@ -24,7 +24,7 @@
         }
 
         p {
-            color: gray;
+            color: #FFFFFF;
             margin-bottom: 15px;
         }
 
@@ -42,13 +42,15 @@
                 padding: 7px;
                 outline: none;
                 border: none;
+                width: 130px;
+                height: 50px;
             }
 
             button {
                 background-color: #0e6eb2;
                 border-radius: 20px;
-                width: 80px;
-                height: 29px;
+                width: 130px;
+                height: 39px;
             }
         }
 
