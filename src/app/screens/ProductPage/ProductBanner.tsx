@@ -76,7 +76,7 @@ const ProductBanner = () => {
               <li
                 style={{
                   backgroundImage: `url(
-                    "https://media.architecturaldigest.com/photos/55e77da3cd709ad62e8f6999/master/w_320%2Cc_limit/dam-images-homes-2002-11-pavlik-hosl02_pavlik.jpg"
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/489415031.jpg?k=1f649aa61fe00243d79a7c0361c26750e03c6076ee40d4805c292ba94140e98b&o=&hp=1"
                   )`,
                 }}
               >

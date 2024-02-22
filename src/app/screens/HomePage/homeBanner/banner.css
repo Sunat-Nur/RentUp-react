@@ -1,0 +1,101 @@
+
+.home {
+    background-image: linear-gradient(#0E0F0F, #343335);
+    /*background-image: url("/public/home/favrorite.jpeg");*/
+    width: 100%;
+
+    .container {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        padding-top: 10rem;
+        gap: 20px;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+
+    }
+
+    .home_content {
+        h1 {
+            color: white;
+            margin-bottom: 15px;
+            line-height: 35px;
+        }
+
+        p {
+            color: gray;
+            margin-bottom: 15px;
+        }
+
+        .form {
+            padding: 10px;
+            width: 70%;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+
+            input {
+                padding: 7px;
+                outline: none;
+                border: none;
+            }
+
+            button {
+                background-color: #0e6eb2;
+                border-radius: 20px;
+                width: 80px;
+                height: 29px;
+            }
+        }
+
+        .numbers {
+            padding: 10px;
+            width: 70%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+
+            .item {
+                h1 {
+                    span {
+                        color: orange
+                    }
+                }
+            }
+        }
+    }
+
+    .pic_side {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .back {
+            width: 265px;
+            background: linear-gradient(120deg, #4e4e4e, #181717);
+            height: 290px;
+            border-radius: 135px 135px 0 0;
+            background-size: cover;
+        }
+
+        img {
+            width: 250px;
+            height: 342px;
+            border-radius: 125px 125px 0 0;
+            position: absolute;
+            margin: auto;
+            inset: 0;
+            bottom: -4.5rem;
+            box-shadow: 0 11px 10px grey;
+        }
+    }
+
+}
+

@@ -1,80 +1,100 @@
-//@ts-nocheck
-import {useRef} from "react";
-import {bannerImgOne, bannerImgTwo, bannerImgTwo3, bannerImgTwo4, bannerImgTwo5, bannerImgTwo6} from "./images";
-import {Swiper, SwiperProps, SwiperSlide} from "swiper/react";
+import {Button, Stack} from "@mui/material";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
-// import required modules
-import {Autoplay, Pagination, Navigation} from "swiper/modules";
+// function HomeBanner() {
+//
+//     const history = useHistory();
+//
+//     const chosenTopHomesHandler = () => {
+//         history.push("/company");
+//     }
+//     return (
+//         <Stack className={"home_banner_container"} data-aos="flip-left">
+//             <Button
+//                 className={"banner_button"}
+//                 variant="contained"
+//                 onClick={() => chosenTopHomesHandler()}
+//                 style={{
+//                     width: "210px",
+//                     height: "60px",
+//                     background: "#007700",
+//                     color: "#FFFFF",
+//                 }}
+//             >
+//                 Search
+//             </Button>
+//         </Stack>
+//     );
+// }
+//
+// export default HomeBanner;
 
-import SwiperSlideComponent from "./SwiperSlide";
 
-const Banner = () => {
-    const progressCircle = useRef<SVGSVGElement>(null);
-    const progressContent = useRef<HTMLSpanElement>(null);
+import React from 'react';
+import "./banner.css";
+import {useHistory} from "react-router-dom";
 
-    const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
-        if (progressCircle.current) {
-            progressCircle.current.style.setProperty(
-                "--progress",
-                String(1 - progress)
-            );
-        }
-        if (progressContent.current) {
-            progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-        }
-    };
+const HomeBanner: React.FC = () => {
+    const history = useHistory();
 
-    const swiperOptions: SwiperProps = {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            clickable: true,
-        },
-        modules: [Autoplay, Pagination, Navigation],
-        onAutoplayTimeLeft: onAutoplayTimeLeft,
-        className: "mySwiper",
-    };
+    const chosenTopHomesHandler = () => {
+        history.push("/company");
+    }
 
     return (
-        <div className="home_banner">
-            <Swiper {...swiperOptions}>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgOne}/>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo}/>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo3}/>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo4}/>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo5}/>
-                </SwiperSlide>
-                <SwiperSlide className="flex items-center justify-center">
-                    <SwiperSlideComponent image={bannerImgTwo6}/>
-                </SwiperSlide>
+        <div className="home">
+            <div className="container">
+                <div className="home_content">
+                    <h1>Discover Most Suitable Property</h1>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text
+                        ever since the 1500s, when an unknown printer took a galley
+                    </p>
+                    <div className="form">
+                        <i className="fa-solid fa-location-dot"></i>
+                        <input type="text" placeholder="search for an estate"/>
+                        <button
+                            onClick={() => chosenTopHomesHandler()}
+                        >Search
+                        </button>
+                    </div>
 
-                <div className="autoplay-progress" slot="container-end">
-                    <svg viewBox="0 0 48 48" ref={progressCircle}>
-                        <circle cx="24" cy="24" r="20"></circle>
-                    </svg>
-                    <span ref={progressContent}></span>
+                    <div className="numbers">
+                        <div className="item">
+                            <h1>
+                                9k <span>+</span>
+                            </h1>
+                            <p>happy</p>
+                            <p>owner</p>
+                        </div>
+                        <div className="item">
+                            <h1>
+                                5k <span>+</span>
+                            </h1>
+                            <p>happy</p>
+                            <p>company</p>
+                        </div>
+                        <div className="item">
+                            <h1>
+                                10k <span>+</span>
+                            </h1>
+                            <p>happy</p>
+                            <p>customers</p>
+                        </div>
+                    </div>
                 </div>
-            </Swiper>
+
+                <div className="pic_side">
+                    <div className="back"></div>
+                    <img
+                        src="/home/bukhara.jpeg"
+                        alt="desert"
+                    />
+                </div>
+            </div>
         </div>
     );
 };
 
-export default Banner;
+export default HomeBanner;

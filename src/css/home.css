@@ -1,17 +1,37 @@
 /*login component*/
 
 
+
 .homepage {
     background: #fafafa;
 }
-.search_home_frame {
-    background-image: url("../../public/home/banner.png");
+
+.banner_button {
+    margin-left: 200px;
+    margin-top: 250px;
+}
+
+.home_banner_container {
+    background-image: url("../../public/home/immio.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 90vh;
+    height: 100vh;
+    padding: 430px 0 0 600px;
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .signup_text .define_company {
     color: #fff;
@@ -52,6 +72,7 @@
     height: 60px;
     /*color: #d;*/
 }
+
 
 
 /*statistics component*/
@@ -1228,12 +1249,14 @@
 
 }
 
+
 .best_agency_main_box_scroll {
     position: relative;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 50px;
 }
+
 
 .best_agency_main_box img{
     width: 190px;

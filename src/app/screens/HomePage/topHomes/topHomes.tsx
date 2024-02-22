@@ -2,19 +2,20 @@ import * as React from 'react';
 import {Box, Container, Stack} from "@mui/material";
 import {Favorite, Visibility} from "@mui/icons-material";
 import Typography from '@mui/joy/Typography';
+import "./residence.css"
 // OTHERS
-import {serverApi} from '../../../lib/config';
+import {serverApi} from '../../../../lib/config';
 import {useHistory} from "react-router-dom";
 // REDUX
 import {useDispatch, useSelector} from "react-redux";
 import {createSelector} from "reselect";
-import {retrieveTopHomes} from "./selector";
-import {Product} from "../../../types/product";
+import {retrieveTopHomes} from "../selector";
+import {Product} from "../../../../types/product";
 import {useEffect, useState} from "react";
-import ProductApiService from "../../apiSservices/productApiService";
+import ProductApiService from "../../../apiSservices/productApiService";
 import {Dispatch} from "@reduxjs/toolkit";
-import {Company} from "../../../types/user";
-import {setBestCompany, setTopHomes} from "./slice";
+import {Company} from "../../../../types/user";
+import {setBestCompany, setTopHomes} from "../slice";
 
 
 /** REDUX SELECTOR */

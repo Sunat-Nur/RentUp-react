@@ -16,7 +16,7 @@ import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetA
 import {setTargetAllProducts} from "./slice";
 import ProductBanner from "./ProductBanner";
 import assert from "assert";
-import { useCombinedContext } from "../../../context/useCombinedContext";
+import {useCombinedContext} from "../../../context/useCombinedContext";
 import Slider, {sliderClasses} from '@mui/joy/Slider';
 
 /** REDUX  */
@@ -61,7 +61,7 @@ export function AllProductPage(props: any) {
     const history = useHistory();
     const {setTargetAllProducts} = actionDispatch(useDispatch());
     const {targetAllProducts} = useSelector(targetAllProductsRetriever);
-    const { filter, handleChangeCategory } = useCombinedContext();
+    // const {filter, handleChangeCategory} = useCombinedContext();
     const [targetProductsSearchObj, setTargetProductSearchObj] = useState<ProductSearchObj>({
         page: 1,
         limit: 8,
@@ -78,7 +78,7 @@ export function AllProductPage(props: any) {
             .then((data) => setTargetAllProducts(data))
             .catch((err) => console.log(err));
 
-    }, [ productRebuild, targetProductsSearchObj, filter]);
+    }, [productRebuild, targetProductsSearchObj,]);
 
 
     /** HANDLERS  */
@@ -89,7 +89,7 @@ export function AllProductPage(props: any) {
     };
     const handlePaginationChange = (event: any, value: number) => {
         targetProductsSearchObj.page = value;
-        setTargetProductSearchObj ({...targetProductsSearchObj});
+        setTargetProductSearchObj({...targetProductsSearchObj});
     };
 
 
@@ -117,9 +117,9 @@ export function AllProductPage(props: any) {
 
     return (
         <div className="all_property_frame" style={{flexDirection: "column"}}>
-            <ProductBanner />
+            <ProductBanner/>
             <Container>
-                <Stack className="allProduct_main" sx={{ marginTop: "100px"}}>
+                <Stack className="allProduct_main" sx={{marginTop: "100px"}}>
                     <Stack className="allProduct_hearder">
                         <div data-aos="flip-down">
                             <Stack className="allProduct_type_button">
@@ -135,7 +135,7 @@ export function AllProductPage(props: any) {
                                             marginRight: "30px",
                                             borderRadius: "50px"
                                         }}
-                                        onClick={() => handleChangeCategory("", "Apartment")}
+                                        // onClick={() => handleChangeCategory("", "Apartment")}
                                     >
                                         Apartment
                                     </Button>
@@ -150,7 +150,7 @@ export function AllProductPage(props: any) {
                                             marginRight: "30px",
                                             borderRadius: "50px",
                                         }}
-                                        onClick={() => handleChangeCategory("", "House")}
+                                        // onClick={() => searchCollectionHandler("", "House")}
                                     >
                                         House
                                     </Button>

@@ -1,0 +1,64 @@
+
+
+.residence{
+    width: 80%;
+    margin: 40px auto 20px auto;
+    padding: 20px;
+
+    >span{
+        font-size: 15px;
+        color: orange;
+        font-weight: 700;
+    }
+
+    >p{
+        font-size: 20px;
+        color: #1F3071;
+        font-weight: 700;
+        margin: 10px 0;
+
+        span{
+            color:orange
+        }
+    }
+
+    .residences-bunch{
+
+        .single-resident{
+            border-radius: 10px;
+            padding: 10px;
+            transition: 0.3s ease;
+            width:290px;
+            margin:10px auto;
+
+            &:hover{
+                box-shadow: -1px 7px 8px -6px #000000;
+            }
+
+            img{
+                width:100%;
+                border-radius: 10px;
+            }
+
+            .resident-details{
+                h2{
+                    color: gray;
+                    font-size: 18px;
+                    margin: 10px 0;
+                    span{
+                        color:orange;
+                    }
+                }
+                h3{
+                    color: gray;
+                    font-size: 18px;
+                    margin: 10px 0;
+                }
+                p{
+                    font-size: 14px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}

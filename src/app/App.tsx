@@ -25,6 +25,7 @@ import "../css/page.css";
 import "../css/chatting.css";
 import "aos/dist/aos.css";
 import ScrollToTop from "./components/scrollTop/scrollTop";
+import {ProductPage} from "./screens/ProductPage";
 
 
 interface CustomAosOptions extends AosOptions {
@@ -172,7 +173,7 @@ function App() {
 
             <Switch>
                 <Route path="/company">
-                    {/*< ProductPage onAdd={onAdd}/>*/}
+                    {/*< ProductPage />*/}
                 </Route>
                 <Route path="/agency">
                     < AgencyPage/>

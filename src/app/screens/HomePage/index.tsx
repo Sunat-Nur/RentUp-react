@@ -2,10 +2,10 @@ import React, {useEffect, useState, } from "react";
 import {Statistics} from "./statistics";
 import HomeBanner from "./homeBanner/homeBanner";
 import {LuxuryProperty} from "./luxuryProperty";
-import {TopHomes} from "./topHomes"
+import {TopHomes} from "./topHomes/topHomes"
 import {BestCompany} from "./bestCompany";
 import {Advertisements} from "./advertisements";
-import Events from "./events";
+import Events from "./events/events";
 import Recommendations from "./recomendation";
 import {Comments} from "./comments";
 import {Dispatch} from "@reduxjs/toolkit";
@@ -41,13 +41,13 @@ export function HomePage() {
 
 
     return <div className="homepage">
-        {/*<HomeBanner/>*/}
+        <HomeBanner/>
         <Statistics/>
         <TopHomes/>
         <LuxuryProperty/>
         <Advertisements/>
         <BestCompany/>
-        {/*<Events/>*/}
+        <Events/>
         <Recommendations/>
         <Comments/>
     </div>;
