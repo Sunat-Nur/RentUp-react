@@ -1,4 +1,3 @@
-
 import React from 'react';
 import "./banner.css";
 import {useHistory} from "react-router-dom";
@@ -11,7 +10,7 @@ const HomeBanner: React.FC = () => {
     }
 
     return (
-        <div className="home">
+        <div className="home" data-aos="flip-left">
             <div className="container">
                 <div className="home_content">
                     <h1>Discover Most Suitable Property</h1>
@@ -67,3 +66,4 @@ const HomeBanner: React.FC = () => {
 };
 
 export default HomeBanner;
+

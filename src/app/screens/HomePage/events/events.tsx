@@ -1,121 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-    Navigation,
-    Pagination,
-    EffectCoverflow,
-    Autoplay
-} from "swiper";
+import React from "react"
+import "./style.css"
+import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
 
-// Import Swiper styles
-import "swiper/swiper-bundle.css";
+const carousel: KeenSliderPlugin = (slider) => {
+    const z = 300
+    function rotate() {
+        const deg = 360 * slider.track.details.progress
+        slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`
+    }
+    slider.on("created", () => {
+        const deg = 360 / slider.slides.length
+        slider.slides.forEach((element, idx) => {
+            element.style.transform = `rotateY(${deg * idx}deg) translateZ(${z}px)`
+        })
+        rotate()
+    })
+    slider.on("detailsChanged", rotate)
+}
 
-SwiperCore.use([Navigation, Autoplay, Pagination, EffectCoverflow]);
+export default function Events() {
+    const [sliderRef] = useKeenSlider<HTMLDivElement>(
+        {
+            loop: true,
+            selector: ".carousel__cell",
+            renderMode: "custom",
+            mode: "free-snap",
+        },
+        [carousel]
+    )
 
-const Events = () => {
     return (
-        <div className="App">
-            <Swiper
-                navigation
-                loop
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 3000 }}
-                effect="coverflow"
-                coverflowEffect={{
-                    rotate: 0,
-                    stretch: 80,
-                    depth: 200,
-                    modifier: 1,
-                    slideShadows: false,
-                    // slideToClickedSlide: true
-                }}
-                slidesPerView={3}
-                centeredSlides
-                style={{ height: "500px" }}
-                className="swiper-container"
-            >
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-1.jpg)"
-                    }}
-                >
-                    Slide 1
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-2.jpg)"
-                    }}
-                >
-                    Slide 2
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-3.jpg)"
-                    }}
-                >
-                    Slide 3
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-4.jpg)"
-                    }}
-                >
-                    Slide 4
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-5.jpg)"
-                    }}
-                >
-                    Slide 5
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-6.jpg)"
-                    }}
-                >
-                    Slide 6
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-7.jpg)"
-                    }}
-                >
-                    Slide 7
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-8.jpg)"
-                    }}
-                >
-                    Slide 8
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-9.jpg)"
-                    }}
-                >
-                    Slide 9
-                </SwiperSlide>
-                <SwiperSlide
-                    style={{
-                        backgroundImage:
-                            "url(https://swiperjs.com/demos/images/nature-10.jpg)"
-                    }}
-                >
-                    Slide 10
-                </SwiperSlide>
-            </Swiper>
+        <div className="wrapper">
+            <div className="scene">
+                <a>
+                    Best Events property
+                </a>
+                <div className="carousel keen-slider" ref={sliderRef}>
+                    <div className="carousel__cell number-slide1">
+                        <img src={"/home/city.jpeg"} />
+                    </div>
+                    <div className="carousel__cell number-slide2">2</div>
+                    <div className="carousel__cell number-slide3">3</div>
+                    <div className="carousel__cell number-slide4">4</div>
+                    <div className="carousel__cell number-slide5">5</div>
+                    <div className="carousel__cell number-slide6">6</div>
+                </div>
+            </div>
         </div>
-    );
-};
-export default Events;
+    )
+}

@@ -3,6 +3,8 @@
     /*background-image: linear-gradient(#0E0F0F, #343335);*/
     background-image: url("/public/home/favrorite.jpeg");
     width: 100%;
+    background-size: cover;
+    height: 770px;
 
     .container {
         width: 80%;

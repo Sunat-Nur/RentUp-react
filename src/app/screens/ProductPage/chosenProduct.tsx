@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {MutableRefObject, useEffect, useRef, useState} from "react";
 import {Box, Container, Stack} from "@mui/system";
 import {Swiper, SwiperSlide} from "swiper/react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -21,6 +21,9 @@ import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
+import "./style.css"
+import {useKeenSlider, KeenSliderPlugin, KeenSliderInstance,} from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
 
 // REDUX
 import {createSelector} from "reselect";
@@ -45,12 +48,50 @@ import CommentExampleComment from "../../components/Comment/Comment";
 import {CommentReply} from "../../../types/others";
 import {Comment} from "../../../types/others";
 
+
+function ThumbnailPlugin(
+    mainRef: MutableRefObject<KeenSliderInstance | null>
+): KeenSliderPlugin {
+    return (slider) => {
+        function removeActive() {
+            slider.slides.forEach((slide) => {
+                slide.classList.remove("active")
+            })
+        }
+
+        function addActive(idx: number) {
+            slider.slides[idx].classList.add("active")
+        }
+
+        function addClickEvents() {
+            slider.slides.forEach((slide, idx) => {
+                slide.addEventListener("click", () => {
+                    if (mainRef.current) mainRef.current.moveToIdx(idx)
+                })
+            })
+        }
+
+        slider.on("created", () => {
+            if (!mainRef.current) return
+            addActive(slider.track.details.rel)
+            addClickEvents()
+            mainRef.current.on("animationStarted", (main) => {
+                removeActive()
+                const next = main.animator.targetIdx || 0
+                addActive(main.track.absToRel(next))
+                slider.moveToIdx(Math.min(slider.track.details.maxIdx, next))
+            })
+        })
+    }
+}
+
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
     setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
     setChosenCompany: (data: Company) => dispatch(setChosenCompany(data)),
     setComments: (data: Comment[]) => dispatch(setComments(data))
 });
+
 
 /** REDUX SELECTOR */
 const commentsRetriever = createSelector(
@@ -75,9 +116,16 @@ const chosenCompanyRetriever = createSelector(
 );
 
 
-const chosen_list = Array.from(Array(3).keys());
+// const chosen_list = Array.from(Array(3).keys());
 
 export function ChosenProductPage(props: any) {
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+        initial: 0,
+    })
+    const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
+        {initial: 0, slides: {perView: 3, spacing: 10,},},
+        [ThumbnailPlugin(instanceRef)]
+    )
 
     /** INITIALIZATIONS */
     let {product_id} = useParams<{ product_id: string }>();
@@ -241,6 +289,7 @@ export function ChosenProductPage(props: any) {
                                         );
                                     })}
                                 </Swiper>
+
                             </Stack>
                         </Stack>
                     </div>
@@ -495,24 +544,24 @@ export function ChosenProductPage(props: any) {
                     </Stack>
 
 
-                    {/*<Stack className={"property_description"}>*/}
-                    {/*    <div data-aos="flip-right">*/}
-                    {/*        <Stack*/}
-                    {/*            sx={{mt: "60px"}}*/}
-                    {/*            style={{display: "flex", flexDirection: "column", alignItems: "center",}}*/}
-                    {/*        >*/}
-                    {/*            <Box className={"category_title"}>*/}
-                    {/*                <h1> Address</h1>*/}
-                    {/*            </Box>*/}
-                    {/*            <iframe*/}
-                    {/*                style={{marginTop: "10px",}}*/}
-                    {/*                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"*/}
-                    {/*                width="1300"*/}
-                    {/*                height="500"*/}
-                    {/*            ></iframe>*/}
-                    {/*        </Stack>*/}
-                    {/*    </div>*/}
-                    {/*</Stack>*/}
+                    <Stack className={"property_description"}>
+                        <div data-aos="flip-right">
+                            <Stack
+                                sx={{mt: "60px"}}
+                                style={{display: "flex", flexDirection: "column", alignItems: "center",}}
+                            >
+                                <Box className={"category_title"}>
+                                    <h1> Address</h1>
+                                </Box>
+                                <iframe
+                                    style={{marginTop: "10px",}}
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"
+                                    width="1300"
+                                    height="500"
+                                ></iframe>
+                            </Stack>
+                        </div>
+                    </Stack>
                     <CommentExampleComment setProductRebuild={setProductRebuild} id={product_id}/>
                 </Stack>
             </Container>
