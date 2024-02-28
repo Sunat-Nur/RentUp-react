@@ -542,24 +542,24 @@ export function ChosenProductPage(props: any) {
                     </Stack>
 
 
-                    {/*<Stack className={"property_description"}>*/}
-                    {/*    <div data-aos="flip-right">*/}
-                    {/*        <Stack*/}
-                    {/*            sx={{mt: "60px"}}*/}
-                    {/*            style={{display: "flex", flexDirection: "column", alignItems: "center",}}*/}
-                    {/*        >*/}
-                    {/*            <Box className={"category_title"}>*/}
-                    {/*                <h1> Address</h1>*/}
-                    {/*            </Box>*/}
-                    {/*            <iframe*/}
-                    {/*                style={{marginTop: "10px",}}*/}
-                    {/*                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"*/}
-                    {/*                width="1300"*/}
-                    {/*                height="500"*/}
-                    {/*            ></iframe>*/}
-                    {/*        </Stack>*/}
-                    {/*    </div>*/}
-                    {/*</Stack>*/}
+                    <Stack className={"property_description"}>
+                        <div data-aos="flip-right">
+                            <Stack
+                                sx={{mt: "60px"}}
+                                style={{display: "flex", flexDirection: "column", alignItems: "center",}}
+                            >
+                                <Box className={"category_title"}>
+                                    <h1> Address</h1>
+                                </Box>
+                                <iframe
+                                    style={{marginTop: "10px",}}
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"
+                                    width="1300"
+                                    height="500"
+                                ></iframe>
+                            </Stack>
+                        </div>
+                    </Stack>
                     <CommentExampleComment setProductRebuild={setProductRebuild} id={product_id}/>
                 </Stack>
             </Container>

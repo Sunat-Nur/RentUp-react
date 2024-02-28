@@ -96,6 +96,7 @@ const CommentExampleComment = (props: any) => {
                     like_ref_id: e.target.id,
                     group_type: "comment",
                 });
+            console.log("like_result", like_result);
             assert.ok(like_result, Definer.general_err1);
             await sweetTopSmallSuccessAlert("success", 700, false);
             props.setProductRebuild(new Date());
@@ -158,10 +159,11 @@ const CommentExampleComment = (props: any) => {
                         );
                         return (
                             <>
-                                <Box className={"flex justify-between w-3/4 items-center"}>
+                                <Box className={"flex justify-between w-3/4 items-center"} >
                                     <Box
                                         className={"comment_owner font-sans gap-3 w-[240px]"}
                                         key={comment?._id}
+                                        sx={{ marginBottom: "10px"}}
                                     >
                                         <div className="comment_img ">
                                             <img src={image_url} alt=""/>
@@ -207,7 +209,7 @@ const CommentExampleComment = (props: any) => {
                                             >
                                                 {comment?.comment_likes}
                                             </div>
-                                            <span style={{marginLeft: "5px"}}>{"likes"}</span>
+                                            <span style={{marginLeft: "15px"}}>{"likes"}</span>
                                         </div>
                                         <div
                                             className="reply_btn"
@@ -318,6 +320,7 @@ const CommentExampleComment = (props: any) => {
                             id="standard-basic"
                             label="Comment"
                             variant="standard"
+                            sx={{ marginLeft: "320px", marginBottom: "50px"}}
                         />
                     </form>
                     {!userHasCommented ? (
@@ -350,7 +353,7 @@ const CommentExampleComment = (props: any) => {
 
                     <div className="action_btn">
                         <button onClick={createComment} className="comment_btn">
-                            Submit Review
+                            Send Comment
                         </button>
                     </div>
                 </Box>

@@ -73,7 +73,7 @@ class MemberApiService {
 
             assert.ok(result?.data, Definer.general_err1);
             assert.ok(result?.data.state !== "fail", result.data.state);
-            console.log("state:::", result.data.state);
+            console.log("state:::result", result.data.state);
 
             const like_result: MemberLiken = result.data.data;
             console.log("like", like_result);
