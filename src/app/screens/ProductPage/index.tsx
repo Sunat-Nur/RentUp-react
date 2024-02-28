@@ -1,6 +1,6 @@
 import {Route, Switch, useRouteMatch} from "react-router-dom";
 import {AllProductPage} from "./allProduct";
-import {ChosenProductPage} from "./chosenProduct";
+import {ChosenProductPage} from "./chosenProduct/chosenProduct";
 import "../../../css/product.css"
 import "../../../css/home.css"
 

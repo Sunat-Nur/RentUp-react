@@ -1,18 +1,14 @@
-import React, {MutableRefObject, useEffect, useRef, useState} from "react";
+import React, { useEffect, useState} from "react";
 import {Box, Container, Stack} from "@mui/system";
-import {Swiper, SwiperSlide} from "swiper/react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import FreeMode from "swiper";
-import Navigation from "swiper";
-import Thumbs from "swiper";
 import {Favorite, FavoriteBorder,} from "@mui/icons-material";
 import Checkbox from "@mui/material/Checkbox";
 import {useHistory, useParams} from "react-router-dom";
-import {Product} from "../../../types/product";
+import {Product} from "../../../../types/product";
 import AspectRatio from '@mui/joy/AspectRatio';
 import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
@@ -21,72 +17,38 @@ import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
-import "./style.css"
-import {useKeenSlider, KeenSliderPlugin, KeenSliderInstance,} from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import "./style.css";
+import {useKeenSlider, KeenSliderPlugin, KeenSliderInstance,} from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import Marginer from "../../../components/marginer";
+
 
 // REDUX
 import {createSelector} from "reselect";
-import {retrieveChosenProduct, retrieveChosenCompany, retrieveComments} from "./selector";
-import {Company} from '../../../types/user';
+import {retrieveChosenProduct, retrieveChosenCompany, retrieveComments} from "../selector";
+import {Company} from '../../../../types/user';
 import {Dispatch} from "@reduxjs/toolkit";
 
-import {setChosenProduct, setChosenCompany, setComments} from "./slice";
+import {setChosenProduct, setChosenCompany, setComments} from "../slice";
 import {useDispatch, useSelector} from "react-redux";
-import ProductApiService from "../../apiSservices/productApiService";
-import CompanyApiService from "../../apiSservices/companyApiService";
-import {serverApi} from "../../../lib/config";
+import ProductApiService from "../../../apiSservices/productApiService";
+import CompanyApiService from "../../../apiSservices/companyApiService";
+import {serverApi} from "../../../../lib/config";
 import assert from "assert";
-import {Definer} from "../../../lib/definer";
-import MemberApiService from "../../apiSservices/memberApiService";
-import CommentApiService from "../../apiSservices/commentApiService";
-import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
-import {verifiedMemberData} from "../../apiSservices/verify";
+import {Definer} from "../../../../lib/definer";
+import MemberApiService from "../../../apiSservices/memberApiService";
+import CommentApiService from "../../../apiSservices/commentApiService";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../../lib/sweetAlert";
+import {verifiedMemberData} from "../../../apiSservices/verify";
 import IconButton from "@mui/joy/IconButton";
 import {CssVarsProvider} from "@mui/joy/styles";
-import CommentExampleComment from "../../components/Comment/Comment";
-import {CommentReply} from "../../../types/others";
-import {Comment} from "../../../types/others";
-
-
-function ThumbnailPlugin(
-    mainRef: MutableRefObject<KeenSliderInstance | null>
-): KeenSliderPlugin {
-    return (slider) => {
-        function removeActive() {
-            slider.slides.forEach((slide) => {
-                slide.classList.remove("active")
-            })
-        }
-
-        function addActive(idx: number) {
-            slider.slides[idx].classList.add("active")
-        }
-
-        function addClickEvents() {
-            slider.slides.forEach((slide, idx) => {
-                slide.addEventListener("click", () => {
-                    if (mainRef.current) mainRef.current.moveToIdx(idx)
-                })
-            })
-        }
-
-        slider.on("created", () => {
-            if (!mainRef.current) return
-            addActive(slider.track.details.rel)
-            addClickEvents()
-            mainRef.current.on("animationStarted", (main) => {
-                removeActive()
-                const next = main.animator.targetIdx || 0
-                addActive(main.track.absToRel(next))
-                slider.moveToIdx(Math.min(slider.track.details.maxIdx, next))
-            })
-        })
-    }
-}
+import CommentExampleComment from "../../../components/Comment/Comment";
+import {CommentReply} from "../../../../types/others";
+import {Comment} from "../../../../types/others";
 
 /** REDUX SLICE */
-const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
+const actionDispatch = (dispatch: Dispatch) => ({
     setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
     setChosenCompany: (data: Company) => dispatch(setChosenCompany(data)),
     setComments: (data: Comment[]) => dispatch(setComments(data))
@@ -116,16 +78,49 @@ const chosenCompanyRetriever = createSelector(
 );
 
 
+function ThumbnailPlugin(
+    mainRef: React.MutableRefObject<KeenSliderInstance | null>
+): KeenSliderPlugin {
+    return (slider) => {
+        function removeActive() {
+            slider.slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+        }
+        function addActive(idx: number) {
+            slider.slides[idx].classList.add("active");
+        }
+
+        function addClickEvents() {
+            slider.slides.forEach((slide, idx) => {
+                slide.addEventListener("click", () => {
+                    if (mainRef.current) mainRef.current.moveToIdx(idx);
+                });
+            });
+        }
+
+        slider.on("created", () => {
+            if (!mainRef.current) return;
+            addActive(slider.track.details.rel);
+            addClickEvents();
+            mainRef.current.on("animationStarted", (main) => {
+                removeActive();
+                const next = main.animator.targetIdx || 0;
+                addActive(main.track.absToRel(next));
+                slider.moveToIdx(Math.min(slider.track.details.maxIdx, next));
+            });
+        });
+    };
+}
+
+interface AppProps {
+    chosenProduct: { product_images: string[] };
+}
+
+
 // const chosen_list = Array.from(Array(3).keys());
 
 export function ChosenProductPage(props: any) {
-    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 0,
-    })
-    const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
-        {initial: 0, slides: {perView: 3, spacing: 10,},},
-        [ThumbnailPlugin(instanceRef)]
-    )
 
     /** INITIALIZATIONS */
     let {product_id} = useParams<{ product_id: string }>();
@@ -139,6 +134,22 @@ export function ChosenProductPage(props: any) {
     const {comments} = useSelector(commentsRetriever);
     const label = {inputProps: {"aria-label": "Checkbox demo"}};
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
+
+
+
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+        initial: 0,
+    });
+    const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
+        {
+            initial: 0,
+            slides: {
+                perView: 4,
+                spacing: 10,
+            },
+        },
+        [ThumbnailPlugin(instanceRef)]
+    );
 
     const productRelatedProcess = async () => {
         try {
@@ -198,97 +209,85 @@ export function ChosenProductPage(props: any) {
             <Container className="dish_container">
                 <Stack sx={{flexDirection: "column"}}>
                     <div data-aos="fade-down">
-                        <Stack className={"chosen_product_top"} sx={{flexDirection: "column"}}>
-                            <Box className={"property_type"} sx={{flexDirection: "row"}}>
-                                <span>  {chosenProduct?.product_collection}: Luxury Home</span>
-                                <Box className={"rating_box"} style={{marginLeft: "850px"}}>
-                                    <div className={"evaluation_box"}>
-                                        <div style={{display: "flex", alignItems: "center", marginRight: "20px",}}>
-                                            <Checkbox
-                                                {...label}
-                                                icon={<FavoriteBorder/>}
-                                                checkedIcon={<Favorite style={{color: "red"}}/>}
-                                                id={chosenProduct?._id}
-                                                onClick={targetLikeProduct}
-                                                checked={!!chosenProduct?.me_liked[0]?.my_favorite
-                                                }
-                                            />
-                                            <span style={{
-                                                color: "#808080",
-                                                fontSize: "25px"
-                                            }}>{chosenProduct?.product_likes}</span>
-                                        </div>
-                                        <div style={{display: "flex", alignItems: "center"}}>
-                                            <RemoveRedEyeIcon sx={{mr: "10px"}}/>
-                                            <span style={{
-                                                color: "#808080",
-                                                fontSize: "25px"
-                                            }}>{chosenProduct?.product_views}</span>
-                                        </div>
-                                    </div>
-                                </Box>
-                            </Box>
-                            <Box className={"property_address"} sx={{marginBottom: "20px", justifyContent: "flex-end"}}>
-                                <span> address: {chosenProduct?.product_address} near to central</span>
-                                <a> <img src={"/icons/rating.svg"}/></a>
-
-                            </Box>
-                            <Stack className={"property_icon_box"} sx={{flexDirection: "row"}}>
-                                <Box sx={{marginRight: "40px"}}>
-                                    <img src={"/icons/bed.svg"}/> {chosenProduct?.product_value}
-                                </Box>
-                                <Box sx={{marginRight: "40px"}}>
-                                    <img src={"/icons/bath.svg"}/>2
-                                </Box>
-                                <Box sx={{marginRight: "890px"}}>
-                                    <img src={"/icons/kv.svg"}/> {chosenProduct?.product_size} Sqft
-                                </Box>
-                                <Box className={"price_icon"} sx={{marginRight: "40px"}}>
-                                    <a>  {chosenProduct?.product_price} $ /month </a>
-                                </Box>
+                        <Stack
+                            flexDirection={"row"}
+                            justifyContent={"space-between"}
+                            alignItems={"center"}
+                            style={{height: "236px"}}
+                        >
+                            <Stack className="static_box">
+                                <Box className="static_num">Name</Box>
+                                <Box className="static_text" style={{ color: "#0044bb"}}>{chosenProduct?.product_name}</Box>
                             </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_num">Type</Box>
+                                <Box className="static_text" style={{ color: "#0044bb"}}>{chosenProduct?.product_collection}</Box>
+                            </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_num">Address:</Box>
+                                <Box className="static_text" style={{color: "#0044bb"}}>{chosenProduct?.product_address}</Box>
+                            </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_num">Room</Box>
+                                <Box className="static_text"  style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_value}</Box>
+                            </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_num">Price $</Box>
+                                <Box className="static_text"  style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_price}</Box>
+                            </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_num">SQft</Box>
+                                <Box className="static_text"  style={{marginLeft: "10px", color: "#0044bb"}}>{chosenProduct?.product_size}</Box>
+                            </Stack>
+
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Checkbox
+                                    {...label}
+                                    icon={<FavoriteBorder/>}
+                                    checkedIcon={<Favorite style={{color: "red"}}/>}
+                                    id={chosenProduct?._id}
+                                    onClick={targetLikeProduct}
+                                    checked={!!chosenProduct?.me_liked[0]?.my_favorite
+                                    }
+                                />
+                                <Box className="static_num" style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_likes}</Box>
+                            </Stack>
+                            <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
+                            <Stack className="static_box">
+                                <Box className="static_text"><RemoveRedEyeIcon/></Box>
+                                <Box className="static_num" style={{marginLeft: "8px", color: "#0044bb"}}>{chosenProduct?.product_views}</Box>
+                            </Stack>
+
                         </Stack>
                     </div>
                     <div data-aos="flip-left">
                         <Stack sx={{flexDirection: "column", marginTop: "40px"}}>
                             <Stack className="chosen_dish_slider">
-                                <Swiper
-                                    className="dish_swiper"
-                                    loop={true}
-                                    spaceBetween={10}
-                                    navigation={true}
-                                    modules={[FreeMode, Navigation, Thumbs]}
-                                >
-                                    {chosenProduct?.product_images.map((ele: string) => {
-                                        const image_path = `${serverApi}/${ele}`
-                                        return (
-                                            <SwiperSlide>
-                                                <img style={{width: "100%", height: "100%"}} src={image_path}/>
-                                            </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
-                                <Swiper
-                                    className="dish_swiper_second"
-                                    loop={true}
-                                    freeMode={true}
-                                    watchSlidesProgress={true}
-                                    spaceBetween={25}
-                                    navigation={{
-                                        nextEl: null,
-                                    }}
-                                    slidesPerView={3}
-                                    modules={[FreeMode, Navigation, Thumbs]}
-                                >
-                                    {chosenProduct?.product_images.map((ele: string) => {
-                                        const image_path = `${serverApi}/${ele}`
-                                        return (
-                                            <SwiperSlide style={{height: "107px", display: "flex"}}>
-                                                <img style={{width: "400px", height: "100%"}} src={image_path}/>
-                                            </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
+                                <div ref={sliderRef} className="keen-slider" style={{height: "600px"}}>
+                                    {chosenProduct?.product_images.map((ele: string, index: number) => (
+                                        <div
+                                            key={index}
+                                            className="keen-slider__slide"
+                                            style={{backgroundImage: `url(${serverApi}/${ele})`, backgroundSize: "cover"}}
+                                        />
+                                    ))}
+                                </div>
+
+                                <div ref={thumbnailRef} className="keen-slider thumbnail"  style={{height: "200px"}}>
+                                    {chosenProduct?.product_images.map((ele: string, index: number) => (
+                                        <div
+                                            key={index}
+                                            className="keen-slider__slide"
+                                            style={{backgroundImage: `url(${serverApi}/${ele})`}}
+                                        />
+                                    ))}
+                                </div>
 
                             </Stack>
                         </Stack>
@@ -301,7 +300,7 @@ export function ChosenProductPage(props: any) {
                                     <Stack sx={{flexDirection: "row", marginTop: "25px"}}>
                                         <Box sx={{marginRight: "100px"}}>
                                             <Box className={"icons_box"}>
-                                                <img src={"/icons/right3.svg"}/>
+                                            <img src={"/icons/right3.svg"}/>
                                             </Box>
                                             <Box className={"icons_box_a"}>
                                                 <a>Garage</a>
@@ -398,7 +397,6 @@ export function ChosenProductPage(props: any) {
                                                 textAlign: 'center',
                                                 alignItems: 'center',
                                                 width: 343,
-                                                // to make the demo resizable
                                                 overflow: 'auto',
                                                 resize: 'horizontal',
                                                 '--icon-size': '100px',
@@ -522,7 +520,7 @@ export function ChosenProductPage(props: any) {
                                                 }}
                                             >
                                                 <Button variant="solid" color="warning"
-                                                    // onClick={() => visitMemberHandler(ele._id)}
+                                                        // onClick={() => visitMemberHandler(chosenCompany?._id)}
                                                 >
                                                     view profile
                                                 </Button>
@@ -544,24 +542,24 @@ export function ChosenProductPage(props: any) {
                     </Stack>
 
 
-                    <Stack className={"property_description"}>
-                        <div data-aos="flip-right">
-                            <Stack
-                                sx={{mt: "60px"}}
-                                style={{display: "flex", flexDirection: "column", alignItems: "center",}}
-                            >
-                                <Box className={"category_title"}>
-                                    <h1> Address</h1>
-                                </Box>
-                                <iframe
-                                    style={{marginTop: "10px",}}
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"
-                                    width="1300"
-                                    height="500"
-                                ></iframe>
-                            </Stack>
-                        </div>
-                    </Stack>
+                    {/*<Stack className={"property_description"}>*/}
+                    {/*    <div data-aos="flip-right">*/}
+                    {/*        <Stack*/}
+                    {/*            sx={{mt: "60px"}}*/}
+                    {/*            style={{display: "flex", flexDirection: "column", alignItems: "center",}}*/}
+                    {/*        >*/}
+                    {/*            <Box className={"category_title"}>*/}
+                    {/*                <h1> Address</h1>*/}
+                    {/*            </Box>*/}
+                    {/*            <iframe*/}
+                    {/*                style={{marginTop: "10px",}}*/}
+                    {/*                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"*/}
+                    {/*                width="1300"*/}
+                    {/*                height="500"*/}
+                    {/*            ></iframe>*/}
+                    {/*        </Stack>*/}
+                    {/*    </div>*/}
+                    {/*</Stack>*/}
                     <CommentExampleComment setProductRebuild={setProductRebuild} id={product_id}/>
                 </Stack>
             </Container>
