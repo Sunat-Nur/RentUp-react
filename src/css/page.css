@@ -108,6 +108,13 @@
     background-color: #fafafa;
 }
 
+.agency_banner img {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background-size: cover;
+    /*background-image: url("/public/home/ayol78.jpeg");*/
+}
 
 .all_agency_frame .fil_search_box {
     position: relative;

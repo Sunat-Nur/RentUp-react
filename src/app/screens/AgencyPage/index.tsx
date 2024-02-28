@@ -113,6 +113,9 @@ export function AgencyPage() {
 
     return (
         <div className={"all_agency"}>
+            {/*<Stack className={"agency_banner"}>*/}
+            {/*    <img src={"/home/home4.png"} alt=""/>*/}
+            {/*</Stack>*/}
             <Container>
                 <Stack className={"all_agency_frame"} flexDirection={"column"} alignItems={"center"}>
                     <div data-aos="zoom-in">

@@ -12,34 +12,37 @@ import {PaginationItem} from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import Avatar from '@mui/joy/Avatar';
 import Button from "@mui/material/Button";
-import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
-import {setTargetAllProducts} from "./slice";
-import ProductBanner from "./ProductBanner";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../../lib/sweetAlert";
+import {setTargetAllProducts} from "../slice";
+import ProductBanner from "../ProductBanner";
 import assert from "assert";
-import {useCombinedContext} from "../../../context/useCombinedContext";
+import {useCombinedContext} from "../../../../context/useCombinedContext";
 import Slider, {sliderClasses} from '@mui/joy/Slider';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
+import CardCover from '@mui/joy/CardCover';
 
 /** REDUX  */
-import {retrieveTargetAllProducts} from "./selector";
-import {ProductSearchObj,} from "../../../types/others";
+import {retrieveTargetAllProducts} from "../selector";
+import {ProductSearchObj,} from "../../../../types/others";
 import {Dispatch} from "@reduxjs/toolkit";
 import {createSelector} from "reselect";
 import {useDispatch, useSelector} from "react-redux";
-import ProductApiService from "../../apiSservices/productApiService";
-import MemberApiService from "../../apiSservices/memberApiService";
-import {verifiedMemberData} from "../../apiSservices/verify";
-import {Product} from "../../../types/product";
+import ProductApiService from "../../../apiSservices/productApiService";
+import MemberApiService from "../../../apiSservices/memberApiService";
+import {verifiedMemberData} from "../../../apiSservices/verify";
+import {Product} from "../../../../types/product";
 import {useHistory, useParams,} from "react-router-dom";
 
 /** Others */
-import {Definer} from "../../../lib/definer";
+import {Definer} from "../../../../lib/definer";
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Link from '@mui/joy/Link';
 import IconButton from '@mui/joy/IconButton';
-import {serverApi} from "../../../lib/config";
-import {BestCompany} from "../HomePage/bestCompany";
+import {serverApi} from "../../../../lib/config";
+import {BestCompany} from "../../HomePage/bestCompany";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 
 /** REDUX SLICE */
@@ -342,163 +345,200 @@ export function AllProductPage(props: any) {
                                     const image_path = `${serverApi}/${ele.product_images[0]}`;
                                     return (
                                         <CssVarsProvider>
-                                            <Card
-                                                onClick={() => chosenProductHandler(ele._id)}
-                                                variant="outlined"
-                                                sx={{
-                                                    minWidth: 300,
-                                                    marginRight: "40px",
-                                                    marginBottom: "40px",
-                                                    '--Card-radius': (theme) => theme.vars.radius.xs,
-                                                }}
+                                            {/*<Card*/}
+                                            {/*    onClick={() => chosenProductHandler(ele._id)}*/}
+                                            {/*    variant="outlined"*/}
+                                            {/*    sx={{*/}
+                                            {/*        minWidth: 300,*/}
+                                            {/*        marginRight: "40px",*/}
+                                            {/*        marginBottom: "40px",*/}
+                                            {/*        '--Card-radius': (theme) => theme.vars.radius.xs,*/}
+                                            {/*    }}*/}
+                                            {/*>*/}
+                                            {/*    <CardContent orientation="horizontal"*/}
+                                            {/*                 sx={{alignItems: 'center', gap: 1}}>*/}
+                                            {/*        <Box*/}
+                                            {/*            sx={{*/}
+                                            {/*                position: 'relative',*/}
+                                            {/*                '&::before': {*/}
+                                            {/*                    content: '""',*/}
+                                            {/*                    position: 'absolute',*/}
+                                            {/*                    top: 0,*/}
+                                            {/*                    left: 0,*/}
+                                            {/*                    bottom: 0,*/}
+                                            {/*                    right: 0,*/}
+                                            {/*                    m: '-2px',*/}
+                                            {/*                    borderRadius: '50%',*/}
+                                            {/*                    background:*/}
+                                            {/*                        'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',*/}
+                                            {/*                },*/}
+                                            {/*            }}*/}
+                                            {/*        >*/}
+                                            {/*            <Avatar*/}
+                                            {/*                size="sm"*/}
+                                            {/*                src={image_path}*/}
+                                            {/*                sx={{*/}
+                                            {/*                    p: 0.5,*/}
+                                            {/*                    border: '2px solid',*/}
+                                            {/*                    borderColor: 'background.body'*/}
+                                            {/*                }}*/}
+                                            {/*            />*/}
+                                            {/*        </Box>*/}
+                                            {/*        <Typography fontWeight="lg">{ele.product_price}$ /*/}
+                                            {/*            month</Typography>*/}
+                                            {/*        <IconButton variant="plain" color="neutral" size="sm"*/}
+                                            {/*                    sx={{ml: 'auto'}}>*/}
+                                            {/*            <MoreHoriz/>*/}
+                                            {/*        </IconButton>*/}
+                                            {/*    </CardContent>*/}
+                                            {/*    <CardOverflow>*/}
+                                            {/*        <AspectRatio>*/}
+                                            {/*            <img src={image_path} alt="" loading="lazy"/>*/}
+                                            {/*        </AspectRatio>*/}
+                                            {/*    </CardOverflow>*/}
+                                            {/*    <CardContent orientation="horizontal"*/}
+                                            {/*                 sx={{alignItems: 'center', mx: -1}}*/}
+                                            {/*                 onClick={(e) => {*/}
+                                            {/*                     e.stopPropagation()*/}
+                                            {/*                 }}>*/}
+                                            {/*        <Box sx={{width: 0, display: 'flex', gap: 0.5}}>*/}
+                                            {/*            <IconButton variant="plain" color="neutral" size="sm"*/}
+                                            {/*                        onClick={(e) => {*/}
+                                            {/*                            e.stopPropagation()*/}
+                                            {/*                        }}*/}
+                                            {/*            >*/}
+                                            {/*                <Favorite*/}
+                                            {/*                    onClick={(e) => {*/}
+                                            {/*                        targetLikeHandler(e, ele._id);*/}
+                                            {/*                    }}*/}
+                                            {/*                    style={{*/}
+                                            {/*                        background: "#808080",*/}
+                                            {/*                        fill:*/}
+                                            {/*                            ele?.me_liked && ele?.me_liked[0]?.my_favorite*/}
+                                            {/*                                ? "red"*/}
+                                            {/*                                : "white",*/}
+                                            {/*                    }}*/}
+
+                                            {/*                /> {ele.product_likes}*/}
+                                            {/*            </IconButton>*/}
+
+                                            {/*        </Box>*/}
+                                            {/*        <Box sx={{*/}
+                                            {/*            display: 'flex',*/}
+                                            {/*            alignItems: 'center',*/}
+                                            {/*            gap: 0.5,*/}
+                                            {/*            mx: 'auto'*/}
+                                            {/*        }}>*/}
+                                            {/*            {[...Array(5)].map((_, index) => (*/}
+                                            {/*                <Box*/}
+                                            {/*                    key={index}*/}
+                                            {/*                    sx={{*/}
+                                            {/*                        borderRadius: '50%',*/}
+                                            {/*                        width: `max(${6 - index}px, 3px)`,*/}
+                                            {/*                        height: `max(${6 - index}px, 3px)`,*/}
+                                            {/*                        bgcolor: index === 0 ? 'primary.solidBg' : 'background.level3',*/}
+                                            {/*                    }}*/}
+                                            {/*                />*/}
+                                            {/*            ))}*/}
+                                            {/*        </Box>*/}
+                                            {/*        <Box sx={{width: 0, display: 'flex', flexDirection: 'row-reverse'}}>*/}
+                                            {/*            <IconButton variant="plain" color="neutral" size="sm">*/}
+                                            {/*                <BookmarkBorderRoundedIcon/>*/}
+                                            {/*            </IconButton>*/}
+                                            {/*        </Box>*/}
+                                            {/*    </CardContent>*/}
+                                            {/*    <Stack>*/}
+                                            {/*        <CardContent*/}
+                                            {/*            sx={{flexDirection: "row", justifyContent: "space-between"}}>*/}
+                                            {/*            <Link*/}
+                                            {/*                component="button"*/}
+                                            {/*                underline="none"*/}
+                                            {/*                fontSize="sm"*/}
+                                            {/*                fontWeight="lg"*/}
+                                            {/*                textColor="text.primary"*/}
+                                            {/*            >*/}
+                                            {/*                <img src={"icons/bed.svg"}/> {ele.product_value}*/}
+                                            {/*            </Link>*/}
+                                            {/*            <Link*/}
+                                            {/*                component="button"*/}
+                                            {/*                underline="none"*/}
+                                            {/*                fontSize="sm"*/}
+                                            {/*                fontWeight="lg"*/}
+                                            {/*                textColor="text.primary"*/}
+                                            {/*            >*/}
+                                            {/*                <img src={"icons/bath.svg"}/> {ele.product_value}*/}
+                                            {/*            </Link>*/}
+                                            {/*            <Link*/}
+                                            {/*                component="button"*/}
+                                            {/*                underline="none"*/}
+                                            {/*                fontSize="sm"*/}
+                                            {/*                fontWeight="lg"*/}
+                                            {/*                textColor="text.primary"*/}
+                                            {/*            >*/}
+                                            {/*                <img src={"icons/kv.svg"}/> Sqft {ele.product_size}*/}
+                                            {/*            </Link>*/}
+                                            {/*        </CardContent>*/}
+                                            {/*        <Stack>*/}
+                                            {/*            <Typography fontSize="sm" sx={{marginTop: "10px"}}>*/}
+                                            {/*                <Link*/}
+                                            {/*                    component="button"*/}
+                                            {/*                    color="neutral"*/}
+                                            {/*                    fontWeight="lg"*/}
+                                            {/*                    textColor="text.primary"*/}
+                                            {/*                >*/}
+                                            {/*                    Address: {ele.product_address}*/}
+                                            {/*                </Link>{' '}*/}
+                                            {/*                {ele.product_collection}...*/}
+                                            {/*            </Typography>*/}
+                                            {/*        </Stack>*/}
+
+                                            {/*        <Link*/}
+                                            {/*            component="button"*/}
+                                            {/*            underline="none"*/}
+                                            {/*            fontSize="10px"*/}
+                                            {/*            sx={{color: 'text.tertiary', my: 0.5}}*/}
+                                            {/*        >*/}
+
+                                            {/*        </Link>*/}
+                                            {/*    </Stack>*/}
+                                            {/*</Card>*/}
+                                            <Card sx={{ minHeight: '380px', width: 350, marginRight: "20px", cursor: "pointer" }}
+                                                      onClick={() => chosenProductHandler(ele._id)}
                                             >
-                                                <CardContent orientation="horizontal"
-                                                             sx={{alignItems: 'center', gap: 1}}>
-                                                    <Box
-                                                        sx={{
-                                                            position: 'relative',
-                                                            '&::before': {
-                                                                content: '""',
-                                                                position: 'absolute',
-                                                                top: 0,
-                                                                left: 0,
-                                                                bottom: 0,
-                                                                right: 0,
-                                                                m: '-2px',
-                                                                borderRadius: '50%',
-                                                                background:
-                                                                    'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
-                                                            },
-                                                        }}
+                                                <CardCover>
+                                                    <img
+                                                        src={image_path}
+                                                        loading="lazy"
+                                                        alt=""
+                                                    />
+
+                                                </CardCover>
+                                                <CardCover
+                                                    sx={{
+                                                        background:
+                                                            'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                                                    }}
+                                                />
+                                                <CardContent sx={{ justifyContent: 'flex-end' }}>
+                                                    <Typography level="title-lg" textColor="#fff">
+                                                        {ele.product_collection}
+                                                    </Typography>
+                                                    <Typography
+                                                        startDecorator={<LocationOnRoundedIcon />}
+                                                        textColor="neutral.300"
                                                     >
-                                                        <Avatar
-                                                            size="sm"
-                                                            src={image_path}
-                                                            sx={{
-                                                                p: 0.5,
-                                                                border: '2px solid',
-                                                                borderColor: 'background.body'
-                                                            }}
-                                                        />
-                                                    </Box>
-                                                    <Typography fontWeight="lg">{ele.product_price}$ /
-                                                        month</Typography>
-                                                    <IconButton variant="plain" color="neutral" size="sm"
-                                                                sx={{ml: 'auto'}}>
-                                                        <MoreHoriz/>
-                                                    </IconButton>
-                                                </CardContent>
-                                                <CardOverflow>
-                                                    <AspectRatio>
-                                                        <img src={image_path} alt="" loading="lazy"/>
-                                                    </AspectRatio>
-                                                </CardOverflow>
-                                                <CardContent orientation="horizontal"
-                                                             sx={{alignItems: 'center', mx: -1}}
-                                                             onClick={(e) => {
-                                                                 e.stopPropagation()
-                                                             }}>
-                                                    <Box sx={{width: 0, display: 'flex', gap: 0.5}}>
-                                                        <IconButton variant="plain" color="neutral" size="sm"
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation()
-                                                                    }}
-                                                        >
-                                                            <Favorite
-                                                                onClick={(e) => {
-                                                                    targetLikeHandler(e, ele._id);
-                                                                }}
-                                                                style={{
-                                                                    background: "#808080",
-                                                                    fill:
-                                                                        ele?.me_liked && ele?.me_liked[0]?.my_favorite
-                                                                            ? "red"
-                                                                            : "white",
-                                                                }}
-
-                                                            /> {ele.product_likes}
-                                                        </IconButton>
-
-                                                    </Box>
-                                                    <Box sx={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: 0.5,
-                                                        mx: 'auto'
-                                                    }}>
-                                                        {[...Array(5)].map((_, index) => (
-                                                            <Box
-                                                                key={index}
-                                                                sx={{
-                                                                    borderRadius: '50%',
-                                                                    width: `max(${6 - index}px, 3px)`,
-                                                                    height: `max(${6 - index}px, 3px)`,
-                                                                    bgcolor: index === 0 ? 'primary.solidBg' : 'background.level3',
-                                                                }}
-                                                            />
-                                                        ))}
-                                                    </Box>
-                                                    <Box sx={{width: 0, display: 'flex', flexDirection: 'row-reverse'}}>
-                                                        <IconButton variant="plain" color="neutral" size="sm">
-                                                            <BookmarkBorderRoundedIcon/>
-                                                        </IconButton>
-                                                    </Box>
-                                                </CardContent>
-                                                <Stack>
-                                                    <CardContent
-                                                        sx={{flexDirection: "row", justifyContent: "space-between"}}>
-                                                        <Link
-                                                            component="button"
-                                                            underline="none"
-                                                            fontSize="sm"
-                                                            fontWeight="lg"
-                                                            textColor="text.primary"
-                                                        >
-                                                            <img src={"icons/bed.svg"}/> {ele.product_value}
-                                                        </Link>
-                                                        <Link
-                                                            component="button"
-                                                            underline="none"
-                                                            fontSize="sm"
-                                                            fontWeight="lg"
-                                                            textColor="text.primary"
-                                                        >
-                                                            <img src={"icons/bath.svg"}/> {ele.product_value}
-                                                        </Link>
-                                                        <Link
-                                                            component="button"
-                                                            underline="none"
-                                                            fontSize="sm"
-                                                            fontWeight="lg"
-                                                            textColor="text.primary"
-                                                        >
-                                                            <img src={"icons/kv.svg"}/> Sqft {ele.product_size}
-                                                        </Link>
-                                                    </CardContent>
-                                                    <Stack>
-                                                        <Typography fontSize="sm" sx={{marginTop: "10px"}}>
-                                                            <Link
-                                                                component="button"
-                                                                color="neutral"
-                                                                fontWeight="lg"
-                                                                textColor="text.primary"
-                                                            >
-                                                                Address: {ele.product_address}
-                                                            </Link>{' '}
-                                                            {ele.product_collection}...
-                                                        </Typography>
-                                                    </Stack>
-
-                                                    <Link
-                                                        component="button"
-                                                        underline="none"
-                                                        fontSize="10px"
-                                                        sx={{color: 'text.tertiary', my: 0.5}}
+                                                        {ele.product_address}    {ele.product_price}$ /month
+                                                    </Typography>
+                                                    <Typography
+                                                        textColor="neutral.300"
                                                     >
-
-                                                    </Link>
-                                                </Stack>
+                                                        {ele.product_likes} likes __ {ele.product_views} views
+                                                    </Typography>
+                                                </CardContent>
                                             </Card>
+
+
+
                                         </CssVarsProvider>
                                     )
                                 })}

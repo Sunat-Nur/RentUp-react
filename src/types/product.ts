@@ -1,3 +1,5 @@
+import { CommentReply } from "./others";
+
 export interface Product {
     _id: string,
     product_name: string,
@@ -17,6 +19,8 @@ export interface Product {
     createdAt: Date,
     updatedAt: Date,
     me_liked: Meliked[];
+    product_comments: Comment[];
+    comment_replies: CommentReply[];
 }
 
 

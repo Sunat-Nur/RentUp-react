@@ -3,6 +3,13 @@ import {Box, Container, Stack} from "@mui/material";
 import {Favorite, Visibility} from "@mui/icons-material";
 import Typography from '@mui/joy/Typography';
 import "./residence.css"
+import AspectRatio from '@mui/joy/AspectRatio';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import CardOverflow from '@mui/joy/CardOverflow';
+import Divider from '@mui/joy/Divider';
+import IconButton from '@mui/joy/IconButton';
+import Link from '@mui/joy/Link';
 // OTHERS
 import {serverApi} from '../../../../lib/config';
 import {useHistory} from "react-router-dom";
@@ -16,6 +23,12 @@ import ProductApiService from "../../../apiSservices/productApiService";
 import {Dispatch} from "@reduxjs/toolkit";
 import {Company} from "../../../../types/user";
 import {setBestCompany, setTopHomes} from "../slice";
+import {CssVarsProvider} from "@mui/joy/styles";
+import assert from "assert";
+import {verifiedMemberData} from "../../../apiSservices/verify";
+import {Definer} from "../../../../lib/definer";
+import MemberApiService from "../../../apiSservices/memberApiService";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../../lib/sweetAlert";
 
 
 /** REDUX SELECTOR */
@@ -61,6 +74,24 @@ export function TopHomes(props: any) {
             .catch((err) => console.log(err));
 
     }, [productRebuild]);
+
+
+    const targetLikeHandler = async (e: any, targetId: string) => {
+        try {
+            assert.ok(verifiedMemberData, Definer.auth_err1);
+            const memberService = new MemberApiService();
+            const like_result: any = await memberService.memberLikeTarget({
+                like_ref_id: targetId,
+                group_type: "product",
+            });
+            assert.ok(like_result, Definer.general_err1);
+            await sweetTopSmallSuccessAlert("success", 700, false);
+            setProductRebuild(new Date());
+        } catch (err: any) {
+            console.log("targetLikeProduct, ERROR:", err);
+            sweetErrorHandling(err).then();
+        }
+    };
 
     return (
         <div className="top_property_frame" data-aos="zoom-in-right">
@@ -158,6 +189,75 @@ export function TopHomes(props: any) {
                                                 </Typography>
                                             </Stack>
                                         </Box>
+
+
+                                        // <CssVarsProvider>
+                                        //     <Card variant="outlined" sx={{width: 400, marginRight: "20px"}}>
+                                        //         <CardOverflow>
+                                        //             <AspectRatio ratio="1.1">
+                                        //                 <Box className={"card_image_box"}
+                                        //                      key={ele._id}
+                                        //                      onClick={() => chosenTopHomesHandler()}
+                                        //                 >
+                                        //                     <img
+                                        //
+                                        //                         src={image_path}
+                                        //                         loading="lazy"
+                                        //                         alt=""
+                                        //                     />
+                                        //                 </Box>
+                                        //             </AspectRatio>
+                                        //             <IconButton
+                                        //                 aria-label="Like minimal photography"
+                                        //                 size="md"
+                                        //                 variant="solid"
+                                        //                 sx={{
+                                        //                     position: 'absolute',
+                                        //                     zIndex: 2,
+                                        //                     borderRadius: '50%',
+                                        //                     right: '1rem',
+                                        //                     bottom: 0,
+                                        //                     transform: 'translateY(50%)',
+                                        //                 }}
+                                        //             >
+                                        //                 <Favorite
+                                        //                     onClick={(e) => {
+                                        //                         targetLikeHandler(e, ele._id);
+                                        //                     }}
+                                        //                     style={{
+                                        //                         fill:
+                                        //                             ele?.me_liked && ele?.me_liked[0]?.my_favorite
+                                        //                                 ? "red"
+                                        //                                 : "white",
+                                        //                     }}
+                                        //
+                                        //                 />
+                                        //             </IconButton>
+                                        //         </CardOverflow>
+                                        //         <CardContent>
+                                        //             <Typography level="title-md">
+                                        //                 <Link href="#multiple-actions" overlay underline="none">
+                                        //                     {ele.product_name} && {ele.product_collection}
+                                        //                 </Link>
+                                        //             </Typography>
+                                        //             <Typography level="body-sm">
+                                        //                 <Link
+                                        //                     href="#multiple-actions">{ele.product_address} / {ele.product_price}$
+                                        //                     month</Link>
+                                        //             </Typography>
+                                        //         </CardContent>
+                                        //         <CardOverflow variant="soft">
+                                        //             <Divider inset="context"/>
+                                        //             <CardContent orientation="horizontal">
+                                        //                 <Typography
+                                        //                     level="body-xs">{ele.product_views} views</Typography>
+                                        //                 <Divider orientation="vertical"/>
+                                        //                 <Typography
+                                        //                     level="body-xs">{ele.product_likes} likes</Typography>
+                                        //             </CardContent>
+                                        //         </CardOverflow>
+                                        //     </Card>
+                                        // </CssVarsProvider>
                                     )
                                 })}
 

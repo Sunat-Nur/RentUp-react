@@ -73,9 +73,17 @@ const CommentExampleComment = (props: any) => {
                 comment_stars: currentValue,
                 comment_owner: verifiedMemberData,
             };
+            const comment_data_member = {
+                comment_ref_id: props?.id,
+                comment_group: "member",
+                comment_content: commentContent,
+                comment_stars: currentValue,
+                comment_owner: verifiedMemberData,
+            };
 
             const commentService = new CommentApiService();
             await commentService.createCommentRequest(comment_data);
+            await commentService.createCommentRequest(comment_data_member);
             await sweetTopSmallSuccessAlert("success", 700, false);
             props.setProductRebuild(new Date());
             setCommentContent("");
@@ -91,11 +99,11 @@ const CommentExampleComment = (props: any) => {
     const commentLikeHandler = async (e: any) => {
         try {
             assert.ok(verifiedMemberData, Definer.auth_err1);
-            const memberService = new MemberApiService(),
-                like_result: any = await memberService.memberLikeTarget({
-                    like_ref_id: e.target.id,
-                    group_type: "comment",
-                });
+            const memberService = new MemberApiService();
+            const like_result: any = await memberService.memberLikeTarget({
+                like_ref_id: e.target.id,
+                group_type: "comment",
+            });
             console.log("like_result", like_result);
             assert.ok(like_result, Definer.general_err1);
             await sweetTopSmallSuccessAlert("success", 700, false);

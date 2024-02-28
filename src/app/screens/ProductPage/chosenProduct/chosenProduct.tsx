@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Box, Container, Stack} from "@mui/system";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import "swiper/css";
@@ -87,6 +87,7 @@ function ThumbnailPlugin(
                 slide.classList.remove("active");
             });
         }
+
         function addActive(idx: number) {
             slider.slides[idx].classList.add("active");
         }
@@ -134,7 +135,6 @@ export function ChosenProductPage(props: any) {
     const {comments} = useSelector(commentsRetriever);
     const label = {inputProps: {"aria-label": "Checkbox demo"}};
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
-
 
 
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -217,32 +217,38 @@ export function ChosenProductPage(props: any) {
                         >
                             <Stack className="static_box">
                                 <Box className="static_num">Name</Box>
-                                <Box className="static_text" style={{ color: "#0044bb"}}>{chosenProduct?.product_name}</Box>
+                                <Box className="static_text"
+                                     style={{color: "#0044bb"}}>{chosenProduct?.product_name}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_num">Type</Box>
-                                <Box className="static_text" style={{ color: "#0044bb"}}>{chosenProduct?.product_collection}</Box>
+                                <Box className="static_text"
+                                     style={{color: "#0044bb"}}>{chosenProduct?.product_collection}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_num">Address:</Box>
-                                <Box className="static_text" style={{color: "#0044bb"}}>{chosenProduct?.product_address}</Box>
+                                <Box className="static_text"
+                                     style={{color: "#0044bb"}}>{chosenProduct?.product_address}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_num">Room</Box>
-                                <Box className="static_text"  style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_value}</Box>
+                                <Box className="static_text"
+                                     style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_value}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_num">Price $</Box>
-                                <Box className="static_text"  style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_price}</Box>
+                                <Box className="static_text"
+                                     style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_price}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_num">SQft</Box>
-                                <Box className="static_text"  style={{marginLeft: "10px", color: "#0044bb"}}>{chosenProduct?.product_size}</Box>
+                                <Box className="static_text"
+                                     style={{marginLeft: "10px", color: "#0044bb"}}>{chosenProduct?.product_size}</Box>
                             </Stack>
 
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
@@ -256,12 +262,14 @@ export function ChosenProductPage(props: any) {
                                     checked={!!chosenProduct?.me_liked[0]?.my_favorite
                                     }
                                 />
-                                <Box className="static_num" style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_likes}</Box>
+                                <Box className="static_num"
+                                     style={{marginLeft: "15px", color: "#0044bb"}}>{chosenProduct?.product_likes}</Box>
                             </Stack>
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>
                             <Stack className="static_box">
                                 <Box className="static_text"><RemoveRedEyeIcon/></Box>
-                                <Box className="static_num" style={{marginLeft: "8px", color: "#0044bb"}}>{chosenProduct?.product_views}</Box>
+                                <Box className="static_num"
+                                     style={{marginLeft: "8px", color: "#0044bb"}}>{chosenProduct?.product_views}</Box>
                             </Stack>
 
                         </Stack>
@@ -274,12 +282,15 @@ export function ChosenProductPage(props: any) {
                                         <div
                                             key={index}
                                             className="keen-slider__slide"
-                                            style={{backgroundImage: `url(${serverApi}/${ele})`, backgroundSize: "cover"}}
+                                            style={{
+                                                backgroundImage: `url(${serverApi}/${ele})`,
+                                                backgroundSize: "cover"
+                                            }}
                                         />
                                     ))}
                                 </div>
 
-                                <div ref={thumbnailRef} className="keen-slider thumbnail"  style={{height: "200px"}}>
+                                <div ref={thumbnailRef} className="keen-slider thumbnail" style={{height: "200px"}}>
                                     {chosenProduct?.product_images.map((ele: string, index: number) => (
                                         <div
                                             key={index}
@@ -300,7 +311,7 @@ export function ChosenProductPage(props: any) {
                                     <Stack sx={{flexDirection: "row", marginTop: "25px"}}>
                                         <Box sx={{marginRight: "100px"}}>
                                             <Box className={"icons_box"}>
-                                            <img src={"/icons/right3.svg"}/>
+                                                <img src={"/icons/right3.svg"}/>
                                             </Box>
                                             <Box className={"icons_box_a"}>
                                                 <a>Garage</a>
@@ -520,7 +531,7 @@ export function ChosenProductPage(props: any) {
                                                 }}
                                             >
                                                 <Button variant="solid" color="warning"
-                                                        // onClick={() => visitMemberHandler(chosenCompany?._id)}
+                                                    // onClick={() => visitMemberHandler(chosenCompany?._id)}
                                                 >
                                                     view profile
                                                 </Button>

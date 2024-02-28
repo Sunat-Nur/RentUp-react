@@ -46,7 +46,6 @@ export interface CommunityPageState{
 }
 
 
-
 /** Member page **/
 export interface MemberPageState {
     chosenMember: Member | null;

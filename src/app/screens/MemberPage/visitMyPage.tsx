@@ -1,8 +1,3 @@
-import Card from '@mui/joy/Card';
-import CardCover from '@mui/joy/CardCover';
-import CardContent from '@mui/joy/CardContent';
-import Typography from '@mui/joy/Typography';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import React, {useEffect, useState} from "react";
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
@@ -14,7 +9,6 @@ import {MySettings} from "./mySettings";
 import {TuiEditor} from "./TuiEditor";
 import {TViewer} from "./TViewer"
 /** others  */
-import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TabList from "@mui/lab/TabList";
@@ -32,7 +26,8 @@ import CommunityApiService from "../../apiSservices/communityApiService";
 import MemberApiService from "../../apiSservices/memberApiService";
 import {serverApi} from "../../../lib/config";
 import {verifiedMemberData} from "../../apiSservices/verify";
-import {CssVarsProvider} from "@mui/joy/styles";
+import CommentExampleComment from "../../components/Comment/Comment";
+import {useParams} from "react-router-dom";
 
 
 /** REDUX SLICE */
@@ -70,7 +65,7 @@ export function VisitMyPage(props: any) {
         setChosenMemberBoArticles,
         setChosenSingleBoArticle,
     } = actionDispatch(useDispatch());
-
+    let {mb_id} = useParams<{ mb_id: string }>();
     const {chosenMember} = useSelector(chosenMemberRetriever);
     const {chosenSingleBoArticle} = useSelector(chosenSingleBoArticleRetriever);
     const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
@@ -344,9 +339,8 @@ export function VisitMyPage(props: any) {
                             <h4>home town</h4>
                         </Stack>
                     </Stack>
-                    <Stack className={"right_side"}>
-                    </Stack>
                 </Stack>
+                    <CommentExampleComment setArticlesRebuild={setArticlesRebuild} id={mb_id}/>
             </Container>
         </div>
     );

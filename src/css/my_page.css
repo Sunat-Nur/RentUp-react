@@ -462,6 +462,10 @@
     border-radius: 25px;
 }
 
+.mypage_top {
+    margin-bottom: 150px;
+}
+
 .right_pics {
     width: 100%;
     height: 700px;
