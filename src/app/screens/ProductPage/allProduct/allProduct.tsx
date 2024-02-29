@@ -345,164 +345,7 @@ export function AllProductPage(props: any) {
                                     const image_path = `${serverApi}/${ele.product_images[0]}`;
                                     return (
                                         <CssVarsProvider>
-                                            {/*<Card*/}
-                                            {/*    onClick={() => chosenProductHandler(ele._id)}*/}
-                                            {/*    variant="outlined"*/}
-                                            {/*    sx={{*/}
-                                            {/*        minWidth: 300,*/}
-                                            {/*        marginRight: "40px",*/}
-                                            {/*        marginBottom: "40px",*/}
-                                            {/*        '--Card-radius': (theme) => theme.vars.radius.xs,*/}
-                                            {/*    }}*/}
-                                            {/*>*/}
-                                            {/*    <CardContent orientation="horizontal"*/}
-                                            {/*                 sx={{alignItems: 'center', gap: 1}}>*/}
-                                            {/*        <Box*/}
-                                            {/*            sx={{*/}
-                                            {/*                position: 'relative',*/}
-                                            {/*                '&::before': {*/}
-                                            {/*                    content: '""',*/}
-                                            {/*                    position: 'absolute',*/}
-                                            {/*                    top: 0,*/}
-                                            {/*                    left: 0,*/}
-                                            {/*                    bottom: 0,*/}
-                                            {/*                    right: 0,*/}
-                                            {/*                    m: '-2px',*/}
-                                            {/*                    borderRadius: '50%',*/}
-                                            {/*                    background:*/}
-                                            {/*                        'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',*/}
-                                            {/*                },*/}
-                                            {/*            }}*/}
-                                            {/*        >*/}
-                                            {/*            <Avatar*/}
-                                            {/*                size="sm"*/}
-                                            {/*                src={image_path}*/}
-                                            {/*                sx={{*/}
-                                            {/*                    p: 0.5,*/}
-                                            {/*                    border: '2px solid',*/}
-                                            {/*                    borderColor: 'background.body'*/}
-                                            {/*                }}*/}
-                                            {/*            />*/}
-                                            {/*        </Box>*/}
-                                            {/*        <Typography fontWeight="lg">{ele.product_price}$ /*/}
-                                            {/*            month</Typography>*/}
-                                            {/*        <IconButton variant="plain" color="neutral" size="sm"*/}
-                                            {/*                    sx={{ml: 'auto'}}>*/}
-                                            {/*            <MoreHoriz/>*/}
-                                            {/*        </IconButton>*/}
-                                            {/*    </CardContent>*/}
-                                            {/*    <CardOverflow>*/}
-                                            {/*        <AspectRatio>*/}
-                                            {/*            <img src={image_path} alt="" loading="lazy"/>*/}
-                                            {/*        </AspectRatio>*/}
-                                            {/*    </CardOverflow>*/}
-                                            {/*    <CardContent orientation="horizontal"*/}
-                                            {/*                 sx={{alignItems: 'center', mx: -1}}*/}
-                                            {/*                 onClick={(e) => {*/}
-                                            {/*                     e.stopPropagation()*/}
-                                            {/*                 }}>*/}
-                                            {/*        <Box sx={{width: 0, display: 'flex', gap: 0.5}}>*/}
-                                            {/*            <IconButton variant="plain" color="neutral" size="sm"*/}
-                                            {/*                        onClick={(e) => {*/}
-                                            {/*                            e.stopPropagation()*/}
-                                            {/*                        }}*/}
-                                            {/*            >*/}
-                                            {/*                <Favorite*/}
-                                            {/*                    onClick={(e) => {*/}
-                                            {/*                        targetLikeHandler(e, ele._id);*/}
-                                            {/*                    }}*/}
-                                            {/*                    style={{*/}
-                                            {/*                        background: "#808080",*/}
-                                            {/*                        fill:*/}
-                                            {/*                            ele?.me_liked && ele?.me_liked[0]?.my_favorite*/}
-                                            {/*                                ? "red"*/}
-                                            {/*                                : "white",*/}
-                                            {/*                    }}*/}
-
-                                            {/*                /> {ele.product_likes}*/}
-                                            {/*            </IconButton>*/}
-
-                                            {/*        </Box>*/}
-                                            {/*        <Box sx={{*/}
-                                            {/*            display: 'flex',*/}
-                                            {/*            alignItems: 'center',*/}
-                                            {/*            gap: 0.5,*/}
-                                            {/*            mx: 'auto'*/}
-                                            {/*        }}>*/}
-                                            {/*            {[...Array(5)].map((_, index) => (*/}
-                                            {/*                <Box*/}
-                                            {/*                    key={index}*/}
-                                            {/*                    sx={{*/}
-                                            {/*                        borderRadius: '50%',*/}
-                                            {/*                        width: `max(${6 - index}px, 3px)`,*/}
-                                            {/*                        height: `max(${6 - index}px, 3px)`,*/}
-                                            {/*                        bgcolor: index === 0 ? 'primary.solidBg' : 'background.level3',*/}
-                                            {/*                    }}*/}
-                                            {/*                />*/}
-                                            {/*            ))}*/}
-                                            {/*        </Box>*/}
-                                            {/*        <Box sx={{width: 0, display: 'flex', flexDirection: 'row-reverse'}}>*/}
-                                            {/*            <IconButton variant="plain" color="neutral" size="sm">*/}
-                                            {/*                <BookmarkBorderRoundedIcon/>*/}
-                                            {/*            </IconButton>*/}
-                                            {/*        </Box>*/}
-                                            {/*    </CardContent>*/}
-                                            {/*    <Stack>*/}
-                                            {/*        <CardContent*/}
-                                            {/*            sx={{flexDirection: "row", justifyContent: "space-between"}}>*/}
-                                            {/*            <Link*/}
-                                            {/*                component="button"*/}
-                                            {/*                underline="none"*/}
-                                            {/*                fontSize="sm"*/}
-                                            {/*                fontWeight="lg"*/}
-                                            {/*                textColor="text.primary"*/}
-                                            {/*            >*/}
-                                            {/*                <img src={"icons/bed.svg"}/> {ele.product_value}*/}
-                                            {/*            </Link>*/}
-                                            {/*            <Link*/}
-                                            {/*                component="button"*/}
-                                            {/*                underline="none"*/}
-                                            {/*                fontSize="sm"*/}
-                                            {/*                fontWeight="lg"*/}
-                                            {/*                textColor="text.primary"*/}
-                                            {/*            >*/}
-                                            {/*                <img src={"icons/bath.svg"}/> {ele.product_value}*/}
-                                            {/*            </Link>*/}
-                                            {/*            <Link*/}
-                                            {/*                component="button"*/}
-                                            {/*                underline="none"*/}
-                                            {/*                fontSize="sm"*/}
-                                            {/*                fontWeight="lg"*/}
-                                            {/*                textColor="text.primary"*/}
-                                            {/*            >*/}
-                                            {/*                <img src={"icons/kv.svg"}/> Sqft {ele.product_size}*/}
-                                            {/*            </Link>*/}
-                                            {/*        </CardContent>*/}
-                                            {/*        <Stack>*/}
-                                            {/*            <Typography fontSize="sm" sx={{marginTop: "10px"}}>*/}
-                                            {/*                <Link*/}
-                                            {/*                    component="button"*/}
-                                            {/*                    color="neutral"*/}
-                                            {/*                    fontWeight="lg"*/}
-                                            {/*                    textColor="text.primary"*/}
-                                            {/*                >*/}
-                                            {/*                    Address: {ele.product_address}*/}
-                                            {/*                </Link>{' '}*/}
-                                            {/*                {ele.product_collection}...*/}
-                                            {/*            </Typography>*/}
-                                            {/*        </Stack>*/}
-
-                                            {/*        <Link*/}
-                                            {/*            component="button"*/}
-                                            {/*            underline="none"*/}
-                                            {/*            fontSize="10px"*/}
-                                            {/*            sx={{color: 'text.tertiary', my: 0.5}}*/}
-                                            {/*        >*/}
-
-                                            {/*        </Link>*/}
-                                            {/*    </Stack>*/}
-                                            {/*</Card>*/}
-                                            <Card sx={{ minHeight: '380px', width: 350, marginRight: "20px", cursor: "pointer" }}
+                                            <Card sx={{ minHeight: '380px', width: 350, marginRight: "20px", cursor: "pointer", marginBottom: "30px" }}
                                                       onClick={() => chosenProductHandler(ele._id)}
                                             >
                                                 <CardCover>
@@ -529,11 +372,20 @@ export function AllProductPage(props: any) {
                                                     >
                                                         {ele.product_address}    {ele.product_price}$ /month
                                                     </Typography>
+                                                    <Stack flexDirection={"row"}>
                                                     <Typography
+                                                        startDecorator={<Favorite />}
                                                         textColor="neutral.300"
                                                     >
-                                                        {ele.product_likes} likes __ {ele.product_views} views
+                                                        {ele.product_likes}__
                                                     </Typography>
+                                                    <Typography
+                                                        startDecorator={<RemoveRedEyeIcon />}
+                                                        textColor="neutral.300"
+                                                    >
+                                                         {ele.product_views}
+                                                    </Typography>
+                                                    </Stack>
                                                 </CardContent>
                                             </Card>
 

@@ -968,8 +968,9 @@
     height: max-content;
     display: flex;
     position: relative;
-    background-color: #ffcc00;
+    background-color: #fafafa;
 }
+
 
 .chosenProperty_post {
     width: 600px;

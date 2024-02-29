@@ -1,18 +1,18 @@
+// OTHERS
 import * as React from 'react';
 import {Box, Container, Stack} from "@mui/material";
-import {Favorite, Visibility} from "@mui/icons-material";
+import {Favorite} from "@mui/icons-material";
 import Typography from '@mui/joy/Typography';
 import "./residence.css"
-import AspectRatio from '@mui/joy/AspectRatio';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
-import Divider from '@mui/joy/Divider';
 import IconButton from '@mui/joy/IconButton';
-import Link from '@mui/joy/Link';
-// OTHERS
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import {serverApi} from '../../../../lib/config';
 import {useHistory} from "react-router-dom";
+
 // REDUX
 import {useDispatch, useSelector} from "react-redux";
 import {createSelector} from "reselect";
@@ -21,14 +21,14 @@ import {Product} from "../../../../types/product";
 import {useEffect, useState} from "react";
 import ProductApiService from "../../../apiSservices/productApiService";
 import {Dispatch} from "@reduxjs/toolkit";
-import {Company} from "../../../../types/user";
-import {setBestCompany, setTopHomes} from "../slice";
+import { setTopHomes} from "../slice";
 import {CssVarsProvider} from "@mui/joy/styles";
 import assert from "assert";
 import {verifiedMemberData} from "../../../apiSservices/verify";
 import {Definer} from "../../../../lib/definer";
 import MemberApiService from "../../../apiSservices/memberApiService";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../../lib/sweetAlert";
+import CardCover from "@mui/joy/CardCover";
 
 
 /** REDUX SELECTOR */
@@ -47,7 +47,6 @@ const actionDispatch = (dispach: Dispatch) => ({
 
 
 export function TopHomes(props: any) {
-
     /** INITIALIZATION */
     const history = useHistory();
     const {setTopHomes} = actionDispatch(useDispatch());
@@ -98,10 +97,8 @@ export function TopHomes(props: any) {
             <Container>
                 <Stack className="top_property_main_box">
                     <Stack>
-
                         <Box className="top_home_definer">
                             <div data-aos="zoom-out-down">
-
                                 <p>Top Properties</p>
                                 <Box className="top_home_definer">
                                     <h2>Explore Elevated Living.</h2>
@@ -110,157 +107,109 @@ export function TopHomes(props: any) {
                         </Box>
                         <Stack className="all_top_property_img_box" flexDirection={"row"} sx={{flexWrap: "wrap"}}>
                             <Box className="top_home_main_box">
-
                                 {topHomes.map((ele: Product) => {
                                     const image_path = `${serverApi}/${ele.product_images[0]}`;
                                     return (
-                                        <Box className="top_property_box"
-                                             key={ele._id}
-                                             onClick={() => chosenTopHomesHandler()}
-                                             // setProductRebuild={setProductRebuild}
-                                             sx={{
-                                                 cursor: "pointer",
-
-                                             }}
-                                        >
-                                            <Stack flexDirection={"row"}>
-                                                <Box className="property_img_box">
-                                                    <img src={image_path}/>
-                                                </Box>
-                                            </Stack>
-                                            <Box className="top_property_price">
-                                                <span>{ele.product_price} $ / month </span>
-                                                <text> {ele.product_name}</text>
-                                            </Box>
-                                            <Stack className={"top_property_location_box"} flexDirection={"row"}>
-                                                <Box className="top_property_location">
-                                                    <img src={"/icons/location.svg"}/>
-                                                </Box>
-                                                <Box>
-                                                    <text> {ele.product_address}</text>
-                                                </Box>
-                                            </Stack>
-                                            <Stack className={"top_property_icon_box"} flexDirection={"row"}>
-                                                <Box className="top_property_each_icon">
-                                                    <img src={"icons/bed.svg"}/>
-                                                    <text> {ele.product_value} room</text>
-                                                </Box>
-                                                <Box className="top_property_each_icon">
-                                                    <img src={"icons/bath.svg"}/>
-                                                    <text> 2 bath</text>
-                                                </Box>
-                                                <Box className="top_property_each_icon">
-                                                    <img src={"icons/kv.svg"}/>
-                                                    <text> {ele.product_size} kv</text>
-                                                </Box>
-
-                                            </Stack>
-                                            <Stack className={"favorite_box"} flexDirection={"row"}>
-                                                <Typography
-                                                    level="body-sm"
+                                        <div data-aos="fade-left">
+                                            <CssVarsProvider key={ele._id}>
+                                                <Card
+                                                    key={ele._id}
+                                                    onClick={() => chosenTopHomesHandler()}
                                                     sx={{
-                                                        fontSize: "16px",
-                                                        lineHeight: "1.5",
-                                                        fontWeight: "md",
-                                                        color: "black",
-                                                        alignItems: "center",
-                                                        display: "flex",
-                                                        marginRight: "20px"
+                                                        minHeight: 430,
+                                                        minWidth: 325,
+                                                        mr: "55px",
+                                                        ml: "25px",
+                                                        cursor: "pointer",
                                                     }}
                                                 >
-                                                    {ele.product_views}
-                                                    <Visibility sx={{fontSize: 20, marginLeft: "5px"}}/>
-                                                </Typography>
-                                                {/*<Box sx={{width: 2, bgcolor: "divider"}}/>*/}
-                                                <Typography
-                                                    level="body-sm"
-                                                    sx={{
-                                                        fontWeight: "md",
-                                                        color: "black",
-                                                        alignItems: "center",
-                                                        display: "flex"
-                                                    }}>
-                                                    <div
-                                                        // ref={(element) => (refs.current[ele._id] = element)}
+                                                    <CardCover>
+                                                        <img src={image_path} loading="lazy"/>
+                                                    </CardCover>
+                                                    <CardCover
+                                                        sx={{background: 'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',}}
+                                                    />
+                                                    <CardContent sx={{justifyContent: 'flex-end'}}>
+                                                        <Typography level="h2" fontSize="lg" textColor="#fff" mb={1}>
+                                                            {ele.product_name}
+                                                        </Typography>
+                                                        <Typography
+                                                            startDecorator={<LocationOnRoundedIcon/>}
+                                                            textColor="neutral.300">
+                                                            {ele.product_address}
+                                                        </Typography>
+                                                    </CardContent>
+                                                    <CardOverflow
+                                                        sx={{
+                                                            display: "flex",
+                                                            flexDirection: "row",
+                                                            gap: 1.5,
+                                                            py: 1.5,
+                                                            px: "var(--Card-padding)",
+                                                            borderTop: "1px solid",
+                                                        }}
                                                     >
-                                                        {ele.product_likes}
-                                                    </div>
-                                                    <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
-                                                </Typography>
-                                            </Stack>
-                                        </Box>
-
-
-                                        // <CssVarsProvider>
-                                        //     <Card variant="outlined" sx={{width: 400, marginRight: "20px"}}>
-                                        //         <CardOverflow>
-                                        //             <AspectRatio ratio="1.1">
-                                        //                 <Box className={"card_image_box"}
-                                        //                      key={ele._id}
-                                        //                      onClick={() => chosenTopHomesHandler()}
-                                        //                 >
-                                        //                     <img
-                                        //
-                                        //                         src={image_path}
-                                        //                         loading="lazy"
-                                        //                         alt=""
-                                        //                     />
-                                        //                 </Box>
-                                        //             </AspectRatio>
-                                        //             <IconButton
-                                        //                 aria-label="Like minimal photography"
-                                        //                 size="md"
-                                        //                 variant="solid"
-                                        //                 sx={{
-                                        //                     position: 'absolute',
-                                        //                     zIndex: 2,
-                                        //                     borderRadius: '50%',
-                                        //                     right: '1rem',
-                                        //                     bottom: 0,
-                                        //                     transform: 'translateY(50%)',
-                                        //                 }}
-                                        //             >
-                                        //                 <Favorite
-                                        //                     onClick={(e) => {
-                                        //                         targetLikeHandler(e, ele._id);
-                                        //                     }}
-                                        //                     style={{
-                                        //                         fill:
-                                        //                             ele?.me_liked && ele?.me_liked[0]?.my_favorite
-                                        //                                 ? "red"
-                                        //                                 : "white",
-                                        //                     }}
-                                        //
-                                        //                 />
-                                        //             </IconButton>
-                                        //         </CardOverflow>
-                                        //         <CardContent>
-                                        //             <Typography level="title-md">
-                                        //                 <Link href="#multiple-actions" overlay underline="none">
-                                        //                     {ele.product_name} && {ele.product_collection}
-                                        //                 </Link>
-                                        //             </Typography>
-                                        //             <Typography level="body-sm">
-                                        //                 <Link
-                                        //                     href="#multiple-actions">{ele.product_address} / {ele.product_price}$
-                                        //                     month</Link>
-                                        //             </Typography>
-                                        //         </CardContent>
-                                        //         <CardOverflow variant="soft">
-                                        //             <Divider inset="context"/>
-                                        //             <CardContent orientation="horizontal">
-                                        //                 <Typography
-                                        //                     level="body-xs">{ele.product_views} views</Typography>
-                                        //                 <Divider orientation="vertical"/>
-                                        //                 <Typography
-                                        //                     level="body-xs">{ele.product_likes} likes</Typography>
-                                        //             </CardContent>
-                                        //         </CardOverflow>
-                                        //     </Card>
-                                        // </CssVarsProvider>
+                                                        <IconButton aria-label="Like minimal Photography"
+                                                                    size="md"
+                                                                    variant="solid"
+                                                                    color="neutral"
+                                                                    sx={{
+                                                                        position: "absolute",
+                                                                        zIndex: 2,
+                                                                        borderRadius: "50%",
+                                                                        right: "1rem",
+                                                                        bottom: 45,
+                                                                        transform: "translateY(50%)",
+                                                                        color: "rgba(0,0,0,.4)",
+                                                                    }}
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation()
+                                                                    }}
+                                                        >
+                                                            <Favorite
+                                                                onClick={(e) => targetLikeHandler(e, ele._id)}
+                                                                style={{
+                                                                    fill:
+                                                                        ele?.me_liked && ele?.me_liked[0]?.my_favorite
+                                                                            ? "red"
+                                                                            : "white",
+                                                                }}
+                                                            />
+                                                        </IconButton>
+                                                        <Typography
+                                                            level="body-sm"
+                                                            sx={{
+                                                                fontSize: "16px",
+                                                                lineHeight: "1.5",
+                                                                fontWeight: "md",
+                                                                color: "neutral.300",
+                                                                alignItems: "center",
+                                                                display: "flex",
+                                                            }}
+                                                        >
+                                                            {ele.product_views}
+                                                            <VisibilityIcon sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                                        </Typography>
+                                                        <Box sx={{width: 2, bgcolor: "divider"}}/>
+                                                        <Typography
+                                                            sx={{
+                                                                fontWeight: "md",
+                                                                color: "neutral.300",
+                                                                alignItems: "center",
+                                                                display: "flex",
+                                                            }}
+                                                        >
+                                                            <div>
+                                                                {ele.product_likes}
+                                                            </div>
+                                                            <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
+                                                        </Typography>
+                                                    </CardOverflow>
+                                                </Card>
+                                            </CssVarsProvider>
+                                        </div>
                                     )
                                 })}
-
                             </Box>
                         </Stack>
                     </Stack>

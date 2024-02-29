@@ -1,6 +1,6 @@
 import React, {useEffect, useState, } from "react";
 import {Statistics} from "./statistics";
-import HomeBanner from "./homeBanner/homeBanner";
+import HomeBanner from "../../components/Banner/homeBanner";
 import {LuxuryProperty} from "./luxuryProperty";
 import {TopHomes} from "./topHomes/topHomes"
 import {BestCompany} from "./bestCompany";

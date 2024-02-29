@@ -25,6 +25,7 @@
     "@types/react-dom": "^18.2.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-slick": "^0.23.13",
+    "@types/react-swipeable-views-utils": "^0.13.7",
     "@types/redux-logger": "^3.0.12",
     "@types/styled-components": "^5.1.26",
     "aos": "^2.3.4",

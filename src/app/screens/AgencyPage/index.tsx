@@ -38,7 +38,7 @@ import {setTargetCompany} from "./slice";
 import {verifiedMemberData} from "../../apiSservices/verify";
 import {Box, Container, Stack} from "@mui/system";
 import {CssVarsProvider} from "@mui/joy/styles";
-import {Comments} from "../HomePage/comments";
+import AgencyBanner from "../../components/Banner/AgencyBanner";
 
 
 SwiperCore.use([Autoplay, Navigation,]);
@@ -55,7 +55,6 @@ const targetCompanyRetriever = createSelector(
         targetCompany,
     })
 );
-
 
 export function AgencyPage() {
     /** INITIALIZATIONS */
@@ -113,9 +112,9 @@ export function AgencyPage() {
 
     return (
         <div className={"all_agency"}>
-            {/*<Stack className={"agency_banner"}>*/}
-            {/*    <img src={"/home/home4.png"} alt=""/>*/}
-            {/*</Stack>*/}
+            <Stack className={"agency_banner"}>
+                <AgencyBanner />
+            </Stack>
             <Container>
                 <Stack className={"all_agency_frame"} flexDirection={"column"} alignItems={"center"}>
                     <div data-aos="zoom-in">

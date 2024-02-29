@@ -248,7 +248,7 @@ export function ChosenProductPage(props: any) {
                             <Stack className="static_box">
                                 <Box className="static_num">SQft</Box>
                                 <Box className="static_text"
-                                     style={{marginLeft: "10px", color: "#0044bb"}}>{chosenProduct?.product_size}</Box>
+                                     style={{marginLeft: "5px", color: "#0044bb"}}>{chosenProduct?.product_size}</Box>
                             </Stack>
 
                             <Marginer direction="vertical" height="64" width="2" bg="#E3C08D"/>

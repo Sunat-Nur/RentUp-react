@@ -154,7 +154,7 @@ const CommentExampleComment = (props: any) => {
                 Customer Opinions On The Product
             </Stack>
             {comments ? (
-                <div className="comment_cover">
+                <div className="comment_cover" >
                     {comments?.map((comment: any) => {
                         const image_url = comment?.comment_owner
                             ? `${comment?.comment_owner?.mb_image}`
@@ -293,7 +293,7 @@ const CommentExampleComment = (props: any) => {
                                                                 </div>
                                                                 <div
                                                                     className="comment_time text-sm"
-                                                                    style={{color: "#aaa"}}
+                                                                    style={{color: "#FFFFFF"}}
                                                                 >
                                                                     {formattedCreatedAt}
                                                                 </div>

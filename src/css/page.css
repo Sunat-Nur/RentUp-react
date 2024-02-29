@@ -108,12 +108,21 @@
     background-color: #fafafa;
 }
 
-.agency_banner img {
+.banner_box h1 {
+    margin-left: 500px;
+    margin-bottom: 50px;
+    margin-top: 1px;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.agency_banner  {
     width: 100%;
-    height: 550px;
+    height: 580px;
     position: relative;
     background-size: cover;
-    /*background-image: url("/public/home/ayol78.jpeg");*/
+    margin-bottom: 250px;
 }
 
 .all_agency_frame .fil_search_box {
@@ -243,6 +252,13 @@
     flex-shrink: 0;
     background-color: #fafafa;
     padding: 50px 50px 50px 50px;
+
+    fill:  #F9FCFF;
+    stroke-width: 1px;
+    stroke: #C7D5E1;
+    filter: drop-shadow(0px 0px 5px #808080);
+    flex-direction: row;
+    /*margin-bottom: 100px;*/
 }
 
 .homepage .comment_frame_box {

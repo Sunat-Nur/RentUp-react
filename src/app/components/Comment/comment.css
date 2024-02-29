@@ -14,6 +14,7 @@
     width: 800px;
     padding-left: 1rem;
     padding-bottom: 0.5rem;
+
 }
 .comment_owner {
     /* background-color: #0cf4dd; */
@@ -83,9 +84,8 @@
 }
 
 .create_comment {
-    background-color: #fff;
+    /*background-color: #fff;*/
     width: 800px;
-
     margin: 0 auto;
 }
 .create_comment .comment_form textarea {

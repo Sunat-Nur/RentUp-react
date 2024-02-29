@@ -1,10 +1,10 @@
 .product_comments {
-  /* background-color: red; */
   height: auto;
   margin: 30px auto;
 }
 .comment_cover {
   background-color: #fff;
+  /*background-image: url("/public/icons/telegarm_image.jpeg");*/
 
   margin: 0 auto;
   width: 600px;
