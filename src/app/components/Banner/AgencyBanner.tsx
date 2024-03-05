@@ -61,19 +61,6 @@ function HomeBanner() {
                 className={"banner_box"}
                 sx={{flexGrow: 1}}
             >
-                {/*<Paper*/}
-                {/*    square*/}
-                {/*    elevation={0}*/}
-                {/*    sx={{*/}
-                {/*        display: 'flex',*/}
-                {/*        alignItems: 'center',*/}
-                {/*        height: 50,*/}
-                {/*        pl: 2,*/}
-                {/*        bgcolor: 'background.default',*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    <Typography>{images[activeStep].label}</Typography>*/}
-                {/*</Paper>*/}
                 <h1>
                     Meet our best Agency
                 </h1>
@@ -102,35 +89,35 @@ function HomeBanner() {
                         </div>
                     ))}
                 </AutoPlaySwipeableViews>
-                <MobileStepper
-                    steps={maxSteps}
-                    position="static"
-                    activeStep={activeStep}
-                    nextButton={
-                        <Button
-                            size="small"
-                            onClick={handleNext}
-                            disabled={activeStep === maxSteps - 1}
-                        >
-                            Next
-                            {theme.direction === 'rtl' ? (
-                                <KeyboardArrowLeft/>
-                            ) : (
-                                <KeyboardArrowRight/>
-                            )}
-                        </Button>
-                    }
-                    backButton={
-                        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                            {theme.direction === 'rtl' ? (
-                                <KeyboardArrowRight/>
-                            ) : (
-                                <KeyboardArrowLeft/>
-                            )}
-                            Back
-                        </Button>
-                    }
-                />
+                {/*<MobileStepper*/}
+                {/*    steps={maxSteps}*/}
+                {/*    position="static"*/}
+                {/*    activeStep={activeStep}*/}
+                {/*    nextButton={*/}
+                {/*        <Button*/}
+                {/*            size="small"*/}
+                {/*            onClick={handleNext}*/}
+                {/*            disabled={activeStep === maxSteps - 1}*/}
+                {/*        >*/}
+                {/*            Next*/}
+                {/*            {theme.direction === 'rtl' ? (*/}
+                {/*                <KeyboardArrowLeft/>*/}
+                {/*            ) : (*/}
+                {/*                <KeyboardArrowRight/>*/}
+                {/*            )}*/}
+                {/*        </Button>*/}
+                {/*    }*/}
+                {/*    backButton={*/}
+                {/*        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>*/}
+                {/*            {theme.direction === 'rtl' ? (*/}
+                {/*                <KeyboardArrowRight/>*/}
+                {/*            ) : (*/}
+                {/*                <KeyboardArrowLeft/>*/}
+                {/*            )}*/}
+                {/*            Back*/}
+                {/*        </Button>*/}
+                {/*    }*/}
+                {/*/>*/}
             </Box>
         </div>
     );

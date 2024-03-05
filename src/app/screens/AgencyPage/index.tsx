@@ -299,7 +299,6 @@ export function AgencyPage() {
                         <img className={"line_img_two"} src={"/restaurant/icons_right.svg"} alt=""/>
                     </Stack>
                     <Stack sx={{marginTop: "50px"}}>
-                        {/*<Comments/>*/}
                     </Stack>
                 </Stack>
             </Container>

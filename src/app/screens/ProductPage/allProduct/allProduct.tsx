@@ -43,6 +43,7 @@ import IconButton from '@mui/joy/IconButton';
 import {serverApi} from "../../../../lib/config";
 import {BestCompany} from "../../HomePage/bestCompany";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import Category from "./Category";
 
 
 /** REDUX SLICE */
@@ -207,132 +208,9 @@ export function AllProductPage(props: any) {
                     </Stack>
                     <Stack className="allProduct_middle" sx={{flexDirection: "row"}}>
                         <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                            {/*<Stack className="allProduct_middle_left">*/}
-                            {/*    <FormControl*/}
-                            {/*        className={"form_box"}*/}
-                            {/*        sx={{*/}
-                            {/*            width: "200px",*/}
-                            {/*            background: "white",*/}
-                            {/*            marginBottom: "30px"*/}
-                            {/*        }}>*/}
-                            {/*        <Select*/}
-                            {/*            // value={communityArticleData?.bo_id}*/}
-                            {/*            displayEmpty*/}
-                            {/*            inputProps={{"aria-label": "Without label"}}*/}
-                            {/*            // onChange={changeCategoryHandler}*/}
-                            {/*        >*/}
-                            {/*            <MenuItem value="">chose type</MenuItem>*/}
-                            {/*            <MenuItem value={"House"}>House</MenuItem>*/}
-                            {/*            <MenuItem value={"Office"}>Office</MenuItem>*/}
-                            {/*            <MenuItem value={"Villa"}>Villa</MenuItem>*/}
-                            {/*            <MenuItem value={"studio"}>Studio</MenuItem>*/}
-                            {/*            <MenuItem value={"etc"}>etc</MenuItem>*/}
-                            {/*        </Select>*/}
-                            {/*    </FormControl>*/}
-                            {/*    <FormControl*/}
-                            {/*        className={"form_box"}*/}
-                            {/*        sx={{*/}
-                            {/*            width: "200px",*/}
-                            {/*            background: "white",*/}
-                            {/*            marginBottom: "30px"*/}
-                            {/*        }}>*/}
-                            {/*        <Select*/}
-                            {/*            // value={communityArticleData?.bo_id}*/}
-                            {/*            displayEmpty*/}
-                            {/*            inputProps={{"aria-label": "Without label"}}*/}
-                            {/*            // onChange={changeCategoryHandler}*/}
-                            {/*        >*/}
-                            {/*            <MenuItem value="">chose address</MenuItem>*/}
-                            {/*            <MenuItem value={"tashkent"}>Tashkent</MenuItem>*/}
-                            {/*            <MenuItem value={"samarkand"}>Samarkand</MenuItem>*/}
-                            {/*            <MenuItem value={"bukhara"}>Bukhara</MenuItem>*/}
-                            {/*            <MenuItem value={"xoramz"}>Xoramz</MenuItem>*/}
-                            {/*            <MenuItem value={"andijan"}>Andijan</MenuItem>*/}
-                            {/*            <MenuItem value={"surkhandaryo"}>Surkhandaryo</MenuItem>*/}
-                            {/*            <MenuItem value={"qarshi"}>Qarshi</MenuItem>*/}
-                            {/*            <MenuItem value={"navoiy"}>Navoiy</MenuItem>*/}
-                            {/*            <MenuItem value={"namamgan"}>Namamgan</MenuItem>*/}
-                            {/*        </Select>*/}
-                            {/*    </FormControl>*/}
-                            {/*    <FormControl*/}
-                            {/*        className={"form_box"}*/}
-                            {/*        sx={{*/}
-                            {/*            width: "200px",*/}
-                            {/*            background: "white",*/}
-                            {/*            marginBottom: "30px"*/}
-                            {/*        }}>*/}
-                            {/*        <Select*/}
-                            {/*            // value={communityArticleData?.bo_id}*/}
-                            {/*            displayEmpty*/}
-                            {/*            inputProps={{"aria-label": "Without label"}}*/}
-                            {/*            // onChange={changeCategoryHandler}*/}
-                            {/*        >*/}
-
-                            {/*            <MenuItem value="">chose room</MenuItem>*/}
-                            {/*            <MenuItem value={"1"}>1 room</MenuItem>*/}
-                            {/*            <MenuItem value={"2"}>2 rooms</MenuItem>*/}
-                            {/*            <MenuItem value={"3"}>3 rooms</MenuItem>*/}
-                            {/*            <MenuItem value={"4"}>4 rooms</MenuItem>*/}
-                            {/*        </Select>*/}
-                            {/*    </FormControl>*/}
-                            {/*    <Box>*/}
-                            {/*        <CssVarsProvider>*/}
-                            {/*            <a> size of property</a>*/}
-                            {/*            <Box sx={{width: 180, marginTop: "30px", marginBottom: "30px"}}>*/}
-                            {/*                <Slider*/}
-                            {/*                    track={false}*/}
-                            {/*                    defaultValue={[0, 200]}*/}
-                            {/*                    getAriaLabel={() => 'Amount'}*/}
-                            {/*                    // getAriaValueText={valueText}*/}
-                            {/*                    marks={[*/}
-                            {/*                        {*/}
-                            {/*                            value: 0,*/}
-                            {/*                            label: '0 sqft',*/}
-                            {/*                        },*/}
-                            {/*                        {*/}
-                            {/*                            value: 100,*/}
-                            {/*                            label: '100 sqft',*/}
-                            {/*                        },*/}
-                            {/*                    ]}*/}
-                            {/*                    valueLabelDisplay="on"*/}
-                            {/*                    sx={{*/}
-                            {/*                        // Need both of the selectors to make it works on the server-side and client-side*/}
-                            {/*                        [`& [style*="left:0%"], & [style*="left: 0%"]`]: {*/}
-                            {/*                            [`&.${sliderClasses.markLabel}`]: {*/}
-                            {/*                                transform: 'none',*/}
-                            {/*                            },*/}
-                            {/*                            [`& .${sliderClasses.valueLabel}`]: {*/}
-                            {/*                                left: 'calc(var(--Slider-thumbSize) / 2)',*/}
-                            {/*                                borderBottomLeftRadius: 0,*/}
-                            {/*                                '&::before': {*/}
-                            {/*                                    left: 0,*/}
-                            {/*                                    transform: 'translateY(100%)',*/}
-                            {/*                                    borderLeftColor: 'currentColor',*/}
-                            {/*                                },*/}
-                            {/*                            },*/}
-                            {/*                        },*/}
-                            {/*                        [`& [style*="left:100%"], & [style*="left: 100%"]`]: {*/}
-                            {/*                            [`&.${sliderClasses.markLabel}`]: {*/}
-                            {/*                                transform: 'translateX(-100%)',*/}
-                            {/*                            },*/}
-                            {/*                            [`& .${sliderClasses.valueLabel}`]: {*/}
-                            {/*                                right: 'calc(var(--Slider-thumbSize) / 2)',*/}
-                            {/*                                borderBottomRightRadius: 0,*/}
-                            {/*                                '&::before': {*/}
-                            {/*                                    left: 'initial',*/}
-                            {/*                                    right: 0,*/}
-                            {/*                                    transform: 'translateY(100%)',*/}
-                            {/*                                    borderRightColor: 'currentColor',*/}
-                            {/*                                },*/}
-                            {/*                            },*/}
-                            {/*                        },*/}
-                            {/*                    }}*/}
-                            {/*                />*/}
-                            {/*            </Box>*/}
-                            {/*        </CssVarsProvider>*/}
-                            {/*    </Box>*/}
-                            {/*    <Button sx={{width: "120px", color: "#fff", background: "green"}}> search</Button>*/}
-                            {/*</Stack>*/}
+                            <Stack className="allProduct_middle_left">
+                                <Category/>
+                            </Stack>
                         </div>
 
                         <div data-aos="fade-left"
@@ -345,7 +223,7 @@ export function AllProductPage(props: any) {
                                     const image_path = `${serverApi}/${ele.product_images[0]}`;
                                     return (
                                         <CssVarsProvider>
-                                            <Card sx={{ minHeight: '380px', width: 350, marginRight: "20px", cursor: "pointer", marginBottom: "30px" }}
+                                            <Card sx={{ minHeight: '330px', width: 300, marginRight: "20px", cursor: "pointer", marginBottom: "30px" }}
                                                       onClick={() => chosenProductHandler(ele._id)}
                                             >
                                                 <CardCover>
@@ -373,32 +251,28 @@ export function AllProductPage(props: any) {
                                                         {ele.product_address}    {ele.product_price}$ /month
                                                     </Typography>
                                                     <Stack flexDirection={"row"}>
-                                                    <Typography
-                                                        startDecorator={<Favorite />}
-                                                        textColor="neutral.300"
-                                                    >
-                                                        {ele.product_likes}__
-                                                    </Typography>
-                                                    <Typography
-                                                        startDecorator={<RemoveRedEyeIcon />}
-                                                        textColor="neutral.300"
-                                                    >
-                                                         {ele.product_views}
-                                                    </Typography>
+                                                    {/*<Typography*/}
+                                                    {/*    startDecorator={<Favorite />}*/}
+                                                    {/*    textColor="neutral.300"*/}
+                                                    {/*>*/}
+                                                    {/*    {ele.product_likes}__*/}
+                                                    {/*</Typography>*/}
+                                                    {/*<Typography*/}
+                                                    {/*    startDecorator={<RemoveRedEyeIcon />}*/}
+                                                    {/*    textColor="neutral.300"*/}
+                                                    {/*>*/}
+                                                    {/*     {ele.product_views}*/}
+                                                    {/*</Typography>*/}
                                                     </Stack>
                                                 </CardContent>
+
                                             </Card>
-
-
-
                                         </CssVarsProvider>
                                     )
-                                })}
+                                })};
                             </Stack>
                         </div>
                     </Stack>
-
-
                     <Stack className="allProduct_bottom">
                         <Pagination
                             count={targetProductsSearchObj.page >= 3 ? targetProductsSearchObj.page + 1 : 3}
@@ -414,7 +288,6 @@ export function AllProductPage(props: any) {
                         />
                     </Stack>
                     <Stack className="allProduct_bottom_main" sx={{marginTop: "150px"}}>
-                        {/*<Posts/>*/}
                         <BestCompany/>
                     </Stack>
                 </Stack>
