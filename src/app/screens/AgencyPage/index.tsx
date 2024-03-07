@@ -63,7 +63,7 @@ export function AgencyPage() {
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
     const [targetSearchObject, setTartgetSearchObject] = useState<SearchObj>({
         page: 1,
-        limit: 12,
+        limit: 8,
         order: "mb_point",
     });
     const refs: any = useRef([]);

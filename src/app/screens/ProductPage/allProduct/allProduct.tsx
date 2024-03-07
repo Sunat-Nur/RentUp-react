@@ -1,23 +1,17 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Container, Stack, Box, FormControl, MenuItem, Select} from "@mui/material";
+import {Container, Stack, Box} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {CssVarsProvider} from "@mui/joy/styles";
 import Typography from "@mui/joy/Typography";
-import {Favorite} from "@mui/icons-material";
 import CardContent from '@mui/joy/CardContent';
-import MoreHoriz from '@mui/icons-material/MoreHoriz';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
 import {PaginationItem} from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-import Avatar from '@mui/joy/Avatar';
 import Button from "@mui/material/Button";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../../lib/sweetAlert";
 import {setTargetAllProducts} from "../slice";
 import ProductBanner from "../ProductBanner";
 import assert from "assert";
-import {useCombinedContext} from "../../../../context/useCombinedContext";
-import Slider, {sliderClasses} from '@mui/joy/Slider';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import CardCover from '@mui/joy/CardCover';
 
@@ -31,19 +25,14 @@ import ProductApiService from "../../../apiSservices/productApiService";
 import MemberApiService from "../../../apiSservices/memberApiService";
 import {verifiedMemberData} from "../../../apiSservices/verify";
 import {Product} from "../../../../types/product";
-import {useHistory, useParams,} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 /** Others */
 import {Definer} from "../../../../lib/definer";
-import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
-import CardOverflow from '@mui/joy/CardOverflow';
-import Link from '@mui/joy/Link';
-import IconButton from '@mui/joy/IconButton';
 import {serverApi} from "../../../../lib/config";
 import {BestCompany} from "../../HomePage/bestCompany";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import Category from "./Category";
+import Category from "./FilterBox/Category";
 
 
 /** REDUX SLICE */
@@ -68,7 +57,7 @@ export function AllProductPage(props: any) {
     // const {filter, handleChangeCategory} = useCombinedContext();
     const [targetProductsSearchObj, setTargetProductSearchObj] = useState<ProductSearchObj>({
         page: 1,
-        limit: 8,
+        limit: 9,
         order: "createdAt",
         product_collection: "office",
     });
@@ -81,7 +70,6 @@ export function AllProductPage(props: any) {
             .getAllProducts(targetProductsSearchObj)
             .then((data) => setTargetAllProducts(data))
             .catch((err) => console.log(err));
-
     }, [productRebuild, targetProductsSearchObj,]);
 
 
@@ -173,7 +161,6 @@ export function AllProductPage(props: any) {
                                     >
                                         Office
                                     </Button>
-
                                     <Button className="property_type_box_middle"
                                             variant={"contained"}
                                             color="secondary"
@@ -220,7 +207,7 @@ export function AllProductPage(props: any) {
 
                             <Stack className="allProduct_middle_middle" sx={{flexDirection: "row"}}>
                                 {targetAllProducts.map((ele: Product) => {
-                                    const image_path = `${serverApi}/${ele.product_images[0]}`;
+                                    const image_path = `${serverApi}/${ele.product_images[0]}`
                                     return (
                                         <CssVarsProvider>
                                             <Card sx={{ minHeight: '330px', width: 300, marginRight: "20px", cursor: "pointer", marginBottom: "30px" }}
@@ -232,7 +219,6 @@ export function AllProductPage(props: any) {
                                                         loading="lazy"
                                                         alt=""
                                                     />
-
                                                 </CardCover>
                                                 <CardCover
                                                     sx={{
@@ -265,7 +251,6 @@ export function AllProductPage(props: any) {
                                                     {/*</Typography>*/}
                                                     </Stack>
                                                 </CardContent>
-
                                             </Card>
                                         </CssVarsProvider>
                                     )
@@ -291,7 +276,6 @@ export function AllProductPage(props: any) {
                         <BestCompany/>
                     </Stack>
                 </Stack>
-
             </Container>
         </div>
     );
