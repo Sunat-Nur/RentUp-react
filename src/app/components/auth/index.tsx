@@ -61,7 +61,6 @@ export default function AuthenticationModal(props: any) {
             const is_fulfilled = mb_nick !== "" && mb_password !== "" && mb_phone !== 0;
             assert.ok(is_fulfilled, Definer.input_err1);
 
-            // login_data object ni yasab olib uniga mb_nick va passwordni kiritib olyabman
             const signup_data = {
                 mb_nick: mb_nick,
                 mb_phone: mb_phone,
