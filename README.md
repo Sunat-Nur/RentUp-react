@@ -16,6 +16,10 @@ Open [http://Rentup.uz](http://Rentup.uz) to view it in the browser.
 
 
 
+https://github.com/Sunat-Nur/RentUp-react/assets/107460955/a915035e-9fac-46ec-814d-1b0537028c3b
+
+
+
 
 
 
