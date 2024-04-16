@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+PortFolio 프로잭트 소개
+ ---------------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Open [http://Rentup.uz](http://Rentup.uz) to view it in the browser.
 
-## Available Scripts
 
-In the project directory, you can run:
+개발인원민 기간
+---------------
 
-### `npm start`
+1 인개발 (4 주소요)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+목적
+---------------
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+구현 기능
+---------------
 
-### `npm run build`
+. 메인 영화 랜덤 선정
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+. 영화 영상시청
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+. swiper 모듈을 이용한 터치 슬라이드
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+. 영화 검색 기능
 
-### `npm run eject`
+. 클릭 한 영화의정보 가져오기
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+적용 기술
+---------------
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+React
+---------------
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+. The Movie DB API   Axios
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+. Styled Component를 이용하여 Css처리
+
+. useState, useEffect 등 리액트 휴사용
+
+. React Router Dom , useNavigate, useParams, useLocation, useRoutes
+
+. Firebase Authentication 유저정보기능 지원
+
+. Body-parser  클라이언트에서 보는 바디를 파싱하기 위함
+
+. react - bootstrapt
+
+. Multer 파일업로드
+
+. React-avatar
+
+. React Custom Hooks
+
+. localStorage에 Data 값 담기
+
+. component ( component로 구역 분리)
+
+. Filter 메소드를 사용해서 할 일 목록 지우기
+
+. Map 메소드를 사용한 할 일 목록 나열
+
+. 마무리 된 일 표시하기 ( 조건부 삼항 연산자)
+
+. Swiper 모듈을 이용한 터치 스라이드
+
+. 영화 검새 기능
+
+. 클릭 한 영화의 정보 가져오기
+
+.Moment
+
+
+
+Typescript
+---------------
+
+. object data에 타입을 체크하기 위해 interface 사용
+
+
+
+docker
+------
+도커를 이용한 Postgres  실행
+
+
+
+에러 사항
+------
+
+. cors 에로 3000번 포트에서 보내지만 5000번 포트에서 받아달라고 해야함 http-proxy-middle 라이브러리 사용하여 해걸
+
+. 이미지업로드시 이미지가 나오지않았다 server에 이미지플더 경로를 static으로 알려주어 해결
+
+. 글 수정시 component is changing an uncontrolled input to be controlled 네러가 나타났다  input의 value에 undefined가 들어갈수도 있다는 에러몄다  value={Title} 으로 수정하여 해결
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
