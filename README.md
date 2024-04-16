@@ -14,6 +14,11 @@ Open [http://Rentup.uz](http://Rentup.uz) to view it in the browser.
 ---------------
 
 
+
+
+
+
+
 구현 기능
 ---------------
 
@@ -97,20 +102,3 @@ docker
 . 이미지업로드시 이미지가 나오지않았다 server에 이미지플더 경로를 static으로 알려주어 해결
 
 . 글 수정시 component is changing an uncontrolled input to be controlled 네러가 나타났다  input의 value에 undefined가 들어갈수도 있다는 에러몄다  value={Title} 으로 수정하여 해결
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
